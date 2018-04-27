@@ -16,7 +16,7 @@
 	- [ ] Save partially completed applications to complete at a later date.
 	- [ ] Provide a easy and frustration free UX that feels intuitive on mobile devices.
 	- [ ] Receive notification once an application is submitted, reviewed, approved.
-	- [ ] Use LinkedIn to populate respective fields. *** @Allie
+	- [ ] Use LinkedIn to populate respective fields. *** @alyxanhscott
 
 
 #### Major Language Support
