@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('ERROR')">
+</head>
+<body>
+<h1 th:if="${page_has_error}">WHOOPS! GO AWAY!</h1>
+</body>
+</html>
