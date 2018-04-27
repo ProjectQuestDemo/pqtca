@@ -1,4 +1,4 @@
-# [Project Quest] (www.pqtca.com)
+# http://www.pqtca.com
 
 ### Demo produced by TCA Capstone Team
 
