@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('Signature')">
+</head>
+<body>
+
+<footer th:replace="fragments/footer :: footer">
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+<script th:src="@{/js/sigcap.js}"></script>
+</body>
+</html>
