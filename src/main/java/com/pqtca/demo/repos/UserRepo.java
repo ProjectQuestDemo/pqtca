@@ -1,4 +1,8 @@
 package com.pqtca.demo.repos;
 
-public interface UserRepo {
+import com.pqtca.demo.models.User;
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepo extends CrudRepository<User, Long> {
+
 }
