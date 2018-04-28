@@ -1,4 +1,7 @@
 package com.pqtca.demo.repos;
 
-public interface ApplicantRepo {
+import com.pqtca.demo.models.Application;
+import org.springframework.data.repository.CrudRepository;
+
+public interface ApplicantRepo extends CrudRepository<Application, Long> {
 }

@@ -15,6 +15,24 @@ public class User {
 
     @Column(unique = true, nullable = false)
     @NotEmpty
-    @Size(min=5, max=45, message = "Username must be minimum 5 characters in length.")
+    @Size(min = 5, max = 45, message = "Username must be minimum 5 characters in length.")
     private String username;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
 }
