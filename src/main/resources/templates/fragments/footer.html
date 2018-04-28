@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('Footer')">
+</head>
+<body>
+<footer th:fragment="footer">
+	<script type="text/javascript" th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+	<script rel="script" th:href="@{/js/dataVis.js}"></script>
+</footer>
+</body>
+</html>

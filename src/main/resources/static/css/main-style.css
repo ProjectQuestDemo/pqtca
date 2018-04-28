@@ -21,8 +21,8 @@ html, body {
 
     grid-template-areas: "header header header"
                          "aside nav nav"
-                         "aside main main"
                          "aside section section"
+                         "main main main"
                          "footer footer footer";
     /**
         Height of parent container must be 100% or equivalent viewport units
@@ -38,6 +38,6 @@ html, body {
 header {background-color: red; grid-area: header;}
 nav {background-color: blue; grid-area: nav;}
 main {background-color: green; grid-area: main;}
-section {background-color: teal; grid-area: section;}
+#piechart {background-color: teal; grid-area: section;}
 aside {background-color: purple; grid-area: aside;}
 footer {background-color: orange; grid-area: footer;}
