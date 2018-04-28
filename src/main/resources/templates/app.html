@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('Application')">
+</head>
+<body>
+<div class="flex">
+	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	<div th:replace="fragments/one :: one"></div>
+</div>
+<footer th:replace="fragments/footer :: footer">
+</footer>
+</body>
+</html>

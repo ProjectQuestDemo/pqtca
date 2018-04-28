@@ -19,14 +19,4 @@ public class AuthenticationController {
     public String home() {
         return "/index";
     }
-
-    @GetMapping(name = "/login")
-    public String loginForm(){
-        return "/login";
-    }
-
-    @PostMapping(name = "/login")
-    public String login(){
-        return "redirect:/profile";
-    }
 }
