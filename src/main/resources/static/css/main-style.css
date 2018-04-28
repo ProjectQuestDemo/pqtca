@@ -8,3 +8,20 @@ html, body {
     /* Fonts use though-out site*/
     font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif; /* Fonts use though-out site*/
 }
+
+.container {
+    display: grid;
+    grid-template-areas: "header header header"  /* Sample of how to use css-grid for EXACTLY what we want */
+                         "aside nav nav"
+                         "aside main main"
+                         "aside section section"
+                         "footer footer footer";
+    height: 100vh;
+}
+
+header {background-color: red; grid-area: header;}
+nav {background-color: blue; grid-area: nav;}
+main {background-color: green; grid-area: main;}
+section {background-color: teal; grid-area: section;}
+aside {background-color: purple; grid-area: aside;}
+footer {background-color: orange; grid-area: footer;}
