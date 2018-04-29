@@ -5,7 +5,27 @@
 <body>
 <div class="flex">
 	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<div th:replace="fragments/one :: one"></div>
+	<form id="msform">
+		<!-- progressbar -->
+		<ul id="progressbar">
+			<li class="active">Personal Information</li>
+			<li>Residential Information</li>
+			<li>Alternate Contact Information</li>
+			<li>Social Service Information</li>
+		</ul>
+		
+		<div class="form-sec" th:replace="fragments/one :: one"></div>
+		<div class="form-sec">
+			<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="button" name="next" class="next action-button" value="Next" />
+		</div>
+		<div class="form-sec">
+			<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="submit" name="submit" class="submit action-button" value="Submit" />
+		</div>
+		
+		
+	</form>
 </div>
 <footer th:replace="fragments/footer :: footer">
 </footer>

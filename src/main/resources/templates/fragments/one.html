@@ -26,21 +26,21 @@
 		<div class="fb-text form-num field-app">
 			<span class="tooltip-element" tooltip="Must be 9 digits.">What is your Social Security Number?</span>
 			
-			<input type="number" placeholder="123" class="ssn form-control" name="appssn"
+			<input type="text" placeholder="123" class="ssn form-control" name="appssn"
 			       maxlength="3" id="appssn" title="Must start with a letter."
 			       required="required" aria-required="true"/>
 			
-			<input type="number" placeholder="45" class="ssn form-control" name="appssn"
+			<input type="text" placeholder="45" class="ssn form-control" name="appssn"
 			       maxlength="2" id="appssn-1" title="Must start with a letter."
 			       required="required" aria-required="true"/>
 			
-			<input type="number" placeholder="6789" class="ssn form-control" name="appssn"
+			<input type="text" placeholder="6789" class="ssn form-control" name="appssn"
 			       maxlength="4" id="appssn-2" title="Must start with a letter."
 			       required="required" aria-required="true"/>
 		</div>
-		<button class="color-change" id="back" value="Back">Back</button>
-		<button class="color-change" id="save" value="Save">Save</button>
-		<button class="color-change" id="next" value="Next">Next</button>
+		<input type="button" class="color-change action-button" id="back" value="Back"/>
+		<input type="button" class="color-change action-button" id="save" value="Save"/>
+		<input type="button" class="color-change action-button" id="next" value="Next"/>
 	</div>
 </div>
 	<footer th:replace="fragments/footer :: footer"></footer>
