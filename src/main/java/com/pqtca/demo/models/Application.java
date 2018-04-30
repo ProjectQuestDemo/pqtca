@@ -143,14 +143,11 @@ public class Application {
     public Application() {
     }
 
-    public Application(long appssn, String middleName, Date dateOfBirth, String ethnicity) {
+    public Application(long appssn, String middleName, Date dateOfBirth, String ethnicity, String streetAddress, String city, String state, String county, String phoneNumber, String altPhoneNumber, String email, String altContactFirst, String altContactLast, String altContactNum, String altContactAddy, String altContactCity, String altContactState, boolean drugTest, String socialServiceAid, boolean felConvict, String fcExplanation, String disability, String disExplanation, boolean militarySrv, boolean milSpouse, String refferalSrc, String empId, Long gainEng, Long gainMath, String district, String precinct, Long census, Date dateComp, User user) {
         this.appssn = appssn;
         this.middleName = middleName;
         this.dateOfBirth = dateOfBirth;
         this.ethnicity = ethnicity;
-    }
-
-    public Application(String streetAddress, String city, String state, String county, String phoneNumber, String altPhoneNumber, String email) {
         this.streetAddress = streetAddress;
         this.city = city;
         this.state = state;
@@ -158,18 +155,12 @@ public class Application {
         this.phoneNumber = phoneNumber;
         this.altPhoneNumber = altPhoneNumber;
         this.email = email;
-    }
-
-    public Application(String altContactFirst, String altContactLast, String altContactNum, String altContactAddy, String altContactCity, String altContactState) {
         this.altContactFirst = altContactFirst;
         this.altContactLast = altContactLast;
         this.altContactNum = altContactNum;
         this.altContactAddy = altContactAddy;
         this.altContactCity = altContactCity;
         this.altContactState = altContactState;
-    }
-
-    public Application(boolean drugTest, String socialServiceAid, boolean felConvict, String fcExplanation, String disability, String disExplanation, boolean militarySrv, boolean milSpouse) {
         this.drugTest = drugTest;
         this.socialServiceAid = socialServiceAid;
         this.felConvict = felConvict;
@@ -178,9 +169,6 @@ public class Application {
         this.disExplanation = disExplanation;
         this.militarySrv = militarySrv;
         this.milSpouse = milSpouse;
-    }
-
-    public Application(String refferalSrc, String empId, Long gainEng, Long gainMath, String district, String precinct, Long census, Date dateComp) {
         this.refferalSrc = refferalSrc;
         this.empId = empId;
         this.gainEng = gainEng;
@@ -189,6 +177,7 @@ public class Application {
         this.precinct = precinct;
         this.census = census;
         this.dateComp = dateComp;
+        this.user = user;
     }
 
     /*
