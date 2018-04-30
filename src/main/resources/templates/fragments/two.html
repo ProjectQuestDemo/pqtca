@@ -1,29 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments/head :: head()">
+<head th:replace="fragments/head :: head('two')">
 </head>
 <body>
-<div th:fragment="two">
-	<div class="fb-text form-group field-firstname">
-		<label for="firstname" class="fb-text-label">
-			What is your first and last name?
-			<span class="tooltip-element" tooltip="Must start with a letter."></span>
-		</label>
-		<br>
-		<input type="text" placeholder="First Name"
-		       class="form-control" name="firstname"
-		       maxlength="45" id="firstname" title="Must start with a letter."
-		       required="required" aria-required="true">
+<fieldset class="app-container" th:fragment="two">
+	<div class="app-section">
+		<div class="fb-text form-group field-dob">
+			<label for="dob" class="fb-text-label">
+				When were you born?
+				<span class="tooltip-element" tooltip="Must be a date in the past."></span>
+			</label>
+			<input type="date" placeholder="Date of Birth"
+			       class="form-control" name="dob"
+			       id="dob" title="Must be a date in the past."
+			       required="required" aria-required="true"/>
+		</div>
+		<div class="fb-text form-group field-middlename">
+			<span class="tooltip-element" tooltip="Must start with a letter.">
+				What is your Middle Name?
+			</span>
+			<input type="text" placeholder="Middle Name"
+			       class="form-control" name="middlename"
+			       maxlength="45" id="middlename" title="Must start with a letter."
+			       required="required" aria-required="true"/>
+		</div>
+		
+		<div class="fb-text form-num field-ethnicity">
+			<legend>What nationality do you identify?</legend>
+			<div>
+				<input type="checkbox" id="aamrcn" name="ethnicity" value="aamrcn" />
+				<label for="aamrcn">African-American</label>
+			</div>
+			<div>
+				<input type="checkbox" id="wht" name="ethnicity" value="wht" />
+				<label for="wht">White</label>
+			</div>
+			<div>
+				<input type="checkbox" id="hisplat" name="ethnicity" value="hisplat" />
+				<label for="hisplat">Hispanic/Latino</label>
+			</div>
+			<div>
+				<input type="checkbox" id="asiamrcn" name="ethnicity" value="asiamrcn" />
+				<label for="asiamrcn">Asian-American</label>
+			</div>
+			<div>
+				<input type="checkbox" id="natamrcn" name="ethnicity" value="natamrcn" />
+				<label for="natamrcn">Native American</label>
+			</div>
+			<div>
+				<input type="checkbox" id="twolat" name="ethnicity" value="twolat" />
+				<label for="twolat">Two or More (Latin/Hispanic)</label>
+			</div>
+			<div>
+				<input type="checkbox" id="twonotlat" name="ethnicity" value="twonotlat" />
+				<label for="twonotlat">Two or More (Not Latin/Hispanic)</label>
+			</div>
+		</div>
+		<input type="button" class="color-change previous action-button" id="previous" name="previous"
+		       value="Previous"/>
+		<input type="button" class="color-change next action-button" id="next" name="next" value="Next"/>
 	</div>
-	<div class="fb-text form-group field-firstname">
-		<span class="tooltip-element" tooltip="Must start with a letter."></span>
-		<input type="text" placeholder="Last Name"
-		       class="form-control" name="lastname"
-		       maxlength="45" id="lastname" title="Must start with a letter."
-		       required="required" aria-required="true">
-	</div>
-</div>
-<footer th:replace="fragments/footer :: footer">
-</footer>
+</fieldset>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
