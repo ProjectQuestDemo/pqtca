@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--<head th:replace="partials/head :: head('Register')">-->
+    <meta charset="UTF-8" />
+    <title>admin Register</title>
+</head>
+<body>
+<!--<div th:replace="partials/navbar :: navbar"></div>-->
+
+<h1>Create an account</h1>
+<form th:action="@{/adminRegister}" method="POST" th:object="${user}">
+
+    <label for="firstName">First Name</label>
+    <input id="firstName" th:field="*{firstName}" />
+
+    <label for="lastName">last Name</label>
+    <input id="lastName" th:field="*{lastName}" />
+
+
+    <label for="username">Username</label>
+    <input id="username" th:field="*{username}" />
+
+    <label for="email">Email</label>
+    <input id="email" th:field="*{email}" />
+
+    <label for="password">Password</label>
+    <input id="password" type="password" th:field="*{password}" />
+
+    <input th:field="*{isAdmin}" th:value="false" type="hidden" />
+
+    <input value="Register" type="submit" />
+</form>
+</body>
+</html>

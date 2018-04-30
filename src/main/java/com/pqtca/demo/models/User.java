@@ -27,7 +27,7 @@ public class User  {
     private long id;
 
     @Column(name= "user_name" ,nullable = false, unique = true, length = 45)
-    private String userName;
+    private String username;
 
     @Column(name ="first_name", nullable = false, length = 45)
     private String firstName;
@@ -38,23 +38,46 @@ public class User  {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
-    private int isAdmin;
+    private boolean isAdmin;
 
 
 
+    public User(User copy) {
+        id = copy.id;
+        username = copy.username;
+        firstName = copy.firstName;
+        lastName = copy.lastName;
+        email = copy.email;
+        password = copy.password;
+        isAdmin = copy.isAdmin;
+    }
 
-    public User(long id, String userName, String firstName, String lastName, String email, String password, int isAdmin) {
+
+    public User(long id, String username, String firstName, String lastName, String email, String password, boolean isAdmin) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.isAdmin = isAdmin;
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String username, String firstName, String lastName, String email, String password) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
     public User() {
@@ -68,12 +91,12 @@ public class User  {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -108,11 +131,11 @@ public class User  {
         this.password = password;
     }
 
-    public int getIsAdmin() {
+    public boolean getIsAdmin() {
         return isAdmin;
     }
 
-    public void setIsAdmin(int isAdmin) {
+    public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
 }
