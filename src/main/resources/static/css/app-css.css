@@ -42,7 +42,6 @@ ul {
     width: 45vw;
     height: 1em;
     border-radius: 7px;
-    margin-top: 2em;
     font-size: 1em;
 }
 
@@ -56,6 +55,25 @@ ul {
 .form-num > span {
     margin: 2em 0px;
     display: block;
+}
+
+.form-control {
+    border-radius: 7px;
+}
+
+.field-contact>p {
+    margin-top: 1em;
+}
+
+select {
+    margin-bottom: 2em;
+    width: 8em;
+    border-radius: 7px;
+    font-size: 1em;
+}
+
+h6 {
+    margin-bottom: 1em;
 }
 
 .color-change {
@@ -171,6 +189,7 @@ fieldset:not(:first-of-type) {
 
 input {
     text-align: center;
+    margin-bottom: 2em;
 }
 
 .field-dob > input {
@@ -178,20 +197,12 @@ input {
 }
 
 legend {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 input > .field-ethnicity {
-    margin: 1em auto;
+    margin: auto;
     font-size: 1em;
-}
-
-.field-middlename > span {
-    margin-bottom: 2em;
-}
-
-.field-middlename > input {
-    margin-bottom: 2em;
 }
 
 @media only screen and (min-width: 992px) {
@@ -211,7 +222,7 @@ input > .field-ethnicity {
     }
 
     .color-change {
-        width: 15vw;
-        font-size: 1em;
+        width: 10vw;
+        font-size: 1.3em;
     }
 }
