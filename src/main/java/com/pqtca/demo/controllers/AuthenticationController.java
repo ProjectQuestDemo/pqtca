@@ -3,7 +3,6 @@ package com.pqtca.demo.controllers;
 
 import com.pqtca.demo.models.User;
 import com.pqtca.demo.repos.UserRepo;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,25 +23,26 @@ public class AuthenticationController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/admin/adminRegister")
+    @GetMapping("/admin/register")
     public String showSignUpForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
-        return "admin/adminRegister";
+        return "admin/register";
     }
 
-    @PostMapping("/adminRegister")
-    public String registerUser(@ModelAttribute User user) {
+    @PostMapping("/admin/register")
+    public String registerUser(User user) {
+        System.out.println("here is the user " + user.getId());
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         usersDao.save(user);
-        return "redirect:adminLogin";
+        return "redirect:login";
     }
 
-    @GetMapping("/admin/adminLogin")
+    @GetMapping("/admin/login")
     public String showLoginForm() {
 //        User loggedInUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return "/adminLogin";
+        return "/login";
     }
 
 }
