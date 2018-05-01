@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<div class="wrapper" th:fragment="admin-nav">
+
+    <nav id="sidebar">
+
+        <!-- Sidebar header, PQ logo -->
+        <div class="sidebar-header">
+            <img id="project-quest-logo" src="/images/quest.png" alt=""/>
+            <p id="hello-admin">Hello, ${User.getName()}</p>
+            <!--TODO set up user controller to get above value-->
+        </div>
+
+
+
+        <!-- Sidebar Links -->
+        <ul class="components">
+            <li><a href="/admin">Home</a></li>
+            <li><a href="/pending">Pending <img id="bell" src="/images/bell.svg" alt=""/> </a></li>
+            <li><a href="/complete">Complete</a></li>
+            <li sec:authorize="" id="logout"><a href="/logout">Logout</a></li>
+            <li><img id="programmer" src="/images/programmer.svg" alt=""/></li>
+            <li><a href="/devTeam">Meet the Dev-team</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+</body>
+</html>
