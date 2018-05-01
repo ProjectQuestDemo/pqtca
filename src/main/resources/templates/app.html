@@ -5,7 +5,7 @@
 <body>
 <div class="flex">
 	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<form id="msform" th:object="${app}">
+	<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
 		<!-- progressbar -->
 		<ul id="progressbar">
 			<li class="active">Personal Info</li>
