@@ -45,20 +45,11 @@ ul {
     font-size: 1em;
 }
 
-.ssn {
-    width: 15vw;
+.form-control {
+    width: 45vw;
+    height: 1em;
     border-radius: 7px;
     font-size: 1em;
-    text-align: center;
-}
-
-.form-num > span {
-    margin: 2em 0px;
-    display: block;
-}
-
-.form-control {
-    border-radius: 7px;
 }
 
 .field-contact>p {

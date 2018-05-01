@@ -18,12 +18,14 @@ public class ApplicationController {
 
     @GetMapping("/app")
     public String newApp(Model model) {
-        model.addAttribute("app1", new Application());
+        Application appRepo = new Application();
+        model.addAttribute("app", new Application());
         return "/app";
     }
 
     @PostMapping("/app")
     public String submitApp(@ModelAttribute Application app) {
+        appRepo.save(app);
         return "redirect:/index";
     }
 }
