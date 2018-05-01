@@ -9,26 +9,26 @@
 <!--<div th:replace="partials/navbar :: navbar"></div>-->
 
 <h1>Create an account</h1>
-<form th:action="@{/admin/register}" method="POST" th:object="${user}">
+<form th:action="@{/admin/register}" th:method="POST" th:object="${user}">
 
 
     <label for="firstName">First Name</label>
-    <input id="firstName"  th:field="*{firstName}"/>
+    <input  th:field="*{firstName}"/>
 
     <label for="lastName">last Name</label>
-    <input id="lastName" th:field="*{lastName}"/>
+    <input  th:field="*{lastName}"/>
 
 
     <label for="username">Username</label>
-    <input id="username"  th:field="*{username}"/>
+    <input th:field="*{username}"/>
 
     <label for="email">Email</label>
-    <input id="email"  th:field="*{email}"/>
+    <input  th:field="*{email}"/>
 
     <label for="password">Password</label>
-    <input id="password" type="password"  th:field="*{password}"/>
+    <input th:type="password"   th:field="*{password}"/>
 
-    <input type="hidden" th:field="*{isAdmin}" th:value="true"/>
+    <input th:type="hidden" th:field="*{isAdmin}" th:value="true"/>
 
     <input value="Register" type="submit" />
 </form>
