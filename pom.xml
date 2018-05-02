@@ -47,12 +47,16 @@
             <version>5.1.6</version>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
 
         <dependency>
+=======
+
+>>>>>>> 5b5b59d73577b433b4dd92c4f82d76182e369d15
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.8.3</version>
@@ -79,6 +83,16 @@
 
     </dependencies>
 
+<<<<<<< HEAD
+=======
+
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+>>>>>>> 5b5b59d73577b433b4dd92c4f82d76182e369d15
     <build>
         <plugins>
 
