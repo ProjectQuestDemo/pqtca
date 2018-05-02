@@ -1,19 +1,28 @@
+<<<<<<< HEAD:src/main/java/com/pqtca/controllers/UserController.java
 package com.pqtca.controllers;
 
 import com.pqtca.models.User;
 import com.pqtca.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+=======
+package com.pqtca.demo.controllers;
+import com.pqtca.demo.models.User;
+>>>>>>> allies:src/main/java/com/pqtca/demo/controllers/UserController.java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD:src/main/java/com/pqtca/controllers/UserController.java
+=======
+import com.pqtca.demo.repos.UserRepo;
+import org.springframework.validation.Errors;
+>>>>>>> allies:src/main/java/com/pqtca/demo/controllers/UserController.java
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 
 @Controller
 public class UserController {
+
 
     private UserRepo usersDao;
     private PasswordEncoder passwordEncoder;
@@ -23,12 +32,38 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+
+
+    @GetMapping(value = {"/admin"})
+    public String adminDash(Model model) {
+        return "admin/admin-dashboard";
+    }
+
+    @GetMapping(value = {"/pending"})
+    public String adminPendingApps() {
+        return "admin/admin-pending";
+    }
+
+    @GetMapping(value = {"/complete"})
+    public String adminCompleteApps() {
+        return "admin/admin-complete";
+    }
+
+    @GetMapping(value = {"/devTeam"})
+    public String adminDevTeam() {
+        return "admin/admin-dev";
+    }
+
+
+
+
     @GetMapping("/admin/register")
     public String showSignUpForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "admin/register";
     }
+
 
     @PostMapping("/admin/register")
     public String registerUser(@Valid User user, Errors errors, Model model
@@ -64,3 +99,4 @@ public class UserController {
 
 
 }
+

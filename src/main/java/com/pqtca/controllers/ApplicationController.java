@@ -1,12 +1,20 @@
 package com.pqtca.controllers;
 
+<<<<<<< HEAD:src/main/java/com/pqtca/controllers/ApplicationController.java
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
+=======
+import com.google.gson.Gson;
+import com.pqtca.demo.models.Application;
+import com.pqtca.demo.repos.ApplicationRepo;
+>>>>>>> allies:src/main/java/com/pqtca/demo/controllers/ApplicationController.java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.sql.Array;
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class ApplicationController {
@@ -14,6 +22,27 @@ public class ApplicationController {
 
     public ApplicationController(ApplicationRepo appDao) {
         this.appDao = appDao;
+    }
+
+//    used for pie chart, ethnic graphing
+    @GetMapping("/graphEthnicity")
+    @ResponseBody
+    public String getGraphEthnicity() {
+        Gson gson = new Gson();
+        HashMap<String, Long> map = new HashMap<>();
+        map.put("white", appDao.countByEthnicity("white"));
+        map.put("black", appDao.countByEthnicity("black"));
+        return gson.toJson(map);
+    }
+// used for pie chart, education graphing
+    @GetMapping("/graphCity")
+    @ResponseBody
+    public String getGraphCity() {
+        Gson gson = new Gson();
+        HashMap<String, Long> map = new HashMap<>();
+        map.put("San Antonio", appDao.countByCity("San Antonio"));
+        map.put("Austin", appDao.countByCity("Austin"));
+        return gson.toJson(map);
     }
 
     @GetMapping("/app")
