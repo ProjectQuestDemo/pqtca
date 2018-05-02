@@ -20,7 +20,7 @@ public class ApplicationController {
     public String newApp(Model model) {
         Application app = new Application();
         model.addAttribute("app", app);
-        return "/app";
+        return "app";
     }
 
     @PostMapping("/app")
