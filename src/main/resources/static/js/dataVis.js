@@ -20,7 +20,7 @@
             var data = google.visualization.arrayToDataTable(arr);
 
             // Optional; add a title and set the width and height of the chart
-            var options = {'title': 'Demographics', 'width': 400, 'height': 300};
+            var options = {'title': 'Demographics', 'width': 500, 'height': 250};
 
             // Display the chart inside the <div> element with id="piechart"
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -39,7 +39,7 @@
             var data = google.visualization.arrayToDataTable(arr);
 
             // Optional; add a title and set the width and height of the chart
-            var options = {'title': 'Demographics', 'width': 400, 'height': 300};
+            var options = {'title': 'Demographics', 'width': 500, 'height': 250};
 
             // Display the chart inside the <div> element with id="piechart"
             var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
@@ -51,15 +51,9 @@
 
 //    ====================BEGIN BUTTONS FUNCTIONS TO DISPLAY DIFF STATISTICS===================*
 
-    // $('button').on('click', function(){
-    //     var target = $(this).attr('rel');
-    //     $("#"+target).show().siblings("div").hide();
-    // });
-
-    $(".link").click(function(e) {
-        e.preventDefault();
-        $('#pie-charts-all div').hide();
-        $('#' + $(this).data('rel')).show();
+    $(document).on('click', 'button', function() {
+        var show = $(this).data('show');
+        $(show).removeClass("hide").siblings().addClass("hide");
     });
 
 

@@ -183,7 +183,10 @@ ul ul a {
     display: grid;
     grid-template-columns: .5fr 1fr;
     grid-template-rows: .1fr 1fr;
+}
 
+.hide {
+    display: none;
 }
 
 .statistics-header {
@@ -195,25 +198,27 @@ ul ul a {
 
 .buttons {
     overflow: auto;
+    height: 20em;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-#piechart {
+.buttons button {
+    margin: 1em 0 1em 0;
+}
+
+
+
+#pie-charts-all {
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 
-#piechart2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 3;
-}
+
 
 /*PIE CHART AREAS END*/
 
