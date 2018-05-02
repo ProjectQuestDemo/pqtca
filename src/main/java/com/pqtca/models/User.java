@@ -1,4 +1,4 @@
-package com.pqtca.demo.models;
+package com.pqtca.models;
 import javax.persistence.*;
 
 

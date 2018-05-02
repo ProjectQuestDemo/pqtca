@@ -1,4 +1,4 @@
-package com.pqtca.demo.models;
+package com.pqtca.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;

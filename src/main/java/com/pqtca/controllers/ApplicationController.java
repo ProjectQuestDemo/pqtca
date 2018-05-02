@@ -1,7 +1,7 @@
-package com.pqtca.demo.controllers;
+package com.pqtca.controllers;
 
-import com.pqtca.demo.models.Application;
-import com.pqtca.demo.repos.ApplicationRepo;
+import com.pqtca.models.Application;
+import com.pqtca.repos.ApplicationRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
