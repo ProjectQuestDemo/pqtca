@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4/">>
+<head th:replace="fragments/head :: head('Admin Register')">
+
+</head>
+<body>
+<!--<div th:replace="partials/navbar :: navbar"></div>-->
+<div sec:authorize="isAuthenticated()">
+    <!--This content is only shown to authenticated users.-->
+
+    <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
+    Username: <span th:text="${#authentication.principal.username}"/>
+    <!--Email: <span th:text="${#authentication.principal.email}"/>-->
+</div>
+
+<h1>Create an account</h1>
+<form th:action="@{/admin/register}" th:method="POST" th:object="${user}">
+
+
+    <label for="firstName">First Name</label>
+    <input  th:field="*{firstName}"/>
+
+    <label for="lastName">last Name</label>
+    <input  th:field="*{lastName}"/>
+
+
+    <label for="username">Username</label>
+    <input th:field="*{username}"/>
+
+    <label for="email">Email</label>
+    <input  th:field="*{email}"/>
+
+    <label for="password">Password</label>
+    <input th:type="password"   th:field="*{password}"/>
+
+    <input th:type="hidden" th:field="*{isAdmin}" th:value="true"/>
+
+    <input value="Register" type="submit" />
+</form>
+</body>
+</html>
