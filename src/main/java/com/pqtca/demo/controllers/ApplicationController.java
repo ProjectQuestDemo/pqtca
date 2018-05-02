@@ -25,8 +25,8 @@ public class ApplicationController {
     public String getGraphEthnicity() {
         Gson gson = new Gson();
         HashMap<String, Long> map = new HashMap<>();
-        map.put("white", appRepo.countByEthnicity("white"));
-        map.put("black", appRepo.countByEthnicity("black"));
+        map.put("white", appDao.countByEthnicity("white"));
+        map.put("black", appDao.countByEthnicity("black"));
         return gson.toJson(map);
     }
 // used for pie chart, education graphing
@@ -35,8 +35,8 @@ public class ApplicationController {
     public String getGraphCity() {
         Gson gson = new Gson();
         HashMap<String, Long> map = new HashMap<>();
-        map.put("San Antonio", appRepo.countByCity("San Antonio"));
-        map.put("Austin", appRepo.countByCity("Austin"));
+        map.put("San Antonio", appDao.countByCity("San Antonio"));
+        map.put("Austin", appDao.countByCity("Austin"));
         return gson.toJson(map);
     }
 
