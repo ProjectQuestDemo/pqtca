@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/head :: head('Successful Registration')">
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    <!--&lt;!&ndash;This content is only shown to authenticated users.&ndash;&gt;-->
+
+    <!--&lt;!&ndash;User ID: <span th:text="${#authentication.principal.id}"/>&ndash;&gt;-->
+    Username: <span th:text="${#authentication.principal.username}"/>
+    <!--&lt;!&ndash;Email: <span th:text="${#authentication.principal.email}"/>&ndash;&gt;-->
+    </div>
+<nav>
+<ul>
+    <li><a th:href="@{/admin/login}">Login</a></li>
+    <li><a th:href="@{/admin/register}">Create another user</a></li>
+    <!--<li><div sec:authorize="isAuthenticated()">-->
+            <!--&lt;!&ndash;This content is only shown to authenticated users.&ndash;&gt;-->
+
+            <!--&lt;!&ndash;User ID: <span th:text="${#authentication.principal.id}"/>&ndash;&gt;-->
+            <!--Username: <span th:text="${#authentication.principal.username}"/>-->
+            <!--&lt;!&ndash;Email: <span th:text="${#authentication.principal.email}"/>&ndash;&gt;-->
+        <!--</div></li>-->
+    </ul>
+</nav>
+</body>
+</html>
