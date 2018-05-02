@@ -55,7 +55,7 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
-<<<<<<< HEAD
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -66,8 +66,6 @@
             <artifactId>spring-security-config</artifactId>
             <version>4.1.4.RELEASE</version>
         </dependency>
-||||||| merged common ancestors
-=======
         <!--Security-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -78,7 +76,7 @@
             <artifactId>thymeleaf-extras-springsecurity4</artifactId>
             <version>2.1.2.RELEASE</version>
         </dependency>
->>>>>>> f50c10e7a2740513df55ceb4c2cda899980c082c
+
 
     </dependencies>
 
