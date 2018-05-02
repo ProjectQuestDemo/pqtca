@@ -1,4 +1,4 @@
-package com.pqtca.demo;
+package com.pqtca;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

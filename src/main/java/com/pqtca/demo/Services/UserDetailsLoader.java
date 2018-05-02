@@ -1,9 +1,8 @@
 package com.pqtca.demo.Services;
 
-import com.pqtca.demo.repos.UserRepo;
-
-import com.pqtca.demo.models.User;
 import com.pqtca.demo.models.UserWithRoles;
+import com.pqtca.models.User;
+import com.pqtca.repos.UserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
