@@ -1,6 +1,6 @@
-package com.pqtca.demo.models;
+package com.pqtca.models;
 
-import com.pqtca.models.User;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,6 +20,10 @@ public class UserWithRoles extends User implements UserDetails{
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
     }
 
+    @Override
+    public String getUsername() {
+        return null;
+    }
 
 
     @Override

@@ -1,6 +1,6 @@
-package com.pqtca.demo.Services;
+package com.pqtca.Services;
 
-import com.pqtca.demo.models.UserWithRoles;
+import com.pqtca.models.UserWithRoles;
 import com.pqtca.models.User;
 import com.pqtca.repos.UserRepo;
 import org.springframework.security.core.userdetails.UserDetails;

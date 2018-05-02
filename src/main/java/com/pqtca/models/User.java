@@ -1,22 +1,6 @@
 package com.pqtca.models;
+
 import javax.persistence.*;
-
-
-//CREATE TABLE IF NOT EXISTS `mydb`.`users` (
-//        `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, X
-//        `username` VARCHAR(45) NOT NULL, X
-//        `first_name` VARCHAR(45) NOT NULL COMMENT '	X	',
-//        `last_name` VARCHAR(45) NOT NULL, X
-//        `email` VARCHAR(255) NOT NULL, X
-//        `password` VARCHAR(20) NOT NULL,
-//        `is_admin` TINYINT UNSIGNED NOT NULL DEFAULT 0,
-//        PRIMARY KEY (`id`),
-//        UNIQUE INDEX `emp_id_UNIQUE` (`id` ASC),
-//        UNIQUE INDEX `username_UNIQUE` (`username` ASC),
-//        UNIQUE INDEX `email_UNIQUE` (`email` ASC))
-//        ENGINE = InnoDB
-
-
 
 @Entity
 @Table(name = "users")
@@ -44,19 +28,6 @@ public class User  {
     @Column(nullable = false)
     private boolean isAdmin;
 
-
-
-    public User(User copy) {
-        id = copy.id;
-        username = copy.username;
-        firstName = copy.firstName;
-        lastName = copy.lastName;
-        email = copy.email;
-        password = copy.password;
-        isAdmin = copy.isAdmin;
-    }
-
-
     public User(long id, String username, String firstName, String lastName, String email, String password, boolean isAdmin) {
         this.id = id;
         this.username = username;
@@ -82,6 +53,15 @@ public class User  {
 
     public User() {
     }
+
+    User(User copy) {
+        id = copy.id;
+        email = copy.email;
+        username = copy.username;
+        password = copy.password;
+    }
+
+
 
     public long getId() {
         return id;
