@@ -4,9 +4,35 @@
     box-sizing: content-box
 }
 
-ul {
-    margin: 0;
-    padding: 0;
+p {margin-bottom: 1em;}
+
+h6 {margin-bottom: 2em;}
+
+fieldset {
+    background-color: #e1e1e1;
+    border-radius: 20px;
+    height: auto;
+    margin: auto;
+    padding: 2em;
+    text-align: center;
+    width: 60vw;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+
+input, select {
+    text-align: center;
+    margin-bottom: 2em;
+    width: 45vw;
+    padding: 0.7em;
+    border-radius: 7px;
+    font-size: 1em;
+}
+
+legend {
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 .flex {
@@ -29,53 +55,16 @@ ul {
     margin: 3em auto;
 }
 
-.app-section > input {
-    margin-top: 2em;
-    height: 4vh;
-}
-
-.field-firstname > label {
-    display: block;
-}
-
-.form-group > input {
-    width: 45vw;
-    height: 1em;
-    border-radius: 7px;
-    font-size: 1em;
-}
-
-.form-control {
-    width: 45vw;
-    height: 1em;
-    border-radius: 7px;
-    font-size: 1em;
-}
-
-.field-contact>p {
-    margin-top: 1em;
-}
-
-select {
-    margin-bottom: 2em;
-    width: 8em;
-    border-radius: 7px;
-    font-size: 1em;
-}
-
-h6 {
-    margin-bottom: 1em;
-}
-
 .color-change {
     text-align: center;
     margin-top: 2em;
     border-radius: 15px;
-    width: 25vw;
+    width: 23vw;
     cursor: pointer;
     color: #fff;
     background-color: #43c5f0;
     font-size: 0.9em;
+    padding: 0.6em;
     font-family: 'Montserrat';
     font-weight: 100;
     border: 1px solid #fff;
@@ -94,6 +83,12 @@ h6 {
 input.color-change {
     -webkit-appearance: none;
     -moz-appearance: none;
+}
+
+.eChoices {
+    display: block;
+    width: auto;
+    padding: 0.6em;
 }
 
 /*progressbar*/
@@ -158,42 +153,13 @@ input.color-change {
     position: relative;
 }
 
-fieldset {
-    background-color: #e1e1e1;
-    border-radius: 20px;
-    font-size: 1em;
-    height: auto;
-    line-height: 1.6em;
-    margin: auto;
-    padding: 2em;
-    text-align: center;
-    width: 60vw;
-
-    /*stacking fieldsets above each other*/
-    position: relative;
-}
-
 /*Hide all except first fieldset*/
 fieldset:not(:first-of-type) {
     display: none;
 }
 
-input {
-    text-align: center;
-    margin-bottom: 2em;
-}
-
-.field-dob > input {
-    margin-bottom: 2em;
-}
-
-legend {
-    margin-bottom: 2em;
-}
-
-input > .field-ethnicity {
-    margin: auto;
-    font-size: 1em;
+.ethcheck label {
+    display: block;
 }
 
 @media only screen and (min-width: 992px) {

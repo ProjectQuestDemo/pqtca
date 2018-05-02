@@ -1,7 +1,7 @@
-package com.pqtca.demo.repos;
+package com.pqtca.repos;
 
-import com.pqtca.demo.models.Application;
-import com.pqtca.demo.models.User;
+import com.pqtca.models.Application;
+import com.pqtca.models.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

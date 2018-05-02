@@ -1,4 +1,4 @@
-package com.pqtca.demo.controllers;
+package com.pqtca.controllers;
 
 import org.springframework.stereotype.Controller;
 

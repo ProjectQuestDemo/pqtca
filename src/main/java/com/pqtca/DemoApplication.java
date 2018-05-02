@@ -1,4 +1,4 @@
-package com.pqtca.demo;
+package com.pqtca;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

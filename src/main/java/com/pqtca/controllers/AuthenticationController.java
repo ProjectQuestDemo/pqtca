@@ -1,10 +1,9 @@
-package com.pqtca.demo.controllers;
+package com.pqtca.controllers;
 
 
-import com.pqtca.demo.repos.UserRepo;
+import com.pqtca.repos.UserRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AuthenticationController {

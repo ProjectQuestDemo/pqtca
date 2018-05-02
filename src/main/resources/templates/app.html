@@ -19,28 +19,23 @@
 		<fieldset>
 			<div class="fb-text form-group field-firstname">
 				<p>What is your first and last name?</p>
-				<span class="tooltip-element" tooltip="Must start with a letter."></span>
 				<input type="text" placeholder="First Name"
 				       class="form-control" th:field="*{aFirstName}"
 				       maxlength="45" title="Must start with a letter."
 				       required="required" aria-required="true"/>
 			</div>
-			
 			<div class="fb-text form-group field-lastname">
-				<span class="tooltip-element" tooltip="Must start with a letter."></span>
 				<input type="text" placeholder="Last Name"
 				       class="form-control" maxlength="45" th:field="*{aLastName}" title="Must start with a letter."
 				       required="required" aria-required="true"/>
 			</div>
-			<div class="fb-text form-num field-app">
+			
+			<div class="fb-text form-group field-ssn">
 				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 				<p>What is your Social Security Number?</p>
-				<input type="text" placeholder="SSN"
-				       class="form-control" maxlength="9"
-				       th:field="*{appssn}" required="required" aria-required="true"
-				/>
+				<input type="text" placeholder="Social" class="form-control" maxlength="9" required="required"
+				       aria-required="true"/>
 			</div>
-			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 			<input type="button" class="color-change next action-button" name="next" value="Next"/>
 		</fieldset>
 		
@@ -65,35 +60,38 @@
 				/>
 			</div>
 			
-			<div class="fb-text form-num field-ethnicity">
+			<div class="fb-text field-ethnicity">
 				<legend>What nationality do you identify?</legend>
-				<div>
-					<input type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"/>
+				<div class="ethcheck">
 					<label for="eth1">African-American</label>
+					<input class="eth" type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"/>
+				
 				</div>
-				<div>
-					<input type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"/>
+				<div class="ethcheck">
 					<label for="eth2">White</label>
+					<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"/>
+				
 				</div>
-				<div>
-					<input type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"/>
+				<div class="ethcheck">
 					<label for="eth3">Hispanic/Latino</label>
+					<input class="eth" type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"/>
+				
 				</div>
-				<div>
-					<input type="checkbox" id="eth4" th:field="*{aEthnicity}" value="asiamrcn"/>
+				<div class="ethcheck">
 					<label for="eth4">Asian-American</label>
+					<input class="eth" type="checkbox" id="eth4" th:field="*{aEthnicity}" value="asiamrcn"/>
 				</div>
-				<div>
-					<input type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"/>
+				<div class="ethcheck">
 					<label for="eth5">Native American</label>
+					<input class="eth" type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"/>
 				</div>
-				<div>
-					<input type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"/>
+				<div class="ethcheck">
 					<label for="eth6">Two or More (Latin/Hispanic)</label>
+					<input class="eth" type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"/>
 				</div>
-				<div>
-					<input type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"/>
+				<div class="ethcheck">
 					<label for="eth7">Two or More (Not Latin/Hispanic)</label>
+					<input class="eth" type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"/>
 				</div>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
@@ -200,7 +198,7 @@
 				
 				<span class="tooltip-element" tooltip="Zip Code."></span>
 				<p>Zip Code:</p>
-				<input type="text" placeholder="78200"
+				<input type="text" placeholder="Postal Code"
 				       class="form-control" th:field="*{bZip}"
 				       autocomplete="postal-code"
 				       maxlength="5" title="5 digits only please"
@@ -217,7 +215,7 @@
 					<h6>Hang in there! You're almost done!</h6>
 				</div>
 				<p>What is your phone number?</p>
-				<input type="tel" placeholder="210-302-3049"
+				<input type="tel" placeholder="Phone Number"
 				       class="form-control" th:field="*{bPhoneNumber}"
 				       title="Numbers only please."
 				       required="required" aria-required="true"
@@ -246,9 +244,8 @@
 		
 		<fieldset>
 			<div class="fb-text form-group field-emergcont">
-				<div>
-					<h5>We require one emergency contact.</h5>
-				</div>
+				<h6>We require one emergency contact.</h6>
+				
 				<p>What is that person's name?</p>
 				<input type="text" placeholder="First Name"
 				       class="form-control" th:field="*{cEmerContactFirst}"
@@ -275,7 +272,7 @@
 			<div class="fb-text form-group field-emertel">
 				<div>
 					<span class="tooltip-element" tooltip="Numbers only please.">
-						Do you have a contact number for them?
+						<p>Do you have a contact number for them?</p>
 					</span>
 				</div>
 				<input type="tel" placeholder="Phone Number"
@@ -290,10 +287,10 @@
 		
 		<fieldset>
 			<div class="fb-text form-group field-fam">
-				<h6>You are almost done, the next sections are important so please hang in there!</h6>
+				<h6>You are almost done, the next sections are important!</h6>
 				<div>
 					<p>Martial Status</p>
-					<select th:field="*{dMaritalStatus}">
+					<select class="form-control" th:field="*{dMaritalStatus}">
 						<option th:value="single">Single</option>
 						<option th:value="married">Married</option>
 						<option th:value="separated">Separated</option>
@@ -353,10 +350,10 @@
 				<div>
 					<p>Are you will to take a urinalysis test?</p>
 					
-					<input type="radio" id="dtChoice"
+					<input class="form-control eChoices" type="radio" id="dtChoice"
 					       th:field="*{eDrugTest}" value="yes"/>
 					<label for="dtChoice">Yes</label>
-					<input type="radio" id="dtChoice2"
+					<input class="form-control eChoices" type="radio" id="dtChoice2"
 					       th:field="*{eDrugTest}" value="no"/>
 					<label for="dtChoice2">No</label>
 				</div>
@@ -364,28 +361,35 @@
 			
 			<div class="fb-text form-group field-ssa">
 				<p>Check all that apply</p>
-				<input type="checkbox" id="ssa" th:value="true" th:field="*{eTanf}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa" th:value="true" th:field="*{eTanf}"/>
 				<label for="ssa">TANF</label>
-				<input type="checkbox" id="ssa2" th:value="true" th:field="*{eSnap}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa2" th:value="true" th:field="*{eSnap}"/>
 				<label for="ssa2">SNAP</label>
-				<input type="checkbox" id="ssa3" th:value="true" th:field="*{eSsh}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa3" th:value="true" th:field="*{eSsh}"/>
 				<label for="ssa3">Subsidized Housing</label>
-				<input type="checkbox" id="ssa4" th:value="true" th:field="*{eSsi}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa4" th:value="true" th:field="*{eSsi}"/>
 				<label for="ssa4">SSI</label>
-				<input type="checkbox" id="ssa5" th:value="true" th:field="*{eSsdi}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa5" th:value="true" th:field="*{eSsdi}"/>
 				<label for="ssa5">SSDI</label>
-				<input type="checkbox" id="ssa6" th:value="true" th:field="*{eWic}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa6" th:value="true" th:field="*{eWic}"/>
 				<label for="ssa6">WIC</label>
-				<input type="checkbox" id="ssa7" th:value="true" th:field="*{eUnemp}"/>
+				
+				<input class="form-control eChoices" type="checkbox" id="ssa7" th:value="true" th:field="*{eUnemp}"/>
 				<label for="ssa7">Unemployment</label>
 			</div>
 			
 			<div class="fb-text form-group field-fel">
 				<p>Have you every been convicted of a felony or misdemeanor?</p>
-				<input type="radio" id="felChoice"
+				<input class="form-control" type="radio" id="felChoice"
 				       th:field="*{eFelConvict}" value="yes"/>
 				<label for="dtChoice">Yes</label>
-				<input type="radio" id="felChoice2"
+				<input class="form-control" type="radio" id="felChoice2"
 				       th:field="*{eFelConvict}" value="no"/>
 				<label for="dtChoice2">No</label>
 				<div>
@@ -396,11 +400,11 @@
 			<div class="fb-text form-group field-disa">
 				<p>Do you have a disability?</p>
 				
-				<input type="radio" id="disaChoice"
+				<input class="form-control" type="radio" id="disaChoice"
 				       th:field="*{eDisability}" value="yes"/>
 				<label for="dtChoice">Yes</label>
 				
-				<input type="radio" id="disaChoice2"
+				<input class="form-control" type="radio" id="disaChoice2"
 				       th:field="*{eDisability}" value="no"/>
 				<label for="dtChoice2">No</label>
 				
@@ -411,21 +415,21 @@
 			
 			<div class="fb-text form-group field-milSrv">
 				<p>Have you served in the military</p>
-				<input type="text" id="milChoice"
+				<input class="form-control" type="text" id="milChoice"
 				       th:field="*{eMilitarySrv}"/>
 				<label for="milChoice">Branch?</label>
 				
 				<p>Are you a military spouse/dependent?</p>
-				<input type="radio" id="msChoice"
+				<input class="form-control" type="radio" id="msChoice"
 				       th:field="*{eMilSpouse}" value="yes"/>
 				<label for="msChoice">Yes</label>
 				
-				<input type="radio" id="msChoice2"
+				<input class="form-control" type="radio" id="msChoice2"
 				       th:field="*{eMilSpouse}" value="no"/>
 				<label for="msChoice2">No</label>
 				
 				<p>If you were referred, please tell us how.</p>
-				<input type="text" th:field="*{eReferralSrc}"/>
+				<input class="form-control" type="text" th:field="*{eReferralSrc}"/>
 			</div>
 			<p>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</p>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>

@@ -1,4 +1,4 @@
-package com.pqtca.demo.models;
+package com.pqtca.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,7 +22,7 @@ public class Application {
     private long id;
 
     @Column(nullable = false)
-    private long appssn;
+    private String appssn;
 
     @Column
     private String aMiddleName;
@@ -52,7 +52,7 @@ public class Application {
     private String bCounty;
 
     @Column(nullable = false)
-    private long bZip;
+    private String bZip;
 
     @Column(nullable = false)
     private String bPhoneNumber;
@@ -186,8 +186,8 @@ public class Application {
     public Application() {
     }
 
-    public Application(long appssn, String aMiddleName, String aFirstName, String
-            aLastName, String aDateOfBirth, String aEthnicity, String bStreetAddreeSsddress, String bCity, String bState, String bCounty, long bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, String eMilitarySrv, boolean eMilSpouse, String eReferralSrc) {
+    public Application(String appssn, String aMiddleName, String aFirstName, String
+            aLastName, String aDateOfBirth, String aEthnicity, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, String eMilitarySrv, boolean eMilSpouse, String eReferralSrc) {
         this.appssn = appssn;
         this.aMiddleName = aMiddleName;
         this.aFirstName = aFirstName;
@@ -248,11 +248,11 @@ public class Application {
         this.id = id;
     }
 
-    public long getAppssn() {
+    public String getAppssn() {
         return appssn;
     }
 
-    public void setAppssn(long appssn) {
+    public void setAppssn(String appssn) {
         this.appssn = appssn;
     }
 
@@ -328,11 +328,11 @@ public class Application {
         this.bCounty = bCounty;
     }
 
-    public long getbZip() {
+    public String getbZip() {
         return bZip;
     }
 
-    public void setbZip(long bZip) {
+    public void setbZip(String bZip) {
         this.bZip = bZip;
     }
 
