@@ -6,14 +6,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
 
 @Controller
 public class UserController {
+
 
     private UserRepo usersDao;
     private PasswordEncoder passwordEncoder;
@@ -23,12 +23,38 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
+
+
+    @GetMapping(value = {"/admin"})
+    public String adminDash(Model model) {
+        return "admin/admin-dashboard";
+    }
+
+    @GetMapping(value = {"/pending"})
+    public String adminPendingApps() {
+        return "admin/admin-pending";
+    }
+
+    @GetMapping(value = {"/complete"})
+    public String adminCompleteApps() {
+        return "admin/admin-complete";
+    }
+
+    @GetMapping(value = {"/devTeam"})
+    public String adminDevTeam() {
+        return "admin/admin-dev";
+    }
+
+
+
+
     @GetMapping("/admin/register")
     public String showSignUpForm(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "admin/register";
     }
+
 
     @PostMapping("/admin/register")
     public String registerUser(@Valid User user, Errors errors, Model model
@@ -64,3 +90,4 @@ public class UserController {
 
 
 }
+

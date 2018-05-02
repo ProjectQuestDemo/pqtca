@@ -1,0 +1,268 @@
+/*==========================CONTENT PLACEMENT BEGIN================*/
+body {
+    border: 10px solid rgba(255, 255, 255, 0.47);
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+#section {
+    margin: 1em 1em 1em 1em;
+    display: grid;
+    grid-template-areas:
+            "nav  main"
+            "nav  main";
+    grid-template-rows:  1fr .3fr;
+    grid-template-columns: 320px 1fr;
+}
+
+/*==========================CONTENT PLACEMENT END================*/
+
+
+/*==========================SIDE-NAV BEGIN================*/
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    float: left;
+    grid-area: nav;
+}
+
+#sidebar {
+    min-width: 320px;
+    max-width: 320px;
+    min-height: 100vh;
+    background: #3887e2;
+    color: #e1e1e1;
+    transition: all 0.3s;
+    border-right: 2px solid rgba(255, 255, 255, 0.64);
+}
+
+#sidebar.active {
+    margin-left: -270px;
+}
+
+body {
+    background: #e1e1e1;
+}
+
+p {
+    font-size: 2em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 2px;
+    background: #3887e2;
+}
+
+#sidebar ul.components {
+    padding: 2px 0;
+}
+
+#bell {
+    height: 1em;
+    width: 1em;
+    position: absolute;
+}
+
+#logout {
+    border-bottom: 1px solid #43c5f0;
+    margin-bottom: 5em;
+    padding-bottom: 2em;
+}
+
+#sidebar ul p {
+    color: #e1e1e1;
+    padding: 2px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+
+}
+#sidebar ul li a:hover {
+    color: #3887e2;
+    background: #e1e1e1;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #e1e1e1;
+    background: #3887e2;
+}
+
+#project-quest-logo {
+    height: 10em;
+    width: 15em;
+    margin-left: 1.5em;
+}
+
+#hello-admin {
+    text-align: center;
+    border-bottom: 1px solid #43c5f0;
+    padding: 20px 0;
+    color: #fff;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #3887e2;
+}
+
+#programmer {
+    height: 7em;
+    width: 7em;
+    margin-left: 33%;
+}
+
+/*==========================SIDE-NAV END================*/
+
+/*==========================DASHBOARD CONTENT BEGIN================*/
+
+/*=======================ADMIN DASHBOARD CONTENT BEGIN===================*/
+
+#dashboard-content {
+    display: inline-grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr .2fr;
+    grid-area: main;
+    text-align: center;
+    justify-items: center;
+}
+
+#form-elements-field {
+    height: 25em;
+    width: 50em;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border: 1px solid #888888;
+    box-shadow: 3px 3px 4px #888888;;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: rgba(136, 136, 136, 0.42);
+}
+
+#divider {
+    height: .3em;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    background: rgba(255, 255, 255, 0.51);
+    width: 80%;
+}
+
+/*PIE CHART AREAS BEGIN*/
+
+#pie-chart-field {
+    height: 25em;
+    width: 50em;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid rgba(136, 136, 136, 0.55);
+    background-color: white;
+    box-shadow: 3px 3px 4px #888888;
+    grid-template-columns: .5fr 1fr;
+}
+
+#pie-button-contents {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    grid-template-rows: .1fr 1fr;
+}
+
+.hide {
+    display: none;
+}
+
+.statistics-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.buttons {
+    overflow: auto;
+    height: 20em;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.buttons button {
+    margin: 1em 0 1em 0;
+}
+
+
+
+#pie-charts-all {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+
+
+/*PIE CHART AREAS END*/
+
+
+.element-headers {
+    margin-top: 2%;
+    color: #4a87db;
+    text-shadow: 1px 1px 1px #f0e6a2;
+}
+
+/*ALL PAGE LABRLS USE THIS EXCEPT PENDING, SEE BELOW*/
+#page-label-admin {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    align-items: center;
+    border: 4px solid rgba(255, 255, 255, 0.53);
+    height: 45em;
+    width: 8em;
+    margin-top: 40%;
+    margin-right: 10%;
+}
+
+#p1 {
+    padding-top: 40%;
+}
+
+/*=======================ADMIN DASHBOARD CONTENT END===================*/
+
+/*=======================ADMIN PENDING CONTENT BEGIN===================*/
+
+#page-label-pending {
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    align-items: center;
+    border: 4px solid rgba(255, 255, 255, 0.53);
+    height: 40em;
+    width: 8em;
+    margin-top: 40%;
+    margin-right: 10%;
+}
+/*=======================ADMIN PENDING CONTENT BEGIN===================*/
+
+
+
+/*==========================DASHBOARD CONTENT END================*/

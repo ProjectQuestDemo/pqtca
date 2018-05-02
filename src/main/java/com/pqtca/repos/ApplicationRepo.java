@@ -13,4 +13,9 @@ public interface ApplicationRepo extends CrudRepository<Application, Long> {
 
     @Override
     Application findOne(Long aLong);
+
+    Long countByAEthnicity(String aEthnicity);
+
+    Long countByBCity(String bCity);
+//    TODO will work whenever education is added into the application table.
 }
