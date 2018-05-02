@@ -1,13 +1,8 @@
 package com.pqtca.controllers;
 
-<<<<<<< HEAD:src/main/java/com/pqtca/controllers/ApplicationController.java
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
-=======
 import com.google.gson.Gson;
-import com.pqtca.demo.models.Application;
-import com.pqtca.demo.repos.ApplicationRepo;
->>>>>>> allies:src/main/java/com/pqtca/demo/controllers/ApplicationController.java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

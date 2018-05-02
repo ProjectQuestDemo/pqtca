@@ -1,22 +1,13 @@
-<<<<<<< HEAD:src/main/java/com/pqtca/controllers/UserController.java
 package com.pqtca.controllers;
 
 import com.pqtca.models.User;
 import com.pqtca.repos.UserRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-=======
-package com.pqtca.demo.controllers;
-import com.pqtca.demo.models.User;
->>>>>>> allies:src/main/java/com/pqtca/demo/controllers/UserController.java
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-<<<<<<< HEAD:src/main/java/com/pqtca/controllers/UserController.java
-=======
-import com.pqtca.demo.repos.UserRepo;
 import org.springframework.validation.Errors;
->>>>>>> allies:src/main/java/com/pqtca/demo/controllers/UserController.java
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 

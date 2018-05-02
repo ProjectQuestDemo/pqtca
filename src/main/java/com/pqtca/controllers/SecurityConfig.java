@@ -1,6 +1,6 @@
-package com.pqtca.demo;
+package com.pqtca.controllers;
 
-import com.pqtca.demo.Services.UserDetailsLoader;
+import com.pqtca.Services.UserDetailsLoader;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
