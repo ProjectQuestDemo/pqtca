@@ -30,13 +30,13 @@ public class ApplicationController {
         return gson.toJson(map);
     }
 // used for pie chart, education graphing
-    @GetMapping("/graphEducation")
+    @GetMapping("/graphCity")
     @ResponseBody
-    public String getGraphEducation() {
+    public String getGraphCity() {
         Gson gson = new Gson();
         HashMap<String, Long> map = new HashMap<>();
-        map.put("diploma", appRepo.countByEducation("diploma"));
-        map.put("associate", appRepo.countByEducation("associate"));
+        map.put("San Antonio", appRepo.countByCity("San Antonio"));
+        map.put("Austin", appRepo.countByCity("Austin"));
         return gson.toJson(map);
     }
 
