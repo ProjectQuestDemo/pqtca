@@ -56,5 +56,7 @@
         $(show).removeClass("hide").siblings().addClass("hide");
     });
 
+    //    ====================END BUTTONS FUNCTIONS TO DISPLAY DIFF STATISTICS===================*
+
 
 })();

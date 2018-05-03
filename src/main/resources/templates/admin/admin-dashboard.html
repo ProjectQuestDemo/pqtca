@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
-
-
     <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous"/>
         <link rel="stylesheet" href="/css/admin-dashboard.css"/>
         <title>Admin-Dashboard</title>
@@ -11,82 +13,74 @@
 
 <body>
 
-<div id="section">
+<div id="wrapper">
 
     <div th:replace="fragments/admin-nav :: admin-nav"></div>
 
-    <div id="dashboard-content">
 
-        <div id="page-label-admin">
-            <p id="p1">D</p>
-            <p>A</p>
-            <p>S</p>
-            <p>H</p>
-            <p>B</p>
-            <p>O</p>
-            <p>A</p>
-            <p>R</p>
-            <p>D</p>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <h1>View your Applicant Demographics</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut earum ipsam libero natus quam quidem reprehenderit. Aliquid dolorum ducimus magni officia provident, repellat sapiente sequi tempore, unde voluptatem, voluptatibus!</p>
+            <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">View Menu</a>
+        </div>
+
+        <div class="container-fluid">
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <td><button data-show="#piechart">Ethnicities</button></td>
+                    <td><button data-show="#piechart2">City</button></td>
+                    <td><button data-show="#piechart3">Degree Levels</button></td>
+                </tr>
+                <tr>
+                    <td><button data-show="piechart4">Genders</button></td>
+                    <td><button data-show="piechart5">Marital Status</button></td>
+                    <td><button data-show="piechart6">Family/Living Status</button></td>
+                </tr>
+                <tr>
+                    <td><button data-show="piechart7">Drug Test?</button></td>
+                    <td><button data-show="piechart8">Federal Aid Packages</button></td>
+                    <td><button data-show="piechart9">Military Service</button></td>
+                </tr>
+                <tr>
+                    <td><button data-show="piechart10">Military Spouse</button></td>
+                    <td><button data-show="piechart11">Referral</button></td>
+                    <td><button data-show="piechart12">Career Interests</button></td>
+                </tr>
+                </tbody>
+            </table>
 
         </div>
 
-        <div id="form-elements-field">
-            <h1 class="element-headers">Active Applications</h1>
-            form elements field
-        </div>
-        <div id="pie-chart-field">
-            <div id="pie-button-contents">
-                <h1 class="element-headers statistics-header">Statistics</h1>
+        <div class="container-fluid">
+            <div>
 
-                <div class="buttons">
+                <div id="piechart" class="hide"></div>
+                <div id="piechart2" class="hide"></div>
 
-                    <button data-show="#piechart">Ethnicities</button>
-                    <br/>
-                    <button data-show="#piechart2">City</button>
-                    <br/>
-                    <button data-show="#piechart3">Degree Levels</button>
-                    <br/>
-                    <button data-show="piechart4">Genders</button>
-                    <br/>
-                    <button data-show="piechart5">Marital Status</button>
-                    <br/>
-                    <button data-show="piechart6">Family/Living Status</button>
-                    <br/>
-                    <button data-show="piechart7">Drug Test?</button>
-                    <br/>
-                    <button data-show="piechart8">Federal Aid Packages</button>
-                    <br/>
-                    <button data-show="piechart9">Military Service</button>
-                    <br/>
-                    <button data-show="piechart10">Military Spouse</button>
-                    <br/>
-                    <button data-show="piechart11">Referral</button>
-                    <br/>
-                    <button data-show="piechart12">Career Interests</button>
-
-                </div>
-
-                <div class="pie-charts-all">
-
-                    <div id="piechart" class="hide"></div>
-                    <div id="piechart2" class="hide"></div>
-
-                </div>
             </div>
         </div>
-
     </div>
+    <!-- /#page-content-wrapper -->
+    <!--KEEP ALL PAGE CONTENT HERE-->
 
-
-    <footer th:replace="fragments/footer :: footer">
-    </footer>
 
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<footer th:replace="fragments/footer :: footer"></footer>
+    <!--</footer>-->
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js}" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js}" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 <script src="/js/admin-dashboard.js"></script>
 <script src="/js/dataVis.js"></script>
 
