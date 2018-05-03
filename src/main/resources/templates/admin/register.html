@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4/">>
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: head('Admin Register')">
 
 </head>
@@ -10,7 +10,8 @@
     <!--This content is only shown to authenticated users.-->
 
     <!--User ID: <span th:text="${#authentication.principal.id}"/>-->
-    Username: <span th:text="${#authentication.principal.username}"/>
+   <p> Username: <span th:text="${#authentication.principal.username}"/></p>
+    <p>Admin: <span th:text="${#authentication.principal.isAdmin}"></span></p>
     <!--Email: <span th:text="${#authentication.principal.email}"/>-->
 </div>
 
@@ -34,7 +35,13 @@
     <label for="password">Password</label>
     <input th:type="password"   th:field="*{password}"/>
 
-    <input th:type="hidden" th:field="*{isAdmin}" th:value="true"/>
+    <div sec:authorize="isAuthenticated()" >
+        <label for="isAdmin">Admin</label>
+        <input th:type="checkbox" th:field="*{isAdmin}"/>
+    </div>
+
+    <!--<label for="isAdmin">Admin</label>-->
+    <!--<input th:type="checkbox" th:field="*{isAdmin}"/>-->
 
     <input value="Register" type="submit" />
 </form>
