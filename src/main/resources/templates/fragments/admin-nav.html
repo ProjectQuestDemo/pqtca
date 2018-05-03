@@ -16,10 +16,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+
                         <p id="hello-admin">Hello, ${User.getName()}</p>
                         <!--TODO set up user controller to get above value-->
-                    </a>
                 </li>
                 <li>
                     <a href="/admin">Home</a>
@@ -27,10 +26,11 @@
                 <li>
                     <a href="/complete">Completed Applications</a>
                 </li>
-                <li sec:authorize="" id="logout">
+                <li id="logout">
                     <a href="/logout">Logout</a>
                 </li>
-                <li>
+                <li id="dev-li">
+                    <img id="programmer" src="/images/programmer.svg" alt=""/>
                     <a href="/devTeam">Meet our Dev Team</a>
                 </li>
             </ul>
