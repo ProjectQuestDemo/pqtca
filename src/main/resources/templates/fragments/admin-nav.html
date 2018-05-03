@@ -7,28 +7,34 @@
 
 <div class="wrapper" th:fragment="admin-nav">
 
-    <nav id="sidebar">
-
-        <!-- Sidebar header, PQ logo -->
-        <div class="sidebar-header">
-            <img id="project-quest-logo" src="/images/quest.png" alt=""/>
-            <p id="hello-admin">Hello, ${User.getName()}</p>
-            <!--TODO set up user controller to get above value-->
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        <img id="project-quest-logo" src="/images/quest.png" alt=""/>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p id="hello-admin">Hello, ${User.getName()}</p>
+                        <!--TODO set up user controller to get above value-->
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin">Home</a>
+                </li>
+                <li>
+                    <a href="/complete">Completed Applications</a>
+                </li>
+                <li sec:authorize="" id="logout">
+                    <a href="/logout">Logout</a>
+                </li>
+                <li>
+                    <a href="/devTeam">Meet our Dev Team</a>
+                </li>
+            </ul>
         </div>
-
-
-
-        <!-- Sidebar Links -->
-        <ul class="components">
-            <li><a href="/admin">Home</a></li>
-            <li><a href="/pending">Pending <img id="bell" src="/images/bell.svg" alt=""/> </a></li>
-            <li><a href="/complete">Complete</a></li>
-            <li sec:authorize="" id="logout"><a href="/logout">Logout</a></li>
-            <li><img id="programmer" src="/images/programmer.svg" alt=""/></li>
-            <li><a href="/devTeam">Meet the Dev-team</a></li>
-        </ul>
-    </nav>
-
 </div>
 
 </body>

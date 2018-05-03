@@ -2,11 +2,14 @@
 
 $(document).ready(function () {
 
-    //============================SOMETHING======================*
+    //============================TOGGLE NAV BEGIN======================*
 
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
 
-
-    //============================SOMETHING======================*
+    //============================TOGGLE NAV END======================*
 
 
 
