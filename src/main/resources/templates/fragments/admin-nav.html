@@ -17,8 +17,9 @@
                 </li>
                 <li>
 
-                        <p id="hello-admin">Hello, ${User.getName()}</p>
-                        <!--TODO set up user controller to get above value-->
+                        <p id="hello-admin">Hello, <span th:text="${username}"></span></p>
+
+                        <!--TODO diagnose why info from UserController isn't displaying username-->
                 </li>
                 <li>
                     <a href="/admin">Home</a>
@@ -26,7 +27,7 @@
                 <li>
                     <a href="/complete">Completed Applications</a>
                 </li>
-                <li id="logout">
+                <li sec:authorize="isAuthenticated()" id="logout">
                     <a href="/logout">Logout</a>
                 </li>
                 <li id="dev-li">
