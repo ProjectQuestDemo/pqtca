@@ -90,5 +90,40 @@ public class UserController {
         return "/dev-team";
     }
 
-}
+    @GetMapping(value = {"/user"})
+    public String userDash() {
+        return "user/user-profile";
+    }
 
+    @GetMapping(value = {"/user-app"})
+    public String userApp() {
+        return "user/user-profile-application";
+    }
+
+//set up for user editing their profile information
+    @GetMapping("/user/edit")
+    public String userShowEditProfile(Model model) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (user.getId() == 0) {
+            return "redirect:/login";
+        }
+        User userProfile = usersDao.findOne(user.getId());
+        model.addAttribute("user", userProfile);
+        return "users/edit";
+    }
+
+    @PostMapping("/profile/edit")
+    public String userUpdateInfo(@ModelAttribute User user) {
+
+        User profileUser = usersDao.findOne(user.getId());
+
+        profileUser.setFirstName(user.getFirstName());
+        profileUser.setLastName(user.getFirstName());
+        profileUser.setUsername(user.getUsername());
+        profileUser.setEmail(user.getEmail());
+        profileUser.setPassword(user.getPassword());
+
+        usersDao.save(profileUser);
+        return "redirect:/profile";
+    }
+}
