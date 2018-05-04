@@ -87,7 +87,7 @@ public class UserController {
 
     @GetMapping(value = {"/devTeam"})
     public String adminDevTeam() {
-        return "admin/admin-dev";
+        return "/dev-team";
     }
 
 }
