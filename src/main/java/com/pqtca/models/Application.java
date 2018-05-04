@@ -39,6 +39,9 @@ public class Application {
     @Column(nullable = false)
     private String aEthnicity;
 
+    @Column
+    private String aGender;
+
     @Column(nullable = false)
     private String bStreetAddress;
 
@@ -75,14 +78,14 @@ public class Application {
     @Column
     private String cEmerContactNum;
 
-    /*@Column
+    @Column
     private String cEmerContactAddy;
 
     @Column
     private String cEmerContactCity;
 
     @Column
-    private String cEmerContactbState;*/
+    private String cEmerContactState;
 
     @Column(nullable = false)
     private String dMaritalStatus;
@@ -101,6 +104,15 @@ public class Application {
 
     @Column(nullable = false)
     private String dDepOverEighteen;
+
+    @Column
+    private String dDepFullName;
+
+    @Column
+    private String dDepAge;
+
+    @Column
+    private String dDepRelationship;
 
     @Column(nullable = false)
     private boolean eDrugTest;
@@ -139,13 +151,27 @@ public class Application {
     private String eDisExplanation;
 
     @Column(nullable = false)
+    private boolean eCitizen;
+
+    @Column(nullable = false)
     private String eMilitarySrv;
+
+    @Column(nullable = false)
+    private boolean eSelectiveSrv;
 
     @Column(nullable = false)
     private boolean eMilSpouse;
 
     @Column(nullable = false)
-    @NotEmpty(message = "Required")
+    private String eHS;
+
+    @Column(nullable = false)
+    private boolean eCollegeDegree;
+
+    @Column
+    private String eCollegeLocation;
+
+    @Column(nullable = false)
     private String eReferralSrc;
 
     @Column
@@ -186,16 +212,16 @@ public class Application {
     public Application() {
     }
 
-    public Application(String appssn, String aMiddleName, String aFirstName, String
-            aLastName, String aDateOfBirth, String aEthnicity, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, String eMilitarySrv, boolean eMilSpouse, String eReferralSrc) {
+    public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, User user) {
         this.appssn = appssn;
         this.aMiddleName = aMiddleName;
         this.aFirstName = aFirstName;
         this.aLastName = aLastName;
         this.aDateOfBirth = aDateOfBirth;
         this.aEthnicity = aEthnicity;
+        this.aGender = aGender;
         this.bStreetAddress = bStreetAddress;
-        this.bCity =bCity;
+        this.bCity = bCity;
         this.bState = bState;
         this.bCounty = bCounty;
         this.bZip = bZip;
@@ -206,12 +232,18 @@ public class Application {
         this.cEmerContactLast = cEmerContactLast;
         this.cEmerContactRel = cEmerContactRel;
         this.cEmerContactNum = cEmerContactNum;
+        this.cEmerContactAddy = cEmerContactAddy;
+        this.cEmerContactCity = cEmerContactCity;
+        this.cEmerContactState = cEmerContactState;
         this.dMaritalStatus = dMaritalStatus;
         this.dfamilyStatus = dfamilyStatus;
         this.dTotalInHouse = dTotalInHouse;
         this.dDepUnderFive = dDepUnderFive;
         this.dDepOverFive = dDepOverFive;
         this.dDepOverEighteen = dDepOverEighteen;
+        this.dDepFullName = dDepFullName;
+        this.dDepAge = dDepAge;
+        this.dDepRelationship = dDepRelationship;
         this.eDrugTest = eDrugTest;
         this.eTanf = eTanf;
         this.eSnap = eSnap;
@@ -224,12 +256,16 @@ public class Application {
         this.eFcExplanation = eFcExplanation;
         this.eDisability = eDisability;
         this.eDisExplanation = eDisExplanation;
+        this.eCitizen = eCitizen;
         this.eMilitarySrv = eMilitarySrv;
+        this.eSelectiveSrv = eSelectiveSrv;
         this.eMilSpouse = eMilSpouse;
+        this.eHS = eHS;
+        this.eCollegeDegree = eCollegeDegree;
+        this.eCollegeLocation = eCollegeLocation;
         this.eReferralSrc = eReferralSrc;
+        this.user = user;
     }
-
-
 
     /*
         ***************************************
@@ -392,7 +428,7 @@ public class Application {
         this.cEmerContactNum = cEmerContactNum;
     }
 
-    /*public String getcEmerContactAddy() {
+    public String getcEmerContactAddy() {
         return cEmerContactAddy;
     }
 
@@ -408,13 +444,13 @@ public class Application {
         this.cEmerContactCity = cEmerContactCity;
     }
 
-    public String getcEmerContactbState() {
-        return cEmerContactbState;
+    public String getcEmerContactState() {
+        return cEmerContactState;
     }
 
-    public void setcEmerContactbState(String cEmerContactbState) {
-        this.cEmerContactbState = cEmerContactbState;
-    }*/
+    public void setcEmerContactState(String cEmerContactState) {
+        this.cEmerContactState = cEmerContactState;
+    }
 
     public String getdMaritalStatus() {
         return dMaritalStatus;
@@ -655,5 +691,77 @@ public class Application {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getaGender() {
+        return aGender;
+    }
+
+    public void setaGender(String aGender) {
+        this.aGender = aGender;
+    }
+
+    public String getdDepFullName() {
+        return dDepFullName;
+    }
+
+    public void setdDepFullName(String dDepFullName) {
+        this.dDepFullName = dDepFullName;
+    }
+
+    public String getdDepAge() {
+        return dDepAge;
+    }
+
+    public void setdDepAge(String dDepAge) {
+        this.dDepAge = dDepAge;
+    }
+
+    public String getdDepRelationship() {
+        return dDepRelationship;
+    }
+
+    public void setdDepRelationship(String dDepRelationship) {
+        this.dDepRelationship = dDepRelationship;
+    }
+
+    public boolean iseCitizen() {
+        return eCitizen;
+    }
+
+    public void seteCitizen(boolean eCitizen) {
+        this.eCitizen = eCitizen;
+    }
+
+    public boolean iseSelectiveSrv() {
+        return eSelectiveSrv;
+    }
+
+    public void seteSelectiveSrv(boolean eSelectiveSrv) {
+        this.eSelectiveSrv = eSelectiveSrv;
+    }
+
+    public String geteHS() {
+        return eHS;
+    }
+
+    public void seteHS(String eHS) {
+        this.eHS = eHS;
+    }
+
+    public boolean iseCollegeDegree() {
+        return eCollegeDegree;
+    }
+
+    public void seteCollegeDegree(boolean eCollegeDegree) {
+        this.eCollegeDegree = eCollegeDegree;
+    }
+
+    public String geteCollegeLocation() {
+        return eCollegeLocation;
+    }
+
+    public void seteCollegeLocation(String eCollegeLocation) {
+        this.eCollegeLocation = eCollegeLocation;
     }
 }

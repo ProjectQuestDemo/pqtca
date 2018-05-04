@@ -4,9 +4,20 @@
 </head>
 <body>
 <footer th:fragment="footer">
-	<script type="text/javascript" th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+	<script th:src="@{https://www.gstatic.com/charts/loader.js}">
+	
+	</script>
+	<script
+			th:src="@{https://code.jquery.com/jquery-3.3.1.min.js}"
+			integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			crossorigin="anonymous">
+		
+	</script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js}">
+	
+	</script>
+	<script th:src="@{/js/dataVis.js}"></script>
+	<script th:src="@{/js/index.js}"></script>
 	<script>
         $(document).ready(function () {
 

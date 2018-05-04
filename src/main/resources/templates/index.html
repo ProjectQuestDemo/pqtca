@@ -3,6 +3,7 @@
 <head th:replace="fragments/head :: head('PQ Home')">
 </head>
 <body>
+<<<<<<< HEAD
 <div class="container">
 	<header>PLACEHOLDING</header>
 	<nav class="mobile">PLACEHOLDER</nav>
@@ -14,31 +15,34 @@
 	<div id="signature-pad" class="signature-pad">
 		<div class="signature-pad--body">
 			<canvas width="640" height="480"></canvas>
+||||||| merged common ancestors
+<div class="container">
+	<header>PLACEHOLDING</header>
+	<nav class="mobile">PLACEHOLDER</nav>
+	<main>PLACEHOLDER</main>
+	<aside>SIDE PLACEHOLDER</aside>
+	<div id="signature-pad" class="signature-pad">
+		<div class="signature-pad--body">
+			<canvas width="640" height="480"></canvas>
+=======
+<nav th:fragment="fragments/user-nav :: user-nav"></nav>
+<div class="homepage-hero-module">
+	<div class="video-container">
+		<div class="filter">
+			<video preload="" muted="" autoplay="" loop="" class="fillWidth">
+				<source th:src="@{/video/MP4/Urban-Timer.mp4}" type="video/mp4"/>
+				Your browser does not support the video tag. I suggest you upgrade your browser.
+				<source th:src="@{/video/WEBM/Urban-Timer.webm}" type="video/webm"/>
+				Your browser does not support the video tag. I suggest you upgrade your browser.
+			</video>
+>>>>>>> added index assets
 		</div>
-		<div class="signature-pad--footer">
-			<div class="description">Sign above</div>
-			
-			<div class="signature-pad--actions">
-				<div>
-					<button type="button" class="button clear" data-action="clear">Clear</button>
-					<button type="button" class="button" data-action="change-color">Change color</button>
-					<button type="button" class="button" data-action="undo">Undo</button>
-				
-				</div>
-				<div>
-					<button type="button" class="button save" data-action="save-png">Save as PNG</button>
-					<button type="button" class="button save" data-action="save-jpg">Save as JPG</button>
-					<button type="button" class="button save" data-action="save-svg">Save as SVG</button>
-				</div>
-			</div>
+		<div class="poster hidden">
+			<img th:src="@{/video/Snapshots/Urban-Timer.jpg}" alt=""/>
 		</div>
 	</div>
-	<div id="piechart"></div>
-
-	<footer th:replace="fragments/footer :: footer"></footer>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-<script th:src="@{/js/sigcap.js}"></script>
-<script th:src="@{js/dataVis.js}"></script>
+<footer th:replace="fragments/footer :: footer"></footer>
+
 </body>
 </html>
