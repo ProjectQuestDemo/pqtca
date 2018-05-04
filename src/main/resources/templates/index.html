@@ -3,31 +3,9 @@
 <head th:replace="fragments/head :: head('PQ Home')">
 </head>
 <body>
-<<<<<<< HEAD
-<div class="container">
-	<header>PLACEHOLDING</header>
-	<nav class="mobile">PLACEHOLDER</nav>
-	<main>PLACEHOLDER</main>
-	<aside>SIDE PLACEHOLDER
-		<a href="/admin/login">Admin login</a>
-		<a href="/user/login">User login</a>
-	</aside>
-	<div id="signature-pad" class="signature-pad">
-		<div class="signature-pad--body">
-			<canvas width="640" height="480"></canvas>
-||||||| merged common ancestors
-<div class="container">
-	<header>PLACEHOLDING</header>
-	<nav class="mobile">PLACEHOLDER</nav>
-	<main>PLACEHOLDER</main>
-	<aside>SIDE PLACEHOLDER</aside>
-	<div id="signature-pad" class="signature-pad">
-		<div class="signature-pad--body">
-			<canvas width="640" height="480"></canvas>
-=======
-<nav th:fragment="fragments/user-nav :: user-nav"></nav>
 <div class="homepage-hero-module">
 	<div class="video-container">
+		<nav th:replace="fragments/user-nav :: user-nav"></nav>
 		<div class="filter">
 			<video preload="" muted="" autoplay="" loop="" class="fillWidth">
 				<source th:src="@{/video/MP4/Urban-Timer.mp4}" type="video/mp4"/>
@@ -35,7 +13,6 @@
 				<source th:src="@{/video/WEBM/Urban-Timer.webm}" type="video/webm"/>
 				Your browser does not support the video tag. I suggest you upgrade your browser.
 			</video>
->>>>>>> added index assets
 		</div>
 		<div class="poster hidden">
 			<img th:src="@{/video/Snapshots/Urban-Timer.jpg}" alt=""/>
@@ -43,6 +20,5 @@
 	</div>
 </div>
 <footer th:replace="fragments/footer :: footer"></footer>
-
 </body>
 </html>
