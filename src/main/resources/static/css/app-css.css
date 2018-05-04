@@ -6,7 +6,10 @@
 
 p {margin-bottom: 1em;}
 
-h6 {margin-bottom: 2em;}
+h1, h2, h3, h4, h5, h6 {
+    color: #4a87db;
+    margin-bottom: 1em;
+}
 
 fieldset {
     background-color: #e1e1e1;
@@ -86,9 +89,10 @@ input.color-change {
 }
 
 .eChoices {
-    display: block;
     width: auto;
-    padding: 0.6em;
+    margin: 0.6em;
+    padding-right: 0.6em;
+    align-self: right;
 }
 
 /*progressbar*/
@@ -163,19 +167,12 @@ fieldset:not(:first-of-type) {
 }
 
 @media only screen and (min-width: 992px) {
-    .app-section {
-        max-width: 40vw;
-    }
 
-    .form-group > input {
-        width: 20vw;
+    fieldset {
+        width: 50vw;
     }
-
-    .ssn {
-        width: 7vw;
-        border-radius: 7px;
-        font-size: 1em;
-        text-align: center;
+    input, select {
+        width: 30vw;
     }
 
     .color-change {
