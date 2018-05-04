@@ -120,7 +120,7 @@
 				       required="required" aria-required="true"
 				/>
 			</div>
-			<div class="fb-text form-num field-state">
+			<div class="fb-text form-group field-state">
 				<span class="tooltip-element" tooltip="State."></span>
 				<p>State?</p>
 				<select th:field="*{bState}">
@@ -185,8 +185,6 @@
 					<option value="AP">Armed Forces Pacific</option>
 					<option value="AE">Armed Forces Others</option>
 				</select>
-				
-				
 				<span class="tooltip-element" tooltip="County."></span>
 				<p>County?</p>
 				<input type="text" placeholder="Bexar"
@@ -212,7 +210,7 @@
 		<fieldset>
 			<div class="fb-text form-group field-contact">
 				<div>
-					<h6>Hang in there! You're almost done!</h6>
+					<h3>Hang in there! You're almost done!</h3>
 				</div>
 				<p>What is your phone number?</p>
 				<input type="tel" placeholder="Phone Number"
@@ -244,7 +242,7 @@
 		
 		<fieldset>
 			<div class="fb-text form-group field-emergcont">
-				<h6>We require one emergency contact.</h6>
+				<h3>We require one emergency contact.</h3>
 				
 				<p>What is that person's name?</p>
 				<input type="text" placeholder="First Name"
@@ -287,7 +285,7 @@
 		
 		<fieldset>
 			<div class="fb-text form-group field-fam">
-				<h6>You are almost done, the next sections are important!</h6>
+				<h3>You are almost done, the next sections are important!</h3>
 				<div>
 					<p>Martial Status</p>
 					<select class="form-control" th:field="*{dMaritalStatus}">
@@ -303,8 +301,6 @@
 				<p>
 					Family/Living Status?
 				</p>
-				
-				
 				<select th:field="*{dfamilyStatus}">
 					<option th:value="twoparent">Two parent family</option>
 					<option th:value="singleparent">Single Parent</option>
@@ -312,6 +308,7 @@
 					<option th:value="individual">Individual</option>
 				</select>
 			</div>
+			
 			<div class="fb-text form-group field-totalinhouse">
 				<p>
 					How many people live in your house?
@@ -345,68 +342,84 @@
 		</fieldset>
 		
 		<fieldset>
-			<div class="fb-text form-group field-drugTest">
-				<h6>Last Section! Give yourself a high five!</h6>
-				<div>
-					<p>Are you will to take a urinalysis test?</p>
-					
+			<h3>Last Section! Give yourself a high five!</h3>
+			<div class="fb-text form-group last-sec field-drugTest">
+				<h4>Are you will to take a urinalysis test?</h4>
+				<p>Yes
 					<input class="form-control eChoices" type="radio" id="dtChoice"
 					       th:field="*{eDrugTest}" value="yes"/>
-					<label for="dtChoice">Yes</label>
+				</p>
+				
+				<p>No
 					<input class="form-control eChoices" type="radio" id="dtChoice2"
 					       th:field="*{eDrugTest}" value="no"/>
-					<label for="dtChoice2">No</label>
-				</div>
+				</p>
 			</div>
 			
-			<div class="fb-text form-group field-ssa">
-				<p>Check all that apply</p>
+			<div class="fb-text form-group last-sec field-ssa">
+				<h4>Check all that apply</h4>
+				<p class="eChoices">TANF
+					<input class="form-control eChoices" type="checkbox" id="ssa" th:value="true" th:field="*{eTanf}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa" th:value="true" th:field="*{eTanf}"/>
-				<label for="ssa">TANF</label>
+				<p class="eChoices">SNAP
+					<input class="form-control eChoices" type="checkbox" id="ssa2" th:value="true" th:field="*{eSnap}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa2" th:value="true" th:field="*{eSnap}"/>
-				<label for="ssa2">SNAP</label>
+				<p class="eChoices">Subsidized Housing
+					<input class="form-control eChoices" type="checkbox" id="ssa3" th:value="true" th:field="*{eSsh}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa3" th:value="true" th:field="*{eSsh}"/>
-				<label for="ssa3">Subsidized Housing</label>
+				<p class="eChoices">SSI
+					<input class="form-control eChoices" type="checkbox" id="ssa4" th:value="true" th:field="*{eSsi}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa4" th:value="true" th:field="*{eSsi}"/>
-				<label for="ssa4">SSI</label>
+				<p class="eChoices">SSDI
+					<input class="form-control eChoices" type="checkbox" id="ssa5" th:value="true" th:field="*{eSsdi}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa5" th:value="true" th:field="*{eSsdi}"/>
-				<label for="ssa5">SSDI</label>
+				<p class="eChoices">WIC
+					<input class="form-control eChoices" type="checkbox" id="ssa6" th:value="true" th:field="*{eWic}"/>
+				</p>
 				
-				<input class="form-control eChoices" type="checkbox" id="ssa6" th:value="true" th:field="*{eWic}"/>
-				<label for="ssa6">WIC</label>
-				
-				<input class="form-control eChoices" type="checkbox" id="ssa7" th:value="true" th:field="*{eUnemp}"/>
-				<label for="ssa7">Unemployment</label>
+				<p class="eChoices">Unemployment
+					<input class="form-control eChoices" type="checkbox" id="ssa7" th:value="true"
+					       th:field="*{eUnemp}"/>
+				</p>
 			</div>
 			
-			<div class="fb-text form-group field-fel">
-				<p>Have you every been convicted of a felony or misdemeanor?</p>
-				<input class="form-control" type="radio" id="felChoice"
-				       th:field="*{eFelConvict}" value="yes"/>
-				<label for="dtChoice">Yes</label>
-				<input class="form-control" type="radio" id="felChoice2"
-				       th:field="*{eFelConvict}" value="no"/>
-				<label for="dtChoice2">No</label>
+			<div class="fb-text form-group last-sec field-fel">
+				<h4>Have you every been convicted of a felony or misdemeanor?</h4>
+				<p class="eChoices">
+					Yes
+					<input class="form-control" type="radio" id="felChoice"
+					       th:field="*{eFelConvict}" value="yes"/>
+				</p>
+				
+				<p class="eChoices">
+					No
+					<input class="form-control" type="radio" id="felChoice2"
+					       th:field="*{eFelConvict}" value="no"/>
+				</p>
 				<div>
 					<textarea class="hidden felCon" th:field="*{eFcExplanation}"></textarea>
 				</div>
 			</div>
 			
-			<div class="fb-text form-group field-disa">
-				<p>Do you have a disability?</p>
+			<div class="fb-text form-group last-sec field-disa">
+				<h4>Do you have a disability?</h4>
 				
-				<input class="form-control" type="radio" id="disaChoice"
-				       th:field="*{eDisability}" value="yes"/>
-				<label for="dtChoice">Yes</label>
+				<p class="eChoices">
+					Yes
+					<input class="form-control" type="radio" id="disaChoice"
+					       th:field="*{eDisability}" value="yes"/>
+				</p>
 				
-				<input class="form-control" type="radio" id="disaChoice2"
-				       th:field="*{eDisability}" value="no"/>
-				<label for="dtChoice2">No</label>
+				<p class="eChoices">
+					No
+					<input class="form-control" type="radio" id="disaChoice2"
+					       th:field="*{eDisability}" value="no"/>
+				</p>
 				
 				<div>
 					<textarea class="hidden disab" th:field="*{eDisExplanation}"></textarea>
@@ -414,26 +427,40 @@
 			</div>
 			
 			<div class="fb-text form-group field-milSrv">
-				<p>Have you served in the military</p>
-				<input class="form-control" type="text" id="milChoice"
-				       th:field="*{eMilitarySrv}"/>
-				<label for="milChoice">Branch?</label>
+				<h4>Have you served in the military</h4>
+				<p class="eChoices">Branch?
+					<input class="form-control" type="text" id="milChoice"
+					       th:field="*{eMilitarySrv}"/>
+				</p>
 				
-				<p>Are you a military spouse/dependent?</p>
-				<input class="form-control" type="radio" id="msChoice"
-				       th:field="*{eMilSpouse}" value="yes"/>
-				<label for="msChoice">Yes</label>
+				<h4>Are you a military spouse/dependent?</h4>
+				<p class="eChoices">
+					Yes
+					<input class="form-control" type="radio" id="msChoice"
+					       th:field="*{eMilSpouse}" value="yes"/>
+				</p>
 				
-				<input class="form-control" type="radio" id="msChoice2"
-				       th:field="*{eMilSpouse}" value="no"/>
-				<label for="msChoice2">No</label>
+				<p>
+					No
+					<input class="form-control" type="radio" id="msChoice2"
+					       th:field="*{eMilSpouse}" value="no"/>
+				</p>
 				
-				<p>If you were referred, please tell us how.</p>
+				<h4>If you were referred, please tell us how.</h4>
+				
 				<input class="form-control" type="text" th:field="*{eReferralSrc}"/>
 			</div>
-			<p>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</p>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 			<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
+		</fieldset>
+		
+		<fieldset>
+			
+			<div class="fb-text form-group field-finish">
+				<h3>Thank you for filling this out, we will get in touch with you as soon as we can.</h3>
+				<a th:href="@{/index}"><input type="button" class="color-change"/></a>
+			</div>
+		
 		</fieldset>
 	</form>
 </div>
