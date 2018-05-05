@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/"
+>
+<head th:replace="fragments/head :: head('Admin Dashboard')"></head>
+
+<body>
+<nav th:replace="fragments/admin-nav :: admin-nav"></nav>
+<div class="flex">
+	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	<h1>View your Applicant Demographics</h1>
+	
+	<p>We understand how important knowing your applicants is. A pleasant feature shown below is a list of compiled
+		demographics based on applicant information. This information is based on user input and may not show every data
+		type
+		(ie. if there's an unusual input entered by the user), but it gives its viewer a general idea of the individual
+		statistics.
+		Simply click a button to display a Pie-Chart of the data.</p>
+	
+	<button onclick="drawChart('/graphEthnicity', ['Ethnicity', '#'])">Ethnicities</button>
+	<button onclick="drawChart('/graphCity', ['City', '#'])">City</button>
+	<button onclick="drawChart('/graphMarital', ['Marital Status', '#'])">Marital Status</button>
+	<button onclick="drawChart('/graphDegree', ['Degree', '#'])">Degree Levels</button>
+	<button onclick="drawChart('/graphGender', ['Gender', '#'])">Genders</button>
+	<button onclick="drawChart('/graphFam', ['Family/Living Status', '#'])">Family/Living Status</button>
+	<button onclick="drawChart('/graphDrug', ['Drug Test', '#'])">Drug Test?</button>
+	<button onclick="drawChart('/graphAid', ['Federal Aid', '#'])">Federal Aid Packages</button>
+	<button onclick="drawChart('/graphMilitaryService', ['Military Service', '#'])">Military Service</button>
+	<button onclick="drawChart('/graphMilitarySpouse', ['Military Spouse', '#'])">Military Spouse</button>
+	<button onclick="drawChart('/graphReferral', ['Referral', '#'])">Referral</button>
+	<button onclick="drawChart('/graphCareerInterest', ['Career Interest', '#'])">Career Interests</button>
+	<div>
+		<div id="piechart" class=""></div>
+	</div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

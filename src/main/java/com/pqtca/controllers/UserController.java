@@ -2,6 +2,7 @@ package com.pqtca.controllers;
 
 import com.pqtca.models.User;
 import com.pqtca.repos.UserRepo;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @Controller
 public class UserController {
@@ -25,74 +27,14 @@ public class UserController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @GetMapping("/admin/register")
-    public String showSignUpForm(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        return "admin/register";
+    @GetMapping(value = {"/", "/home", "/index", ""})
+    public String home() {
+        return "index";
     }
 
-    @PostMapping("/admin/register")
-    public String registerUser(@Valid User user, Errors errors, Model model
-    ) {
-        if(errors.hasErrors()) {
-            model.addAttribute("message", "There are errors here...");
-            return "admin/register";
-        }
-
-        String hash = passwordEncoder.encode(user.getPassword());
-        user.setPassword(hash);
-        usersDao.save(user);
-        return "redirect:/admin/success";
-    }
-
-    @GetMapping("/admin/login")
-    public String showLoginForm(Model model) {
-        Object person = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-       System.out.println("Who am i?" + person);
-//ADDED BY ALLIE
-       if(person instanceof String) {
-           return "admin/login";
-       }
-
-       long userId = ((User) person).getId();
-
-       User user = usersDao.findOne(userId);
-
-       String username = user.getUsername();
-
-
-        model.addAttribute("username", username);
-        //ADDED BY ALLIE
-        return "redirect:/app";
-    }
-
-    @GetMapping("/admin/success")
-    public String success(){
-        return "admin/success";
-    }
-
-
-    @GetMapping(value = {"/admin"})
-    public String adminDash(Model model) {
-
-        return "admin/admin-dashboard";
-    }
-
-
-    @GetMapping(value = {"/complete"})
-    public String adminCompleteApps() {
-        return "admin/admin-complete";
-    }
-
-    @GetMapping(value = {"/devTeam"})
-    public String adminDevTeam() {
-        return "/dev-team";
-    }
-
-    @GetMapping(value = {"/user"})
+    @GetMapping("/user")
     public String userDash() {
-        return "user/user-profile";
+        return "user/profile";
     }
 
     @GetMapping(value = {"/user-app"})
@@ -100,7 +42,6 @@ public class UserController {
         return "user/user-profile-application";
     }
 
-//set up for user editing their profile information
     @GetMapping("/user/edit")
     public String userShowEditProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

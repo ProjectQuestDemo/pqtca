@@ -1,13 +1,18 @@
 package com.pqtca.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Role;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
 public class User  {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private long id;
 
     @Column(name= "user_name" ,nullable = false, unique = true, length = 45)
@@ -26,39 +31,45 @@ public class User  {
     private String password;
 
     @Column(nullable = false)
-    private boolean isAdmin;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
-    public User(long id, String username, String firstName, String lastName, String email, String password, boolean isAdmin) {
-        this.id = id;
+    public User(String username, String firstName, String lastName, String email, String password, Role role) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.isAdmin = isAdmin;
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(String username, String firstName, String lastName, String email, String password) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
+        this.role = role;
     }
 
     public User() {
     }
 
-    User(User copy) {
-        id = copy.id;
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
+    public User(User copy) {
+        this.id = copy.id;
+        this.email = copy.email;
+        this.username = copy.username;
+        this.firstName = copy.firstName;
+        this.lastName= copy.lastName;
+        this.password = copy.password;
+        this.role = copy.role;
+    }
+
+    public class UserCreateForm {
+
+        @NotEmpty
+        private String email = "";
+
+        @NotEmpty
+        private String password = "";
+
+        @NotEmpty
+        private String passwordRepeated = "";
+
+        @NotNull
+        private Role role = Role.USER;
+
     }
 
 
@@ -111,11 +122,7 @@ public class User  {
         this.password = password;
     }
 
-    public boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
+    public enum Role {
+        USER, ADMIN
     }
 }

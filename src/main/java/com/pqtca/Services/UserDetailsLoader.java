@@ -1,29 +1,26 @@
 package com.pqtca.Services;
 
-import com.pqtca.models.UserWithRoles;
 import com.pqtca.models.User;
+import com.pqtca.models.UserWithRoles;
 import com.pqtca.repos.UserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-
 @Service
 public class UserDetailsLoader implements UserDetailsService {
-    private UserRepo usersDao;
-
-    public UserDetailsLoader(UserRepo usersDao) {
-        this.usersDao = usersDao;
+    private UserRepo userDao;
+    public UserDetailsLoader(UserRepo userDao) {
+        this.userDao = userDao;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = usersDao.findByUsername(username);
+        User user = userDao.findByUsername(username);
         if (user == null) {
-            throw new UsernameNotFoundException(String.format("No username: %s found", username));
+            throw new UsernameNotFoundException("No user found for " + username);
         }
-        UserWithRoles userWithRoles = new UserWithRoles(user);
-        return userWithRoles;
+        return new UserWithRoles(user);
     }
 }

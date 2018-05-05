@@ -1,16 +1,20 @@
-package com.pqtca;
+package com.pqtca.Services;
 
-import com.pqtca.Services.UserDetailsLoader;
+import com.pqtca.models.UserWithRoles;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
+@EnableWebSecurity
+@ComponentScan(basePackageClasses = UserWithRoles.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private UserDetailsLoader usersLoader;
@@ -32,32 +36,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        /* User Login */
         http
-                /* Login configuration */
-                .formLogin()
-                .loginPage("/admin/login")
-                .defaultSuccessUrl("/admin") // user's home page, it can be any URL
-                .permitAll() // Anyone can go to the login page
-                /* Logout configuration */
-                .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/admin/login?logout") // append a query string value
-                /* Pages that can be viewed without having to log in */
-                .and()
                 .authorizeRequests()
-                .antMatchers("/") // anyone can see the home and the * pages
-                .permitAll()
-                /* Pages that require athentication */
+                    .antMatchers("/index", "/", "/home", "/resources/**", "/**")
+                        .permitAll()
+
+
                 .and()
-                .authorizeRequests()
-                .antMatchers(
-                        "/admin" // only authenticated view admin page
-//                        "/posts/{id}/edit"// only authenticated users can edit ads
-                )
-                .authenticated()
-        ;
+                    .formLogin()
+                        .loginPage("/login")
+                        .permitAll()
+                .and()
+                    .logout()
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll();
     }
+
 }
