@@ -76,7 +76,7 @@
 			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 		</header>
 		
-		<div class="container info-section">
+		<div id="divSec" class="container info-section">
 			<!-- TODO: Fix location of close button -->
 			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
 			<h3 class="title">Admin Dashboard</h3>
@@ -89,18 +89,25 @@
 				one of the drop down options in the demographic section.
 			</p>
 		</div>
-		<div class="container application-section">
+		<div id="divSec2" class="container application-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
-			<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
-			<p class="banner-txt">
-				Application
-			</p>
-			<div id="app" class="app"></div>
+			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">Close</button>
+			<div th:if="${application.id == null}">
+				<p class="banner-txt">
+					To review an application, use the side navigation to make a selection.
+				</p>
+			</div>
+			<div th:if="${application.id != null}">
+				<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
+				<p class="banner-txt">
+					Application
+				</p>
+				<div id="app" class="app"></div>
+			</div>
 		</div>
-		<div class="container demographic-section">
+		<div id="divSec3" class="container demographic-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">Close</button>
 			<h3 class="title">Demographics</h3>
 			<p class="banner-txt">
 			
