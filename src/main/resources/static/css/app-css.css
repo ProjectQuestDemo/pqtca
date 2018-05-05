@@ -20,6 +20,7 @@ fieldset {
     text-align: center;
     width: 60vw;
 
+
     /*stacking fieldsets above each other*/
     position: relative;
 }
