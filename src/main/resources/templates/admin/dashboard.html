@@ -10,72 +10,103 @@
 <body>
 <nav id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
-		<h3 class="menu-section-title">Admin Dashboard</h3>
+		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
-				<button class="" onclick="drawChart('/graphCity', ['City', '#'])">City</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphMarital', ['Marital Status', '#'])">Marital Status</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphDegree', ['Degree', '#'])">Degree Levels</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphGender', ['Gender', '#'])">Genders</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphFam', ['Family/Living Status', '#'])">Family/Living Status
+				<button>
+					Pending Review
 				</button>
 			</li>
 			<li>
-				<button class="" onclick="drawChart('/graphDrug', ['Drug Test', '#'])">Drug Test?</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphAid', ['Federal Aid', '#'])">Federal Aid Packages</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphMilitaryService', ['Military Service', '#'])">Military
-					Service
+				<button>
+					Completed
 				</button>
 			</li>
 			<li>
-				<button class="" onclick="drawChart('/graphMilitarySpouse', ['Military Spouse', '#'])">Military Spouse
+				<button>
+					Export to CSV
 				</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphReferral', ['Referral', '#'])">Referral</button>
-			</li>
-			<li>
-				<button class="" onclick="drawChart('/graphCareerInterest', ['Career Interest', '#'])">Career
-					Interests
-				</button>
-			</li>
-			
-			<li>
-				<button class="" onclick="drawChart('/graphEthnicity', ['Ethnicity', '#'])">Ethnicities</button>
 			</li>
 		</ul>
 	</section>
+	<section class="menu-section">
+		<h3 class="menu-section-title">Demographic Graphs</h3>
+		<div class="menu-section-list dropdown">
+			<button class="dropbtn">Choose Graph</button>
+			<div class="dropdown-content">
+				<a href="#" class="dropbtn" onclick="drawChart('/graphMarital', ['Marital Status', '#'])">
+					Marital Status
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphCity', ['City', '#'])">City</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphDegree', ['Degree', '#'])">Degree
+					Levels
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphGender', ['Gender', '#'])">Genders
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphFam', ['Family/Living Status', '#'])">
+					Family/Living Status
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphDrug', ['Drug Test', '#'])">Drug Test?
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphAid', ['Federal Aid', '#'])">Federal Aid
+					Packages
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphMilitaryService', ['Military Service', '#'])">Military Service
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphMilitarySpouse', ['Military Spouse', '#'])">Military Spouse
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphReferral', ['Referral', '#'])">Referral
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphCareerInterest', ['Career Interest', '#'])">Career Interests
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphEthnicity', ['Ethnicity', '#'])">
+					Ethnicities
+				</a>
+			</div>
+		</div>
+	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<header>
-		<button class="toggle-button">☰</button>
-		<h2>Panel</h2>
-	</header>
-	
-	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<div class="container demographic-section">
-		<h3 class="title">View your Applicant Demographics</h3>
-		<p class="banner-txt">
-			Knowing your client is important. A pleasant feature shown below is a
-			list of compiled demographics based on applicant information. This information is based on user input
-			and may
-			not show every data type (ie. if there's an unusual input entered by the user), but it gives its viewer
-			a
-			general idea of the individual statistics. Simply click a button to display a Pie-Chart of the data.
-		</p>
-		<div id="piechart"></div>
+	<div class="flex">
+		<header>
+			<button class="btn-hamburger toggle-button">☰</button>
+			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+		</header>
+		
+		<div class="container info-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<h3 class="title">Admin Dashboard</h3>
+			<p class="banner-txt">
+				To the left are several tools to help you manage and process the information you store.
+				Take a second to orient yourself to the great features provided.
+				A pleasant feature shown below is a list of compiled demographics based on applicant information. This
+				information is based on user input and may not show every data type, but it gives its
+				viewer a general idea of the individual statistics. Check it out buy opening the menu and clicking on
+				one of the drop down options in the demographic section.
+			</p>
+		</div>
+		<div class="container application-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
+			<p class="banner-txt">
+				Application
+			</p>
+			<div id="app" class="app"></div>
+		</div>
+		<div class="container demographic-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<h3 class="title">Demographics</h3>
+			<p class="banner-txt">
+			
+			</p>
+			<div id="piechart" class="chart"></div>
+		</div>
 	</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
