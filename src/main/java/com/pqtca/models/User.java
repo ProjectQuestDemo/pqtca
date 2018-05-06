@@ -1,14 +1,11 @@
 package com.pqtca.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User  {
 
     @Id
@@ -19,12 +16,6 @@ public class User  {
     @Column(name= "user_name" ,nullable = false, unique = true, length = 45)
     private String username;
 
-    @Column(name ="first_name", nullable = false, length = 45)
-    private String firstName;
-
-    @Column(name ="last_name", nullable = false, length = 45)
-    private String lastName;
-
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -33,17 +24,10 @@ public class User  {
     @Size(min = 8, message = "Password must be a minimum length of 8 characters.")
     private String password;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-    public User(String username, String firstName, String lastName, String email, String password, Role role) {
+    public User(String username, String email, String password) {
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.role = role;
     }
 
     public User() {
@@ -53,29 +37,8 @@ public class User  {
         this.id = copy.id;
         this.email = copy.email;
         this.username = copy.username;
-        this.firstName = copy.firstName;
-        this.lastName= copy.lastName;
         this.password = copy.password;
-        this.role = copy.role;
     }
-
-    public class UserCreateForm {
-
-        @NotEmpty
-        private String email = "";
-
-        @NotEmpty
-        private String password = "";
-
-        @NotEmpty
-        private String passwordRepeated = "";
-
-        @NotNull
-        private Role role = Role.USER;
-
-    }
-
-
 
     public long getId() {
         return id;
@@ -91,22 +54,6 @@ public class User  {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -125,7 +72,4 @@ public class User  {
         this.password = password;
     }
 
-    public enum Role {
-        USER, ADMIN
-    }
 }

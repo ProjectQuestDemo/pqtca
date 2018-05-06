@@ -1,21 +1,26 @@
 package com.pqtca.models;
 
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import org.springframework.util.StringUtils;
 import java.util.Collection;
+import java.util.List;
 
 public class UserWithRoles extends User implements UserDetails{
 
-    public UserWithRoles(User user){
+    private final List<String> userRoles;
+
+    public UserWithRoles(User user, List<String> userRoles){
         super(user);
+        this.userRoles = userRoles;
     }
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String roles = "ADMIN";
+        String roles = StringUtils.collectionToCommaDelimitedString(userRoles);
         return AuthorityUtils.commaSeparatedStringToAuthorityList(roles);
     }
 

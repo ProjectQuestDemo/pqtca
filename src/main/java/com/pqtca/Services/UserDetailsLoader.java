@@ -3,16 +3,24 @@ package com.pqtca.Services;
 import com.pqtca.models.User;
 import com.pqtca.models.UserWithRoles;
 import com.pqtca.repos.UserRepo;
+import com.pqtca.repos.UserRoles;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserDetailsLoader implements UserDetailsService {
-    private UserRepo userDao;
-    public UserDetailsLoader(UserRepo userDao) {
+    private final UserRepo userDao;
+    private final UserRoles roles;
+
+    @Autowired
+    public UserDetailsLoader(UserRepo userDao, UserRoles roles) {
         this.userDao = userDao;
+        this.roles = roles;
     }
 
     @Override
@@ -21,6 +29,7 @@ public class UserDetailsLoader implements UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException("No user found for " + username);
         }
-        return new UserWithRoles(user);
+        List<String> userRoles = roles.ofUserWith(username);
+        return new UserWithRoles(user, userRoles);
     }
 }

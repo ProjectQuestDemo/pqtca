@@ -2,11 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org"
 >
 
-<head th:replace="fragments/head :: head('Admin Login')">
+<head th:replace="fragments/head :: head('Login')">
 </head>
 <body>
-	<h1>Administrator's Login</h1>
-	<form th:action="@{/admin/login}" th:method="post">
+	<form th:action="@{/login}" th:method="post">
 		<label for="username">Username</label>
 		<input id="username" name="username" type="text"/>
 		<label for="password">Password</label>
