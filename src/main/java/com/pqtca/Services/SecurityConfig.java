@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         /* User Login */
         http
                 .authorizeRequests()
-                    .antMatchers("/index", "/", "/home", "/resources/**", "/**")
+                    .antMatchers("/index", "/", "/home", "/resources/**", "/**", "/complete")
                         .permitAll()
 
 

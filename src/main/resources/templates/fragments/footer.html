@@ -4,13 +4,13 @@
 </head>
 <body>
 <footer th:fragment="footer">
+	<script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"></script>
 	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js}"></script>
 	<script th:src="@{https://www.gstatic.com/charts/loader.js}">
 	</script>
-	<script th:src="@{https://code.jquery.com/jquery-3.3.1.min.js}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous">
-	</script>
-	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js}"></script>
 	<script th:src="@{/js/dataVis.js}"></script>
+	<script th:src="@{/js/jsonReq.js}"></script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js}"></script>
 	<script>
         var slideout = new Slideout({
             'panel': document.getElementById('panel'),

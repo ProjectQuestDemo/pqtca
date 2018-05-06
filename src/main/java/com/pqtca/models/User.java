@@ -1,10 +1,11 @@
 package com.pqtca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.context.annotation.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -28,6 +29,8 @@ public class User  {
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
+    @Size(min = 8, message = "Password must be a minimum length of 8 characters.")
     private String password;
 
     @Column(nullable = false)

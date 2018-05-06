@@ -2,20 +2,13 @@ package com.pqtca.controllers;
 
 import com.pqtca.models.User;
 import com.pqtca.repos.UserRepo;
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @Controller
 public class UserController {

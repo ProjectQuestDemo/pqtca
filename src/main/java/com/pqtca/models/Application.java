@@ -1,6 +1,6 @@
 package com.pqtca.models;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -16,7 +16,7 @@ public class Application {
         ***************************************
         ***************************************
     */
-
+    @JsonManagedReference
     @Id
     @GeneratedValue
     private long id;
@@ -292,6 +292,14 @@ public class Application {
         this.appssn = appssn;
     }
 
+    public String getaMiddleName() {
+        return aMiddleName;
+    }
+
+    public void setaMiddleName(String aMiddleName) {
+        this.aMiddleName = aMiddleName;
+    }
+
     public String getaFirstName() {
         return aFirstName;
     }
@@ -308,14 +316,6 @@ public class Application {
         this.aLastName = aLastName;
     }
 
-    public String getaMiddleName() {
-        return aMiddleName;
-    }
-
-    public void setaMiddleName(String aMiddleName) {
-        this.aMiddleName = aMiddleName;
-    }
-
     public String getaDateOfBirth() {
         return aDateOfBirth;
     }
@@ -330,6 +330,14 @@ public class Application {
 
     public void setaEthnicity(String aEthnicity) {
         this.aEthnicity = aEthnicity;
+    }
+
+    public String getaGender() {
+        return aGender;
+    }
+
+    public void setaGender(String aGender) {
+        this.aGender = aGender;
     }
 
     public String getbStreetAddress() {
@@ -460,11 +468,11 @@ public class Application {
         this.dMaritalStatus = dMaritalStatus;
     }
 
-    public String getdfamilyStatus() {
+    public String getDfamilyStatus() {
         return dfamilyStatus;
     }
 
-    public void setdfamilyStatus(String dfamilyStatus) {
+    public void setDfamilyStatus(String dfamilyStatus) {
         this.dfamilyStatus = dfamilyStatus;
     }
 
@@ -498,6 +506,30 @@ public class Application {
 
     public void setdDepOverEighteen(String dDepOverEighteen) {
         this.dDepOverEighteen = dDepOverEighteen;
+    }
+
+    public String getdDepFullName() {
+        return dDepFullName;
+    }
+
+    public void setdDepFullName(String dDepFullName) {
+        this.dDepFullName = dDepFullName;
+    }
+
+    public String getdDepAge() {
+        return dDepAge;
+    }
+
+    public void setdDepAge(String dDepAge) {
+        this.dDepAge = dDepAge;
+    }
+
+    public String getdDepRelationship() {
+        return dDepRelationship;
+    }
+
+    public void setdDepRelationship(String dDepRelationship) {
+        this.dDepRelationship = dDepRelationship;
     }
 
     public boolean iseDrugTest() {
@@ -596,13 +628,12 @@ public class Application {
         this.eDisExplanation = eDisExplanation;
     }
 
-
-    public String getDfamilyStatus() {
-        return dfamilyStatus;
+    public boolean iseCitizen() {
+        return eCitizen;
     }
 
-    public void setDfamilyStatus(String dfamilyStatus) {
-        this.dfamilyStatus = dfamilyStatus;
+    public void seteCitizen(boolean eCitizen) {
+        this.eCitizen = eCitizen;
     }
 
     public String geteMilitarySrv() {
@@ -613,12 +644,44 @@ public class Application {
         this.eMilitarySrv = eMilitarySrv;
     }
 
+    public boolean iseSelectiveSrv() {
+        return eSelectiveSrv;
+    }
+
+    public void seteSelectiveSrv(boolean eSelectiveSrv) {
+        this.eSelectiveSrv = eSelectiveSrv;
+    }
+
     public boolean iseMilSpouse() {
         return eMilSpouse;
     }
 
     public void seteMilSpouse(boolean eMilSpouse) {
         this.eMilSpouse = eMilSpouse;
+    }
+
+    public String geteHS() {
+        return eHS;
+    }
+
+    public void seteHS(String eHS) {
+        this.eHS = eHS;
+    }
+
+    public boolean iseCollegeDegree() {
+        return eCollegeDegree;
+    }
+
+    public void seteCollegeDegree(boolean eCollegeDegree) {
+        this.eCollegeDegree = eCollegeDegree;
+    }
+
+    public String geteCollegeLocation() {
+        return eCollegeLocation;
+    }
+
+    public void seteCollegeLocation(String eCollegeLocation) {
+        this.eCollegeLocation = eCollegeLocation;
     }
 
     public String geteReferralSrc() {
@@ -691,77 +754,5 @@ public class Application {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public String getaGender() {
-        return aGender;
-    }
-
-    public void setaGender(String aGender) {
-        this.aGender = aGender;
-    }
-
-    public String getdDepFullName() {
-        return dDepFullName;
-    }
-
-    public void setdDepFullName(String dDepFullName) {
-        this.dDepFullName = dDepFullName;
-    }
-
-    public String getdDepAge() {
-        return dDepAge;
-    }
-
-    public void setdDepAge(String dDepAge) {
-        this.dDepAge = dDepAge;
-    }
-
-    public String getdDepRelationship() {
-        return dDepRelationship;
-    }
-
-    public void setdDepRelationship(String dDepRelationship) {
-        this.dDepRelationship = dDepRelationship;
-    }
-
-    public boolean iseCitizen() {
-        return eCitizen;
-    }
-
-    public void seteCitizen(boolean eCitizen) {
-        this.eCitizen = eCitizen;
-    }
-
-    public boolean iseSelectiveSrv() {
-        return eSelectiveSrv;
-    }
-
-    public void seteSelectiveSrv(boolean eSelectiveSrv) {
-        this.eSelectiveSrv = eSelectiveSrv;
-    }
-
-    public String geteHS() {
-        return eHS;
-    }
-
-    public void seteHS(String eHS) {
-        this.eHS = eHS;
-    }
-
-    public boolean iseCollegeDegree() {
-        return eCollegeDegree;
-    }
-
-    public void seteCollegeDegree(boolean eCollegeDegree) {
-        this.eCollegeDegree = eCollegeDegree;
-    }
-
-    public String geteCollegeLocation() {
-        return eCollegeLocation;
-    }
-
-    public void seteCollegeLocation(String eCollegeLocation) {
-        this.eCollegeLocation = eCollegeLocation;
     }
 }

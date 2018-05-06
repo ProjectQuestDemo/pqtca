@@ -2,7 +2,6 @@ package com.pqtca.repos;
 
 import com.pqtca.models.Application;
 import com.pqtca.models.User;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
