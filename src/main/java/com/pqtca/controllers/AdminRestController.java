@@ -1,12 +1,14 @@
 package com.pqtca.controllers;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -25,14 +27,9 @@ public class AdminRestController {
     @GetMapping("/complete")
     public @ResponseBody
     String apps () {
-        Gson gson = new Gson();
-        HashMap<String, String> map = new HashMap<>();
-
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Application> apps = appDao.findAll();
-        for(Application app : apps) {
-            map.put("name", app.getaFirstName() + " " + app.getaLastName());
-        }
-        return gson.toJson(map);
+        return gson.toJson(apps);
     }
 
     /**
