@@ -1,9 +1,6 @@
 package com.pqtca.models;
 
-import com.pqtca.repos.UserRoles;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "user_roles")

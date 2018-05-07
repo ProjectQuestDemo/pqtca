@@ -13,7 +13,7 @@ function req(url) {
     const buildHtml = data => {
         let newHtml = '';
         data.forEach(el => newHtml +=
-            `<a href="/complete#${el.id}">${el.aFirstName} ${el.aLastName}</a><br/>`);
+            `<a href="/show=${el.id}">${el.aFirstName} ${el.aLastName}</a><br/>`);
         return $('#apps').html(heading + newHtml);
     };
 }
