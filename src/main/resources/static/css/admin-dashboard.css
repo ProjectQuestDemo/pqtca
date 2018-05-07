@@ -207,7 +207,7 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
  */
 .btn-hamburger {
     font-size: x-large;
-    border: 1px solid;
+    border: none;
     border-radius: 7px;
     margin: auto;
     position: absolute;
