@@ -31,7 +31,7 @@ public class UserController {
         this.userDetailsService = userDetailsService;
     }
 
-    @GetMapping(value = {"/", "/home", "/index", ""})
+    @GetMapping({"/", "/home", "/index", ""})
     public String home() {
         return "index";
     }

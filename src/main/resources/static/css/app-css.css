@@ -1,16 +1,17 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box
 }
 html {
     font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
+    line-height: 1.6em;
 }
 body {
     background-color: #4a87db;
 }
 
 label {
+    color: #000;
     display: block;
     margin-bottom: 1em;
 }
@@ -18,13 +19,14 @@ label {
 p {margin-bottom: 1em;}
 
 h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
     color: #4a87db;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
 }
 
 fieldset {
     background-color: #e1e1e1;
-    border-radius: 20px;
+    border-radius: 7px;
     height: auto;
     margin: auto;
     padding: 2em;
@@ -69,8 +71,8 @@ legend {
 
 .color-change {
     text-align: center;
-    margin-top: 2em;
-    border-radius: 15px;
+    margin-top: 1em;
+    border-radius: 7px;
     width: 23vw;
     cursor: pointer;
     color: #fff;
@@ -185,6 +187,6 @@ fieldset:not(:first-of-type) {
 
     .color-change {
         width: 10vw;
-        font-size: 1.3em;
+        font-size: 1em;
     }
 }
