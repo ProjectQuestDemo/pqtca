@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('Profile')"></head>
+<body>
+<div class="flex">
+<h5> Please change the information you'd like to update.</h5>
+<div class="">
+	<form th:action="@{profile/edit}" th:method="post" th:object="${user}">
+		<div class="form-group">
+			<label for="firstName">First Name:</label>
+			<input type="text" class="form-control" id="firstName" th:field="*{user.aFirstName}"/>
+		</div>
+		<div class="form-group">
+			<label>Last Name:</label>
+			<input type="text" class="form-control" id="lastName"/>
+		</div>
+		<div class="form-group">
+			<label for="username" class="col-form-label">Username:
+			</label>
+			<input type="text" class="form-control" id="username"/>
+		</div>
+		<div class="form-group">
+			<label for="email" class="col-form-label">Email:
+			</label>
+			<input type="text" class="form-control" id="email"/>
+		</div>
+		<div class="form-group">
+			<label for="password" class="col-form-label">Password:
+			</label>
+			<input type="text" class="form-control" id="password"/>
+		</div>
+		<div class="form-group">
+			<label for="passwordconfirm" class="col-form-label">Confirm Password:
+			</label>
+			<input type="text" class="form-control" id="passwordconfirm"/>
+		</div>
+		<button type="button" class="color-change" data-dismiss="modal">Close</button>
+		<button type="button" class="color-change">Save changes</button>
+	</form>
+</div>
+	<h5>Have you applied yet?</h5>
+	<a th:href="@{/app}">
+		<button class="color-change" type="button">Begin an Application</button>
+	</a>
+</div>
+
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

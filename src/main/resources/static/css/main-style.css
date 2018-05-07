@@ -4,88 +4,220 @@
     Main Color Hex Value : #e1e1e1
     Button Hex Value : #43c5f0
  **/
-
-html, body {
-    /* Fonts used throughout site*/
-    font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
+html,
 body {
-    background-color: #3887e2;
-    height: 100vh;
+    font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
+    margin: 0 auto;
+    color: #222;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
 }
 
-.container {
-    display: grid;
-    /**
-        Sample of how to use css-grid for EXACTLY what we want
-        Allows for easier mobile --> desktop configurations
-    **/
-
-    grid-template-areas: "header header header" "aside nav nav" "aside section section" "main main main" "footer footer footer";
-    /**
-        Height of parent container must be 100% or equivalent viewport units
-    **/
-    height: 100vh;
+a {
+    box-sizing: unset;
+    text-decoration: none;
 }
 
-/**
-    Sections temporarily color coded to provide
-    better grasp of positioning before final design
-**/
-header {
-    background-color: red;
-    grid-area: header;
+.panel {
+    color: #fff;
+    background-color: #4a87db;
 }
 
-nav {
-    background-color: blue;
-    grid-area: nav;
+.menu {
+    background-color: #4a87db;
+    background-image: linear-gradient(145deg, #4a87db, #5a6b88);
 }
 
-main {
-    background-color: green;
-    grid-area: main;
-}
-
-#piechart {
-    background-color: teal;
-    grid-area: section;
-}
-
-aside {
-    background-color: purple;
-    grid-area: aside;
-}
-
-footer {
-    background-color: orange;
-    grid-area: footer;
-}
-
-
-/*
-    Styling for the signature pad
-*/
-.signature-pad {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    font-size: 10px;
+.menu button {
+    color: white;
+    font: inherit;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+    -webkit-appearance: button;
+    cursor: pointer;
     width: 100%;
-    height: 100%;
-    max-width: 700px;
-    max-height: 460px;
-    border: 1px solid #e8e8e8;
-    background-color: #3887e2;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
-    border-radius: 4px;
-    padding: 16px;
+    background-color: #4a87db;
+    background-image: linear-gradient(145deg, #4a87db, #5a6b88);
+}
+
+.menu button:hover {
+    color: #54b4ff;
+    background-color: #43c5f0;
+}
+
+.menu-section {
+    margin: 25px 0;
+}
+
+.menu-section-title {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-weight: 200;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    padding: 1.2em;
+    margin: auto;
+}
+
+.menu-section-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.menu-section-list button {
+    border: none;
+    display: block;
+    padding: 10px 20px;
+}
+
+.menu-section-list button:hover {
+    background-color: rgba(145, 232, 202, 0.54);
+    text-decoration: none;
+}
+/**
+ * hamburger
+ */
+.btn-hamburger {
+    color: white;
+    font-size: x-large;
+    margin: auto;
+    border: none;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    outline: none;
+    background: url('../images/menu.png') no-repeat left center;
+}
+
+@media all and (min-width: 40em) {
+
+    .btn-hamburger {
+        top: 20px;
+        left: 30px;
+    }
+
+    .panel-header {
+        margin-top: 40px;
+        width: 455px;
+    }
+}
+/**
+ * Slideout module styles
+ */
+.slideout-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 256px;
+    min-height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+}
+
+.slideout-menu-left {
+    left: 0;
+}
+
+.slideout-menu-right {
+    right: 0;
+}
+
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    min-height: 100vh;
+}
+
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+}
+
+.slideout-open .slideout-menu {
+    display: block;
+}
+
+/* Animation
+---------------------------------- */
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-iteration-count: 4;
+    animation-iteration-count: 4;
+}
+
+.dropbtn {
+    width: 100%;
+    background-color: #4a87db;
+    background-image: linear-gradient(145deg, #4a87db, #5a6b88);
+}
+
+.dropdown {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    margin: auto;
+    width: 100%;
+    color: #fff;
+    padding: 1em 0;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    color: #54b4ff;
+    background-color: #43c5f0;
+
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }

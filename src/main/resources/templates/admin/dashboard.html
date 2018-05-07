@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Admin Dashboard</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet"/>
+	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}"/>
+</head>
+<body>
+<nav id="menu" class="menu slideout-menu slideout-menu-left">
+	<section class="menu-section">
+		<h3 class="menu-section-title">Applications Received</h3>
+		<ul class="menu-section-list">
+			<li>
+				<button>
+					Pending Review
+				</button>
+			</li>
+			<li>
+				<button onclick="req('/complete')">Complete</button>
+			</li>
+			<li>
+				<button>
+					Export to CSV
+				</button>
+			</li>
+		</ul>
+	</section>
+	<section class="menu-section">
+		<h3 class="menu-section-title">Demographic Graphs</h3>
+		<div class="menu-section-list dropdown">
+			<button class="dropbtn">Choose Graph</button>
+			<div class="dropdown-content">
+				<a href="#" class="dropbtn" onclick="drawChart('/graphMarital', ['Marital Status', '#'])">
+					Marital Status
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphCity', ['City', '#'])">City</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphDegree', ['Degree', '#'])">Degree
+					Levels
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphGender', ['Gender', '#'])">Genders
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphFam', ['Family/Living Status', '#'])">
+					Family/Living Status
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphDrug', ['Drug Test', '#'])">Drug Test?
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphAid', ['Federal Aid', '#'])">Federal Aid
+					Packages
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphMilitaryService', ['Military Service', '#'])">Military Service
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphMilitarySpouse', ['Military Spouse', '#'])">Military Spouse
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphReferral', ['Referral', '#'])">Referral
+				</a>
+				<a href="#" class="dropbtn"
+				   onclick="drawChart('/graphCareerInterest', ['Career Interest', '#'])">Career Interests
+				</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphEthnicity', ['Ethnicity', '#'])">
+					Ethnicities
+				</a>
+			</div>
+		</div>
+	</section>
+</nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
+	<div class="flex">
+		<header>
+			<button class="btn-hamburger toggle-button">☰</button>
+			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+		</header>
+		
+		<div id="divSec" class="container info-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<h3 class="title">Admin Dashboard</h3>
+			<p class="banner-txt">
+				To the left are several tools to help you manage and process the information you store.
+				Take a second to orient yourself to the great features provided.
+				A pleasant feature shown below is a list of compiled demographics based on applicant information. This
+				information is based on user input and may not show every data type, but it gives its
+				viewer a general idea of the individual statistics. Check it out buy opening the menu and clicking on
+				one of the drop down options in the demographic section.
+			</p>
+		</div>
+		<div id="divSec2" class="container application-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">Close</button>
+			<div id="apps" th:if="${application.id == null}">
+				<p class="banner-txt">
+					To review an application, use the side navigation to make a selection.
+				</p>
+			</div>
+			<div th:if="${application.id != null}">
+				<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
+				<p class="banner-txt">
+					Application
+				</p>
+				<div id="app" class="app"></div>
+			</div>
+		</div>
+		<div id="divSec3" class="container demographic-section">
+			<!-- TODO: Fix location of close button -->
+			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">Close</button>
+			<h3 class="title">Demographics</h3>
+			<p class="banner-txt">
+			
+			</p>
+			<div id="piechart" class="chart"></div>
+		</div>
+	</div>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

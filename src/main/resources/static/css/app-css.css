@@ -1,23 +1,37 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: content-box
+}
+html {
+    font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
+    line-height: 1.6em;
+}
+body {
+    background-color: #4a87db;
+}
+
+label {
+    color: #000;
+    display: block;
+    margin-bottom: 1em;
 }
 
 p {margin-bottom: 1em;}
 
-h6 {margin-bottom: 2em;}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 200;
+    color: #4a87db;
+    margin-bottom: 2em;
+}
 
 fieldset {
     background-color: #e1e1e1;
-    border-radius: 20px;
+    border-radius: 7px;
     height: auto;
     margin: auto;
     padding: 2em;
     text-align: center;
     width: 60vw;
-
-    /*stacking fieldsets above each other*/
     position: relative;
 }
 
@@ -57,15 +71,15 @@ legend {
 
 .color-change {
     text-align: center;
-    margin-top: 2em;
-    border-radius: 15px;
+    margin-top: 1em;
+    border-radius: 7px;
     width: 23vw;
     cursor: pointer;
     color: #fff;
     background-color: #43c5f0;
     font-size: 0.9em;
     padding: 0.6em;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     border: 1px solid #fff;
     box-shadow: 2px 2px 5px #AFE9FF;
@@ -86,9 +100,10 @@ input.color-change {
 }
 
 .eChoices {
-    display: block;
     width: auto;
-    padding: 0.6em;
+    margin: 0.6em;
+    padding-right: 0.6em;
+    align-self: right;
 }
 
 /*progressbar*/
@@ -153,7 +168,6 @@ input.color-change {
     position: relative;
 }
 
-/*Hide all except first fieldset*/
 fieldset:not(:first-of-type) {
     display: none;
 }
@@ -163,23 +177,16 @@ fieldset:not(:first-of-type) {
 }
 
 @media only screen and (min-width: 992px) {
-    .app-section {
-        max-width: 40vw;
-    }
 
-    .form-group > input {
-        width: 20vw;
+    fieldset {
+        width: 40vw;
     }
-
-    .ssn {
-        width: 7vw;
-        border-radius: 7px;
-        font-size: 1em;
-        text-align: center;
+    input, select {
+        width: 30vw;
     }
 
     .color-change {
         width: 10vw;
-        font-size: 1.3em;
+        font-size: 1em;
     }
 }

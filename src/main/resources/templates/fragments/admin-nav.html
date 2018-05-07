@@ -5,38 +5,34 @@
 </head>
 <body>
 
-<div class="wrapper" th:fragment="admin-nav">
+<nav class="wrapper" th:fragment="admin-nav">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
+            
             <ul class="sidebar-nav">
+                <li th:text="${#authentication.getPrincipal()}"></li>
                 <li class="sidebar-brand">
                     <a href="#">
-                        <img id="project-quest-logo" src="/images/quest.png" alt=""/>
+                        <img th:src="@{/images/quest.png}" alt="PQ Logo"/>
                     </a>
                 </li>
                 <li>
-
-                        <p id="hello-admin">Hello, <span th:text="${username}"></span></p>
-
-                        <!--TODO diagnose why info from UserController isn't displaying username-->
+                    <a th:href="@{/admin}">Home</a>
                 </li>
                 <li>
-                    <a href="/admin">Home</a>
-                </li>
-                <li>
-                    <a href="/complete">Completed Applications</a>
+                    <a th:href="@{/complete}">Completed Applications</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" id="logout">
-                    <a href="/logout">Logout</a>
+                    <a th:href="@{/logout}">Logout</a>
                 </li>
                 <li id="dev-li">
-                    <img id="programmer" src="/images/programmer.svg" alt=""/>
-                    <a href="/devTeam">Meet our Dev Team</a>
+                    <img id="programmer" th:src="@{/images/programmer.svg}" alt="Picture of programmer"/>
+                    <a th:href="@{/devTeam}">Meet our Dev Team</a>
                 </li>
             </ul>
         </div>
-</div>
+</nav>
 
 </body>
 </html>

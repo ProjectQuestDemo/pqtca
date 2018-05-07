@@ -1,67 +1,44 @@
 package com.pqtca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User  {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, updatable = false)
     private long id;
 
     @Column(name= "user_name" ,nullable = false, unique = true, length = 45)
     private String username;
 
-    @Column(name ="first_name", nullable = false, length = 45)
-    private String firstName;
-
-    @Column(name ="last_name", nullable = false, length = 45)
-    private String lastName;
-
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
+    @JsonIgnore
+    @Size(min = 8, message = "Password must be a minimum length of 8 characters.")
     private String password;
-
-    @Column(nullable = false)
-    private boolean isAdmin;
-
-    public User(long id, String username, String firstName, String lastName, String email, String password, boolean isAdmin) {
-        this.id = id;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.isAdmin = isAdmin;
-    }
-
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(String username, String firstName, String lastName, String email, String password) {
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-    }
 
     public User() {
     }
 
-    User(User copy) {
-        id = copy.id;
-        email = copy.email;
-        username = copy.username;
-        password = copy.password;
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
-
+    User(User copy) {
+        this.id = copy.id;
+        this.email = copy.email;
+        this.username = copy.username;
+        this.password = copy.password;
+    }
 
     public long getId() {
         return id;
@@ -77,22 +54,6 @@ public class User  {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -111,11 +72,4 @@ public class User  {
         this.password = password;
     }
 
-    public boolean getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
 }
