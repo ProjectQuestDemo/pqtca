@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('nav')">
+</head>
+<body>
+
+<nav th:fragment="nav" id="menu" class="menu slideout-menu slideout-menu-left">
+	<section class="menu-section">
+		<h3 class="menu-section-title">Project Quest</h3>
+		<ul class="menu-section-list">
+			<li>
+				<a th:href="@{/index}">
+					<button>Home</button>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<button>About</button>
+				</a>
+			</li>
+			<li>
+				<a th:href="@{/register}">
+					<button>Register</button>
+				</a>
+			</li>
+		</ul>
+	</section>
+</nav>
+</body>
+</html>
