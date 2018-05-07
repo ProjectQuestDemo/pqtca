@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments/head :: head('Register')">
+<head th:replace="fragments/head :: head('Admin Register')">
 </head>
 <body>
 <div class="flex">
     <img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-    <form id="msform" th:action="@{/register}" th:method="POST" th:object="${user}">
+    <form id="msform" th:action="@{/admin/register}" th:method="POST" th:object="${user}">
         <fieldset>
-            <div class="fb-text form-group last-sec field-Admin">
-                <h4>Is New User Admin?</h4>
-                <p>Yes
-                    <input class="form-control eChoices" type="radio" id="dtChoice"
-                           th:field="*{userRole.role}" value="ROLE_ADMIN"/>
-                </p>
 
-                <p>No
-                    <input class="form-control eChoices" type="radio" id="dtChoice2"
-                           th:field="*{userRole.role}" value="ROLE_USER"/>
-                </p>
-            </div>
             <div class="fb-text form-group field-username">
                 <label>Username</label>
                 <input type="text" placeholder="Username"
@@ -46,7 +35,8 @@
                 <input type="password" placeholder="Confirm Password"
                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
                        minlength="8" title="Please include at least 1 uppercase character,
-				       1 lowercase character, and 1 number." th:field="*{password}"
+				       1 lowercase character, and 1 number."
+
                        required="required" aria-required="true" />
             </div>
             <input type="submit" class="color-change" name="Submit" value="Submit"/>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -24,6 +24,11 @@
 				<button>
 					Export to CSV
 				</button>
+			</li>
+			<li sec:authorize="isAuthenticated()">
+				<form th:action="@{/logout}" th:method="post">
+					<button class="btn-link btn">Logout</button>
+				</form>
 			</li>
 		</ul>
 	</section>
