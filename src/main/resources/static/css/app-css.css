@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: content-box
 }
+html {
+    font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
+}
+body {
+    background-color: #4a87db;
+}
 
 label {
     display: block;
@@ -24,9 +30,6 @@ fieldset {
     padding: 2em;
     text-align: center;
     width: 60vw;
-
-
-    /*stacking fieldsets above each other*/
     position: relative;
 }
 
@@ -74,7 +77,7 @@ legend {
     background-color: #43c5f0;
     font-size: 0.9em;
     padding: 0.6em;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-weight: 100;
     border: 1px solid #fff;
     box-shadow: 2px 2px 5px #AFE9FF;
@@ -163,7 +166,6 @@ input.color-change {
     position: relative;
 }
 
-/*Hide all except first fieldset*/
 fieldset:not(:first-of-type) {
     display: none;
 }
@@ -175,7 +177,7 @@ fieldset:not(:first-of-type) {
 @media only screen and (min-width: 992px) {
 
     fieldset {
-        width: 50vw;
+        width: 40vw;
     }
     input, select {
         width: 30vw;

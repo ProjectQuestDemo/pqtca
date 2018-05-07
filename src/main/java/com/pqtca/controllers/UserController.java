@@ -1,6 +1,5 @@
 package com.pqtca.controllers;
 
-import com.pqtca.Services.UserDetailsLoader;
 import com.pqtca.models.User;
 import com.pqtca.models.UserRole;
 import com.pqtca.repos.UserRepo;
@@ -22,13 +21,14 @@ public class UserController {
     private final UserRepo usersDao;
     private final PasswordEncoder passwordEncoder;
     private final UserRoles userRoles;
-    private final UserDetailsLoader userDetailsService;
+    private final UserDetailsService userDetailsService;
 
-    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserDetailsService userDetailsService, UserDetailsLoader userDetailsService1) {
+
+    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserDetailsService userDetailsService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.userRoles = userRoles;
-        this.userDetailsService = userDetailsService1;
+        this.userDetailsService = userDetailsService;
     }
 
     @GetMapping(value = {"/", "/home", "/index", ""})
@@ -75,7 +75,7 @@ public class UserController {
         userRoles.save(userRole);
 
         model.addAttribute("user", user);
-        return "redirect:/profile";
+        return "redirect:/login";
     }
 
     @GetMapping("/profile")

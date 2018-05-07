@@ -24,16 +24,16 @@ public class User  {
     @Size(min = 8, message = "Password must be a minimum length of 8 characters.")
     private String password;
 
+    public User() {
+    }
+
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public User() {
-    }
-
-    public User(User copy) {
+    User(User copy) {
         this.id = copy.id;
         this.email = copy.email;
         this.username = copy.username;

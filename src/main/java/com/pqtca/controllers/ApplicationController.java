@@ -1,7 +1,6 @@
 package com.pqtca.controllers;
 
 import com.pqtca.models.Application;
-import com.pqtca.models.User;
 import com.pqtca.repos.ApplicationRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,7 @@ public class ApplicationController {
         this.appDao = appDao;
     }
 
-    @GetMapping(value = {"/app"})
+    @GetMapping("/app")
     public String userApp(Model model) {
         Application app = new Application();
         Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

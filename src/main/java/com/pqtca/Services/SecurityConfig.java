@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -41,25 +40,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         /* User Login */
         http
-                .authorizeRequests()
-                    .antMatchers("/index", "/", "/home", "/resources/**", "/**", "/complete")
-                        .permitAll()
-
+                .formLogin()
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/")
+                    .permitAll() // Anyone can go to the login page
                 .and()
                     .authorizeRequests()
-                        .antMatchers("/admin", "/admin/**")
-                        .hasRole("ADMIN")
-                .and()
-                    .formLogin()
-                        .loginPage("/login")
-                        .permitAll()
+                    .antMatchers("/resources/static/**", "/logout")
+                    .permitAll()
                 .and()
                     .logout()
-                        .invalidateHttpSession(true)
-                        .clearAuthentication(true)
-                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/login?logout")
-                        .permitAll();
+                    .logoutSuccessUrl("/login?logout")
+                .and()
+                    .authorizeRequests()
+                    .antMatchers("/app", "/profile")
+                    .authenticated()
+                .and()
+                    .authorizeRequests()
+                    .antMatchers("/admin**")
+                    .hasRole("ADMIN");
     }
 
 }

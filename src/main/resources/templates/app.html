@@ -3,7 +3,6 @@
 <head th:replace="fragments/head :: head('PQ App')">
 </head>
 <body>
-<nav th:replace="fragments/user-nav :: usernav"></nav>
 <div class="flex">
 	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 	<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
