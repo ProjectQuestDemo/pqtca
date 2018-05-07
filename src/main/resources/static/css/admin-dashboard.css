@@ -183,6 +183,7 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
     color: #000;
     background-color: #e1e1e1;
     border-radius: 7px;
+    font-size: 0.8em;
     height: auto;
     margin: 4em auto;
     padding: 2em;
@@ -227,6 +228,11 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
     .panel-header {
         margin-top: 40px;
         width: 455px;
+    }
+
+    .container {
+        font-size: 1em;
+        width: 45vw;
     }
 }
 
