@@ -9,6 +9,8 @@ import java.util.List;
 public interface ApplicationRepo extends CrudRepository<Application, Long> {
     List<Application> findAll();
 
+    List<Application> findAllByFEmpIdIsNotIn();
+
     Application findBy(User user);
 
     @Override

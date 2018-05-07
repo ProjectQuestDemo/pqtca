@@ -3,6 +3,8 @@
 <head th:replace="fragments/head :: head('ERROR')">
 </head>
 <body>
-<h1 th:if="${page_has_error}">WHOOPS! GO AWAY!</h1>
+<div class="flex">
+	<h1 th:if="${page_has_error}">WHOOPS! Something is wrong with the server.</h1>
+</div>
 </body>
 </html>
