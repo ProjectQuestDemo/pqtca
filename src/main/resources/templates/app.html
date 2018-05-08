@@ -8,7 +8,7 @@
 <div class="flex">
 	<button class="btn-hamburger toggle-button">☰</button>
 	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
+	<form autocomplete="on" id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
 		<!-- progressbar -->
 		<ul id="progressbar">
 			<li class="active">Personal Info</li>
@@ -22,15 +22,15 @@
 		<fieldset>
 			<div class="fb-text form-group field-firstname">
 				<p>What is your first name?</p>
-				<input type="text" placeholder="First Name"
-				       class="form-control" th:field="*{aFirstName}"
+				<input  type="text" placeholder="First Name"
+				       class="form-control testinput" th:field="*{aFirstName}"
 				       maxlength="45" title="Must start with a letter."
-				       required="required" aria-required="true"/>
+					   aria-required="true" required="required" name="firstname"/>
 			</div>
 			<div class="fb-text form-group field-middlename">
 				<span class="tooltip-element" tooltip="Must start with a letter."></span>
 				<p>What is your middle name?</p>
-				<input type="text" placeholder="Middle Name" class="form-control" th:field="*{aMiddleName}"
+				<input type="text" placeholder="Middle Name" class="form-control testinput" th:field="*{aMiddleName}"
 				       maxlength="45" title="Must start with a letter." required="required" aria-required="true"
 				/>
 			</div>
@@ -38,7 +38,7 @@
 				<span class="tooltip-element" tooltip="Must start with a letter."></span>
 				<p>What is your last name?</p>
 				<input type="text" placeholder="Last Name"
-				       class="form-control" maxlength="45" th:field="*{aLastName}" title="Must start with a letter."
+				       class="form-control testinput" maxlength="45" th:field="*{aLastName}" title="Must start with a letter."
 				       required="required" aria-required="true"/>
 			</div>
 			<div class="fb-text form-group field-dob">
@@ -47,7 +47,7 @@
 					<p>When were you born?</p>
 				</div>
 				<input type="date" placeholder="Date of Birth"
-				       class="form-control" th:field="*{aDateOfBirth}"
+				       class="form-control testinput" th:field="*{aDateOfBirth}"
 				       title="Must be a date in the past."
 				       required="required" aria-required="true"
 				/>
@@ -56,7 +56,7 @@
 			<div class="fb-text form-group field-ssn">
 				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 				<p>What is your Social Security Number?</p>
-				<input type="password" placeholder="Social" class="form-control" maxlength="9" required="required"
+				<input type="password" placeholder="Social" class="form-control testinput" maxlength="9" required="required"
 				       aria-required="true"/>
 			</div>
 			
@@ -70,7 +70,7 @@
 					<option th:value="unk">Unsure</option>
 				</select>
 			</div>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input id="validateB" type="button" class="color-change next action-button" name="next" value="Next" onclick="validate(this)"/>
 		</fieldset>
 		
 		<fieldset>
@@ -731,5 +731,97 @@
 </div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    $('document').ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating = false; //flag to prevent quick multi-click glitches
+
+		if (!validate()) {
+			return;
+        } else {
+		 //   wtf
+
+
+        $(".next").click(function () {
+            if (animating) return false;
+            animating = true;
+
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({'left': left});
+                    previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".submit").click(function () {
+            return false;
+        });
+    }});
+
+</script>
 </body>
 </html>
