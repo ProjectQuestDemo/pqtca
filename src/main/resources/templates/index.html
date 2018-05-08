@@ -5,9 +5,15 @@
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+	<div class="banner-img">
+		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
 	<div class="flex">
 		<button class="btn-hamburger toggle-button">☰</button>
-		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 	</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
