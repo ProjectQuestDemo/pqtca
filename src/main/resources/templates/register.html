@@ -3,49 +3,47 @@
 <head th:replace="fragments/head :: head('Register')">
 </head>
 <body>
-<nav th:replace="fragments/footer :: footer"></nav>
+<nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-<div class="flex">
-	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<form id="msform" th:action="@{/register}" th:method="POST" th:object="${user}">
-		<fieldset>
-			<div class="fb-text form-group field-username">
-				<label>Username</label>
-				<input type="text" placeholder="Username"
-				       class="form-control" th:field="*{username}"
-				       maxlength="45" title="Must start with a letter."
-				       required="required" aria-required="true"/>
-			</div>
-			<div class="fb-text form-group field-email">
-				<label>Email</label>
-				<input type="text" placeholder="Email"
-				       class="form-control" th:field="*{email}"
-				       maxlength="45" title="Must start with a letter."
-				       required="required" aria-required="true"/>
-			</div>
-			<div class="fb-text form-group field-password">
-				<label>Password</label>
-				<input type="password" placeholder="Password"
-				       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-				       minlength="8" title="Please include at least 1 uppercase character,
+	<div class="flex">
+		<button class="btn-hamburger toggle-button">☰</button>
+		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+		<form id="msform" th:action="@{/register}" th:method="POST" th:object="${user}">
+			<fieldset>
+				<h3>Take the first step to being a better you. Register or Login below.</h3>
+				<div class="fb-text form-group field-username">
+					<input type="text" placeholder="Username"
+					       class="form-control" th:field="*{username}"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true"/>
+				</div>
+				<div class="fb-text form-group field-email">
+					<input type="text" autocomplete="email" placeholder="Email"
+					       class="form-control" th:field="*{email}"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true"/>
+				</div>
+				<div class="fb-text form-group field-password">
+					<input type="password" placeholder="Password" class="form-control"
+					       autocomplete="new-password"
+					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+					       minlength="8" title="Please include at least 1 uppercase character,
 				       1 lowercase character, and 1 number." th:field="*{password}"
-				       required="required" aria-required="true" />
-			</div>
-			<div class="fb-text form-group field-confirmpass">
-				<label>Confirm Password</label>
-				<input type="password" placeholder="Confirm Password"
-				       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-				       minlength="8" title="Please include at least 1 uppercase character,
+					       required="required" aria-required="true"/>
+				</div>
+				<div class="fb-text form-group field-confirmpass">
+					<input type="password" placeholder="Confirm Password"
+					       autocomplete="new-password" class="form-control"
+					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+					       minlength="8" title="Please include at least 1 uppercase character,
 				       1 lowercase character, and 1 number."
-				       required="required" aria-required="true" />
-			</div>
-			<input type="submit" class="color-change" name="Submit" value="Submit"/>
-		</fieldset>
-	
-	</form>
-</div>
+					       required="required" aria-required="true"/>
+				</div>
+				<input type="submit" class="color-change" name="Submit" value="Submit"/>
+			</fieldset>
+		</form>
+	</div>
 </main>
-<footer th:replace="fragments/footer :: footer">
-</footer>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
