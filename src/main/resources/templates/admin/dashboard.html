@@ -8,11 +8,6 @@
 	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}"/>
 </head>
 <body>
-<div class="banner-img">
-	<button class="btn-hamburger toggle-button">☰</button>
-	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-</div>
-<div th:replace="fragments/header :: header" class="header" ></div>
 <nav id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
 		<h3 class="menu-section-title">Control Panel</h3>
@@ -100,6 +95,10 @@
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
 	<div class="flex">
+		<header>
+			<button class="btn-hamburger toggle-button">☰</button>
+			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+		</header>
 		
 		<div id="divSec" class="container info-section">
 			<!-- TODO: Fix location of close button -->
