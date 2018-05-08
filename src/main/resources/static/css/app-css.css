@@ -25,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 fieldset {
+    color: black;
     background-color: #e1e1e1;
     border-radius: 7px;
     height: auto;

@@ -3,6 +3,8 @@
 <head th:replace="fragments/head :: head('Admin Register')">
 </head>
 <body>
+<nav th:replace="fragments/footer :: footer"></nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
 <div class="flex">
     <img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
     <form id="msform" th:action="@{/admin/register}" th:method="POST" th:object="${user}">
@@ -44,7 +46,7 @@
 
     </form>
 </div>
-<footer th:replace="fragments/footer :: footer">
-</footer>
+</main>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

@@ -10,6 +10,23 @@
 <body>
 <nav id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
+		<h3 class="menu-section-title">Control Panel</h3>
+		<ul class="menu-section-list">
+			<li>
+				<a th:href="@{/index}"><button>Home</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/register}"><button>Create New Admin</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/profile}"><button>Change Password</button></a>
+			</li>
+			<li>
+				<a th:href="@{/logout}"><button>Logout</button></a>
+			</li>
+		</ul>
+	</section>
+	<section class="menu-section">
 		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
@@ -115,6 +132,10 @@
 		</div>
 	</div>
 </main>
+<script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+<script th:src="@{/js/dataVis.js}"></script>
+<script th:src="@{/js/jsonReq.js}"></script>
+<script th:src="@{/js/jsonToCSV.js}"></script>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
