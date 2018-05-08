@@ -9,6 +9,8 @@ import java.util.List;
 @Table(name = "user_roles")
 public class UserRole {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
