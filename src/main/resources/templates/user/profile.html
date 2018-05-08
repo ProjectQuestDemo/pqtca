@@ -2,9 +2,32 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments/head :: head('Profile')"></head>
 <body>
+<nav th:fragment="nav" id="menu" class="menu slideout-menu slideout-menu-left">
+	<section class="menu-section">
+		<h3 class="menu-section-title">Project Quest</h3>
+		<ul class="menu-section-list">
+			<li>
+				<a th:href="@{/index}">
+					<button>Home</button>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<button>About</button>
+				</a>
+			</li>
+			<li>
+				<a th:href="@{/register}">
+					<button>Register</button>
+				</a>
+			</li>
+		</ul>
+	</section>
+</nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
 <div class="flex">
-<h5> Please change the information you'd like to update.</h5>
-<div class="">
+	<button class="btn-hamburger toggle-button">☰</button>
+	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 	<form th:action="@{profile/edit}" th:method="post" th:object="${user}">
 		<div class="form-group">
 			<label for="firstName">First Name:</label>
@@ -37,13 +60,13 @@
 		<button type="button" class="color-change" data-dismiss="modal">Close</button>
 		<button type="button" class="color-change">Save changes</button>
 	</form>
-</div>
+
 	<h5>Have you applied yet?</h5>
 	<a th:href="@{/app}">
 		<button class="color-change" type="button">Begin an Application</button>
 	</a>
 </div>
-
+</main>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

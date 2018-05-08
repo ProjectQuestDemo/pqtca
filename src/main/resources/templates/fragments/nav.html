@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: head('nav')">
 </head>
 <body>
@@ -13,16 +13,33 @@
 					<button>Home</button>
 				</a>
 			</li>
+			<span sec:authorize="hasRole('ROLE_ADMIN')">
+				<li>
+					<a th:href="@{'/admin'}"><button>Admin</button></a>
+				</li>
+			</span>
 			<li>
-				<a href="#">
-					<button>About</button>
-				</a>
+				<a href="#"><button>About</button></a>
 			</li>
-			<li>
-				<a th:href="@{/register}">
-					<button>Register</button>
-				</a>
-			</li>
+			<span sec:authorize="isAuthenticated()">
+				<li>
+					<form th:action="@{/logout}" th:method="POST">
+						<button>Logout</button>
+					</form>
+				</li>
+			</span>
+			<span sec:authorize="!isAuthenticated()">
+				<li>
+					<a th:href="@{/register}">
+						<button>Register</button>
+					</a>
+				</li>
+				<li>
+					<a th:href="@{/login}">
+						<button>Login</button>
+					</a>
+				</li>
+			</span>
 		</ul>
 	</section>
 </nav>

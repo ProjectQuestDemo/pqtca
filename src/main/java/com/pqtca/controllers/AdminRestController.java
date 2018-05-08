@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +38,13 @@ public class AdminRestController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Application> apps = appDao.findApplicationsByFEmpIdLike("");
         return gson.toJson(apps);
+    }
+
+    @GetMapping("/show={id}")
+    public @ResponseBody  String pendingApp (@PathVariable Long id) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Application app = appDao.findOne(id);
+        return gson.toJson(app);
     }
 
 
@@ -181,3 +189,4 @@ public class AdminRestController {
         return gson.toJson(map);
     }
 }
+

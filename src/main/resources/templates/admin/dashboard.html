@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head>
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,23 +10,46 @@
 <body>
 <nav id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
+		<h3 class="menu-section-title">Control Panel</h3>
+		<ul class="menu-section-list">
+			<li>
+				<a th:href="@{/index}"><button>Home</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/register}"><button>Create New Admin</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/profile}"><button>Change Password</button></a>
+			</li>
+			<li>
+				<form th:action="@{/logout}" th:method="POST">
+					<button>Logout</button>
+				</form>
+			</li>
+		</ul>
+	</section>
+	<section class="menu-section">
 		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
-				<button onclick="preq('/pending')">Pending</button>
+				<button onclick="req('/pending')">Pending</button>
 			</li>
 			<li>
 				<button onclick="req('/complete')">Complete</button>
 			</li>
 			<li>
-				<button>
-					Export to CSV
-				</button>
+				<a href='#' onclick='req("/pending");'>
+					<button onclick="csvDownload()">
+						Export Pending
+					</button>
+				</a>
 			</li>
-			<li sec:authorize="isAuthenticated()">
-				<form th:action="@{/logout}" th:method="post">
-					<button class="btn-link btn">Logout</button>
-				</form>
+			<li>
+				<a href='#' onclick="req('/complete')">
+					<button onclick="csvDownload()">
+						Export All
+					</button>
+				</a>
 			</li>
 		</ul>
 	</section>
@@ -93,17 +116,11 @@
 		<div id="divSec2" class="container application-section">
 			<!-- TODO: Fix location of close button -->
 			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">Close</button>
-			<div id="apps" th:if="${application.id == null}">
+			<h3 class="title"></h3>
+			<div id="apps">
 				<p class="banner-txt">
 					To review an application, use the side navigation to make a selection.
 				</p>
-			</div>
-			<div th:if="${application.id != null}">
-				<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
-				<p class="banner-txt">
-					Application
-				</p>
-				<div id="app" class="app"></div>
 			</div>
 		</div>
 		<div id="divSec3" class="container demographic-section">
@@ -117,6 +134,10 @@
 		</div>
 	</div>
 </main>
+<script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+<script th:src="@{/js/dataVis.js}"></script>
+<script th:src="@{/js/jsonReq.js}"></script>
+<script th:src="@{/js/jsonToCSV.js}"></script>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

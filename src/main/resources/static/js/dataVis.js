@@ -14,7 +14,7 @@ const drawChart = (url, header) => {
         }
         let data = google.visualization.arrayToDataTable(arr);
         // Optional; add a title and set the width and height of the chart
-        let options = {'title': 'Demographics', 'width': 500, 'height': 250};
+        let options = {'title': 'Demographics'};
         // Display the chart inside the <div> element with id="piechart"
         let chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
