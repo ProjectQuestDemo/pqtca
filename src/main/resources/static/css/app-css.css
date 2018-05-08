@@ -176,6 +176,21 @@ fieldset:not(:first-of-type) {
     display: block;
 }
 
+.careercheck {
+    display: block;
+    flex-flow: column wrap;
+    align-items: center;
+}
+
+.careercheck label {
+    display: block;
+    font-size: .9em;
+}
+
+.car {
+    margin-bottom: 1.2em;
+}
+
 @media only screen and (min-width: 992px) {
 
     fieldset {

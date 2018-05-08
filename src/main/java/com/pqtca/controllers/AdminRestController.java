@@ -25,12 +25,20 @@ public class AdminRestController {
     /* ***************START********************** */
     /* ****************************************** */
     @GetMapping("/complete")
-    public @ResponseBody
-    String apps () {
+    public @ResponseBody String apps () {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Application> apps = appDao.findAll();
         return gson.toJson(apps);
     }
+
+
+    @GetMapping("/pending")
+    public @ResponseBody String pending () {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Application> apps = appDao.findApplicationsByFEmpIdLike("");
+        return gson.toJson(apps);
+    }
+
 
     /**
      *

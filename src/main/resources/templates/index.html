@@ -5,7 +5,9 @@
 <body>
 <div class="homepage-hero-module">
 	<div class="video-container">
-		<nav th:replace="fragments/user-nav :: user-nav"></nav>
+
+		<nav th:replace="fragments/nav :: nav"></nav>
+
 		<div class="filter">
 			<video preload="" muted="" autoplay="" loop="" class="fillWidth">
 				<source th:src="@{/video/MP4/Urban-Timer.mp4}" type="video/mp4"/>
