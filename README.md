@@ -13,6 +13,7 @@
 
 - Applicant registration and login
 -- Provide the applicant with the ability to register with Project Quest. Enable the ability to save an in progress application or make edits to a submitted application.
+
 	~~- [ ] Save partially completed applications to complete at a later date.~~
 	- [x] Application for users made to be hassle free with autocomplete functionality.
 	- [x] Provide a easy and frustration free UX that feels intuitive on mobile devices.
