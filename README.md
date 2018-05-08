@@ -18,6 +18,7 @@
 	- [x] Provide a easy and frustration free UX that feels intuitive on mobile devices.
 	- [x] Allow users to signup.
 	- [ ] Receive notification once an application is submitted, reviewed, approved.
+	
 	~~- [ ] Use LinkedIn to populate respective fields. ***~~
 	
 :octocat: :octocat: :octocat:
