@@ -37,13 +37,13 @@ p {margin-bottom: 1em;}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
-    color: #4a87db;
+    color: #fff;
     margin-bottom: 2em;
 }
 
 fieldset {
-    color: black;
-    background-color: #e1e1e1;
+    color: #f1f1f1;
+    background-image: linear-gradient(0deg, #4a87db, #5a6b88);
     border-radius: 7px;
     height: auto;
     margin: auto;
@@ -415,20 +415,20 @@ fieldset:not(:first-of-type) {
     margin-bottom: 2em;
 }
 
-@media only screen and (min-width: 50em) {
 
-    fieldset {
-        width: 40vw;
-    }
-    input, select {
-        width: 30vw;
-    }
-
-    .color-change {
-        width: 10vw;
-        font-size: 1em;
-    }
+.app-btn {
+    margin: auto;
+    text-align: center;
 }
+.app-btn.color-change {
+    width: 30vw;
+}
+
+.app-btn h5 {
+    color: #000000;
+    width:100%;
+}
+
 
 @media all and (min-width: 40em) {
 
@@ -483,7 +483,7 @@ fieldset:not(:first-of-type) {
 
     .border-outer {
         overflow: hidden;
-        height: 100%;
+        height: 80%;
         width: 100%;
         position: absolute;
     }
@@ -497,6 +497,29 @@ fieldset:not(:first-of-type) {
         -webkit-transform: translateX(-50%) rotate(45deg);
         transform: translateX(-50%) rotate(45deg);
         top: -39px;
+    }
+
+    .app-btn.color-change {
+        width: 20vw;
+    }
+
+    @media only screen and (min-width: 45em) {
+
+        fieldset {
+            width: 30vw;
+        }
+        input, select {
+            width: 30vw;
+        }
+
+        .color-change {
+            width: 10vw;
+            font-size: 1em;
+        }
+
+        .app-btn.color-change {
+            width: 10vw;
+        }
     }
 
 }

@@ -25,6 +25,7 @@
 	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+	<button class="btn-hamburger toggle-button">☰</button>
 	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 	</div>
@@ -32,48 +33,48 @@
 		<div class="border-inner">
 		</div>
 	</div>
-<div class="flex">
-	<button class="btn-hamburger toggle-button">☰</button>
-	<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	<form th:action="@{/profile/edit}" th:method="post" th:object="${user}">
-		<div class="form-group">
-			<label for="firstName">First Name:</label>
-			<input type="text" class="form-control" id="firstName"/>
+	<div class="flex">
+		
+		<form id="msform" th:action="@{/profile/edit}" th:method="POST" th:object="${user}">
+			<fieldset>
+				<h2>Update Profile</h2>
+				<div class="fb-text form-group field-username">
+					<input type="text" class="form-control" th:value="${user.username}"
+					       maxlength="45" title="Must start with a letter."
+					       disabled="disabled"/>
+				</div>
+				<div class="fb-text form-group field-email">
+					<input type="text" class="form-control" th:value="*{email}"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true"/>
+				</div>
+				<div class="fb-text form-group field-password">
+					<input type="password" placeholder="New Password"
+					       class="form-control" th:field="*{password}"
+					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+					       minlength="8" title="Please include at least 1 uppercase character,
+				       1 lowercase character, and 1 number."
+					       required="required" aria-required="true"/>
+				</div>
+				<div class="fb-text form-group field-confirmpass">
+					<input type="password" placeholder="Confirm Password"
+					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+					       minlength="8" class="form-control"
+					       title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number."
+					       required="required" aria-required="true"/>
+				</div>
+				<input type="submit" class="color-change" name="Submit" value="Submit"/>
+			</fieldset>
+		</form>
+		<div class="app-btn">
+			<h5>Have you applied yet?</h5>
+			<a th:href="@{/app}">
+				<button class="app-btn color-change" type="button">Begin an Application</button>
+			</a>
 		</div>
-		<div class="form-group">
-			<label>Last Name:</label>
-			<input type="text" class="form-control" id="lastName"/>
-		</div>
-		<div class="form-group">
-			<label for="username" class="col-form-label">Username:
-			</label>
-			<input type="text" class="form-control" id="username"/>
-		</div>
-		<div class="form-group">
-			<label for="email" class="col-form-label">Email:
-			</label>
-			<input type="text" class="form-control" id="email"/>
-		</div>
-		<div class="form-group">
-			<label for="password" class="col-form-label">Password:
-			</label>
-			<input type="text" class="form-control" id="password"/>
-		</div>
-		<div class="form-group">
-			<label for="passwordconfirm" class="col-form-label">Confirm Password:
-			</label>
-			<input type="text" class="form-control" id="passwordconfirm"/>
-		</div>
-		<button type="button" class="color-change" data-dismiss="modal">Close</button>
-		<button type="button" class="color-change">Save changes</button>
-	</form>
-
-	<h5>Have you applied yet?</h5>
-	<a th:href="@{/app}">
-		<button class="color-change" type="button">Begin an Application</button>
-	</a>
-</div>
+	</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
+
 </body>
 </html>
