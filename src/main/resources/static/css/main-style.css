@@ -225,3 +225,8 @@ a {
 .error {
     color:red;
 }
+
+.alert {
+    color: #4a87db;
+    margin-bottom: 2em;
+}
