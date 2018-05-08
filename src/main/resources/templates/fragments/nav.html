@@ -3,7 +3,6 @@
 <head th:replace="fragments/head :: head('nav')">
 </head>
 <body>
-
 <nav th:fragment="nav" id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
 		<h3 class="menu-section-title">Project Quest</h3>
@@ -19,8 +18,15 @@
 				</li>
 			</span>
 			<li>
-				<a href="#"><button>About</button></a>
+				<a href="#">
+					<button>About</button>
+				</a>
 			</li>
+			<span sec:authorize="isAuthenticated()">
+				<li>
+					<a th:href="@{'/profile'}"><button>Profile</button></a>
+				</li>
+			</span>
 			<span sec:authorize="isAuthenticated()">
 				<li>
 					<form th:action="@{/logout}" th:method="POST">

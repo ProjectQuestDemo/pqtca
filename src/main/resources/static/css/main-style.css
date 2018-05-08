@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2em;
 }
 
-fieldset {
+.container, fieldset {
     color: #f1f1f1;
     background-image: linear-gradient(0deg, #4a87db, #5a6b88);
     border-radius: 7px;
@@ -92,7 +92,7 @@ legend {
 
 .color-change {
     text-align: center;
-    margin-top: 1em;
+    margin: 1em 0.6em;
     border-radius: 7px;
     width: 23vw;
     cursor: pointer;
@@ -102,8 +102,8 @@ legend {
     padding: 0.6em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    border: 1px solid #fff;
-    box-shadow: 2px 2px 5px #AFE9FF;
+    border: 1px solid #91e8ca;
+    box-shadow: 2px 2px 5px #5a6b88;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
@@ -411,7 +411,7 @@ fieldset:not(:first-of-type) {
 }
 
 .alert {
-    color: #4a87db;
+    color: #fff;
     margin-bottom: 2em;
 }
 
@@ -442,7 +442,7 @@ fieldset:not(:first-of-type) {
         width: 455px;
     }
 
-    fieldset {
+    .container, fieldset  {
         font-size: 0.8em;
         color: black;
         background-color: #e1e1e1;
@@ -458,10 +458,10 @@ fieldset:not(:first-of-type) {
     input.form-control, select {
         text-align: center;
         margin-bottom: 2em;
-        width: 20vw;
+        width: 30vw;
         padding: 0.7em;
         border-radius: 7px;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 
     .color-change {
@@ -508,8 +508,8 @@ fieldset:not(:first-of-type) {
         fieldset {
             width: 30vw;
         }
-        input, select {
-            width: 30vw;
+        input.form-control, select {
+            width: 20vw;
         }
 
         .color-change {

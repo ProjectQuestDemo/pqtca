@@ -25,9 +25,15 @@
 	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<div class="flex">
-		<button class="btn-hamburger toggle-button">☰</button>
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
+	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
 			<fieldset>
 				<h3>Login or register today to being your Quest!</h3>
@@ -38,10 +44,13 @@
 					Invalid Username and Password.
 				</div>
 				<div class="fb-text form-group field-username">
-					<input type="text" id="username" name="username" placeholder="Username"/>
+					<input type="text" class="form-control" id="username" name="username" autocomplete="username"
+					       placeholder="Username"/>
 				</div>
 				<div class="fb-text form-group field-password">
-					<input type="password" id="password" name="password" placeholder="Password"/>
+					<input type="password" class="form-control" id="password" name="password"
+					       autocomplete="current-password"
+					       placeholder="Password"/>
 				</div>
 				<input class="color-change" type="submit"/>
 				<input class="color-change" type="button" value="Register"/>

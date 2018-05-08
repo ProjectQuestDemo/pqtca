@@ -92,19 +92,12 @@ public class UserController {
      * @param model Model should contain current users info to populate form
      * @return Form fields pre-populated with current user's info.
      */
-    @GetMapping("/profile/edit")
-    public String userShowEditProfile(Model model) {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (user.getId() == 0) {
-            return "redirect:/login";
-        }
-        model.addAttribute("user", user);
-        return "profile/edit";
-    }
-
     @PostMapping("/profile/edit")
     public String userUpdateInfo(@ModelAttribute User user) {
-
+        User loggedInUser = userService.loggedInUser();
+        if (loggedInUser.getUsername().equalsIgnoreCase(user.getUsername())) {
+            return "redirect:/login";
+        }
         User profileUser = usersDao.findOne(user.getId());
         profileUser.setUsername(user.getUsername());
         profileUser.setEmail(user.getEmail());
