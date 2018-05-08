@@ -179,6 +179,7 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 .container {
     color: #000;
     background-color: #e1e1e1;
@@ -195,8 +196,26 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
     background-color: #e1e1e1;
     margin: 1em auto;
     text-align: center;
+||||||| merged common ancestors
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+=======
+.container {
+    color: #000;
+    background-color: #e1e1e1;
+    border-radius: 7px;
+    font-size: 0.8em;
+    height: auto;
+    margin: 4em auto;
+    padding: 2em;
+    text-align: center;
+    width: 60vw;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
 .panel {
     text-align: center;
     padding-top: 5px;
@@ -216,8 +235,120 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
     left: 12px;
     outline: none;
     background: url('../images/menu.png') no-repeat left center;
+||||||| merged common ancestors
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -280px;
+=======
+.menu-section-list button:hover {
+    background-color: rgba(145, 232, 202, 0.54);
+    text-decoration: none;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
+@media all and (min-width: 40em) {
+||||||| merged common ancestors
+=======
+.container {
+    color: #000;
+    background-color: #e1e1e1;
+    border-radius: 7px;
+    height: auto;
+    margin: 4em auto;
+    padding: 2em;
+    text-align: center;
+    width: 60vw;
+}
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
+
+<<<<<<< HEAD
+    .btn-hamburger {
+        top: 20px;
+        left: 30px;
+    }
+||||||| merged common ancestors
+/* Sidebar Styles */
+=======
+.chart {
+    background-color: #e1e1e1;
+    margin: 1em auto;
+    text-align: center;
+}
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
+
+<<<<<<< HEAD
+    .panel-header {
+        margin-top: 40px;
+        width: 455px;
+    }
+
+    .container {
+        font-size: 1em;
+        width: 45vw;
+    }
+||||||| merged common ancestors
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 280px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+=======
+.panel {
+    text-align: center;
+    padding-top: 5px;
+    min-height: 100%;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
+}
+
+<<<<<<< HEAD
+/**
+ * Slideout module styles
+ */
+body {
+    width: 100%;
+    height: 100%;
+||||||| merged common ancestors
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+=======
+/**
+ * hamburger
+ */
+.btn-hamburger {
+    font-size: x-large;
+    border: none;
+    border-radius: 7px;
+    margin: auto;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    outline: none;
+    background: url('../images/menu.png') no-repeat left center;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
+}
+
+<<<<<<< HEAD
+.slideout-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 256px;
+    min-height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 0;
+    display: none;
+||||||| merged common ancestors
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+=======
 @media all and (min-width: 40em) {
 
     .btn-hamburger {
@@ -229,12 +360,11 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
         margin-top: 40px;
         width: 455px;
     }
-
+  
     .container {
         font-size: 1em;
         width: 45vw;
     }
-}
 
 /**
  * Slideout module styles
@@ -242,8 +372,18 @@ h1,h2,h3,h4,h5,h6 {font-weight: 200;}
 body {
     width: 100%;
     height: 100%;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
+.slideout-menu-left {
+    left: 0;
+||||||| merged common ancestors
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+=======
 .slideout-menu {
     position: fixed;
     top: 0;
@@ -254,29 +394,95 @@ body {
     -webkit-overflow-scrolling: touch;
     z-index: 0;
     display: none;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
-.slideout-menu-left {
-    left: 0;
-}
-
+<<<<<<< HEAD
 .slideout-menu-right {
     right: 0;
+||||||| merged common ancestors
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+    text-decoration: none;
+=======
+.slideout-menu-left {
+    left: 0;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
 .slideout-panel {
     position: relative;
     z-index: 1;
     will-change: transform;
     min-height: 100vh;
+||||||| merged common ancestors
+.sidebar-nav>.sidebar-brand {
+    font-size: 18px;
+    line-height: 60px;
+=======
+.slideout-menu-right {
+    right: 0;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
 .slideout-open,
 .slideout-open body,
 .slideout-open .slideout-panel {
     overflow: hidden;
+||||||| merged common ancestors
+.sidebar-nav>.sidebar-brand a {
+    color: #ffffff;
+=======
+.slideout-panel {
+    position: relative;
+    z-index: 1;
+    will-change: transform;
+    min-height: 100vh;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
 }
 
+<<<<<<< HEAD
+.slideout-open .slideout-menu {
+    display: block;
+||||||| merged common ancestors
+.sidebar-nav>.sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+=======
+.slideout-open,
+.slideout-open body,
+.slideout-open .slideout-panel {
+    overflow: hidden;
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
+}
+
+<<<<<<< HEAD
+/* Animation
+---------------------------------- */
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+||||||| merged common ancestors
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+    #wrapper.toggled {
+        padding-left: 280px;
+    }
+    #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 280px;
+=======
 .slideout-open .slideout-menu {
     display: block;
 }
@@ -292,6 +498,7 @@ body {
     50% {
         -webkit-transform: translate3d(-10px, 0, 0);
         transform: translate3d(-10px, 0, 0);
+>>>>>>> ce984f4db29eb63ee2a8f3c27ca54b2ef64aeafa
     }
 }
 

@@ -4,8 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class AdminRestController {
         return gson.toJson(apps);
     }
 
+
     @GetMapping("/pending")
     public @ResponseBody String pending () {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -37,15 +39,6 @@ public class AdminRestController {
         return gson.toJson(apps);
     }
 
-    /* TODO change mapping for this */
-    @GetMapping("/show={id}")
-    public @ResponseBody  String pendingApp (@PathVariable Long id, Model model) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Application app = appDao.findOne(id);
-        model.addAttribute("first", app.getaFirstName());
-        model.addAttribute("last", app.getaLastName());
-        return gson.toJson(app);
-    }
 
     /**
      *
@@ -188,3 +181,4 @@ public class AdminRestController {
         return gson.toJson(map);
     }
 }
+
