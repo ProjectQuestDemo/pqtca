@@ -39,9 +39,11 @@ public class AdminRestController {
 
     /* TODO change mapping for this */
     @GetMapping("/show={id}")
-    public @ResponseBody  String pendingApp (@PathVariable Long id) {
+    public @ResponseBody  String pendingApp (@PathVariable Long id, Model model) {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Application app = appDao.findOne(id);
+        model.addAttribute("first", app.getaFirstName());
+        model.addAttribute("last", app.getaLastName());
         return gson.toJson(app);
     }
 

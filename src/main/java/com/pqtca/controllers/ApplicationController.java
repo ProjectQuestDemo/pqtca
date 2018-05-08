@@ -1,20 +1,26 @@
 package com.pqtca.controllers;
 
+import com.pqtca.Services.UserService;
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class ApplicationController {
-    private ApplicationRepo appDao;
 
-    public ApplicationController(ApplicationRepo appDao) {
+    private final ApplicationRepo appDao;
+    private final UserService userService;
+
+    public ApplicationController(ApplicationRepo appDao, UserService userService) {
         this.appDao = appDao;
+        this.userService = userService;
     }
 
     @GetMapping("/app")
@@ -30,7 +36,13 @@ public class ApplicationController {
     }
 
     @PostMapping("/app")
-    public String submitApp(@ModelAttribute Application app) {
+    public String submitApp(@Valid Application app, Errors errors, Model model) {
+
+        if(errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            return "app";
+        }
+        app.setUser(userService.loggedInUser());
         appDao.save(app);
         return "redirect:/profile";
     }

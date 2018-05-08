@@ -19,9 +19,18 @@
 				<button onclick="req('/complete')">Complete</button>
 			</li>
 			<li>
-				<button>
-					Export to CSV
-				</button>
+				<a href='#' onclick='toCSV("/pending");'>
+					<button>
+						Export Last
+					</button>
+				</a>
+			</li>
+			<li>
+				<a href='#' onclick="req('/complete')">
+					<button onclick="csvDownload()">
+						Export All
+					</button>
+				</a>
 			</li>
 		</ul>
 	</section>
@@ -88,17 +97,11 @@
 		<div id="divSec2" class="container application-section">
 			<!-- TODO: Fix location of close button -->
 			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">Close</button>
-			<div id="apps" th:if="${application.id == null}">
+			<h3 class="title"></h3>
+			<div id="apps">
 				<p class="banner-txt">
 					To review an application, use the side navigation to make a selection.
 				</p>
-			</div>
-			<div th:if="${application.id != null}">
-				<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
-				<p class="banner-txt">
-					Application
-				</p>
-				<div id="app" class="app"></div>
 			</div>
 		</div>
 		<div id="divSec3" class="container demographic-section">

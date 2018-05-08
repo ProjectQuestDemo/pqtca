@@ -56,7 +56,8 @@
 			<div class="fb-text form-group field-ssn">
 				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 				<p>What is your Social Security Number?</p>
-				<input type="text" placeholder="Social" class="form-control" maxlength="9" required="required"
+				<input type="password" placeholder="Social" th:field="*{appssn}" class="form-control" maxlength="9"
+				       required="required"
 				       aria-required="true"/>
 			</div>
 			
@@ -390,7 +391,6 @@
 			<input type="button" class="color-change next action-button" name="next" value="Next"/>
 		</fieldset>
 		
-		<!-- TODO Add missing family member section -->
 		<fieldset>
 			<div class="fb-text form-group field-fam">
 				<h3>You are almost done, the next sections are important!</h3>
@@ -406,10 +406,10 @@
 			</div>
 			
 			<div class="fb-text form-group field-hhsize">
-				<p>
+				<label for="houseHoldSize">
 					Family/Living Status?
-				</p>
-				<select th:field="*{dfamilyStatus}">
+				</label>
+				<select id="houseHoldSize" th:field="*{dfamilyStatus}">
 					<option th:value="twoparent">Two parent family</option>
 					<option th:value="singleparent">Single Parent</option>
 					<option th:value="other">Other Family Member</option>
@@ -418,10 +418,10 @@
 			</div>
 			
 			<div class="fb-text form-group field-totalinhouse">
-				<p>
+				<label for="totalInHouse">
 					How many people live in your house?
-				</p>
-				<input type="text" placeholder="1"
+				</label>
+				<input type="text" id="totalInHouse" placeholder="How Many Live In Your House"
 				       class="form-control"
 				       th:field="*{dTotalInHouse}"
 				       required="required" aria-required="true"
@@ -445,17 +445,13 @@
 				       required="required" aria-required="true"
 				/>
 				<div class="fb-text form-group field-depinfo">
-					<p>Full Name of dependent</p>
-					<input type="text" th:field="*{dDepFullName}" />
-					<p>Date of birth of dependent</p>
-					<input type="date" th:field="*{dDepAge}" />
-					<p>Relationship</p>
-					<input type="text" th:field="*{dDepRelationship}" />
+					<label>Full Name of dependent</label>
+					<input type="text" id="depName" th:field="*{dDepFullName}" />
+					<label>Date of birth of dependent</label>
+					<input type="date" id="depDoB" th:field="*{dDepAge}" />
+					<label>Relationship</label>
+					<input type="text" id="depRel" th:field="*{dDepRelationship}" />
 				</div>
-			</div>
-			
-			<div class="dependentInfo">
-				<input type="text" id="depFam" name="depFam" value=""/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 			<input type="button" class="color-change next action-button" name="next" value="Next"/>
@@ -714,6 +710,14 @@
 				<h4>If you were referred, please tell us how.</h4>
 				
 				<input class="form-control" type="text" th:field="*{eReferralSrc}"/>
+			</div>
+			<div class="form-control field-eHS">
+				<label for="hs">High School Diploma</label>
+					<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma" />
+				<label for="GED">High School Diploma</label>
+					<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
+				<label for="DnG">High School Diploma</label>
+					<input type="radio" id="DnG" class="form-control" th:field="*{eHS}" value="Did not graduate"/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 			<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>

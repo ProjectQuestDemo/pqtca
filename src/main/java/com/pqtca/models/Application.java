@@ -1,5 +1,6 @@
 package com.pqtca.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -197,6 +198,7 @@ public class Application {
     private Date fDateComp;
 
     @OneToOne
+    @JsonIgnore
     private User user;
 
 
