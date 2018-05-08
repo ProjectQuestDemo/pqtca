@@ -358,6 +358,16 @@ body,
     line-height: 1.6em;
 }
 
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: #4a87db;
+    font-size: 0.9em;
+    padding: 0.6em;
+}
+
 .flex {
     align-content: center;
     display: flex;
@@ -418,6 +428,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
+    position: relative;
     color: #000;
     background-color: #e1e1e1;
     border-radius: 7px;
@@ -432,17 +443,6 @@ h1, h2, h3, h4, h5, h6 {
 .menu-section-list button:hover {
     background-color: rgba(145, 232, 202, 0.54);
     text-decoration: none;
-}
-
-.container {
-    color: #000;
-    background-color: #e1e1e1;
-    border-radius: 7px;
-    height: auto;
-    margin: 4em auto;
-    padding: 2em;
-    text-align: center;
-    width: 60vw;
 }
 
 .chart {

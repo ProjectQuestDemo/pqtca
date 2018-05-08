@@ -26,9 +26,6 @@ html {
     font-family: 'Montserrat', sans-serif, 'Open Sans', sans-serif;
     line-height: 1.6em;
 }
-body {
-    background-color: #4a87db;
-}
 
 label {
     color: #000;
@@ -78,8 +75,11 @@ legend {
 }
 
 .banner-img {
+    background-image: linear-gradient(0deg, #4a87db, #5a6b88);
+    text-align: center;
+    /* background-color: #4a87db; */
     width: auto;
-    max-height: 15vh;
+    max-height: 20vh;
     margin: auto;
 }
 
@@ -214,7 +214,8 @@ fieldset:not(:first-of-type) {
 
 .panel {
     color: #fff;
-    background-color: #4a87db;
+    background-image: url('/images/saopac.png');
+    background-color: #eee;
 }
 
 .menu {
@@ -454,7 +455,7 @@ fieldset:not(:first-of-type) {
         position: relative;
     }
 
-    input.form-control {
+    input.form-control, select {
         text-align: center;
         margin-bottom: 2em;
         width: 20vw;
@@ -466,6 +467,36 @@ fieldset:not(:first-of-type) {
     .color-change {
         width: 10vw;
         font-size: 1em;
+    }
+
+    .border-decor {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        left: 50%;
+        margin-left: -26px;
+        margin-top: -1px;
+        z-index: 25;
+        margin-bottom: -25px;
+        clear: both;
+    }
+
+    .border-outer {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+
+    .border-inner {
+        background-image: linear-gradient(7deg, #4a87db, #27354c);
+        position: absolute;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-transform: translateX(-50%) rotate(45deg);
+        transform: translateX(-50%) rotate(45deg);
+        top: -39px;
     }
 
 }
