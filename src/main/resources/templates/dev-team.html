@@ -5,11 +5,15 @@
 <head th:replace="fragments/head :: head('Our Dev-Team')">
 </head>
 <body>
-<nav th:replace="fragments/footer :: footer"></nav>
+<nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<div class="flex">
-		<button class="btn-hamburger toggle-button">☰</button>
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
 	</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
