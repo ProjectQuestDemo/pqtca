@@ -33,7 +33,9 @@
 		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
-				<button id="pending" class="badge" onclick="req('/pending')" data-badge="0">Pending</button>
+				<button id="pending" class="badge" onclick="req('/pattern')"
+				data-badge="0">Pending
+				</button>
 			</li>
 			<li>
 				<button onclick="req('/complete')">Complete</button>
@@ -95,7 +97,7 @@
 	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<button class="btn-hamburger toggle-button" onclick="showNotification('/pending')">☰</button>
+	<button class="btn-hamburger toggle-button" onclick="showNotification()">☰</button>
 	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
 	</div>

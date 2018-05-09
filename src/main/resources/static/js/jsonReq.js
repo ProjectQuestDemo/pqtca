@@ -26,11 +26,15 @@ const showNotification = () => {
         .then((response) => response.json()
             .then((jsonData) => update(jsonData))
         );
-    let count = 0;
     const update = data => {
+        let count = 0;
+        console.log(data);
         count = data.length;
-        setInterval(data, 10000);
-        return $('#pending').data('data-badge', count);
+        console.log(count);
+        $('#pending').attr('data-badge', count);
+        setInterval(data, 1000000);
+
+
     }
 };
 const showApp = url => {

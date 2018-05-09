@@ -30,15 +30,6 @@ public class AdminController {
         this.userDetailsService = userDetailsService;
     }
 
-    @GetMapping("/admin/login")
-    private String adminLogin() {
-        return "admin/login";
-    }
-
-    @GetMapping("/admin")
-    private String adminDash() {
-        return "/admin/dashboard";
-    }
 
     @GetMapping("/admin/register")
     public String newReg(Model model) {
