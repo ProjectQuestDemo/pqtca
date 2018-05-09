@@ -37,6 +37,17 @@ p {margin-bottom: 1em;}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
+
+    color: #fff;
+    margin-bottom: 2em;
+}
+
+.container, fieldset {
+    color: #f1f1f1;
+    background-image: linear-gradient(0deg, #4a87db, #5a6b88);
+    border-radius: 4px;
+    height: auto;
+    margin: 4em auto;
     color: #4a87db;
     margin-bottom: 2em;
 }
@@ -92,7 +103,7 @@ legend {
 
 .color-change {
     text-align: center;
-    margin-top: 1em;
+    margin: 1em 0.6em;
     border-radius: 7px;
     width: 23vw;
     cursor: pointer;
@@ -102,8 +113,8 @@ legend {
     padding: 0.6em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    border: 1px solid #fff;
-    box-shadow: 2px 2px 5px #AFE9FF;
+    border: 1px solid #91e8ca;
+    box-shadow: 2px 2px 5px #5a6b88;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
@@ -138,7 +149,7 @@ input.color-change {
 
 #progressbar li {
     list-style-type: none;
-    color: white;
+    color: black;
     text-transform: uppercase;
     font-size: 9px;
     width: 14%;
@@ -154,7 +165,7 @@ input.color-change {
     display: block;
     font-size: 10px;
     color: #333;
-    background: white;
+    background: #54b4ff;
     border-radius: 3px;
     margin: 0 auto 5px auto;
 }
@@ -164,7 +175,7 @@ input.color-change {
     content: '';
     width: 100%;
     height: 2px;
-    background: white;
+    background: #54b4ff;
     position: absolute;
     left: -50%;
     top: 9px;
@@ -180,7 +191,7 @@ input.color-change {
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
-    color: white;
+    color: #54b4ff;
 }
 
 #msform {
@@ -272,6 +283,7 @@ fieldset:not(:first-of-type) {
     background-color: rgba(145, 232, 202, 0.54);
     text-decoration: none;
 }
+
 /**
  * hamburger
  */
@@ -411,24 +423,24 @@ fieldset:not(:first-of-type) {
 }
 
 .alert {
-    color: #4a87db;
+    color: #fff;
     margin-bottom: 2em;
 }
 
-@media only screen and (min-width: 50em) {
 
-    fieldset {
-        width: 40vw;
-    }
-    input, select {
-        width: 30vw;
-    }
-
-    .color-change {
-        width: 10vw;
-        font-size: 1em;
-    }
+.app-btn {
+    margin:3em auto;
+    text-align: center;
 }
+.app-btn.color-change {
+    width: 30vw;
+}
+
+.app-btn h5 {
+    color: #000000;
+    width:100%;
+}
+
 
 @media all and (min-width: 40em) {
 
@@ -442,26 +454,27 @@ fieldset:not(:first-of-type) {
         width: 455px;
     }
 
-    fieldset {
+
+    .container, fieldset  {
         font-size: 0.8em;
         color: black;
         background-color: #e1e1e1;
-        border-radius: 7px;
+        border-radius: 4px;
         height: 50%;
-        margin: auto;
+        margin: 4em auto;
         padding: 2em;
         text-align: center;
-        width: 40vw;
+        width: 30vw;
         position: relative;
     }
 
     input.form-control, select {
         text-align: center;
         margin-bottom: 2em;
-        width: 20vw;
+        width: 30vw;
         padding: 0.7em;
         border-radius: 7px;
-        font-size: 0.8em;
+        font-size: 0.9em;
     }
 
     .color-change {
@@ -483,7 +496,7 @@ fieldset:not(:first-of-type) {
 
     .border-outer {
         overflow: hidden;
-        height: 100%;
+        height: 80%;
         width: 100%;
         position: absolute;
     }
@@ -499,4 +512,26 @@ fieldset:not(:first-of-type) {
         top: -39px;
     }
 
+    button.app-btn.color-change {
+        width: 30vw;
+    }
+
+    @media only screen and (min-width: 45em) {
+
+        fieldset {
+            width: 30vw;
+        }
+        input.form-control, select {
+            width: 20vw;
+        }
+
+        .color-change {
+            width: 10vw;
+            font-size: 1em;
+        }
+
+        button.app-btn.color-change {
+            width: 15vw;
+        }
+    }
 }

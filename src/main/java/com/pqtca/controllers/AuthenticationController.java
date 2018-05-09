@@ -9,4 +9,7 @@ public class AuthenticationController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/dev-team")
+    public String devTeam() { return "dev-team"; }
 }
