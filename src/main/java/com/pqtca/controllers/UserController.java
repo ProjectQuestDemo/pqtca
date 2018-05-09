@@ -1,5 +1,6 @@
 package com.pqtca.controllers;
 
+import com.pqtca.Services.UserService;
 import com.pqtca.models.User;
 import com.pqtca.models.UserRole;
 import com.pqtca.repos.UserRepo;
@@ -21,14 +22,14 @@ public class UserController {
     private final UserRepo usersDao;
     private final PasswordEncoder passwordEncoder;
     private final UserRoles userRoles;
-    private final UserDetailsService userDetailsService;
+    private UserService userService;
 
 
-    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserDetailsService userDetailsService) {
+    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserService userService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.userRoles = userRoles;
-        this.userDetailsService = userDetailsService;
+        this.userService = userService;
     }
 
     @GetMapping({"/", "/home", "/index", ""})
@@ -79,8 +80,10 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String userDash() {
-        return "profile";
+    public String userDash(Model model) {
+        User loggedInUser = userService.loggedInUser();
+        model.addAttribute("user", loggedInUser);
+        return "user/profile";
     }
 
 

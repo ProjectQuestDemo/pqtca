@@ -3,6 +3,11 @@
 <head th:replace="fragments/head :: head('ERROR')">
 </head>
 <body>
-<h1 th:if="${page_has_error}">WHOOPS! GO AWAY!</h1>
+<nav th:replace="fragments/footer :: footer"></nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
+<div class="flex">
+	<h1 th:if="${page_has_error}">WHOOPS! Something is wrong with the server.</h1>
+</div>
+</main>
 </body>
 </html>

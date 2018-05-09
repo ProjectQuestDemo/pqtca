@@ -1,13 +1,15 @@
 package com.pqtca.models;
 
-import com.pqtca.repos.UserRoles;
+
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @Entity
 @Table(name = "user_roles")
 public class UserRole {
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +37,12 @@ public class UserRole {
         this.role = role;
     }
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 }
+

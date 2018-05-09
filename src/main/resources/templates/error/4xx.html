@@ -3,14 +3,19 @@
 <head th:replace="fragments/head :: head('Opps, ' + ${error})">
 </head>
 <body>
-<th:block th:switch="${error}">
-	<div th:case="'Not Found'">
-		<h1>Hmm, something broke...</h1>
-	</div>
-	<div th:case="'Forbidden'">
-		<h1>You aren't supposed to be here, don't do it again ok?!</h1>
-	</div>
-</th:block>
-<h1>Whoops!</h1>
+<nav th:replace="fragments/footer :: footer"></nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
+	<div class="flex">
+	<th:block th:switch="${error}">
+		<div th:case="'Not Found'">
+			<h1>Hmm, something broke...</h1>
+		</div>
+		<div th:case="'Forbidden'">
+			<h1>You aren't supposed to be here, don't do it again ok?!</h1>
+		</div>
+	</th:block>
+	<h1>Whoops!</h1>
+</div>
+</main>
 </body>
 </html>
