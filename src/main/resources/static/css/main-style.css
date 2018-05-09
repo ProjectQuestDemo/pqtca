@@ -44,9 +44,9 @@ h1, h2, h3, h4, h5, h6 {
 .container, fieldset {
     color: #f1f1f1;
     background-image: linear-gradient(0deg, #4a87db, #5a6b88);
-    border-radius: 7px;
+    border-radius: 4px;
     height: auto;
-    margin: auto;
+    margin: 4em auto;
     padding: 2em;
     text-align: center;
     width: 60vw;
@@ -138,7 +138,7 @@ input.color-change {
 
 #progressbar li {
     list-style-type: none;
-    color: white;
+    color: black;
     text-transform: uppercase;
     font-size: 9px;
     width: 14%;
@@ -154,7 +154,7 @@ input.color-change {
     display: block;
     font-size: 10px;
     color: #333;
-    background: white;
+    background: #54b4ff;
     border-radius: 3px;
     margin: 0 auto 5px auto;
 }
@@ -164,7 +164,7 @@ input.color-change {
     content: '';
     width: 100%;
     height: 2px;
-    background: white;
+    background: #54b4ff;
     position: absolute;
     left: -50%;
     top: 9px;
@@ -180,7 +180,7 @@ input.color-change {
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
-    color: white;
+    color: #54b4ff;
 }
 
 #msform {
@@ -417,7 +417,7 @@ fieldset:not(:first-of-type) {
 
 
 .app-btn {
-    margin: auto;
+    margin:3em auto;
     text-align: center;
 }
 .app-btn.color-change {
@@ -446,12 +446,12 @@ fieldset:not(:first-of-type) {
         font-size: 0.8em;
         color: black;
         background-color: #e1e1e1;
-        border-radius: 7px;
+        border-radius: 4px;
         height: 50%;
-        margin: auto;
+        margin: 4em auto;
         padding: 2em;
         text-align: center;
-        width: 40vw;
+        width: 30vw;
         position: relative;
     }
 
@@ -499,8 +499,8 @@ fieldset:not(:first-of-type) {
         top: -39px;
     }
 
-    .app-btn.color-change {
-        width: 20vw;
+    button.app-btn.color-change {
+        width: 30vw;
     }
 
     @media only screen and (min-width: 45em) {
@@ -517,8 +517,8 @@ fieldset:not(:first-of-type) {
             font-size: 1em;
         }
 
-        .app-btn.color-change {
-            width: 10vw;
+        button.app-btn.color-change {
+            width: 15vw;
         }
     }
 

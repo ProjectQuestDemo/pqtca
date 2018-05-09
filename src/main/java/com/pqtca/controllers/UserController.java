@@ -1,12 +1,11 @@
 package com.pqtca.controllers;
 
+import com.pqtca.Services.EmailService;
 import com.pqtca.Services.UserService;
 import com.pqtca.models.User;
-import com.pqtca.models.UserRole;
 import com.pqtca.repos.UserRepo;
 import com.pqtca.repos.UserRoles;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,19 +16,22 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
+
 @Controller
 public class UserController {
     private final UserRepo usersDao;
     private final PasswordEncoder passwordEncoder;
     private final UserRoles userRoles;
     private UserService userService;
+    private EmailService emailService;
 
 
-    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserService userService) {
+    public UserController(UserRepo usersDao, PasswordEncoder passwordEncoder, UserRoles userRoles, UserService userService, EmailService emailService) {
         this.usersDao = usersDao;
         this.passwordEncoder = passwordEncoder;
         this.userRoles = userRoles;
         this.userService = userService;
+        this.emailService = emailService;
     }
 
     @GetMapping({"/", "/home", "/index", ""})
@@ -46,18 +48,20 @@ public class UserController {
 
     @PostMapping("/register")
     public String regUser(@Valid User user, Errors errors, Model model) {
-
         String username = user.getUsername();
         String email = user.getEmail();
+
         User existCheckName = usersDao.findByUsername(username);
         User existEmailCheck = usersDao.findByEmail(email);
 
         if (existCheckName != null) {
-            errors.rejectValue("username", "user.username", "That username is already in use.");
+            model.addAttribute("errors", "That username is already in use.");
+            return "register";
         }
 
         if (existEmailCheck != null) {
-            errors.rejectValue("email", "user.email", "That username is already in use.");
+            model.addAttribute("errors", "That email is already in use.");
+            return "register";
         }
 
         if (errors.hasErrors()) {
@@ -66,17 +70,14 @@ public class UserController {
             return "register";
         }
 
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        SimpleMailMessage registrationEmail = new SimpleMailMessage();
+        registrationEmail.setTo(user.getEmail());
+        registrationEmail.setSubject("Registration Confirmation");
+        registrationEmail.setText("Thank you for registering with Project Quest! Please take the time to fill out an application.");
+        registrationEmail.setFrom("noreply@domain.com");
 
-        usersDao.save(user);
-
-        UserRole userRole = new UserRole();
-        userRole.setRole("ROLE_USER");
-        userRole.setUserId(user.getId());
-        userRoles.save(userRole);
-
-        model.addAttribute("user", user);
-        return "redirect:/login";
+        emailService.sendEmail(registrationEmail);
+        return "login";
     }
 
     @GetMapping("/profile")
@@ -88,8 +89,6 @@ public class UserController {
 
 
     /**
-     *
-     * @param model Model should contain current users info to populate form
      * @return Form fields pre-populated with current user's info.
      */
     @PostMapping("/profile/edit")

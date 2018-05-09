@@ -14,20 +14,19 @@
 			</li>
 			<span sec:authorize="hasRole('ROLE_ADMIN')">
 				<li>
-					<a th:href="@{'/admin'}"><button>Admin</button></a>
+					<a th:href="@{/admin}"><button>Admin</button></a>
 				</li>
 			</span>
 			<li>
-				<a href="#">
-					<button>About</button>
-				</a>
+				<a th:href="@{/dev-team}"><button>About The Team</button></a>
 			</li>
 			<span sec:authorize="isAuthenticated()">
 				<li>
-					<a th:href="@{'/profile'}"><button>Profile</button></a>
+					<a th:href="@{/profile}"><button>Profile</button></a>
 				</li>
-			</span>
-			<span sec:authorize="isAuthenticated()">
+				<li>
+					<a th:href="@{/app}"><button>Submit An Application</button></a>
+				</li>
 				<li>
 					<form th:action="@{/logout}" th:method="POST">
 						<button>Logout</button>
@@ -36,14 +35,10 @@
 			</span>
 			<span sec:authorize="!isAuthenticated()">
 				<li>
-					<a th:href="@{/register}">
-						<button>Register</button>
-					</a>
+					<a th:href="@{/register}"><button>Register</button></a>
 				</li>
 				<li>
-					<a th:href="@{/login}">
-						<button>Login</button>
-					</a>
+					<a th:href="@{/login}"><button>Login</button></a>
 				</li>
 			</span>
 		</ul>

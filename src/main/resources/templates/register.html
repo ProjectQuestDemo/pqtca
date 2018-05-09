@@ -5,9 +5,15 @@
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<div class="flex">
-		<button class="btn-hamburger toggle-button">☰</button>
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
+	<div class="flex">
 		<form id="msform" th:action="@{/register}" th:method="POST" th:object="${user}">
 			<fieldset>
 				<h3>Take the first step to being a better you. Register or Login to begin.</h3>
@@ -39,8 +45,10 @@
 				       1 lowercase character, and 1 number."
 					       required="required" aria-required="true"/>
 				</div>
+				
 				<input type="submit" class="color-change" name="Submit" value="Register"/>
-				<a th:href="@{'/login'}"><input type="button" class="color-change" value="Login"/></a>
+				
+				<a th:href="@{/login}"><input type="button" class="color-change" value="Login"/></a>
 			</fieldset>
 		</form>
 	</div>

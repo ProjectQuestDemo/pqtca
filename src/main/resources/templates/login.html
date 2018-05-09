@@ -2,28 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head('Login')"></head>
 <body>
-<nav id="menu" class="menu slideout-menu slideout-menu-left">
-	<section class="menu-section">
-		<h3 class="menu-section-title">Project Quest</h3>
-		<ul class="menu-section-list">
-			<li>
-				<a th:href="@{/index}">
-					<button>Home</button>
-				</a>
-			</li>
-			<li>
-				<a href="@{/devteam">
-					<button>About The Team</button>
-				</a>
-			</li>
-			<li>
-				<a th:href="@{/register}">
-					<button>Register</button>
-				</a>
-			</li>
-		</ul>
-	</section>
-</nav>
+<nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
 	<button class="btn-hamburger toggle-button">☰</button>
 	<div class="banner-img">
@@ -36,7 +15,7 @@
 	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
 			<fieldset>
-				<h3>Login or register today to being your Quest!</h3>
+				<h3>Login or register today to begin your Quest!</h3>
 				<div class="alert" th:if="${param.logout}">
 					You have been logged out.
 				</div>
@@ -52,8 +31,10 @@
 					       autocomplete="current-password"
 					       placeholder="Password"/>
 				</div>
-				<input class="color-change" type="submit"/>
-				<input class="color-change" type="button" value="Register"/>
+				<input class="color-change" type="submit" value="Login"/>
+				<a th:href="@{/register}">
+					<input class="color-change" type="button" value="Register"/>
+				</a>
 			</fieldset>
 		</form>
 	</div>

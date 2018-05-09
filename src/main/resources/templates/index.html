@@ -15,7 +15,12 @@
 	</div>
 	<div class="flex">
 		<div sec:authorize="isAuthenticated()"  class="container">
-			<h3>Welcome back <span sec:authentication="name"></span></h3>
+			<h2>Welcome back <span sec:authentication="name"></span></h2>
+		</div>
+		<div sec:authorize="!isAuthenticated()"  class="container">
+			<h3>Welcome to the beginning of a new, exciting chapter in your
+				life! Take a second to orient yourself With what we offer
+				and register for an account.</h3>
 		</div>
 	</div>
 </main>
