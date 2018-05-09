@@ -73,7 +73,9 @@ public class UserController {
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         usersDao.save(user);
+
         UserRole userRole = new UserRole();
         userRole.setRole("ROLE_USER");
         userRole.setUserId(user.getId());
