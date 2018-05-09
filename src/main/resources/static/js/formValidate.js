@@ -1,23 +1,24 @@
 function validate() {
 
     var x = $(".testinput");
-    var isValid = false;
 
-    x.each(function (i, el) {
+    var validationArray = [];
+
+    x.each(function () {
         if ($(this).val() === "" || $(this).val() === null) {
             $(this).css("border-color", "red");
-            isValid = false;
+            validationArray.push(false);
         } else {
+            console.log("is valid");
             $(this).css("border-color", "inherit");
-            isValid = true;
+            validationArray.push(true);
         }
     });
-    console.log(x);
-    console.log(isValid);
-    return isValid;
+
+    return !validationArray.includes(false);
 
 }
 
-
+ // TODO fix validation so that it can be applied to every page, without halting the next button
 
 

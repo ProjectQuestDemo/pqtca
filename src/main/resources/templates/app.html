@@ -70,7 +70,7 @@
 					<option th:value="unk">Unsure</option>
 				</select>
 			</div>
-			<input id="validateB" type="button" class="color-change next action-button" name="next" value="Next" onclick="validate(this)"/>
+			<input id="validateB" type="button" class="color-change next action-button" name="next" value="Next" />
 		</fieldset>
 		
 		<fieldset>
@@ -119,7 +119,7 @@
 				<input type="text"
 				       autocomplete="section-blue shipping street-address"
 				       placeholder="Street Address"
-				       class="form-control house"
+				       class="form-control house testinput"
 				       th:field="*{bStreetAddress}"
 				       required="required" aria-required="true"
 				/>
@@ -737,13 +737,16 @@
         var left, opacity, scale; //fieldset properties which we will animate
         var animating = false; //flag to prevent quick multi-click glitches
 
-		if (!validate()) {
-			return;
-        } else {
-		 //   wtf
 
 
         $(".next").click(function () {
+            if (!validate()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+            console.log("next");
             if (animating) return false;
             animating = true;
 
@@ -751,6 +754,8 @@
             current_fs = $(this).parent();
             next_fs = $(this).parent().next();
 
+
+            console.log("further down");
             $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
             //show the next fieldset
@@ -781,6 +786,8 @@
             });
 
         });
+
+
 
         $(".previous").click(function () {
             if (animating) return false;
@@ -820,7 +827,8 @@
         $(".submit").click(function () {
             return false;
         });
-    }});
+
+    });
 
 </script>
 </body>

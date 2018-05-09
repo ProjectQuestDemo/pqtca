@@ -16,7 +16,7 @@ public interface ApplicationRepo extends CrudRepository<Application, Long> {
 
     Long countByAEthnicity(String aEthnicity);
 
-    Long countByBCity(String bCity);
+    Long countByAGender(String aGender);
 
     Long countByDMaritalStatus(String cMarital);
 
