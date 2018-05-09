@@ -20,6 +20,19 @@ function req(url) {
     };
 }
 
+
+const showNotification = () => {
+    fetch('/pending')
+        .then((response) => response.json()
+            .then((jsonData) => update(jsonData))
+        );
+    let count = 0;
+    const update = data => {
+        count = data.length;
+        setInterval(data, 10000);
+        return $('#pending').data('data-badge', count);
+    }
+};
 const showApp = url => {
     fetch(url)
         .then((response) => response.json()
