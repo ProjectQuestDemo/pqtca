@@ -22,12 +22,14 @@
 					       class="form-control" th:field="*{username}"
 					       maxlength="45" title="Must start with a letter."
 					       required="required" aria-required="true"/>
+						<p class="error" th:each="err : ${#fields.hasErrors()}" th:text="${error}"></p>
 				</div>
 				<div class="fb-text form-group field-email">
 					<input type="text" autocomplete="email" placeholder="Email"
 					       class="form-control" th:field="*{email}"
 					       maxlength="45" title="Must start with a letter."
 					       required="required" aria-required="true"/>
+					<p class="error" th:each="err : ${#fields.hasErrors()}" th:text="${error2}"></p>
 				</div>
 				<div class="fb-text form-group field-password">
 					<input type="password" placeholder="Password" class="form-control"
