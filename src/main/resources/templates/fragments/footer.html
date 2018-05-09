@@ -16,7 +16,7 @@
         });
 
         // Toggle button
-        document.querySelector('.toggle-button').addEventListener('click', function() {
+        document.querySelector('.toggle-button').addEventListener('click', function () {
             slideout.toggle();
         });
 	</script>
@@ -94,7 +94,7 @@
                     complete: function () {
                         current_fs.hide();
                         animating = false;
-                        previous_fs.css({'position':'relative'});
+                        previous_fs.css({'position': 'relative'});
                     },
                     //this comes from the custom easing plugin
                     easing: 'easeInOutBack'
@@ -106,6 +106,28 @@
             });
         });
 	</script>
+	<script>
+        $('#main').bind('swipeLeft swipeRight', function(event) {
+            event.stopPropagation();
+        });
+        
+        function close(eve) {
+            eve.preventDefault();
+            slideout.close();
+        }
+
+        slideout
+            .on('beforeopen', function () {
+                this.panel.classList.add('panel-open');
+            })
+            .on('open', function () {
+                this.menu.addEventListener('click', close);
+                this.panel.addEventListener('click', close);
+            })
+            .on('beforeclose', function () {
+                this.panel.classList.remove('panel-open');
+                this.panel.removeEventListener('click', close);
+            });</script>
 </footer>
 </body>
 </html>
