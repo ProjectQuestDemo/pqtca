@@ -149,8 +149,6 @@ input.color-change {
     width: 60vw;
 }
 
-
-
 /*progressbar*/
 #progressbar {
     text-align: center;
@@ -233,7 +231,6 @@ input.eth {
 .ethcheck label {
     color: #fff;
 }
-
 
 .careercheck {
     display: block;
@@ -500,7 +497,7 @@ input.eth {
         width: 30vw;
     }
 
-    fieldset  {
+    fieldset {
         font-size: 0.8em;
         border-radius: 4px;
         height: 50%;
@@ -577,4 +574,136 @@ input.eth {
             width: 15vw;
         }
     }
+}
+
+/* dev-team page styling
+---------------------------------- */
+
+.dev-container {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.allie {
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-items: center;
+
+}
+
+.chris {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.thomas {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.headshots {
+    height: 17vw;
+    margin: 0 auto;
+
+
+}
+
+#meetdevheader {
+    margin: 0;
+}
+
+.dev-container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.descriptions {
+    margin: 0 auto;
+    padding-bottom: .5em;
+}
+
+.names {
+    font-size: 2em;
+    padding-top: 2vh;
+    margin-bottom: .7em;
+}
+
+.contactInfo {
+    font-size: .8em;
+}
+
+.contactInfo  img {
+    height: 3vw;
+    padding: 0 2em 0 2em;
+}
+
+/*mobile media q*/
+@media only screen and (max-width: 800px) {
+
+    .headshots {
+        height: 10em;
+        margin: 0 auto;
+        padding-bottom: 5px;
+        padding-top: 15px;
+    }
+
+    .dev-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: .5fr .5fr .5fr;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .dev-container > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .allie {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        margin: 0 auto;
+
+    }
+
+    .chris {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .thomas {
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+    .descriptions {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+
+    .names {
+        font-size: 2em;
+        padding-top: 2vh;
+
+    }
+
 }
