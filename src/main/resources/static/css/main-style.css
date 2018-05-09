@@ -25,12 +25,14 @@ a {
 }
 
 label {
-    color: #000;
+    color: #fff;
     display: block;
     margin-bottom: 1em;
 }
 
-p {margin-bottom: 1em;}
+p {
+    margin-bottom: 1em;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
@@ -50,13 +52,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 fieldset {
-    color: black;
-    background-color: #e1e1e1;
-    border-radius: 7px;
+    font-size: 0.8em;
+    color: #fff;
+    border-radius: 4px;
     height: auto;
     margin: auto;
     padding: 2em;
-    text-align: center;
     width: 60vw;
     position: relative;
 }
@@ -71,6 +72,7 @@ input, select {
 }
 
 legend {
+    text-align: center;
     width: 100%;
     margin-bottom: 2em;
 }
@@ -133,6 +135,21 @@ input.color-change {
     padding-right: 0.6em;
     align-self: right;
 }
+
+.container {
+    background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
+    border-radius: 4px;
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    height: auto;
+    margin: 4em auto;
+    padding: 2em;
+    text-align: center;
+    width: 60vw;
+}
+
+
 
 /*progressbar*/
 #progressbar {
@@ -201,9 +218,22 @@ fieldset:not(:first-of-type) {
     display: none;
 }
 
-.ethcheck label {
-    display: block;
+.field-ethnicity {
+    text-align: right;
 }
+
+input.eth {
+    color: #ffff;
+    margin-bottom: 0;
+    margin-left: 1em;
+    width: 20px;
+    padding: 0;
+}
+
+.ethcheck label {
+    color: #fff;
+}
+
 
 .careercheck {
     display: block;
@@ -229,7 +259,7 @@ fieldset:not(:first-of-type) {
 .panel:before {
     content: '';
     display: block;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     transition: background-color 0.5s ease-in-out;
 }
 
@@ -238,7 +268,7 @@ fieldset:not(:first-of-type) {
     top: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     z-index: 99;
 }
 
@@ -311,7 +341,6 @@ fieldset:not(:first-of-type) {
     outline: none;
     background: url('../images/menu.png') no-repeat left center;
 }
-
 
 /**
  * Slideout module styles
@@ -432,7 +461,7 @@ fieldset:not(:first-of-type) {
 }
 
 .error {
-    color:red;
+    color: red;
 }
 
 .alert {
@@ -440,22 +469,21 @@ fieldset:not(:first-of-type) {
     margin-bottom: 2em;
 }
 
-
 .app-btn {
-    margin:3em auto;
+    margin: 3em auto;
     text-align: center;
 }
+
 .app-btn.color-change {
     width: 30vw;
 }
 
 .app-btn h5 {
     color: #000000;
-    width:100%;
+    width: 100%;
 }
 
-
-@media all and (min-width: 40em) {
+@media all and (min-width: 768px) {
 
     .btn-hamburger {
         top: 20px;
@@ -467,6 +495,10 @@ fieldset:not(:first-of-type) {
         width: 455px;
     }
 
+    .container {
+        padding: 1em;
+        width: 30vw;
+    }
 
     fieldset  {
         font-size: 0.8em;
@@ -474,7 +506,6 @@ fieldset:not(:first-of-type) {
         height: 50%;
         margin: 4em auto;
         padding: 2em;
-        text-align: center;
         width: 30vw;
         position: relative;
     }
@@ -485,7 +516,7 @@ fieldset:not(:first-of-type) {
         width: 30vw;
         padding: 0.7em;
         border-radius: 7px;
-        font-size: 0.9em;
+        font-size: 0.8em;
     }
 
     .color-change {
@@ -527,11 +558,12 @@ fieldset:not(:first-of-type) {
         width: 30vw;
     }
 
-    @media only screen and (min-width: 45em) {
+    @media only screen and (min-width: 968px) {
 
         fieldset {
             width: 30vw;
         }
+
         input.form-control, select {
             width: 20vw;
         }
