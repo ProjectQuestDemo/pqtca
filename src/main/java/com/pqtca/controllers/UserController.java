@@ -4,6 +4,7 @@ package com.pqtca.controllers;
 import com.pqtca.Services.EmailService;
 import com.pqtca.Services.UserService;
 import com.pqtca.models.User;
+import com.pqtca.models.UserRole;
 import com.pqtca.repos.UserRepo;
 import com.pqtca.repos.UserRoles;
 import org.springframework.mail.SimpleMailMessage;
@@ -56,12 +57,12 @@ public class UserController {
         User existEmailCheck = usersDao.findByEmail(email);
 
         if (existCheckName != null) {
-            model.addAttribute("errors", "That username is already in use.");
+            model.addAttribute("error", "That username is already in use.");
             return "register";
         }
 
         if (existEmailCheck != null) {
-            model.addAttribute("errors", "That email is already in use.");
+            model.addAttribute("error2", "That email is already in use.");
             return "register";
         }
 
@@ -71,6 +72,12 @@ public class UserController {
             return "register";
         }
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        UserRole userRole = new UserRole();
+        userRole.setRole("ROLE_USER");
+        userRole.setUserId(user.getId());
+        userRoles.save(userRole);
+
         SimpleMailMessage registrationEmail = new SimpleMailMessage();
         registrationEmail.setTo(user.getEmail());
         registrationEmail.setSubject("Registration Confirmation");
@@ -78,7 +85,8 @@ public class UserController {
         registrationEmail.setFrom("noreply@domain.com");
 
         emailService.sendEmail(registrationEmail);
-        return "login";
+        model.addAttribute("user", user);
+        return "redirect:/login";
     }
 
     @GetMapping("/profile")
