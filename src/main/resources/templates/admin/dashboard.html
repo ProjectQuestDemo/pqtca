@@ -95,17 +95,19 @@
 	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
+		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
 	<div class="flex">
-		<header>
-			<button class="btn-hamburger toggle-button">☰</button>
-			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-		</header>
-		
 		<div id="divSec" class="container info-section">
 			<!-- TODO: Fix location of close button -->
 			<button class="close"
-			        onclick="document.getElementById('divSec').style.display='none'"><span class="minbtn color-change">-
-			</span></button>
+			        onclick="document.getElementById('divSec').style.display='none'">-</button>
 			<h3 class="title">Admin Dashboard</h3>
 			<p class="banner-txt">
 				To the left are several tools to help you manage and process the information you store.
@@ -118,9 +120,8 @@
 		</div>
 		<div id="divSec2" class="container application-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec2').style.display='none'"><span class="minbtn color-change">-
-			</span></button>
-			<h3 class="title"></h3>
+			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">-</button>
+			<h3 class="title">Applications</h3>
 			<div id="apps">
 				<p class="banner-txt">
 					To review an application, use the side navigation to make a selection.
@@ -129,12 +130,8 @@
 		</div>
 		<div id="divSec3" class="container demographic-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec3').style.display='none'"><span class="minbtn color-change">-
-			</span></button>
+			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">-</button>
 			<h3 class="title">Demographics</h3>
-			<p class="banner-txt">
-			
-			</p>
 			<div id="piechart" class="chart"></div>
 		</div>
 	</div>
