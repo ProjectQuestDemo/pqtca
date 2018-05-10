@@ -30,15 +30,6 @@ public class AdminController {
         this.userDetailsService = userDetailsService;
     }
 
-    @GetMapping("/admin/login")
-    private String adminLogin() {
-        return "admin/login";
-    }
-
-    @GetMapping("/admin")
-    private String adminDash() {
-        return "/admin/dashboard";
-    }
 
     @GetMapping("/admin/register")
     public String newReg(Model model) {
@@ -79,6 +70,7 @@ public class AdminController {
         userRoles.save(userRole);
 
         model.addAttribute("user", user);
+        model.addAttribute("success", "You have added " + user.getUsername() + " as an admin.");
         return "redirect:/admin";
     }
 

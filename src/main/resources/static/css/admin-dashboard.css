@@ -318,6 +318,25 @@ pre.line-numbers > code {
     text-align: right
 }
 
+.badge {
+    position:relative;
+}
+
+.badge[data-badge]:after {
+    content:attr(data-badge);
+    position:absolute;
+    top: 0px;
+    right:10px;
+    font-size:.7em;
+    background:white;
+    color: #000;
+    width:18px;height:18px;
+    text-align:center;
+    line-height:18px;
+    border-radius:50%;
+    box-shadow:0 0 1px #333;
+}
+
 pre {
     margin: 0;
 }
@@ -436,119 +455,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-.panel {
-    text-align: center;
-    min-height: 100%;
-}
-
-/**
- * hamburger
- */
-.btn-hamburger {
-    font-size: x-large;
-    border: none;
-    border-radius: 7px;
-    margin: auto;
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    outline: none;
-    background: url('../images/menu.png') no-repeat left center;
-}
-
-@media all and (min-width: 40em) {
-
-    .btn-hamburger {
-        top: 20px;
-        left: 30px;
-    }
-
-    .panel-header {
-        margin-top: 40px;
-        width: 455px;
-    }
-}
-
-/**
- * Slideout module styles
- */
-body {
-    width: 100%;
-    height: 100%;
-}
-
-.slideout-menu {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 256px;
-    min-height: 100vh;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    z-index: 0;
-    display: none;
-}
-
-.slideout-menu-left {
-    left: 0;
-}
-
-.slideout-menu-right {
-    right: 0;
-}
-
-.slideout-panel {
-    position: relative;
-    z-index: 1;
-    will-change: transform;
-    min-height: 100vh;
-}
-
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-    overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-    display: block;
-}
-
-/* Animation
----------------------------------- */
-@-webkit-keyframes shake {
-    0%, 100% {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-        -webkit-transform: translate3d(-10px, 0, 0);
-        transform: translate3d(-10px, 0, 0);
-    }
-}
-
-@keyframes shake {
-    0%, 100% {
-        -webkit-transform: translate3d(0, 0, 0);
-        transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-        -webkit-transform: translate3d(-10px, 0, 0);
-        transform: translate3d(-10px, 0, 0);
-    }
-}
-
-.shake {
-    -webkit-animation-name: shake;
-    animation-name: shake;
-    -webkit-animation-duration: 2s;
-    animation-duration: 2s;
-    -webkit-animation-iteration-count: 4;
-    animation-iteration-count: 4;
-}
-
 .dropbtn {
     width: 100%;
     background-color: #4a87db;
@@ -590,6 +496,12 @@ body {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.app-review {
+    color: #000;
+    width: 10vw;
+
 }
 
 

@@ -13,13 +13,34 @@ function req(url) {
         );
 
     const buildHtml = data => {
+        delete data.user;
         let newHtml = '';
         data.forEach(el => newHtml +=
-            `<button type="button" onclick="showApp('/show=${el.id}')">${el.aFirstName} ${el.aLastName}</button><br/>`);
+            `<button class="color-change" 
+                     onclick=showApp("/show=${el.id}")>${el.aFirstName} ${el.aLastName}
+            </button>`);
         return $('#apps').html(heading + newHtml);
     };
 }
 
+
+const showNotification = () => {
+    fetch('/pending')
+        .then((response) => response.json()
+            .then((jsonData) => update(jsonData))
+        );
+    const update = data => {
+        delete data.user;
+        let count = 0;
+        console.log(data);
+        count = data.length;
+        console.log(count);
+        $('#pending').attr('data-badge', count);
+        setInterval(data, 1000000);
+
+
+    }
+};
 const showApp = url => {
     fetch(url)
         .then((response) => response.json()
@@ -28,12 +49,12 @@ const showApp = url => {
     const buildHtml = data => {
         delete data.user;
         let newHtml = '';
+        newHtml += `<div class="individual app">`;
         for (let prop in data) {
-            newHtml += `<div>
-                            <label>${prop.slice(1)}: </label>
-                            <input value="${data[prop]}"/>
-                        </div>`;
+            newHtml += `<input class="app-review" value="${data[prop]}"/>`;
         }
+        newHtml += `<input type="button" class="color-change" name="submit" onclick="postFetch('/appreview')"/>` +
+                   '<input type="button" class="color-change" name="export" value="Export"/></form> </div>';
         return $('#apps').html(newHtml);
     };
 };

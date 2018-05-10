@@ -4,6 +4,7 @@ package com.pqtca.controllers;
 import com.pqtca.Services.EmailService;
 import com.pqtca.Services.UserService;
 import com.pqtca.models.User;
+import com.pqtca.models.UserRole;
 import com.pqtca.repos.UserRepo;
 import com.pqtca.repos.UserRoles;
 import org.springframework.mail.SimpleMailMessage;
@@ -42,6 +43,10 @@ public class UserController {
 
     @GetMapping("/register")
     public String newReg(Model model) {
+        User loggedInUser = userService.loggedInUser();
+        if (loggedInUser != null) {
+            return "redirect:/login";
+        }
         User user = new User();
         model.addAttribute("user", user);
         return "register";
@@ -56,12 +61,12 @@ public class UserController {
         User existEmailCheck = usersDao.findByEmail(email);
 
         if (existCheckName != null) {
-            model.addAttribute("errors", "That username is already in use.");
+            model.addAttribute("error", "That username is already in use.");
             return "register";
         }
 
         if (existEmailCheck != null) {
-            model.addAttribute("errors", "That email is already in use.");
+            model.addAttribute("error2", "That email is already in use.");
             return "register";
         }
 
@@ -71,6 +76,15 @@ public class UserController {
             return "register";
         }
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+
+        usersDao.save(user);
+
+        UserRole userRole = new UserRole();
+        userRole.setRole("ROLE_USER");
+        userRole.setUserId(user.getId());
+        userRoles.save(userRole);
+
         SimpleMailMessage registrationEmail = new SimpleMailMessage();
         registrationEmail.setTo(user.getEmail());
         registrationEmail.setSubject("Registration Confirmation");
@@ -78,32 +92,40 @@ public class UserController {
         registrationEmail.setFrom("noreply@domain.com");
 
         emailService.sendEmail(registrationEmail);
-        return "login";
+        model.addAttribute("user", user);
+        return "redirect:/login";
     }
 
     @GetMapping("/profile")
     public String userDash(Model model) {
         User loggedInUser = userService.loggedInUser();
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("user", loggedInUser);
         return "user/profile";
     }
 
 
-    /**
-     * @return Form fields pre-populated with current user's info.
-     */
     @PostMapping("/profile/edit")
-    public String userUpdateInfo(@ModelAttribute User user) {
-        User loggedInUser = userService.loggedInUser();
-        if (loggedInUser.getUsername().equalsIgnoreCase(user.getUsername())) {
+    public String userUpdateInfo(@Valid User user, Errors errors, Model model) {
+        User checkUser = userService.loggedInUser();
+        if (checkUser == null) {
             return "redirect:/login";
         }
-        User profileUser = usersDao.findOne(user.getId());
-        profileUser.setUsername(user.getUsername());
-        profileUser.setEmail(user.getEmail());
-        profileUser.setPassword(user.getPassword());
 
-        usersDao.save(profileUser);
-        return "redirect:/profile";
+        if (errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            return "profile/edit";
+        }
+
+        user.setUsername(checkUser.getUsername());
+        user.setId(checkUser.getId());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        usersDao.save(user);
+
+        model.addAttribute("success", "Your information has been updated");
+
+        return "user/profile";
     }
 }

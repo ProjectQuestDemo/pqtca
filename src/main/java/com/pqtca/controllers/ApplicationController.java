@@ -8,8 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.validation.Valid;
+import java.time.Instant;
+import java.util.Date;
 
 @Controller
 public class ApplicationController {
@@ -46,5 +51,23 @@ public class ApplicationController {
         app.setUser(userService.loggedInUser());
         appDao.save(app);
         return "redirect:/profile";
+    }
+
+//    @GetMapping("/show${id}")
+//    public String userApp(@PathVariable long id, Model model) {
+//        model.addAttribute("app", appDao.findOne(id));
+//        return "admin/app";
+//    }
+
+    @PostMapping("/confirm-app")
+    public String confirmApp(@Valid Application app, Errors errors, Model model) {
+
+        if(errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            return "admin";
+        }
+        app.setfEmpId(userService.loggedInUser().getId() + userService.loggedInUser().getUsername());
+        appDao.save(app);
+        return "redirect:/admin";
     }
 }

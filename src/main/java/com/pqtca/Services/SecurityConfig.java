@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .defaultSuccessUrl("/").permitAll() // Anyone can go to the login page
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/resources/static/**", "/logout").permitAll()
+                    .antMatchers("/resources/static/**", "/dev-team","/logout", "/register").permitAll()
                 .and()
                     .logout()
                     .logoutSuccessUrl("/login?logout")
