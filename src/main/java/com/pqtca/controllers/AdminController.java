@@ -70,6 +70,7 @@ public class AdminController {
         userRoles.save(userRole);
 
         model.addAttribute("user", user);
+        model.addAttribute("success", "You have added " + user.getUsername() + " as an admin.");
         return "redirect:/admin";
     }
 

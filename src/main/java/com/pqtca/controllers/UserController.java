@@ -43,6 +43,10 @@ public class UserController {
 
     @GetMapping("/register")
     public String newReg(Model model) {
+        User loggedInUser = userService.loggedInUser();
+        if (loggedInUser != null) {
+            return "redirect:/login";
+        }
         User user = new User();
         model.addAttribute("user", user);
         return "register";
@@ -95,26 +99,33 @@ public class UserController {
     @GetMapping("/profile")
     public String userDash(Model model) {
         User loggedInUser = userService.loggedInUser();
+        if (loggedInUser == null) {
+            return "redirect:/login";
+        }
         model.addAttribute("user", loggedInUser);
         return "user/profile";
     }
 
 
-    /**
-     * @return Form fields pre-populated with current user's info.
-     */
     @PostMapping("/profile/edit")
-    public String userUpdateInfo(@ModelAttribute User user) {
-        User loggedInUser = userService.loggedInUser();
-        if (loggedInUser.getUsername().equalsIgnoreCase(user.getUsername())) {
+    public String userUpdateInfo(@Valid User user, Errors errors, Model model) {
+        User checkUser = userService.loggedInUser();
+        if (checkUser == null) {
             return "redirect:/login";
         }
-        User profileUser = usersDao.findOne(user.getId());
-        profileUser.setUsername(user.getUsername());
-        profileUser.setEmail(user.getEmail());
-        profileUser.setPassword(user.getPassword());
 
-        usersDao.save(profileUser);
-        return "redirect:/profile";
+        if (errors.hasErrors()) {
+            model.addAttribute("errors", errors);
+            return "profile/edit";
+        }
+
+        user.setUsername(checkUser.getUsername());
+        user.setId(checkUser.getId());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        usersDao.save(user);
+
+        model.addAttribute("success", "Your information has been updated");
+
+        return "user/profile";
     }
 }

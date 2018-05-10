@@ -17,7 +17,7 @@ public class AuthenticationController {
 
     @GetMapping("/admin")
     private String adminDash() {
-        return "admin";
+        return "admin/dashboard";
     }
 
     @GetMapping("/dev-team")

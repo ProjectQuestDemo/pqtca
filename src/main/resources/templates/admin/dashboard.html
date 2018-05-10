@@ -33,7 +33,7 @@
 		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
-				<button id="pending" class="badge" onclick="req('/pattern')"
+				<button id="pending" class="badge" onclick="req('/pending')"
 				data-badge="0">Pending
 				</button>
 			</li>
@@ -106,36 +106,40 @@
 		</div>
 	</div>
 	<div class="flex">
-		<div id="divSec" class="container info-section">
-			<!-- TODO: Fix location of close button -->
-			<button class="close"
-			        onclick="document.getElementById('divSec').style.display='none'">-</button>
-			<h3 class="title">Admin Dashboard</h3>
-			<p class="banner-txt">
-				To the left are several tools to help you manage and process the information you store.
-				Take a second to orient yourself to the great features provided.
-				A pleasant feature shown below is a list of compiled demographics based on applicant information. This
-				information is based on user input and may not show every data type, but it gives its
-				viewer a general idea of the individual statistics. Check it out buy opening the menu and clicking on
-				one of the drop down options in the demographic section.
-			</p>
-		</div>
-		<div id="divSec2" class="container application-section">
-			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">-</button>
-			<h3 class="title">Applications</h3>
-			<div id="apps">
-				<p class="banner-txt">
-					To review an application, use the side navigation to make a selection.
-				</p>
+			<div id="divSec" class="container info-section">
+				<h3 class="title">Admin Dashboard</h3>
+				<p th:if="${success}"></p>
+				<button class="close">-</button>
+				<div class="pan">
+					<p class="banner-txt">
+						To the left are several tools to help you manage and process the information you store.
+						Take a second to orient yourself to the great features provided.
+						A pleasant feature shown below is a list of compiled demographics based on applicant information. This
+						information is based on user input and may not show every data type, but it gives its
+						viewer a general idea of the individual statistics. Check it out buy opening the menu and clicking on
+						one of the drop down options in the demographic section.
+					</p>
+				</div>
+			</div>
+			
+			
+			<div id="divSec2" class="container application-section">
+				<h3 class="title">Applications</h3>
+				<button class="accordion close">-</button>
+				<div id="apps" class="pan">
+					<p class="banner-txt">
+						To review an application, use the side navigation to make a selection.
+					</p>
+				</div>
+			</div>
+			
+			
+			<div id="divSec3" class="container demographic-section">
+				<h3 class="title">Demographics</h3>
+				<button class="accordion close">-</button>
+				<div id="piechart" class="pan chart"></div>
 			</div>
 		</div>
-		<div id="divSec3" class="container demographic-section">
-			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">-</button>
-			<h3 class="title">Demographics</h3>
-			<div id="piechart" class="chart"></div>
-		</div>
-	</div>
 </main>
 <script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
 <script th:src="@{/js/dataVis.js}"></script>
