@@ -19,7 +19,7 @@
 			<li></li>
 			<li>Social Info</li>
 		</ul>
-		<fieldset>
+		<fieldset class="field1">
 			<div class="fb-text form-group field-firstname">
 				<p>What is your first name?</p>
 				<input  type="text" placeholder="First Name"
@@ -52,18 +52,19 @@
 				       required="required" aria-required="true"
 				/>
 			</div>
-			
+
 			<div class="fb-text form-group field-ssn">
 				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 				<p>What is your Social Security Number?</p>
 				<input type="password" placeholder="Social" class="form-control testinput" maxlength="9" required="required"
 				       aria-required="true"/>
 			</div>
-			
+
 			<div class="fb-text form-group field-gender">
 				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 				<p>What do you identify as?</p>
-				<select th:field="*{aGender}">
+				<select class="testinput" th:field="*{aGender}">
+					<option value=""></option>
 					<option th:value="male">Male</option>
 					<option th:value="female">Female</option>
 					<option th:value="decline">Decline to State</option>
@@ -119,7 +120,7 @@
 				<input type="text"
 				       autocomplete="section-blue shipping street-address"
 				       placeholder="Street Address"
-				       class="form-control house testinput"
+				       class="form-control house testinput1"
 				       th:field="*{bStreetAddress}"
 				       required="required" aria-required="true"
 				/>
@@ -128,7 +129,7 @@
 				<span class="tooltip-element" tooltip="Please enter your city."></span>
 				<p>What city do you live in?</p>
 				<input type="text" placeholder="City"
-				       class="form-control" th:field="*{bCity}"
+				       class="form-control testinput1" th:field="*{bCity}"
 				       autocomplete="address-level2"
 				       maxlength="45" title="Must start with a letter."
 				       required="required" aria-required="true"
@@ -137,7 +138,8 @@
 			<div class="fb-text form-group field-state">
 				<span class="tooltip-element" tooltip="State."></span>
 				<p>State?</p>
-				<select th:field="*{bState}">
+				<select class="testinput1" th:field="*{bState}">
+					<option value=""></option>
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
 					<option value="AZ">Arizona</option>
@@ -202,23 +204,23 @@
 				<span class="tooltip-element" tooltip="County."></span>
 				<p>County?</p>
 				<input type="text" placeholder="Bexar"
-				       class="form-control" th:field="*{bCounty}"
+				       class="form-control testinput1" th:field="*{bCounty}"
 				       autocomplete="address-level2"
 				       maxlength="45" title="Must start with a letter."
 				       required="required" aria-required="true"
 				/>
-				
+
 				<span class="tooltip-element" tooltip="Zip Code."></span>
 				<p>Zip Code:</p>
 				<input type="text" placeholder="Postal Code"
-				       class="form-control" th:field="*{bZip}"
+				       class="form-control testinput1" th:field="*{bZip}"
 				       autocomplete="postal-code"
 				       maxlength="5" title="5 digits only please"
 				       required="required" aria-required="true"
 				/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input type="button" class="color-change action-button next1" name="next" value="Next"/>
 		</fieldset>
 		
 		<fieldset>
@@ -228,7 +230,7 @@
 				</div>
 				<p>What is your phone number?</p>
 				<input type="tel" placeholder="Phone Number"
-				       class="form-control" th:field="*{bPhoneNumber}"
+				       class="form-control testinput2" th:field="*{bPhoneNumber}"
 				       title="Numbers only please."
 				       required="required" aria-required="true"
 				/>
@@ -236,7 +238,7 @@
 			<div class="fb-text form-group field-altphone">
 				<p>Do you have another number? If not, you can leave this blank.</p>
 				<input type="tel" placeholder="Alternate Number"
-				       class="form-control" th:field="*{bAltPhoneNumber}"
+				       class="form-control testinput2" th:field="*{bAltPhoneNumber}"
 				       title="Numbers only please."
 				       aria-required="false"
 				/>
@@ -245,13 +247,13 @@
 				<span class="tooltip-element" tooltip="Valid email address please."></span>
 				<p>What is your email address?</p>
 				<input type="email" placeholder="Email"
-				       class="form-control" th:field="*{bEmail}"
+				       class="form-control testinput2" th:field="*{bEmail}"
 				       title="Must be a valid email."
 				       required="required" aria-required="true"
 				/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input type="button" class="color-change next2 action-button" name="next" value="Next"/>
 			
 		</fieldset>
 		
@@ -261,7 +263,7 @@
 				
 				<p>What is that person's name?</p>
 				<input type="text" placeholder="First Name"
-				       class="form-control" th:field="*{cEmerContactFirst}"
+				       class="form-control testinput3" th:field="*{cEmerContactFirst}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -269,7 +271,7 @@
 			<div class="fb-text form-group field-emercont2">
 				<p>And the last name?</p>
 				<input type="text" placeholder="Last Name"
-				       class="form-control" th:field="*{cEmerContactLast}"
+				       class="form-control testinput3" th:field="*{cEmerContactLast}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -277,7 +279,7 @@
 			<div class="fb-text form-group field-emerrel">
 				<p>What is this person's relationship to you?</p>
 				<input type="text" placeholder="Spouse? Friend?"
-				       class="form-control" th:field="*{cEmerContactRel}"
+				       class="form-control testinput3" th:field="*{cEmerContactRel}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -289,7 +291,7 @@
 					</span>
 				</div>
 				<input type="tel" placeholder="Phone Number"
-				       class="form-control" th:field="*{cEmerContactNum}"
+				       class="form-control testinput3" th:field="*{cEmerContactNum}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -301,7 +303,7 @@
 					</span>
 				</div>
 				<input type="text" placeholder="Address"
-				       class="form-control" th:field="*{cEmerContactAddy}"
+				       class="form-control testinput3" th:field="*{cEmerContactAddy}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -313,7 +315,7 @@
 					</span>
 				</div>
 				<input type="text" placeholder="City"
-				       class="form-control" th:field="*{cEmerContactCity}"
+				       class="form-control testinput3" th:field="*{cEmerContactCity}"
 				       title="Letters only please."
 				       required="required" aria-required="true"
 				/>
@@ -324,7 +326,8 @@
 						<p>What State?</p>
 					</span>
 				</div>
-				<select th:field="*{cEmerContactState}">
+				<select class="testinput3" th:field="*{cEmerContactState}">
+					<option value=""></option>
 					<option value="AL">Alabama</option>
 					<option value="AK">Alaska</option>
 					<option value="AZ">Arizona</option>
@@ -388,15 +391,16 @@
 				</select>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input type="button" class="color-change next3 action-button" name="next" value="Next"/>
 		</fieldset>
 		
 		<fieldset>
 			<div class="fb-text form-group field-fam">
 				<h3>You are almost done, the next sections are important!</h3>
 				<div>
-					<p>Martial Status</p>
-					<select class="form-control" th:field="*{dMaritalStatus}">
+					<p>Marital Status</p>
+					<select class="form-control testinput4" th:field="*{dMaritalStatus}">
+						<option value=""></option>
 						<option th:value="single">Single</option>
 						<option th:value="married">Married</option>
 						<option th:value="separated">Separated</option>
@@ -409,7 +413,8 @@
 				<p>
 					Family/Living Status?
 				</p>
-				<select th:field="*{dfamilyStatus}">
+				<select class="testinput4" th:field="*{dfamilyStatus}">
+					<option value=""></option>
 					<option th:value="twoparent">Two parent family</option>
 					<option th:value="singleparent">Single Parent</option>
 					<option th:value="other">Other Family Member</option>
@@ -422,7 +427,7 @@
 					How many people live in your house?
 				</p>
 				<input type="text" placeholder="1"
-				       class="form-control"
+				       class="form-control testinput4"
 				       th:field="*{dTotalInHouse}"
 				       required="required" aria-required="true"
 				/>
@@ -458,7 +463,7 @@
 				<input type="text" id="depFam" name="depFam" value=""/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input type="button" class="color-change next4 action-button" name="next" value="Next"/>
 		</fieldset>
 
 		<fieldset>
@@ -470,43 +475,43 @@
 
 					<div class="careercheck">
 						<label for="career1">Diagnostic Medical Sonographer</label>
-						<input class="car" type="checkbox" id="career1" th:field="*{aEthnicity}" value="dmsonographer"/>
+						<input class="car  " type="checkbox" id="career1" th:field="*{aEthnicity}" value="dmsonographer"/>
 					</div>
 					<div class="careercheck">
 						<label for="career2">Dental Hygienist</label>
-						<input class="car" type="checkbox" id="career2" th:field="*{aEthnicity}" value="dhygen"/>
+						<input class="car  " type="checkbox" id="career2" th:field="*{aEthnicity}" value="dhygen"/>
 					</div>
 					<div class="careercheck">
 						<label for="career3">Health Information Technologist</label>
-						<input class="car" type="checkbox" id="career3" th:field="*{aEthnicity}" value="hitechnologist"/>
+						<input class="car  " type="checkbox" id="career3" th:field="*{aEthnicity}" value="hitechnologist"/>
 					</div>
 					<div class="careercheck">
 						<label for="career4">Invasive Cardiovascular Technology</label>
-						<input class="car" type="checkbox" id="career4" th:field="*{aEthnicity}" value="ictechnology"/>
+						<input class="car  " type="checkbox" id="career4" th:field="*{aEthnicity}" value="ictechnology"/>
 					</div>
 					<div class="careercheck">
 						<label for="career5">Licensed Vocational Nurse</label>
-						<input class="car" type="checkbox" id="career5" th:field="*{aEthnicity}" value="lvn"/>
+						<input class="car  " type="checkbox" id="career5" th:field="*{aEthnicity}" value="lvn"/>
 					</div>
 					<div class="careercheck">
 						<label for="career6">Medical Laboratory Technologist</label>
-						<input class="car" type="checkbox" id="career6" th:field="*{aEthnicity}" value="mltechnologist"/>
+						<input class="car  " type="checkbox" id="career6" th:field="*{aEthnicity}" value="mltechnologist"/>
 					</div>
 					<div class="careercheck">
 						<label for="career7">Physical Therapy Assistant</label>
-						<input class="car" type="checkbox" id="career7" th:field="*{aEthnicity}" value="pta"/>
+						<input class="car  " type="checkbox" id="career7" th:field="*{aEthnicity}" value="pta"/>
 					</div>
 					<div class="careercheck">
 						<label for="career8">Radiography Technologist</label>
-						<input class="car" type="checkbox" id="career8" th:field="*{aEthnicity}" value="rtech"/>
+						<input class="car  " type="checkbox" id="career8" th:field="*{aEthnicity}" value="rtech"/>
 					</div>
 					<div class="careercheck">
 						<label for="career9">Registered Nurse</label>
-						<input class="car" type="checkbox" id="career9" th:field="*{aEthnicity}" value="rn"/>
+						<input class="car  " type="checkbox" id="career9" th:field="*{aEthnicity}" value="rn"/>
 					</div>
 					<div class="careercheck">
 						<label for="career10">Respiratory Care</label>
-						<input class="car" type="checkbox" id="career10" th:field="*{aEthnicity}" value="respcare"/>
+						<input class="car  " type="checkbox" id="career10" th:field="*{aEthnicity}" value="respcare"/>
 					</div>
 				</div>
 
@@ -514,91 +519,91 @@
 
 				<div class="careercheck">
 					<label for="career11">Surgical Technician </label>
-					<input class="car" type="checkbox" id="career11" th:field="*{aEthnicity}" value="surgtech"/>
+					<input class="car  " type="checkbox" id="career11" th:field="*{aEthnicity}" value="surgtech"/>
 				</div>
 				<div class="careercheck">
 					<label for="career12">Occupational Therapy Assistant</label>
-					<input class="car" type="checkbox" id="career12" th:field="*{aEthnicity}" value="occtherapyasst"/>
+					<input class="car  " type="checkbox" id="career12" th:field="*{aEthnicity}" value="occtherapyasst"/>
 				</div>
 				<div class="careercheck">
 					<label for="career13">Auto Service Technician</label>
-					<input class="car" type="checkbox" id="career13" th:field="*{aEthnicity}" value="autostech"/>
+					<input class="car  " type="checkbox" id="career13" th:field="*{aEthnicity}" value="autostech"/>
 				</div>
 				<div class="careercheck">
 					<label for="career14">HVAC</label>
-					<input class="car" type="checkbox" id="career14" th:field="*{aEthnicity}" value="hvac"/>
+					<input class="car  " type="checkbox" id="career14" th:field="*{aEthnicity}" value="hvac"/>
 				</div>
 				<div class="careercheck">
 					<label for="career15">Diesel Mechanic </label>
-					<input class="car" type="checkbox" id="career15" th:field="*{aEthnicity}" value="dmech"/>
+					<input class="car  " type="checkbox" id="career15" th:field="*{aEthnicity}" value="dmech"/>
 				</div>
 				<div class="careercheck">
 					<label for="career16">Electrical Trades </label>
-					<input class="car" type="checkbox" id="career16" th:field="*{aEthnicity}" value="electricalt"/>
+					<input class="car  " type="checkbox" id="career16" th:field="*{aEthnicity}" value="electricalt"/>
 				</div>
 				<div class="careercheck">
 					<label for="career17">Air Conditioning &amp; Heating  </label>
-					<input class="car" type="checkbox" id="career17" th:field="*{aEthnicity}" value="ach"/>
+					<input class="car  " type="checkbox" id="career17" th:field="*{aEthnicity}" value="ach"/>
 				</div>
 				<div class="careercheck">
 					<label for="career18">Machine Tool Operator</label>
-					<input class="car" type="checkbox" id="career18" th:field="*{aEthnicity}" value="machto"/>
+					<input class="car  " type="checkbox" id="career18" th:field="*{aEthnicity}" value="machto"/>
 				</div>
 				<div class="careercheck">
 					<label for="career19">Plumber</label>
-					<input class="car" type="checkbox" id="career19" th:field="*{aEthnicity}" value="plumber"/>
+					<input class="car  " type="checkbox" id="career19" th:field="*{aEthnicity}" value="plumber"/>
 				</div>
 				<div class="careercheck">
 					<label for="career20">Welder</label>
-					<input class="car" type="checkbox" id="career20" th:field="*{aEthnicity}" value="welder"/>
+					<input class="car  " type="checkbox" id="career20" th:field="*{aEthnicity}" value="welder"/>
 				</div>
 
 
 				<div class="careercheck">
 					<label for="career21">Bookkeeping Specialist</label>
-					<input class="car" type="checkbox" id="career21" th:field="*{aEthnicity}" value="bspec"/>
+					<input class="car  " type="checkbox" id="career21" th:field="*{aEthnicity}" value="bspec"/>
 				</div>
 				<div class="careercheck">
 					<label for="career22">Logistics</label>
-					<input class="car" type="checkbox" id="career22" th:field="*{aEthnicity}" value="log"/>
+					<input class="car  " type="checkbox" id="career22" th:field="*{aEthnicity}" value="log"/>
 				</div>
 				<div class="careercheck">
 					<label for="career23">Computer Support Specialist</label>
-					<input class="car" type="checkbox" id="career23" th:field="*{aEthnicity}" value="compsspec"/>
+					<input class="car  " type="checkbox" id="career23" th:field="*{aEthnicity}" value="compsspec"/>
 				</div>
 				<div class="careercheck">
 					<label for="career24">Computer Programming</label>
-					<input class="car" type="checkbox" id="career24" th:field="*{aEthnicity}" value="compprog"/>
+					<input class="car  " type="checkbox" id="career24" th:field="*{aEthnicity}" value="compprog"/>
 				</div>
 				<div class="careercheck">
 					<label for="career25">Network Administrator</label>
-					<input class="car" type="checkbox" id="career25" th:field="*{aEthnicity}" value="netadmin"/>
+					<input class="car  " type="checkbox" id="career25" th:field="*{aEthnicity}" value="netadmin"/>
 				</div>
 				<div class="careercheck">
 					<label for="career26">Information Security &amp; Assurance</label>
-					<input class="car" type="checkbox" id="career26" th:field="*{aEthnicity}" value="infosecassur"/>
+					<input class="car  " type="checkbox" id="career26" th:field="*{aEthnicity}" value="infosecassur"/>
 				</div>
 				<div class="careercheck">
 					<label for="career27">Web &amp; Mobile Developer</label>
-					<input class="car" type="checkbox" id="career27" th:field="*{aEthnicity}" value="webmobile"/>
+					<input class="car  " type="checkbox" id="career27" th:field="*{aEthnicity}" value="webmobile"/>
 				</div>
 				<div class="careercheck">
 					<label for="career28">Cyber Security </label>
-					<input class="car" type="checkbox" id="career28" th:field="*{aEthnicity}" value="cybersec"/>
+					<input class="car  " type="checkbox" id="career28" th:field="*{aEthnicity}" value="cybersec"/>
 				</div>
 				<div class="careercheck">
 					<label for="career29">Software Development</label>
-					<input class="car" type="checkbox" id="career29" th:field="*{aEthnicity}" value="softdev"/>
+					<input class="car  " type="checkbox" id="career29" th:field="*{aEthnicity}" value="softdev"/>
 				</div>
 				<div class="careercheck">
 					<label for="career30">Systems Administrator</label>
-					<input class="car" type="checkbox" id="career30" th:field="*{aEthnicity}" value="sysadmin"/>
+					<input class="car  " type="checkbox" id="career30" th:field="*{aEthnicity}" value="sysadmin"/>
 				</div>
 
 
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			<input type="button" class="color-change next5 action-button" name="next" value="Next"/>
 		</fieldset>
 		
 		<fieldset>
@@ -694,7 +699,7 @@
 				
 				<h4>Have you served in the military</h4>
 				<p class="eChoices">Branch?
-					<input class="form-control" type="text" id="milChoice"
+					<input class="form-control testinput6" type="text" id="milChoice"
 					       th:field="*{eMilitarySrv}"/>
 				</p>
 				
@@ -713,10 +718,10 @@
 				
 				<h4>If you were referred, please tell us how.</h4>
 				
-				<input class="form-control" type="text" th:field="*{eReferralSrc}"/>
+				<input class="form-control testinput6" type="text" th:field="*{eReferralSrc}"/>
 			</div>
 			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-			<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
+			<input type="Submit" class="color-change next6 action-button" name="Submit" value="Submit"/>
 		</fieldset>
 		
 		<fieldset>
@@ -737,22 +742,13 @@
         var left, opacity, scale; //fieldset properties which we will animate
         var animating = false; //flag to prevent quick multi-click glitches
 
-
-
-        $(".next").click(function () {
-            if (!validate()) {
-                console.log("is not valid");
-                return;
-            } else {
-                console.log("is valid");
-            }
-            console.log("next");
+		function pageTransition(that) {
             if (animating) return false;
             animating = true;
 
 
-            current_fs = $(this).parent();
-            next_fs = $(this).parent().next();
+            current_fs = $(that).parent();
+            next_fs = $(that).parent().next();
 
 
             console.log("further down");
@@ -784,7 +780,91 @@
                 //this comes from the custom easing plugin
                 easing: 'easeInOutBack'
             });
+		};
 
+        $(".next").click(function () {
+            if (!validate()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next1").click(function () {
+            if (!validate1()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next2").click(function () {
+            if (!validate2()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next3").click(function () {
+            if (!validate3()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next4").click(function () {
+            if (!validate4()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next5").click(function () {
+            if (!validate5()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next6").click(function () {
+            event.preventDefault();
+            if (!validate6()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
         });
 
 
