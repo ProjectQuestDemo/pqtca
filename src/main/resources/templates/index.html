@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/head :: head('PQ Home')">
 </head>
 <body>
-<div class="homepage-hero-module">
-	<div class="video-container">
-		<nav th:replace="fragments/user-nav :: user-nav"></nav>
-		<div class="filter">
-			<video preload="" muted="" autoplay="" loop="" class="fillWidth">
-				<source th:src="@{/video/MP4/Urban-Timer.mp4}" type="video/mp4"/>
-				Your browser does not support the video tag. I suggest you upgrade your browser.
-				<source th:src="@{/video/WEBM/Urban-Timer.webm}" type="video/webm"/>
-				Your browser does not support the video tag. I suggest you upgrade your browser.
-			</video>
-		</div>
-		<div class="poster hidden">
-			<img th:src="@{/video/Snapshots/Urban-Timer.jpg}" alt=""/>
+<nav th:replace="fragments/nav :: nav"></nav>
+<main id="panel" class="panel slideout-panel slideout-panel-left">
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
+		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
 		</div>
 	</div>
-</div>
+	<div class="flex">
+		<div sec:authorize="isAuthenticated()"  class="container">
+			<h2>Welcome back <span sec:authentication="name"></span></h2>
+		</div>
+		<div sec:authorize="!isAuthenticated()"  class="container">
+			<h3>Welcome to the beginning of a new, exciting chapter in your
+				life! Take a second to orient yourself with what we offer
+				and register for an account.</h3>
+		</div>
+	</div>
+</main>
 <footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>

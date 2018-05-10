@@ -42,23 +42,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .formLogin()
                     .loginPage("/login")
-                    .defaultSuccessUrl("/")
-                    .permitAll() // Anyone can go to the login page
+                    .defaultSuccessUrl("/").permitAll() // Anyone can go to the login page
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/resources/static/**", "/logout")
-                    .permitAll()
+                    .antMatchers("/resources/static/**", "/dev-team","/logout", "/register").permitAll()
                 .and()
                     .logout()
                     .logoutSuccessUrl("/login?logout")
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/app", "/profile")
-                    .authenticated()
+                    .antMatchers("/app", "/profile").authenticated()
                 .and()
                     .authorizeRequests()
-                    .antMatchers("/admin**")
+                    .antMatchers("/admin","/admin/**")
                     .hasRole("ADMIN");
     }
-
 }

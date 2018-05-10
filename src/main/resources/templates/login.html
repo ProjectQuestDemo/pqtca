@@ -2,46 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/head :: head('Login')"></head>
 <body>
-<nav id="menu" class="menu slideout-menu slideout-menu-left">
-	<section class="menu-section">
-		<h3 class="menu-section-title">Project Quest</h3>
-		<ul class="menu-section-list">
-			<li>
-				<a th:href="@{/index}"><button>Home</button></a>
-			</li>
-			<li>
-				<a href="#"><button>About</button></a>
-			</li>
-			<li>
-				<a th:href="@{/register}"><button>Register</button></a>
-			</li>
-		</ul>
-	</section>
-</nav>
+
+<nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
-	<div class="flex">
-		<button class="btn-hamburger toggle-button">☰</button>
+	<button class="btn-hamburger toggle-button">☰</button>
+	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
+	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
 			<fieldset>
-				<h3>Login or register today to being your Quest!</h3>
+				<h3>Login or register today to begin your Quest!</h3>
 				<div class="alert" th:if="${param.logout}">
 					You have been logged out.
 				</div>
 				<div class="error" th:if="${param.error}">
 					Invalid Username and Password.
 				</div>
-				<div>
-					<label for="username">Username</label>
-					<input id="username" placeholder="Username"
-					       autocomplete="username" name="username" type="text"/>
+				<div class="fb-text form-group field-username">
+					<input type="text" class="form-control" id="username" name="username" autocomplete="username"
+					       placeholder="Username"/>
 				</div>
-				<div>
-					<label for="password">Password</label>
-					<input id="password" placeholder="Password"
-					       autocomplete="password" name="password" type="password"/>
+				<div class="fb-text form-group field-password">
+					<input type="password" class="form-control" id="password" name="password"
+					       autocomplete="current-password"
+					       placeholder="Password"/>
 				</div>
-				<input class="color-change" type="submit" onclick="validateLogin(this)"/>
+
+				<input class="color-change" type="submit" value="Login"/>
+				<a th:href="@{/register}">
+					<input class="color-change" type="button" value="Register"/>
+				</a>
 			</fieldset>
 		</form>
 	</div>

@@ -9,4 +9,17 @@ public class AuthenticationController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/admin/login")
+    private String adminLogin() {
+        return "admin/login";
+    }
+
+    @GetMapping("/admin")
+    private String adminDash() {
+        return "admin";
+    }
+
+    @GetMapping("/dev-team")
+    public String devTeam() { return "dev-team"; }
 }

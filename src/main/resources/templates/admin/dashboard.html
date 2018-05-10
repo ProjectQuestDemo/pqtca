@@ -6,24 +6,53 @@
 	<title>Admin Dashboard</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet"/>
 	<link rel="stylesheet" th:href="@{/css/admin-dashboard.css}"/>
+	<link rel="stylesheet" th:href="@{/css/main-style.css}"/>
 </head>
 <body>
 <nav id="menu" class="menu slideout-menu slideout-menu-left">
 	<section class="menu-section">
+		<h3 class="menu-section-title">Control Panel</h3>
+		<ul class="menu-section-list">
+			<li>
+				<a th:href="@{/index}"><button>Home</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/register}"><button>Create New Admin</button></a>
+			</li>
+			<li>
+				<a th:href="@{/admin/profile}"><button>Change Password</button></a>
+			</li>
+			<li>
+				<form th:action="@{/logout}" th:method="POST">
+					<button>Logout</button>
+				</form>
+			</li>
+		</ul>
+	</section>
+	<section class="menu-section">
 		<h3 class="menu-section-title">Applications Received</h3>
 		<ul class="menu-section-list">
 			<li>
-				<button>
-					Pending Review
+				<button id="pending" class="badge" onclick="req('/pattern')"
+				data-badge="0">Pending
 				</button>
 			</li>
 			<li>
 				<button onclick="req('/complete')">Complete</button>
 			</li>
 			<li>
-				<button>
-					Export to CSV
-				</button>
+				<a href='#' onclick='req("/pending");'>
+					<button onclick="csvDownload()">
+						Export Pending
+					</button>
+				</a>
+			</li>
+			<li>
+				<a href='#' onclick="req('/complete')">
+					<button onclick="csvDownload()">
+						Export All
+					</button>
+				</a>
 			</li>
 		</ul>
 	</section>
@@ -66,15 +95,19 @@
 	</section>
 </nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+	<button class="btn-hamburger toggle-button" onclick="showNotification()">☰</button>
+	<div class="banner-img">
+		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
+	</div>
+	<div class="border-outer">
+		<div class="border-inner">
+		</div>
+	</div>
 	<div class="flex">
-		<header>
-			<button class="btn-hamburger toggle-button">☰</button>
-			<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-		</header>
-		
 		<div id="divSec" class="container info-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec').style.display='none'">Close</button>
+			<button class="close"
+			        onclick="document.getElementById('divSec').style.display='none'">-</button>
 			<h3 class="title">Admin Dashboard</h3>
 			<p class="banner-txt">
 				To the left are several tools to help you manage and process the information you store.
@@ -87,31 +120,25 @@
 		</div>
 		<div id="divSec2" class="container application-section">
 			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">Close</button>
-			<div id="apps" th:if="${application.id == null}">
+			<button class="close" onclick="document.getElementById('divSec2').style.display='none'">-</button>
+			<h3 class="title">Applications</h3>
+			<div id="apps">
 				<p class="banner-txt">
 					To review an application, use the side navigation to make a selection.
 				</p>
 			</div>
-			<div th:if="${application.id != null}">
-				<h3 class="title">Application for <span th:text="${application.a_first_name} + ' ' + ${application.a_last_name}"></span></h3>
-				<p class="banner-txt">
-					Application
-				</p>
-				<div id="app" class="app"></div>
-			</div>
 		</div>
 		<div id="divSec3" class="container demographic-section">
-			<!-- TODO: Fix location of close button -->
-			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">Close</button>
+			<button class="close" onclick="document.getElementById('divSec3').style.display='none'">-</button>
 			<h3 class="title">Demographics</h3>
-			<p class="banner-txt">
-			
-			</p>
 			<div id="piechart" class="chart"></div>
 		</div>
 	</div>
 </main>
+<script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+<script th:src="@{/js/dataVis.js}"></script>
+<script th:src="@{/js/jsonReq.js}"></script>
+<script th:src="@{/js/jsonToCSV.js}"></script>
 <footer th:replace="fragments/footer :: footer"></footer>
 <script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
 <script th:src="@{/js/dataVis.js}"></script>
