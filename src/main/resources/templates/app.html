@@ -3,756 +3,927 @@
 <head th:replace="fragments/head :: head('PQ App')"></head>
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
+
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+
 	<button class="btn-hamburger toggle-button">☰</button>
-	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
-	</div>
+
 	<div class="border-outer">
 		<div class="border-inner">
 		</div>
 	</div>
-	<div th:fragment="/app" class="flex">
-		<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
-			<!-- progressbar -->
-			<ul id="progressbar">
-				<li class="active">Personal Info</li>
-				<li></li>
-				<li>Residential Information</li>
-				<li></li>
-				<li>Alt Contact Info</li>
-				<li></li>
-				<li>Social Info</li>
-			</ul>
-			<fieldset>
-				<div class="fb-text form-group field-firstname">
-					<label>What is your first name?</label>
-					<input type="text" placeholder="First Name"
-					       class="form-control" th:field="*{aFirstName}"
-					       maxlength="45" title="Must start with a letter."
-					       required="required" aria-required="true"/>
-				</div>
-				<div class="fb-text form-group field-middlename">
-					<span class="tooltip-element" tooltip="Must start with a letter."></span>
-					<label>What is your middle name?</label>
-					<input type="text" placeholder="Middle Name" class="form-control" th:field="*{aMiddleName}"
-					       maxlength="45" title="Must start with a letter." required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-lastname">
-					<span class="tooltip-element" tooltip="Must start with a letter."></span>
-					<label>What is your last name?</label>
-					<input type="text" placeholder="Last Name"
-					       class="form-control" maxlength="45" th:field="*{aLastName}" title="Must start with a letter."
-					       required="required" aria-required="true"/>
-				</div>
-				<div class="fb-text form-group field-dob">
-					<div>
-						<span class="tooltip-element" tooltip="Must be a date in the past."></span>
-						<label>When were you born?</label>
-					</div>
-					<input type="date" placeholder="Date of Birth"
-					       class="form-control" th:field="*{aDateOfBirth}"
-					       title="Must be a date in the past."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				
-				
-				<div class="fb-text form-group field-ssn">
-					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
-					<label>What is your Social Security Number?</label>
-					<input type="text" placeholder="Social" th:field="*{appssn}" class="form-control" maxlength="9"
-					       required="required"
-					       aria-required="true"/>
-				</div>
-				
-				<div class="fb-text form-group field-gender">
-					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
-					<label>What do you identify as?</label>
-					<select th:field="*{aGender}">
-						<option th:value="male">Male</option>
-						<option th:value="female">Female</option>
-						<option th:value="decline">Decline to State</option>
-						<option th:value="unk">Unsure</option>
-					</select>
-				</div>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text field-ethnicity">
-					<legend>What nationality do you identify?</legend>
-					<div class="ethcheck">
-						<label for="eth1">African-American
-							<input class="eth" type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"/>
-						</label>
-					</div>
-					<div class="ethcheck">
-						<label for="eth2">White
-							<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"/>
-						</label>
-					
-					
-					</div>
-					<div class="ethcheck">
-						<label for="eth3">Hispanic/Latino
-							<input class="eth" type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"/>
-						</label>
-					
-					
-					</div>
-					<div class="ethcheck">
-						<label for="eth4">Asian-American
-							<input class="eth" type="checkbox" id="eth4" th:field="*{aEthnicity}" value="asiamrcn"/>
-						</label>
-					</div>
-					
-					<div class="ethcheck">
-						<label for="eth5">Native American
-							<input class="eth" type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"/>
-						</label>
-					</div>
-					
-					<div class="ethcheck">
-						<label for="eth6">Two or More (Latin/Hispanic)
-							<input class="eth" type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"/>
-						</label>
-					</div>
-					
-					<div class="ethcheck">
-						<label for="eth7">Two or More (Not Latin/Hispanic)
-							<input class="eth" type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"/>
-						</label>
-					</div>
-				
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text form-group field-houseaddy">
-					<span class="tooltip-element" tooltip="Just your house number and street"></span>
-					<label>What is your address?</label>
-					<input type="text"
-					       autocomplete="section-blue shipping street-address"
-					       placeholder="Street Address"
-					       class="form-control house"
-					       th:field="*{bStreetAddress}"
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-city">
-					<span class="tooltip-element" tooltip="Please enter your city."></span>
-					<label>What city do you live in?</label>
-					<input type="text" placeholder="City"
-					       class="form-control" th:field="*{bCity}"
-					       autocomplete="address-level2"
-					       maxlength="45" title="Must start with a letter."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-state">
-					<span class="tooltip-element" tooltip="State."></span>
-					<label>State?</label>
-					<select th:field="*{bState}">
-						<option value="AL">Alabama</option>
-						<option value="AK">Alaska</option>
-						<option value="AZ">Arizona</option>
-						<option value="AR">Arkansas</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DE">Delaware</option>
-						<option value="DC">District Of Columbia</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="HI">Hawaii</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="IA">Iowa</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="ME">Maine</option>
-						<option value="MD">Maryland</option>
-						<option value="MA">Massachusetts</option>
-						<option value="MI">Michigan</option>
-						<option value="MN">Minnesota</option>
-						<option value="MS">Mississippi</option>
-						<option value="MO">Missouri</option>
-						<option value="MT">Montana</option>
-						<option value="NE">Nebraska</option>
-						<option value="NV">Nevada</option>
-						<option value="NH">New Hampshire</option>
-						<option value="NJ">New Jersey</option>
-						<option value="NM">New Mexico</option>
-						<option value="NY">New York</option>
-						<option value="NC">North Carolina</option>
-						<option value="ND">North Dakota</option>
-						<option value="OH">Ohio</option>
-						<option value="OK">Oklahoma</option>
-						<option value="OR">Oregon</option>
-						<option value="PA">Pennsylvania</option>
-						<option value="RI">Rhode Island</option>
-						<option value="SC">South Carolina</option>
-						<option value="SD">South Dakota</option>
-						<option value="TN">Tennessee</option>
-						<option value="TX">Texas</option>
-						<option value="UT">Utah</option>
-						<option value="VT">Vermont</option>
-						<option value="VA">Virginia</option>
-						<option value="WA">Washington</option>
-						<option value="WV">West Virginia</option>
-						<option value="WI">Wisconsin</option>
-						<option value="WY">Wyoming</option>
-						<option value="AS">American Samoa</option>
-						<option value="GU">Guam</option>
-						<option value="MP">Northern Mariana Islands</option>
-						<option value="PR">Puerto Rico</option>
-						<option value="UM">United States Minor Outlying Islands</option>
-						<option value="VI">Virgin Islands</option>
-						<option value="AA">Armed Forces Americas</option>
-						<option value="AP">Armed Forces Pacific</option>
-						<option value="AE">Armed Forces Others</option>
-					</select>
-					<span class="tooltip-element" tooltip="County."></span>
-					<label>County?</label>
-					<input type="text" placeholder="Bexar"
-					       class="form-control" th:field="*{bCounty}"
-					       autocomplete="address-level2"
-					       maxlength="45" title="Must start with a letter."
-					       required="required" aria-required="true"
-					/>
-					
-					<span class="tooltip-element" tooltip="Zip Code."></span>
-					<label>Zip Code:</label>
-					<input type="text" placeholder="Postal Code"
-					       class="form-control" th:field="*{bZip}"
-					       autocomplete="postal-code"
-					       maxlength="5" title="5 digits only please"
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text form-group field-contact">
-					<div>
-						<h3>Hang in there! You're almost done!</h3>
-					</div>
-					<label>What is your phone number?</label>
-					<input type="tel" placeholder="Phone Number"
-					       class="form-control" th:field="*{bPhoneNumber}"
-					       title="Numbers only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-altphone">
-					<label>Do you have another number? If not, you can leave this blank.</label>
-					<input type="tel" placeholder="Alternate Number"
-					       class="form-control" th:field="*{bAltPhoneNumber}"
-					       title="Numbers only please."
-					       aria-required="false"
-					/>
-				</div>
-				<div class="fb-text form-group field-email">
-					<span class="tooltip-element" tooltip="Valid email address please."></span>
-					<label>What is your email address?</label>
-					<input type="email" placeholder="Email"
-					       class="form-control" th:field="*{bEmail}"
-					       title="Must be a valid email."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text form-group field-emergcont">
-					<h3>We require one emergency contact.</h3>
-					
-					<label>What is that person's name?</label>
-					<input type="text" placeholder="First Name"
-					       class="form-control" th:field="*{cEmerContactFirst}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emercont2">
-					<label>And the last name?</label>
-					<input type="text" placeholder="Last Name"
-					       class="form-control" th:field="*{cEmerContactLast}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emerrel">
-					<label>What is this person's relationship to you?</label>
-					<input type="text" placeholder="Spouse? Friend?"
-					       class="form-control" th:field="*{cEmerContactRel}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emertel">
-					<div>
-					<span class="tooltip-element" tooltip="Numbers only please.">
-						<label>Do you have a contact number for them?</label>
-					</span>
-					</div>
-					<input type="tel" placeholder="Phone Number"
-					       class="form-control" th:field="*{cEmerContactNum}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emeraddy">
-					<div>
-					<span class="tooltip-element" tooltip="Street Address.">
-						<label>What is their address?</label>
-					</span>
-					</div>
-					<input type="text" placeholder="Address"
-					       class="form-control" th:field="*{cEmerContactAddy}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emercity">
-					<div>
-					<span class="tooltip-element" tooltip="City.">
-						<label>What city do they live in?</label>
-					</span>
-					</div>
-					<input type="text" placeholder="City"
-					       class="form-control" th:field="*{cEmerContactCity}"
-					       title="Letters only please."
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-emerstate">
-					<div>
-					<span class="tooltip-element" tooltip="Choose from the dropdown.">
-						<label>What State?</label>
-					</span>
-					</div>
-					<select th:field="*{cEmerContactState}">
-						<option value="AL">Alabama</option>
-						<option value="AK">Alaska</option>
-						<option value="AZ">Arizona</option>
-						<option value="AR">Arkansas</option>
-						<option value="CA">California</option>
-						<option value="CO">Colorado</option>
-						<option value="CT">Connecticut</option>
-						<option value="DE">Delaware</option>
-						<option value="DC">District Of Columbia</option>
-						<option value="FL">Florida</option>
-						<option value="GA">Georgia</option>
-						<option value="HI">Hawaii</option>
-						<option value="ID">Idaho</option>
-						<option value="IL">Illinois</option>
-						<option value="IN">Indiana</option>
-						<option value="IA">Iowa</option>
-						<option value="KS">Kansas</option>
-						<option value="KY">Kentucky</option>
-						<option value="LA">Louisiana</option>
-						<option value="ME">Maine</option>
-						<option value="MD">Maryland</option>
-						<option value="MA">Massachusetts</option>
-						<option value="MI">Michigan</option>
-						<option value="MN">Minnesota</option>
-						<option value="MS">Mississippi</option>
-						<option value="MO">Missouri</option>
-						<option value="MT">Montana</option>
-						<option value="NE">Nebraska</option>
-						<option value="NV">Nevada</option>
-						<option value="NH">New Hampshire</option>
-						<option value="NJ">New Jersey</option>
-						<option value="NM">New Mexico</option>
-						<option value="NY">New York</option>
-						<option value="NC">North Carolina</option>
-						<option value="ND">North Dakota</option>
-						<option value="OH">Ohio</option>
-						<option value="OK">Oklahoma</option>
-						<option value="OR">Oregon</option>
-						<option value="PA">Pennsylvania</option>
-						<option value="RI">Rhode Island</option>
-						<option value="SC">South Carolina</option>
-						<option value="SD">South Dakota</option>
-						<option value="TN">Tennessee</option>
-						<option value="TX">Texas</option>
-						<option value="UT">Utah</option>
-						<option value="VT">Vermont</option>
-						<option value="VA">Virginia</option>
-						<option value="WA">Washington</option>
-						<option value="WV">West Virginia</option>
-						<option value="WI">Wisconsin</option>
-						<option value="WY">Wyoming</option>
-						<option value="AS">American Samoa</option>
-						<option value="GU">Guam</option>
-						<option value="MP">Northern Mariana Islands</option>
-						<option value="PR">Puerto Rico</option>
-						<option value="UM">United States Minor Outlying Islands</option>
-						<option value="VI">Virgin Islands</option>
-						<option value="AA">Armed Forces Americas</option>
-						<option value="AP">Armed Forces Pacific</option>
-						<option value="AE">Armed Forces Others</option>
-					</select>
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text form-group field-fam">
-					<h3>You are almost done, the next sections are important!</h3>
-					<div>
-						<label>Martial Status</label>
-						<select class="form-control" th:field="*{dMaritalStatus}">
-							<option th:value="single">Single</option>
-							<option th:value="married">Married</option>
-							<option th:value="separated">Separated</option>
-							<option th:value="divorced">Divorced</option>
-						</select>
-					</div>
-				</div>
-				
-				<div class="fb-text form-group field-hhsize">
-					<label for="houseHoldSize">
-						Family/Living Status?
-					</label>
-					<select id="houseHoldSize" th:field="*{dfamilyStatus}">
-						<option th:value="twoparent">Two parent family</option>
-						<option th:value="singleparent">Single Parent</option>
-						<option th:value="other">Other Family Member</option>
-						<option th:value="individual">Individual</option>
-					</select>
-				</div>
-				
-				<div class="fb-text form-group field-totalinhouse">
-					<label for="totalInHouse">
-						How many people live in your house?
-					</label>
-					<input type="text" id="totalInHouse" placeholder="How Many Live In Your House"
-					       class="form-control"
-					       th:field="*{dTotalInHouse}"
-					       required="required" aria-required="true"
-					/>
-				</div>
-				<div class="fb-text form-group field-numdep">
-					<label>Number of dependents</label>
-					<input type="text" placeholder="Age 5 or under?"
-					       class="form-control" th:field="*{dDepUnderFive}"
-					       title="Numbers only please"
-					       required="required" aria-required="true"
-					/>
-					<input type="text" placeholder="Age 6 to 17?"
-					       class="form-control" th:field="*{dDepOverFive}"
-					       title="Numbers only please"
-					       required="required" aria-required="true"
-					/>
-					<input type="text" placeholder="Age 18+?"
-					       class="form-control" th:field="*{dDepOverEighteen}"
-					       title="Numbers only please"
-					       required="required" aria-required="true"
-					/>
-					<div class="fb-text form-group field-depinfo">
-						<label>Full Name of dependent</label>
-						<input type="text" id="depName" autocomplete="name"
-						       placeholder="Full Name" class="form-control"
-						       th:field="*{dDepFullName}"/>
-						<label>Date of birth of dependent</label>
-						<input type="date" id="depDoB" class="form-control"
-						       th:field="*{dDepAge}"/>
-						<label>Relationship</label>
-						<input type="text" id="depRel" class="form-control"
-						       placeholder="Relationship"
-						       th:field="*{dDepRelationship}"/>
-					</div>
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<div class="fb-text field-ethnicity">
-					<legend>Please choose what career fields interest you:</legend>
-					<div>
-						<div class="careercheck">
-							<label for="career1">Diagnostic Medical Sonographer</label>
-							<input class="car" type="checkbox" id="career1" th:field="*{aEthnicity}" value="aamrcn"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth2">Dental Hygienist</label>
-							<input class="car" type="checkbox" id="career2" th:field="*{aEthnicity}" value="wht"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth3">Health Information Technologist</label>
-							<input class="car" type="checkbox" id="career3" th:field="*{aEthnicity}" value="hisplat"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth4">Invasive Cardiovascular Technology</label>
-							<input class="car" type="checkbox" id="career4" th:field="*{aEthnicity}" value="asiamrcn"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth5">Licensed Vocational Nurse</label>
-							<input class="car" type="checkbox" id="career5" th:field="*{aEthnicity}" value="natamrcn"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth6">Medical Laboratory Technologist</label>
-							<input class="car" type="checkbox" id="career6" th:field="*{aEthnicity}" value="twolat"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth7">Physical Therapy Assistant</label>
-							<input class="car" type="checkbox" id="career7" th:field="*{aEthnicity}" value="twonotlat"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth1">Radiography Technologist</label>
-							<input class="car" type="checkbox" id="career8" th:field="*{aEthnicity}" value="aamrcn"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth2">Registered Nurse</label>
-							<input class="car" type="checkbox" id="career9" th:field="*{aEthnicity}" value="wht"/>
-						</div>
-						<div class="careercheck">
-							<label for="eth3">Respiratory Care</label>
-							<input class="car" type="checkbox" id="career10" th:field="*{aEthnicity}" value="hisplat"/>
-						</div>
-					</div>
-					
-					<div class="careercheck">
-						<label for="eth4">Surgical Technician </label>
-						<input class="car" type="checkbox" id="career11" th:field="*{aEthnicity}" value="asiamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth5">Occupational Therapy Assistant</label>
-						<input class="car" type="checkbox" id="career12" th:field="*{aEthnicity}" value="natamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth6">Auto Service Technician</label>
-						<input class="car" type="checkbox" id="career13" th:field="*{aEthnicity}" value="twolat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth7">HVAC</label>
-						<input class="car" type="checkbox" id="career14" th:field="*{aEthnicity}" value="twonotlat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth2">Diesel Mechanic </label>
-						<input class="car" type="checkbox" id="career15" th:field="*{aEthnicity}" value="wht"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth3">Electrical Trades </label>
-						<input class="car" type="checkbox" id="career16" th:field="*{aEthnicity}" value="hisplat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth4">Air Conditioning &amp; Heating </label>
-						<input class="car" type="checkbox" id="career17" th:field="*{aEthnicity}" value="asiamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth5">Machine Tool Operator</label>
-						<input class="car" type="checkbox" id="career18" th:field="*{aEthnicity}" value="natamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth6">Plumber</label>
-						<input class="car" type="checkbox" id="career19" th:field="*{aEthnicity}" value="twolat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth7">Welder</label>
-						<input class="car" type="checkbox" id="career20" th:field="*{aEthnicity}" value="twonotlat"/>
-					</div>
-					
-					
-					<div class="careercheck">
-						<label for="eth4">Bookkeeping Specialist</label>
-						<input class="car" type="checkbox" id="career21" th:field="*{aEthnicity}" value="asiamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth5">Logistics</label>
-						<input class="car" type="checkbox" id="career22" th:field="*{aEthnicity}" value="natamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth6">Computer Support Specialist</label>
-						<input class="car" type="checkbox" id="career23" th:field="*{aEthnicity}" value="twolat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth7">Computer Programming</label>
-						<input class="car" type="checkbox" id="career24" th:field="*{aEthnicity}" value="twonotlat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth4">Network Administrator</label>
-						<input class="car" type="checkbox" id="career25" th:field="*{aEthnicity}" value="asiamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth5">Information Security &amp; Assurance</label>
-						<input class="car" type="checkbox" id="career26" th:field="*{aEthnicity}" value="natamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth6">Web &amp; Mobile Developer</label>
-						<input class="car" type="checkbox" id="career27" th:field="*{aEthnicity}" value="twolat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth7">Cyber Security </label>
-						<input class="car" type="checkbox" id="career28" th:field="*{aEthnicity}" value="twonotlat"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth4">Software Development</label>
-						<input class="car" type="checkbox" id="career29" th:field="*{aEthnicity}" value="asiamrcn"/>
-					</div>
-					<div class="careercheck">
-						<label for="eth5">Systems Administrator</label>
-						<input class="car" type="checkbox" id="career30" th:field="*{aEthnicity}" value="natamrcn"/>
-					</div>
-				</div>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-			</fieldset>
-			
-			<fieldset>
-				<h3>Last Section! Give yourself a high five!</h3>
-				<div class="fb-text form-group last-sec field-drugTest">
-					<h4>Are you will to take a urinalysis test?</h4>
-					<label>Yes
-						<input class="form-control eChoices" type="radio" id="dtChoice"
-						       th:field="*{eDrugTest}" value="yes"/>
-					</label>
-					<label>No
-						<input class="form-control eChoices" type="radio" id="dtChoice2"
-						       th:field="*{eDrugTest}" value="no"/>
-					</label>
-				</div>
-				
-				<div class="fb-text form-group last-sec field-ssa">
-					<h4>Check all that apply</h4>
-					<p class="eChoices">TANF
-						<input class="form-control eChoices" type="checkbox" id="ssa" th:value="true"
-						       th:field="*{eTanf}"/>
-					</p>
-					
-					<p class="eChoices">SNAP
-						<input class="form-control eChoices" type="checkbox" id="ssa2" th:value="true"
-						       th:field="*{eSnap}"/>
-					</p>
-					
-					<p class="eChoices">Subsidized Housing
-						<input class="form-control eChoices" type="checkbox" id="ssa3" th:value="true"
-						       th:field="*{eSsh}"/>
-					</p>
-					
-					<p class="eChoices">SSI
-						<input class="form-control eChoices" type="checkbox" id="ssa4" th:value="true"
-						       th:field="*{eSsi}"/>
-					</p>
-					
-					<p class="eChoices">SSDI
-						<input class="form-control eChoices" type="checkbox" id="ssa5" th:value="true"
-						       th:field="*{eSsdi}"/>
-					</p>
-					
-					<p class="eChoices">WIC
-						<input class="form-control eChoices" type="checkbox" id="ssa6" th:value="true"
-						       th:field="*{eWic}"/>
-					</p>
-					
-					<p class="eChoices">Unemployment
-						<input class="form-control eChoices" type="checkbox" id="ssa7" th:value="true"
-						       th:field="*{eUnemp}"/>
-					</p>
-				</div>
-				
-				<div class="fb-text form-group last-sec field-fel">
-					<h4>Have you every been convicted of a felony or misdemeanor?</h4>
-					<p class="eChoices">
-						Yes
-						<input class="form-control" type="radio" id="felChoice"
-						       th:field="*{eFelConvict}" value="yes"/>
-					</p>
-					
-					<p class="eChoices">
-						No
-						<input class="form-control" type="radio" id="felChoice2"
-						       th:field="*{eFelConvict}" value="no"/>
-					</p>
-					<div>
-						<textarea class="hidden felCon" th:field="*{eFcExplanation}"></textarea>
-					</div>
-				</div>
-				
-				<div class="fb-text form-group last-sec field-disa">
-					<h4>Do you have a disability?</h4>
-					
-					<p class="eChoices">
-						Yes
-						<input class="form-control" type="radio" id="disaChoice"
-						       th:field="*{eDisability}" value="yes"/>
-					</p>
-					
-					<p class="eChoices">
-						No
-						<input class="form-control" type="radio" id="disaChoice2"
-						       th:field="*{eDisability}" value="no"/>
-					</p>
-					
-					<div>
-						<textarea class="hidden disab" th:field="*{eDisExplanation}"></textarea>
-					</div>
-				</div>
-				
-				<div class="fb-text form-group field-milSrv">
-					<h4>Are you registered with the selective service?</h4>
-					Yes <input type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
-					No <input type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
-					
-					
-					<h4>Have you served in the military</h4>
-					<p class="eChoices">Branch?
-						<input class="form-control" type="text" id="milChoice"
-						       th:field="*{eMilitarySrv}"/>
-					</p>
-					
-					<h4>Are you a military spouse/dependent?</h4>
-					<input class="form-control" type="radio" id="msChoice"
-					       th:field="*{eMilSpouse}" value="yes"/>
-					<label for="msChoice">Yes</label>
-					<input class="form-control" type="radio" id="msChoice2"
-					       th:field="*{eMilSpouse}" value="no"/>
-					<label for="msChoice2">No</label>
-				</div>
+	<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
+		<!-- progressbar -->
+		<ul id="progressbar">
+			<li class="active">Personal Info</li>
+			<li></li>
+			<li>Residential Information</li>
+			<li></li>
+			<li>Alt Contact Info</li>
+			<li></li>
+			<li>Social Info</li>
+		</ul>
+		<!--your basic info (gender, pg 1) OK-->
+		<fieldset>
+			<div class="fb-text form-group field-firstname">
+				<p>What is your first name?</p>
+				<input  type="text" placeholder="First Name"
+				       class="form-control testinput" th:field="*{aFirstName}"
+				       maxlength="45" title="Must start with a letter."
+					   aria-required="true" required="required" name="firstname"/>
+			</div>
+			<div class="fb-text form-group field-middlename">
+				<span class="tooltip-element" tooltip="Must start with a letter."></span>
+				<p>What is your middle name?</p>
+				<input type="text" placeholder="Middle Name" class="form-control testinput" th:field="*{aMiddleName}"
+				       maxlength="45" title="Must start with a letter." required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-lastname">
+				<span class="tooltip-element" tooltip="Must start with a letter."></span>
+				<p>What is your last name?</p>
+				<input type="text" placeholder="Last Name"
+				       class="form-control testinput" maxlength="45" th:field="*{aLastName}" title="Must start with a letter."
+				       required="required" aria-required="true"/>
+			</div>
+			<div class="fb-text form-group field-dob">
 				<div>
-					<h4>If you were referred, please tell us how.</h4>
-					<input class="form-control" type="text" th:field="*{eReferralSrc}"/>
+					<span class="tooltip-element" tooltip="Must be a date in the past."></span>
+					<p>When were you born?</p>
 				</div>
-				
-				<div class="form-control field-eHS">
-					<label for="hs">High School Diploma</label>
-					<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
-					<label for="GED">High School Diploma</label>
-					<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
-					<label for="DnG">High School Diploma</label>
-					<input type="radio" id="DnG" class="form-control" th:field="*{eHS}" value="Did not graduate"/>
+				<input type="date" placeholder="Date of Birth"
+				       class="form-control testinput" th:field="*{aDateOfBirth}"
+				       title="Must be a date in the past."
+				       required="required" aria-required="true"
+				/>
+			</div>
+
+			<div class="fb-text form-group field-ssn">
+				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
+				<p>What is your Social Security Number?</p>
+				<input type="password" placeholder="Social" class="form-control testinput" maxlength="9" required="required"
+				       aria-required="true"/>
+			</div>
+
+			<div class="fb-text form-group field-gender">
+				<span class="tooltip-element" tooltip="Must be 9 digits."></span>
+				<p>What do you identify as?</p>
+				<select class="testinput" th:field="*{aGender}">
+					<option value=""></option>
+					<option th:value="male">Male</option>
+					<option th:value="female">Female</option>
+					<option th:value="decline">Decline to State</option>
+					<option th:value="unk">Unsure</option>
+				</select>
+			</div>
+			<input id="validateB" type="button" class="color-change next action-button" name="next" value="Next" />
+		</fieldset>
+
+		<!--ethnicity fieldset(pg 2) OK-->
+		<fieldset>
+			<div class="fb-text field-ethnicity">
+				<legend>What nationality do you identify?</legend>
+				<div class="ethcheck">
+					<label for="eth1">African-American
+						<input class="eth" type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"/>
+					</label>
 				</div>
-				
-				<label>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</label>
-				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
-			</fieldset>
+				<div class="ethcheck">
+					<label for="eth2">White
+						<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"/>
+					</label>
+
+
+				</div>
+				<div class="ethcheck">
+					<label for="eth3">Hispanic/Latino
+						<input class="eth" type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"/>
+					</label>
+
+
+				</div>
+				<div class="ethcheck">
+					<label for="eth4">Asian-American
+						<input class="eth" type="checkbox" id="eth4" th:field="*{aEthnicity}" value="asiamrcn"/>
+					</label>
+				</div>
+
+				<div class="ethcheck">
+					<label for="eth5">Native American
+						<input class="eth" type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"/>
+					</label>
+				</div>
+
+				<div class="ethcheck">
+					<label for="eth6">Two or More (Latin/Hispanic)
+						<input class="eth" type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"/>
+					</label>
+				</div>
+
+				<div class="ethcheck">
+					<label for="eth7">Two or More (Not Latin/Hispanic)
+						<input class="eth" type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"/>
+					</label>
+				</div>
+			</div>
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="button" class="color-change next action-button" name="next" value="Next"/>
+		</fieldset>
+
+		<!--your address info(pg 3) OK-->
+		<fieldset>
+			<div class="fb-text form-group field-houseaddy">
+				<span class="tooltip-element" tooltip="Just your house number and street"></span>
+				<p>What is your address?</p>
+				<input type="text"
+				       autocomplete="section-blue shipping street-address"
+				       placeholder="Street Address"
+				       class="form-control house testinput1"
+				       th:field="*{bStreetAddress}"
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-city">
+				<span class="tooltip-element" tooltip="Please enter your city."></span>
+				<p>What city do you live in?</p>
+				<input type="text" placeholder="City"
+				       class="form-control testinput1" th:field="*{bCity}"
+				       autocomplete="address-level2"
+				       maxlength="45" title="Must start with a letter."
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-state">
+				<span class="tooltip-element" tooltip="State."></span>
+				<p>State?</p>
+				<select class="testinput1" th:field="*{bState}">
+					<option value=""></option>
+					<option value="AL">Alabama</option>
+					<option value="AK">Alaska</option>
+					<option value="AZ">Arizona</option>
+					<option value="AR">Arkansas</option>
+					<option value="CA">California</option>
+					<option value="CO">Colorado</option>
+					<option value="CT">Connecticut</option>
+					<option value="DE">Delaware</option>
+					<option value="DC">District Of Columbia</option>
+					<option value="FL">Florida</option>
+					<option value="GA">Georgia</option>
+					<option value="HI">Hawaii</option>
+					<option value="ID">Idaho</option>
+					<option value="IL">Illinois</option>
+					<option value="IN">Indiana</option>
+					<option value="IA">Iowa</option>
+					<option value="KS">Kansas</option>
+					<option value="KY">Kentucky</option>
+					<option value="LA">Louisiana</option>
+					<option value="ME">Maine</option>
+					<option value="MD">Maryland</option>
+					<option value="MA">Massachusetts</option>
+					<option value="MI">Michigan</option>
+					<option value="MN">Minnesota</option>
+					<option value="MS">Mississippi</option>
+					<option value="MO">Missouri</option>
+					<option value="MT">Montana</option>
+					<option value="NE">Nebraska</option>
+					<option value="NV">Nevada</option>
+					<option value="NH">New Hampshire</option>
+					<option value="NJ">New Jersey</option>
+					<option value="NM">New Mexico</option>
+					<option value="NY">New York</option>
+					<option value="NC">North Carolina</option>
+					<option value="ND">North Dakota</option>
+					<option value="OH">Ohio</option>
+					<option value="OK">Oklahoma</option>
+					<option value="OR">Oregon</option>
+					<option value="PA">Pennsylvania</option>
+					<option value="RI">Rhode Island</option>
+					<option value="SC">South Carolina</option>
+					<option value="SD">South Dakota</option>
+					<option value="TN">Tennessee</option>
+					<option value="TX">Texas</option>
+					<option value="UT">Utah</option>
+					<option value="VT">Vermont</option>
+					<option value="VA">Virginia</option>
+					<option value="WA">Washington</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+					<option value="AS">American Samoa</option>
+					<option value="GU">Guam</option>
+					<option value="MP">Northern Mariana Islands</option>
+					<option value="PR">Puerto Rico</option>
+					<option value="UM">United States Minor Outlying Islands</option>
+					<option value="VI">Virgin Islands</option>
+					<option value="AA">Armed Forces Americas</option>
+					<option value="AP">Armed Forces Pacific</option>
+					<option value="AE">Armed Forces Others</option>
+				</select>
+				<span class="tooltip-element" tooltip="County."></span>
+				<p>County?</p>
+				<input type="text" placeholder="Bexar"
+				       class="form-control testinput1" th:field="*{bCounty}"
+				       autocomplete="address-level2"
+				       maxlength="45" title="Must start with a letter."
+				       required="required" aria-required="true"
+				/>
+
+				<span class="tooltip-element" tooltip="Zip Code."></span>
+				<p>Zip Code:</p>
+				<input type="text" placeholder="Postal Code"
+				       class="form-control testinput1" th:field="*{bZip}"
+				       autocomplete="postal-code"
+				       maxlength="5" title="5 digits only please"
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="button" class="color-change action-button next1" name="next" value="Next"/>
+		</fieldset>
+
+		<!--hang in there fieldset(pg 4) OK-->
+		<fieldset>
+			<div class="fb-text form-group field-contact">
+				<div>
+					<h3>Hang in there! You're almost done!</h3>
+				</div>
+				<p>What is your phone number?</p>
+				<input type="tel" placeholder="Phone Number"
+				       class="form-control testinput2" th:field="*{bPhoneNumber}"
+				       title="Numbers only please."
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-altphone">
+				<p>Do you have another number? If not, you can leave this blank.</p>
+				<input type="tel" placeholder="Alternate Number"
+				       class="form-control testinput2" th:field="*{bAltPhoneNumber}"
+				       title="Numbers only please."
+				       aria-required="false"
+				/>
+			</div>
+			<div class="fb-text form-group field-email">
+				<span class="tooltip-element" tooltip="Valid email address please."></span>
+				<p>What is your email address?</p>
+				<input type="email" placeholder="Email"
+				       class="form-control testinput2" th:field="*{bEmail}"
+				       title="Must be a valid email."
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="button" class="color-change next2 action-button" name="next" value="Next"/>
+		</fieldset>
+
+		<!--emergency contact info (address, number, name, pg 5) OK-->
+		<fieldset>
+		<div class="fb-text form-group field-emergcont">
+			<h3>We require one emergency contact.</h3>
+
+				<p>What is that person's name?</p>
+				<input type="text" placeholder="First Name"
+				       class="form-control testinput3" th:field="*{cEmerContactFirst}"
+				       title="Letters only please."
+				       required="required" aria-required="true"
+				/>
+		</div>
+			<div class="fb-text form-group field-emercont2">
+				<p>And the last name?</p>
+				<input type="text" placeholder="Last Name"
+				       class="form-control testinput3" th:field="*{cEmerContactLast}"
+				       title="Letters only please."
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-emerrel">
+				<p>What is this person's relationship to you?</p>
+				<input type="text" placeholder="Spouse? Friend?"
+				       class="form-control testinput3" th:field="*{cEmerContactRel}"
+				       title="Letters only please."
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-emertel">
+				<div>
+ 					<span class="tooltip-element" tooltip="Numbers only please.">
+ 						<p>Do you have a contact number for them?</p>
+ 					</span>
+				</div>
+				<input type="tel" placeholder="Phone Number"
+					class="form-control testinput3" th:field="*{cEmerContactNum}"
+					   title="Letters only please."
+					   required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-emeraddy">
+				<div>
+ 					<span class="tooltip-element" tooltip="Street Address.">
+ 						<p>What is their address?</p>
+ 					</span>
+				</div>
+				<input type="text" placeholder="Address"
+					   class="form-control testinput3" th:field="*{cEmerContactAddy}"
+					   title="Letters only please."
+					   required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-emercity">
+				<div>
+ 					<span class="tooltip-element" tooltip="City.">
+ 						<p>What city do they live in?</p>
+ 					</span>
+				</div>
+				<input type="text" placeholder="City"
+					   class="form-control testinput3" th:field="*{cEmerContactCity}"
+					   title="Letters only please."
+					   required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-emerstate">
+				<div>
+ 					<span class="tooltip-element" tooltip="Choose from the dropdown.">
+ 						<p>What State?</p>
+ 					</span>
+				</div>
+				<select class="testinput3" th:field="*{cEmerContactState}">
+				<option value=""></option>
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option value="AZ">Arizona</option>
+				<option value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District Of Columbia</option>
+				<option value="FL">Florida</option>
+				<option value="GA">Georgia</option>
+				<option value="HI">Hawaii</option>
+				<option value="ID">Idaho</option>
+				<option value="IL">Illinois</option>
+				<option value="IN">Indiana</option>
+				<option value="IA">Iowa</option>
+				<option value="KS">Kansas</option>
+				<option value="KY">Kentucky</option>
+				<option value="LA">Louisiana</option>
+				<option value="ME">Maine</option>
+				<option value="MD">Maryland</option>
+				<option value="MA">Massachusetts</option>
+				<option value="MI">Michigan</option>
+				<option value="MN">Minnesota</option>
+				<option value="MS">Mississippi</option>
+				<option value="MO">Missouri</option>
+				<option value="MT">Montana</option>
+				<option value="NE">Nebraska</option>
+				<option value="NV">Nevada</option>
+				<option value="NH">New Hampshire</option>
+				<option value="NJ">New Jersey</option>
+				<option value="NM">New Mexico</option>
+				<option value="NY">New York</option>
+				<option value="NC">North Carolina</option>
+				<option value="ND">North Dakota</option>
+				<option value="OH">Ohio</option>
+				<option value="OK">Oklahoma</option>
+				<option value="OR">Oregon</option>
+				<option value="PA">Pennsylvania</option>
+				<option value="RI">Rhode Island</option>
+				<option value="SC">South Carolina</option>
+				<option value="SD">South Dakota</option>
+				<option value="TN">Tennessee</option>
+				<option value="TX">Texas</option>
+				<option value="UT">Utah</option>
+				<option value="VT">Vermont</option>
+				<option value="VA">Virginia</option>
+				<option value="WA">Washington</option>
+				<option value="WV">West Virginia</option>
+				<option value="WI">Wisconsin</option>
+				<option value="WY">Wyoming</option>
+				<option value="AS">American Samoa</option>
+				<option value="GU">Guam</option>
+				<option value="MP">Northern Mariana Islands</option>
+				<option value="PR">Puerto Rico</option>
+				<option value="UM">United States Minor Outlying Islands</option>
+				<option value="VI">Virgin Islands</option>
+				<option value="AA">Armed Forces Americas</option>
+				<option value="AP">Armed Forces Pacific</option>
+				<option value="AE">Armed Forces Others</option>
+			</select>
+			</div>
+						<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+						<input type="button" class="color-change next3 action-button" name="next" value="Next"/>
+
+		</fieldset>
+
+		<!--marital stat and dependents (pg6) OK-->
+		<fieldset>
+			<div class="fb-text form-group field-fam">
+				<h3>You are almost done, the next sections are important!</h3>
+				<div>
+					<p>Marital Status</p>
+					<select class="form-control testinput4" th:field="*{dMaritalStatus}">
+						<option value=""></option>
+						<option th:value="single">Single</option>
+						<option th:value="married">Married</option>
+						<option th:value="separated">Separated</option>
+						<option th:value="divorced">Divorced</option>
+					</select>
+				</div>
+			</div>
 			
-			<fieldset>
+			<div class="fb-text form-group field-hhsize">
+				<p>
+					Family/Living Status?
+				</p>
+				<select class="testinput4" th:field="*{dfamilyStatus}">
+					<option value=""></option>
+					<option th:value="twoparent">Two parent family</option>
+					<option th:value="singleparent">Single Parent</option>
+					<option th:value="other">Other Family Member</option>
+					<option th:value="individual">Individual</option>
+				</select>
+			</div>
+			
+			<div class="fb-text form-group field-totalinhouse">
+				<p>
+					How many people live in your house?
+				</p>
+				<input type="text" placeholder="1"
+				       class="form-control testinput4"
+				       th:field="*{dTotalInHouse}"
+				       required="required" aria-required="true"
+				/>
+			</div>
+			<div class="fb-text form-group field-numdep">
+				<p>Number of dependents</p>
+				<input type="text" placeholder="Age 5 or under?"
+				       class="form-control" th:field="*{dDepUnderFive}"
+				       title="Numbers only please"
+				       required="required" aria-required="true"
+				/>
+				<input type="text" placeholder="Age 6 to 17?"
+				       class="form-control" th:field="*{dDepOverFive}"
+				       title="Numbers only please"
+				       required="required" aria-required="true"
+				/>
+				<input type="text" placeholder="Age 18+?"
+				       class="form-control" th:field="*{dDepOverEighteen}"
+				       title="Numbers only please"
+				       required="required" aria-required="true"
+				/>
+				<div class="fb-text form-group field-depinfo">
+					<p>Full Name of dependent</p>
+					<input type="text" th:field="*{dDepFullName}" />
+					<p>Date of birth of dependent</p>
+					<input type="date" th:field="*{dDepAge}" />
+					<p>Relationship</p>
+					<input type="text" th:field="*{dDepRelationship}" />
+				</div>
+			</div>
+			
+			<div class="dependentInfo">
+				<input type="text" id="depFam" name="depFam" value=""/>
+			</div>
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="button" class="color-change next4 action-button" name="next" value="Next"/>
+		</fieldset>
+
+		<!--career interest fields (pg7) OK-->
+		<fieldset>
+
+			<div class="fb-text field-ethnicity">
+				<legend>Please choose what career fields interest you:</legend>
+
+				<div>
+
+					<div class="careercheck">
+						<label for="career1">Diagnostic Medical Sonographer</label>
+						<input class="car  " type="checkbox" id="career1" th:field="*{aEthnicity}" value="dmsonographer"/>
+					</div>
+					<div class="careercheck">
+						<label for="career2">Dental Hygienist</label>
+						<input class="car  " type="checkbox" id="career2" th:field="*{aEthnicity}" value="dhygen"/>
+					</div>
+					<div class="careercheck">
+						<label for="career3">Health Information Technologist</label>
+						<input class="car  " type="checkbox" id="career3" th:field="*{aEthnicity}" value="hitechnologist"/>
+					</div>
+					<div class="careercheck">
+						<label for="career4">Invasive Cardiovascular Technology</label>
+						<input class="car  " type="checkbox" id="career4" th:field="*{aEthnicity}" value="ictechnology"/>
+					</div>
+					<div class="careercheck">
+						<label for="career5">Licensed Vocational Nurse</label>
+						<input class="car  " type="checkbox" id="career5" th:field="*{aEthnicity}" value="lvn"/>
+					</div>
+					<div class="careercheck">
+						<label for="career6">Medical Laboratory Technologist</label>
+						<input class="car  " type="checkbox" id="career6" th:field="*{aEthnicity}" value="mltechnologist"/>
+					</div>
+					<div class="careercheck">
+						<label for="career7">Physical Therapy Assistant</label>
+						<input class="car  " type="checkbox" id="career7" th:field="*{aEthnicity}" value="pta"/>
+					</div>
+					<div class="careercheck">
+						<label for="career8">Radiography Technologist</label>
+						<input class="car  " type="checkbox" id="career8" th:field="*{aEthnicity}" value="rtech"/>
+					</div>
+					<div class="careercheck">
+						<label for="career9">Registered Nurse</label>
+						<input class="car  " type="checkbox" id="career9" th:field="*{aEthnicity}" value="rn"/>
+					</div>
+					<div class="careercheck">
+						<label for="career10">Respiratory Care</label>
+						<input class="car  " type="checkbox" id="career10" th:field="*{aEthnicity}" value="respcare"/>
+					</div>
+				</div>
+
+
+
+				<div class="careercheck">
+					<label for="career11">Surgical Technician </label>
+					<input class="car  " type="checkbox" id="career11" th:field="*{aEthnicity}" value="surgtech"/>
+				</div>
+				<div class="careercheck">
+					<label for="career12">Occupational Therapy Assistant</label>
+					<input class="car  " type="checkbox" id="career12" th:field="*{aEthnicity}" value="occtherapyasst"/>
+				</div>
+				<div class="careercheck">
+					<label for="career13">Auto Service Technician</label>
+					<input class="car  " type="checkbox" id="career13" th:field="*{aEthnicity}" value="autostech"/>
+				</div>
+				<div class="careercheck">
+					<label for="career14">HVAC</label>
+					<input class="car  " type="checkbox" id="career14" th:field="*{aEthnicity}" value="hvac"/>
+				</div>
+				<div class="careercheck">
+					<label for="career15">Diesel Mechanic </label>
+					<input class="car  " type="checkbox" id="career15" th:field="*{aEthnicity}" value="dmech"/>
+				</div>
+				<div class="careercheck">
+					<label for="career16">Electrical Trades </label>
+					<input class="car  " type="checkbox" id="career16" th:field="*{aEthnicity}" value="electricalt"/>
+				</div>
+				<div class="careercheck">
+					<label for="career17">Air Conditioning &amp; Heating  </label>
+					<input class="car  " type="checkbox" id="career17" th:field="*{aEthnicity}" value="ach"/>
+				</div>
+				<div class="careercheck">
+					<label for="career18">Machine Tool Operator</label>
+					<input class="car  " type="checkbox" id="career18" th:field="*{aEthnicity}" value="machto"/>
+				</div>
+				<div class="careercheck">
+					<label for="career19">Plumber</label>
+					<input class="car  " type="checkbox" id="career19" th:field="*{aEthnicity}" value="plumber"/>
+				</div>
+				<div class="careercheck">
+					<label for="career20">Welder</label>
+					<input class="car  " type="checkbox" id="career20" th:field="*{aEthnicity}" value="welder"/>
+				</div>
+
+
+				<div class="careercheck">
+					<label for="career21">Bookkeeping Specialist</label>
+					<input class="car  " type="checkbox" id="career21" th:field="*{aEthnicity}" value="bspec"/>
+				</div>
+				<div class="careercheck">
+					<label for="career22">Logistics</label>
+					<input class="car  " type="checkbox" id="career22" th:field="*{aEthnicity}" value="log"/>
+				</div>
+				<div class="careercheck">
+					<label for="career23">Computer Support Specialist</label>
+					<input class="car  " type="checkbox" id="career23" th:field="*{aEthnicity}" value="compsspec"/>
+				</div>
+				<div class="careercheck">
+					<label for="career24">Computer Programming</label>
+					<input class="car  " type="checkbox" id="career24" th:field="*{aEthnicity}" value="compprog"/>
+				</div>
+				<div class="careercheck">
+					<label for="career25">Network Administrator</label>
+					<input class="car  " type="checkbox" id="career25" th:field="*{aEthnicity}" value="netadmin"/>
+				</div>
+				<div class="careercheck">
+					<label for="career26">Information Security &amp; Assurance</label>
+					<input class="car  " type="checkbox" id="career26" th:field="*{aEthnicity}" value="infosecassur"/>
+				</div>
+				<div class="careercheck">
+					<label for="career27">Web &amp; Mobile Developer</label>
+					<input class="car  " type="checkbox" id="career27" th:field="*{aEthnicity}" value="webmobile"/>
+				</div>
+				<div class="careercheck">
+					<label for="career28">Cyber Security </label>
+					<input class="car  " type="checkbox" id="career28" th:field="*{aEthnicity}" value="cybersec"/>
+				</div>
+				<div class="careercheck">
+					<label for="career29">Software Development</label>
+					<input class="car  " type="checkbox" id="career29" th:field="*{aEthnicity}" value="softdev"/>
+				</div>
+				<div class="careercheck">
+					<label for="career30">Systems Administrator</label>
+					<input class="car  " type="checkbox" id="career30" th:field="*{aEthnicity}" value="sysadmin"/>
+				</div>
+
+
+			</div>
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="button" class="color-change next5 action-button" name="next" value="Next"/>
+		</fieldset>
+
+		<!--(last section,(pg 8) OK-->
+		<fieldset>
+			<h3>Last Section! Give yourself a high five!</h3>
+
+			<div class="fb-text form-group last-sec field-drugTest">
+				<h4>Are you will to take a urinalysis test?</h4>
+				<label>Yes
+					<input class="form-control eChoices" type="radio" id="dtChoice"
+						   th:field="*{eDrugTest}" value="yes"/>
+				</label>
+				<label>No
+					<input class="form-control eChoices" type="radio" id="dtChoice2"
+						   th:field="*{eDrugTest}" value="no"/>
+				</label>
+			</div>
+
+			<div class="fb-text form-group last-sec field-ssa">
+				<h4>Check all that apply</h4>
+				<p class="eChoices">TANF
+					<input class="form-control eChoices" type="checkbox" id="ssa" th:value="true"
+						   th:field="*{eTanf}"/>
+				</p>
+
+				<p class="eChoices">SNAP
+					<input class="form-control eChoices" type="checkbox" id="ssa2" th:value="true"
+						   th:field="*{eSnap}"/>
+				</p>
+
+				<p class="eChoices">Subsidized Housing
+					<input class="form-control eChoices" type="checkbox" id="ssa3" th:value="true"
+						   th:field="*{eSsh}"/>
+				</p>
+
+				<p class="eChoices">SSI
+					<input class="form-control eChoices" type="checkbox" id="ssa4" th:value="true"
+						   th:field="*{eSsi}"/>
+				</p>
+
+				<p class="eChoices">SSDI
+					<input class="form-control eChoices" type="checkbox" id="ssa5" th:value="true"
+						   th:field="*{eSsdi}"/>
+				</p>
+
+				<p class="eChoices">WIC
+					<input class="form-control eChoices" type="checkbox" id="ssa6" th:value="true"
+						   th:field="*{eWic}"/>
+				</p>
+
+				<p class="eChoices">Unemployment
+					<input class="form-control eChoices" type="checkbox" id="ssa7" th:value="true"
+						   th:field="*{eUnemp}"/>
+				</p>
+			</div>
+
+			<div class="fb-text form-group last-sec field-fel">
+				<h4>Have you every been convicted of a felony or misdemeanor?</h4>
+				<p class="eChoices">
+					Yes
+					<input class="form-control" type="radio" id="felChoice"
+						   th:field="*{eFelConvict}" value="yes"/>
+				</p>
+
+				<p class="eChoices">
+					No
+					<input class="form-control" type="radio" id="felChoice2"
+						   th:field="*{eFelConvict}" value="no"/>
+				</p>
+				<div>
+					<textarea class="hidden felCon" th:field="*{eFcExplanation}"></textarea>
+				</div>
+			</div>
+
+			<h4>Have you served in the military</h4>
+			<p class="eChoices">Branch?
+				<input class="form-control testinput6" type="text" id="milChoice"
+					   th:field="*{eMilitarySrv}"/>
+			</p>
+			<div class="fb-text form-group last-sec field-disa">
+				<h4>Do you have a disability?</h4>
+
+				<p class="eChoices">
+					Yes
+					<input class="form-control" type="radio" id="disaChoice"
+						   th:field="*{eDisability}" value="yes"/>
+				</p>
+
+				<p class="eChoices">
+					No
+					<input class="form-control" type="radio" id="disaChoice2"
+						   th:field="*{eDisability}" value="no"/>
+				</p>
+
+				<div>
+					<textarea class="hidden disab" th:field="*{eDisExplanation}"></textarea>
+				</div>
+			</div>
+
+			<div class="fb-text form-group field-milSrv">
+				<h4>Are you registered with the selective service?</h4>
+				Yes <input type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
+				No <input type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
+
+				<h4>Are you a military spouse/dependent?</h4>
+				<input class="form-control" type="radio" id="msChoice"
+					   th:field="*{eMilSpouse}" value="yes"/>
+				<label for="msChoice">Yes</label>
+				<input class="form-control" type="radio" id="msChoice2"
+					   th:field="*{eMilSpouse}" value="no"/>
+				<label for="msChoice2">No</label>
+			</div>
+			<div>
+				<h4>Please tell us how you were referred.</h4>
+				<input class="form-control testinput6" type="text" th:field="*{eReferralSrc}"/>
+			</div>
+
+			<h4>Highest level of education?</h4>
+			<div class="form-control field-eHS">
+				<label for="hs">High School Diploma</label>
+				<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
+				<label for="GED">GED</label>
+				<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
+				<label for="DnG">Did not Graduate</label>
+				<input type="radio" id="DnG" class="form-control" th:field="*{eHS}" value="Did not graduate"/>
+			</div>
+
+			<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+			<input type="Submit" class="color-change next6 action-button" name="Submit" value="Submit"/>
+		</fieldset>
+
+		<!--thank you field set OK-->
+		<fieldset>
 				<div class="fb-text form-group field-finish">
 					<h3>Thank you for filling this out, we will get in touch with you as soon as we can.</h3>
 					<a th:href="@{/index}"><input type="button" class="color-change" value="Home"/></a>
 				</div>
-			
-			</fieldset>
+		</fieldset>
+
 		</form>
-	</div>
+				</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
+
+<script>
+    $('document').ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating = false; //flag to prevent quick multi-click glitches
+
+		function pageTransition(that) {
+            if (animating) return false;
+            animating = true;
+
+
+            current_fs = $(that).parent();
+            next_fs = $(that).parent().next();
+
+
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+		};
+
+        $(".next").click(function () {
+            if (!validate()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next1").click(function () {
+            if (!validate1()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next2").click(function () {
+            if (!validate2()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next3").click(function () {
+            if (!validate3()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next4").click(function () {
+            if (!validate4()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next5").click(function () {
+            if (!validate5()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+        $(".next6").click(function () {
+            event.preventDefault();
+            if (!validate6()) {
+                return;
+            } else {
+            }
+
+            pageTransition(this);
+        });
+
+
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({'left': left});
+                    previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".submit").click(function () {
+            return false;
+        });
+
+    });
+
+</script>
+
 </body>
 </html>

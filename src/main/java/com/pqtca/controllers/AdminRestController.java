@@ -58,22 +58,16 @@ public class AdminRestController {
         return gson.toJson(map);
     }
     // used for pie chart, city graphing
-    @GetMapping("/graphCity")
+    @GetMapping("/graphGender")
     @ResponseBody
-    public String getGraphCity() {
+    public String getGraphGender() {
         Gson gson = new Gson();
         HashMap<String, Long> map = new HashMap<>();
-        map.put("San Antonio", appDao.countByBCity("San Antonio"));
-        map.put("Austin", appDao.countByBCity("Austin"));
-        map.put("Houston", appDao.countByBCity("Houston"));
-        map.put("Dallas", appDao.countByBCity("Dallas"));
-        map.put("Boerne", appDao.countByBCity("Boerne"));
-        map.put("Fredericksburg", appDao.countByBCity("Fredericksburg"));
-        map.put("Castroville", appDao.countByBCity("Castroville"));
-        map.put("Corpus Christi", appDao.countByBCity("Corpus Christi"));
-        map.put("New Braunfels", appDao.countByBCity("New Braunfels"));
-        map.put("Poteet", appDao.countByBCity("Poteet"));
-        map.put("South Padre Island", appDao.countByBCity("South Padre Island"));
+        map.put("Male", appDao.countByAGender("Male"));
+        map.put("Female", appDao.countByAGender("Female"));
+        map.put("Decline to State", appDao.countByAGender("Decline to State"));
+        map.put("Unsure", appDao.countByAGender("Unsure"));
+
 
         return gson.toJson(map);
     }

@@ -70,11 +70,9 @@
 				<a href="#" class="dropbtn" onclick="drawChart('/graphMarital', ['Marital Status', '#'])">
 					Marital Status
 				</a>
-				<a href="#" class="dropbtn" onclick="drawChart('/graphCity', ['City', '#'])">City</a>
+				<a href="#" class="dropbtn" onclick="drawChart('/graphGender', ['Gender', '#'])">Genders</a>
 				<a href="#" class="dropbtn" onclick="drawChart('/graphDegree', ['Degree', '#'])">Degree
 					Levels
-				</a>
-				<a href="#" class="dropbtn" onclick="drawChart('/graphGender', ['Gender', '#'])">Genders
 				</a>
 				<a href="#" class="dropbtn" onclick="drawChart('/graphFam', ['Family/Living Status', '#'])">
 					Family/Living Status
@@ -154,5 +152,8 @@
 <script th:src="@{/js/jsonReq.js}"></script>
 <script th:src="@{/js/jsonToCSV.js}"></script>
 <footer th:replace="fragments/footer :: footer"></footer>
+<script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
+<script th:src="@{/js/dataVis.js}"></script>
+<script th:src="@{/js/jsonReq.js}"></script>
 </body>
 </html>

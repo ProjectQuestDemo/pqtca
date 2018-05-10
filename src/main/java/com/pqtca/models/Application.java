@@ -37,7 +37,7 @@ public class Application {
     @Column(nullable = false)
     private String aDateOfBirth;
 
-    @Column(nullable = false)
+    @Column
     private String aEthnicity;
 
     @Column
