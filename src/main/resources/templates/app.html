@@ -12,6 +12,7 @@
 		<div class="border-inner">
 		</div>
 	</div>
+	<div th:if="${errors}"></div>
 	<div th:fragment="/app" class="flex">
 		<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
 			<!-- progressbar -->
@@ -775,17 +776,139 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
 			</div>
-			
-			<div class="container fields">
-				<div class="fb-text form-group field-finish">
-					<h3>Thank you for filling this out, we will get in touch with you as soon as we can.</h3>
-					<a th:href="@{/index}"><input type="button" class="color-change" value="Home"/></a>
-				
-				</div>
-			</div>
 		</form>
 	</div>
 </main>
 <footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    $('document').ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldss
+        var left, opacity, scale; //fields properties which we will animate
+        var animating = false; //flag to prevent quick multi-click glitches
+
+        function pageTransition(that) {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(that).parent();
+            next_fs = $(that).parent().next();
+
+
+            $('#progressbar li').eq($('.fields').index(next_fs)).addClass('active');
+
+            //show the next fields
+            next_fs.show();
+            //hide the current fields with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + '%';
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        };
+
+        $('.next').click(function () {
+            if (!validate()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next1').click(function () {
+            if (!validate1()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next2').click(function () {
+            if (!validate2()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next3').click(function () {
+            if (!validate3()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next4').click(function () {
+            if (!validate4()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next5').click(function () {
+            if (!validate5()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+
+        $('.next6').click(function () {
+            event.preventDefault();
+            if (!validate6()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
+
+            console.log('next');
+            pageTransition(this);
+        });
+    });
+</script>
 </body>
 </html>

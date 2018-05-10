@@ -49,6 +49,7 @@ public class ApplicationController {
             return "app";
         }
         app.setUser(userService.loggedInUser());
+        app.setfEmpId("");
         appDao.save(app);
         return "redirect:/profile";
     }

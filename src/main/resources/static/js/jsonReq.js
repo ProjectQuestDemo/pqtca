@@ -47,14 +47,18 @@ const showApp = url => {
             .then((jsonData) => buildHtml(jsonData))
         );
     const buildHtml = data => {
+
         delete data.user;
+        let id;
         let newHtml = '';
+
         newHtml += `<div class="individual app">`;
         for (let prop in data) {
-            newHtml += `<input class="app-review" value="${data[prop]}"/>`;
+            newHtml += `<p class="app-review">${data[prop]}</p>`;
         }
-        newHtml += `<input type="button" class="color-change" name="submit" onclick="postFetch('/appreview')"/>` +
-                   '<input type="button" class="color-change" name="export" value="Export"/></form> </div>';
+        id = data.id;
+        newHtml += `<input type="button" class="color-change" name="export" onclick="csvDownload('/show=${data.id}')" value="Export"/></form> </div>`;
+
         return $('#apps').html(newHtml);
     };
 };

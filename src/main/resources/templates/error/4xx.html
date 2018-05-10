@@ -18,15 +18,13 @@
 			<th:block th:switch="${error}">
 				<div th:case="'Not Found'">
 					<h2>
-						Hmm, something broke...
-						This is a 403 or 404.
-					</h2>
-					<h2>
-						Either way, this is not somewhere you should be.
+						The droids you seek are not here...404.
 					</h2>
 				</div>
 				<div th:case="'Forbidden'">
-					<h1>You aren't supposed to be here, don't do it again ok?!</h1>
+					<h2>
+						403
+					</h2>
 				</div>
 			</th:block>
 		</div>

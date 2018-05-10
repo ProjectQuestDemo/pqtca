@@ -15,7 +15,7 @@
 	</div>
 	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
-			<fieldset>
+			<div class="container fields">
 				<h3>Login or register today to begin your Quest!</h3>
 				<div class="alert" th:if="${param.logout}">
 					You have been logged out.
@@ -37,7 +37,7 @@
 				<a th:href="@{/register}">
 					<input class="color-change" type="button" value="Register"/>
 				</a>
-			</fieldset>
+			</div>
 		</form>
 	</div>
 </main>
