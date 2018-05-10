@@ -65,7 +65,7 @@ public class AdminController {
         usersDao.save(user);
 
         UserRole userRole = new UserRole();
-        userRole.setRole("ADMIN");
+        userRole.setRole("ROLE_ADMIN");
         userRole.setUserId(user.getId());
         userRoles.save(userRole);
 

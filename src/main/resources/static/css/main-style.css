@@ -38,7 +38,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
     text-align: center;
     color: #fff;
-    margin-bottom: 2em;
 }
 
 .container, fieldset {
@@ -493,7 +492,9 @@ input.eth {
     }
 
     .container {
+        margin-top: 4em;
         padding: 2em;
+        line-height: 2em;
         width: 50vw;
     }
 
