@@ -9,7 +9,7 @@
 	- [x] Able to export a single application, or all applications to ".csv" format.
 	- [ ] Admin specific context navigation.
 	- [x] Generate on demand basic statistical analysis with a visual representation via Pie Chart/Bar Graph. ***
-	- [ ] Receive notifications when new applications are received using Java Mail API and/or Twilio. ***
+	- [x] Receive notifications when new applications are received using Java Mail API and/or Twilio. ***
 
 - Applicant registration and login
 -- Provide the applicant with the ability to register with Project Quest. Enable the ability to save an in progress application or make edits to a submitted application.
