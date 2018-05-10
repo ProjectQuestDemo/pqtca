@@ -7,7 +7,8 @@
 - Admin Control Panel
 -- Give the Project Quest employee the ability to review submitted applications and make necessary additions from the "Office Use Only" section.
 	- [x] Able to export a single application, or all applications to ".csv" format.
-	- [ ] Admin specific context navigation.
+	- [x] Admin specific context navigation.
+	- [x] Allow super admin to make new admin.
 	- [x] Generate on demand basic statistical analysis with a visual representation via Pie Chart/Bar Graph. ***
 	- [x] Receive notifications when new applications are received using Java Mail API and/or Twilio. ***
 
@@ -18,7 +19,8 @@
 	- [x] Application for users made to be hassle free with autocomplete functionality.
 	- [x] Provide a easy and frustration free UX that feels intuitive on mobile devices.
 	- [x] Allow users to signup.
-	- [ ] Receive notification once an application is submitted, reviewed, approved.
+	- [x] Allow users to change email and password.
+	~~- [ ] Receive notification once an application is submitted, reviewed, approved.~~
 	
 	~~- [ ] Use LinkedIn to populate respective fields. ***~~
 	
