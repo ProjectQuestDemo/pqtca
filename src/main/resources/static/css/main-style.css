@@ -40,6 +40,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
+.form-header {
+    margin-bottom: 2em;
+}
+
 .container, fieldset {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
@@ -106,11 +110,10 @@ legend {
     cursor: pointer;
     color: #fff;
     background-color: #4a87db;
-    font-size: 0.9em;
+    font-size: 0.8em;
     padding: 0.6em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    border: 1px solid #91e8ca;
     box-shadow: 2px 2px 5px #5a6b88;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
@@ -130,9 +133,16 @@ input.color-change {
 
 .eChoices {
     width: auto;
-    margin: 0.6em;
-    padding-right: 0.6em;
-    align-self: right;
+    margin-right: 40%;
+    text-align: right;
+}
+
+.eChoices>input {
+    width:5vw;
+}
+
+.rem {
+    margin-bottom: 0;
 }
 
 .container {
@@ -243,7 +253,21 @@ input.eth {
 }
 
 .car {
+    width: auto;
     margin-bottom: 1.2em;
+}
+
+.eChoices input {
+    width: 5vw;
+}
+
+.last-sec h3 {
+    margin: 2em auto;
+}
+
+.last-sec label {
+    text-align: right;
+    margin-right: 2em;
 }
 
 .panel {
@@ -480,6 +504,14 @@ input.eth {
 }
 
 @media all and (min-width: 768px) {
+    .field-ethnicity {
+        margin-right: 6em;
+        text-align: right;
+    }
+
+    .eChoices input {
+        width: 5vw;
+    }
 
     .btn-hamburger {
         top: 20px;
@@ -495,8 +527,9 @@ input.eth {
         margin-top: 4em;
         padding: 2em;
         line-height: 2em;
-        width: 50vw;
+        width: 35vw;
     }
+
 
     fieldset {
         font-size: 0.8em;
@@ -518,7 +551,7 @@ input.eth {
     }
 
     .color-change {
-        width: 10vw;
+        width: 12vw;
         font-size: 1em;
     }
 
@@ -564,6 +597,10 @@ input.eth {
 
         input.form-control, select {
             width: 20vw;
+        }
+
+        .eChoices input {
+            width: 5vw;
         }
 
         .color-change {

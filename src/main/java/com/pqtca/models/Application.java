@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "application")
@@ -197,6 +198,9 @@ public class Application {
     @DateTimeFormat
     private Date fDateComp;
 
+    @Column
+    private String gCareerList;
+
     @OneToOne
     @JsonIgnore
     private User user;
@@ -214,7 +218,7 @@ public class Application {
     public Application() {
     }
 
-    public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, User user) {
+    public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc,String gCareerList, User user) {
         this.appssn = appssn;
         this.aMiddleName = aMiddleName;
         this.aFirstName = aFirstName;
@@ -266,8 +270,11 @@ public class Application {
         this.eCollegeDegree = eCollegeDegree;
         this.eCollegeLocation = eCollegeLocation;
         this.eReferralSrc = eReferralSrc;
+        this.gCareerList = gCareerList;
         this.user = user;
     }
+
+
 
     /*
         ***************************************
@@ -752,6 +759,14 @@ public class Application {
 
     public User getUser() {
         return user;
+    }
+
+    public String getgCareerList() {
+        return gCareerList;
+    }
+
+    public void setgCareerList(String gCareerList) {
+        this.gCareerList = gCareerList;
     }
 
     public void setUser(User user) {
