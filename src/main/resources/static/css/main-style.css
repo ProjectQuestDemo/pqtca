@@ -40,7 +40,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
-h2 {
+
+
+.rem {
     margin-bottom: 2em;
 }
 
@@ -146,7 +148,7 @@ input.color-change {
 }
 
 .rem {
-    margin-bottom: 0;
+    margin-bottom: 3em;
 }
 
 .container {
@@ -159,7 +161,7 @@ input.color-change {
     margin: 4em auto;
     padding: 2em;
     text-align: center;
-    width: 60vw;
+    width: 70vw;
 }
 
 /*progressbar*/
@@ -528,10 +530,10 @@ input.eth {
     }
 
     .container {
-        margin-top: 4em;
+        margin-top: 10em;
         padding: 2em;
         line-height: 2em;
-        width: 35vw;
+        width: 100vmin;
     }
 
 
@@ -541,7 +543,7 @@ input.eth {
         height: 50%;
         margin: 4em auto;
         padding: 2em;
-        width: 32vw;
+        width: 45vw;
         position: relative;
     }
 
@@ -596,7 +598,7 @@ input.eth {
     @media only screen and (min-width: 968px) {
 
         .fields {
-            width: 30vw;
+            width: 50vw;
         }
 
         input.form-control, select {
