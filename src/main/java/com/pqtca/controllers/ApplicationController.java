@@ -2,6 +2,7 @@ package com.pqtca.controllers;
 
 import com.pqtca.Services.UserService;
 import com.pqtca.models.Application;
+import com.pqtca.models.User;
 import com.pqtca.repos.ApplicationRepo;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -32,11 +33,12 @@ public class ApplicationController {
     @GetMapping("/app")
     public String userApp(Model model) {
         Application app = new Application();
-        Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        if (user.toString().equalsIgnoreCase("anonymousUser")) {
+        User user = userService.loggedInUser();
+        if (user == null) {
             return "redirect:/login";
         }
-
+        model.addAttribute("userId", user.getId());
+        model.addAttribute("email", user.getEmail());
         model.addAttribute("app", app);
         return "app";
     }
@@ -61,15 +63,17 @@ public class ApplicationController {
         return "admin/show";
     }
 
-    @PostMapping("/confirm-app")
-    public String confirmApp(@Valid Application app, Errors errors, Model model) {
+    @PostMapping("/show={id}")
+    public String confirmApp(@PathVariable Long id, @Valid Application app, Errors errors, Model model) {
 
         if(errors.hasErrors()) {
             model.addAttribute("errors", errors);
             return "admin";
         }
         app.setfEmpId(userService.loggedInUser().getId() + userService.loggedInUser().getUsername());
+        app.setId(id);
         appDao.save(app);
+        model.addAttribute("success", "Application successfully reviewed.");
         return "redirect:/admin";
     }
 }

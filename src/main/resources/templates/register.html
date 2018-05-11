@@ -32,6 +32,8 @@
 					<p class="error" th:each="err : ${#fields.hasErrors()}" th:text="${error2}"></p>
 				</div>
 				<div class="fb-text form-group field-password">
+					<span class="tooltip-element" tooltip="Please include at least 1 uppercase character,
+				       1 lowercase character, and 1 number."></span>
 					<input type="password" placeholder="Password" class="form-control"
 					       autocomplete="new-password"
 					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
@@ -48,7 +50,6 @@
 					       required="required" aria-required="true"/>
 				</div>				
 				<input type="submit" class="color-change" name="Submit" value="Register"/>
-				<a th:href="@{/login}"><input type="button" class="color-change" value="Login"/></a>
 			</div>
 		</form>
 	</div>
