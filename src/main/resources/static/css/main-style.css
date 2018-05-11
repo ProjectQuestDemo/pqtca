@@ -202,7 +202,7 @@ input.color-change {
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
-    color: #54b4ff;
+    color: #ffffff;
 }
 
 /**********Progress Bar End***********/
@@ -230,6 +230,7 @@ input.eth {
 }
 
 .ethcheck label {
+    display: inline-block;
     color: #fff;
 }
 
@@ -735,3 +736,8 @@ input.eth {
     background: transparent;
 }
 
+.field-eHS input {
+    margin-right: 3em;
+    text-align: right;
+    width: 5vw;
+}
