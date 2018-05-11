@@ -1,5 +1,6 @@
 package com.pqtca.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -203,6 +204,7 @@ public class Application {
 
     @OneToOne
     @JsonIgnore
+    @JsonBackReference
     private User user;
 
 
@@ -218,7 +220,63 @@ public class Application {
     public Application() {
     }
 
-    public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc,String gCareerList, User user) {
+    public Application(String appssn, String aFirstName, String aMiddleName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, String fEmpId, String gCareerList) {
+        this.appssn = appssn;
+        this.aFirstName = aFirstName;
+        this.aMiddleName = aMiddleName;
+        this.aLastName = aLastName;
+        this.aDateOfBirth = aDateOfBirth;
+        this.aEthnicity = aEthnicity;
+        this.aGender = aGender;
+        this.bStreetAddress = bStreetAddress;
+        this.bCity = bCity;
+        this.bState = bState;
+        this.bCounty = bCounty;
+        this.bZip = bZip;
+        this.bPhoneNumber = bPhoneNumber;
+        this.bAltPhoneNumber = bAltPhoneNumber;
+        this.bEmail = bEmail;
+        this.cEmerContactFirst = cEmerContactFirst;
+        this.cEmerContactLast = cEmerContactLast;
+        this.cEmerContactRel = cEmerContactRel;
+        this.cEmerContactNum = cEmerContactNum;
+        this.cEmerContactAddy = cEmerContactAddy;
+        this.cEmerContactCity = cEmerContactCity;
+        this.cEmerContactState = cEmerContactState;
+        this.dMaritalStatus = dMaritalStatus;
+        this.dfamilyStatus = dfamilyStatus;
+        this.dTotalInHouse = dTotalInHouse;
+        this.dDepUnderFive = dDepUnderFive;
+        this.dDepOverFive = dDepOverFive;
+        this.dDepOverEighteen = dDepOverEighteen;
+        this.dDepFullName = dDepFullName;
+        this.dDepAge = dDepAge;
+        this.dDepRelationship = dDepRelationship;
+        this.eDrugTest = eDrugTest;
+        this.eTanf = eTanf;
+        this.eSnap = eSnap;
+        this.eSsh = eSsh;
+        this.eSsi = eSsi;
+        this.eSsdi = eSsdi;
+        this.eWic = eWic;
+        this.eUnemp = eUnemp;
+        this.eFelConvict = eFelConvict;
+        this.eFcExplanation = eFcExplanation;
+        this.eDisability = eDisability;
+        this.eDisExplanation = eDisExplanation;
+        this.eCitizen = eCitizen;
+        this.eMilitarySrv = eMilitarySrv;
+        this.eSelectiveSrv = eSelectiveSrv;
+        this.eMilSpouse = eMilSpouse;
+        this.eHS = eHS;
+        this.eCollegeDegree = eCollegeDegree;
+        this.eCollegeLocation = eCollegeLocation;
+        this.eReferralSrc = eReferralSrc;
+        this.fEmpId = fEmpId;
+        this.gCareerList = gCareerList;
+    }
+
+    public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, String gCareerList, User user) {
         this.appssn = appssn;
         this.aMiddleName = aMiddleName;
         this.aFirstName = aFirstName;

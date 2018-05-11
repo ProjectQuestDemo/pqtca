@@ -54,11 +54,12 @@ public class ApplicationController {
         return "redirect:/profile";
     }
 
-//    @GetMapping("/show${id}")
-//    public String userApp(@PathVariable long id, Model model) {
-//        model.addAttribute("app", appDao.findOne(id));
-//        return "admin/app";
-//    }
+    @GetMapping("/show={id}")
+    public String pendingApp (@PathVariable Long id, Model model) {
+        Application app = appDao.findOne(id);
+        model.addAttribute("app", app);
+        return "admin/show";
+    }
 
     @PostMapping("/confirm-app")
     public String confirmApp(@Valid Application app, Errors errors, Model model) {

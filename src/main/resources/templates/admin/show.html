@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
-<head th:replace="fragments/head :: head('PQ App')"></head>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('App Review')">
+</head>
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
@@ -779,7 +780,8 @@
 		</form>
 	</div>
 </main>
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="fragments/footer :: footer">
+</footer>
 <script>
     $('document').ready(function () {
         var current_fs, next_fs, previous_fs; //fieldss

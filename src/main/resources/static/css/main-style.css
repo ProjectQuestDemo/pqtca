@@ -728,3 +728,10 @@ input.eth {
         width: 15vw;
     }
 }
+
+.close {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+}
+

@@ -9,16 +9,20 @@ function req(url) {
     }
     fetch(url)
         .then((response) => response.json()
-            .then((jsonData) => buildHtml(jsonData))
+            .then((jsonData) => {
+                delete jsonData[-1];
+                buildHtml(jsonData);
+            })
         );
 
+
     const buildHtml = data => {
-        delete data.user;
+        delete data[-1];
         let newHtml = '';
         data.forEach(el => newHtml +=
-            `<button class="color-change" 
-                     onclick=showApp("/show=${el.id}")>${el.aFirstName} ${el.aLastName}
-            </button>`);
+
+            `<a href="/show=${el.id}">${el.aFirstName} ${el.aLastName}</a>`);
+
         return $('#apps').html(heading + newHtml);
     };
 }
@@ -30,15 +34,13 @@ const showNotification = () => {
             .then((jsonData) => update(jsonData))
         );
     const update = data => {
-        delete data.user;
+        delete data[-1];
         let count = 0;
         console.log(data);
         count = data.length;
         console.log(count);
         $('#pending').attr('data-badge', count);
         setInterval(data, 1000000);
-
-
     }
 };
 const showApp = url => {
@@ -48,7 +50,7 @@ const showApp = url => {
         );
     const buildHtml = data => {
 
-        delete data.user;
+        delete data[-1];
         let id;
         let newHtml = '';
 
@@ -62,3 +64,4 @@ const showApp = url => {
         return $('#apps').html(newHtml);
     };
 };
+

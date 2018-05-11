@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.pqtca.models.Application;
 import com.pqtca.repos.ApplicationRepo;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
@@ -36,12 +37,6 @@ public class AdminRestController {
         return gson.toJson(apps);
     }
 
-    @GetMapping("/show={id}")
-    public @ResponseBody String pendingApp (@PathVariable Long id) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Application app = appDao.findOne(id);
-        return gson.toJson(app);
-    }
 
     @GetMapping("/graphEthnicity")
     @ResponseBody

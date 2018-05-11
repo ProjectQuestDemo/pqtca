@@ -113,9 +113,9 @@
 		<div id="divSec" class="container info-section">
 			<h3 class="title">Admin Dashboard</h3>
 			<p th:if="${success}"></p>
-			<button class="close">-</button>
-			<div class="pan">
-				<p class="banner-txt">
+			<button class="close" onclick="minBtn">-</button>
+			<div class="content">
+				<p class="title">
 					To the left are several tools to help you manage and process the information you store.
 					Take a second to orient yourself to the great features provided.
 					A pleasant feature shown below is a list of compiled demographics based on applicant information.
@@ -127,13 +127,11 @@
 				</p>
 			</div>
 		</div>
-		
-		
 		<div id="divSec2" class="container application-section">
 			<h3 class="title">Applications</h3>
-			<button class="accordion close">-</button>
-			<div id="apps" class="pan">
-				<h3>
+			<button class="close1" onclick="minBtn1">-</button>
+			<div id="apps" class="content1">
+				<h3 class="title">
 					To review an application, use the side navigation to make a selection.
 				</h3>
 			</div>
@@ -142,8 +140,8 @@
 		
 		<div id="divSec3" class="container demographic-section">
 			<h3 class="title">Demographics</h3>
-			<button class="accordion close">-</button>
-			<div id="piechart" class="pan chart"></div>
+			<button class="close2" onclick="minBtn2">-</button>
+			<div id="piechart2" class="content chart"></div>
 		</div>
 	</div>
 </main>
@@ -152,5 +150,6 @@
 <script th:src="@{/js/dataVis.js}"></script>
 <script th:src="@{/js/jsonReq.js}"></script>
 <script th:src="@{/js/jsonToCSV.js}"></script>
+<script th:src="@{/js/adminUI.js}"></script>
 </body>
 </html>
