@@ -44,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2em;
 }
 
-.container, fieldset {
+.container, .fields {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
     height: auto;
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 60vw;
 }
 
-fieldset {
+.fields {
     font-size: 0.8em;
     color: #fff;
     border-radius: 4px;
@@ -221,7 +221,7 @@ input.color-change {
     position: relative;
 }
 
-fieldset:not(:first-of-type) {
+.fields:not(:first-of-type) {
     display: none;
 }
 
@@ -531,7 +531,7 @@ input.eth {
     }
 
 
-    fieldset {
+    .fields {
         font-size: 0.8em;
         border-radius: 4px;
         height: 50%;
@@ -591,7 +591,7 @@ input.eth {
 
     @media only screen and (min-width: 968px) {
 
-        fieldset {
+        .fields {
             width: 30vw;
         }
 

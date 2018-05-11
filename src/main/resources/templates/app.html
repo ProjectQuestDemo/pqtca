@@ -142,7 +142,7 @@
 					<input type="text"
 					       autocomplete="section-blue shipping street-address"
 					       placeholder="Street Address"
-					       class="form-control house"
+					       class="form-control house testinput1"
 					       th:field="*{bStreetAddress}"
 					       required="required" aria-required="true"
 					/>
@@ -151,7 +151,7 @@
 					<span class="tooltip-element" tooltip="Please enter your city."></span>
 					
 					<input type="text" placeholder="City"
-					       class="form-control" th:field="*{bCity}"
+					       class="form-control testinput1" th:field="*{bCity}"
 					       autocomplete="address-level2"
 					       maxlength="45" title="Must start with a letter."
 					       required="required" aria-required="true"
@@ -160,7 +160,7 @@
 				<div class="fb-text form-group field-state">
 					<span class="tooltip-element" tooltip="State."></span>
 					
-					<select th:field="*{bState}">
+					<select class="testinput1" th:field="*{bState}">
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
 						<option value="AZ">Arizona</option>
@@ -225,7 +225,7 @@
 					<span class="tooltip-element" tooltip="County."></span>
 					
 					<input type="text" placeholder="County"
-					       class="form-control" th:field="*{bCounty}"
+					       class="form-control testinput1" th:field="*{bCounty}"
 					       autocomplete="address-level2"
 					       maxlength="45" title="Must start with a letter."
 					       required="required" aria-required="true"
@@ -234,28 +234,28 @@
 					<span class="tooltip-element" tooltip="Zip Code."></span>
 					
 					<input type="text" placeholder="Zip Code"
-					       class="form-control" th:field="*{bZip}"
+					       class="form-control testinput1" th:field="*{bZip}"
 					       autocomplete="postal-code"
 					       maxlength="5" title="5 digits only please"
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+				<input type="button" class="color-change next1 action-button" name="next" value="Next"/>
 			</div>
 			
 			<div class="container fields">
 				<h2 class="form-header">Contact Information</h2>
 				<div class="fb-text form-group field-contact">
 					<input type="tel" placeholder="Phone Number"
-					       class="form-control" th:field="*{bPhoneNumber}"
+					       class="form-control testinput2" th:field="*{bPhoneNumber}"
 					       title="Numbers only please."
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-altphone">
 					<input type="tel" placeholder="Alternate Number"
-					       class="form-control" th:field="*{bAltPhoneNumber}"
+					       class="form-control testinput2" th:field="*{bAltPhoneNumber}"
 					       title="Numbers only please."
 					       aria-required="false"
 					/>
@@ -263,13 +263,13 @@
 				<div class="fb-text form-group field-email">
 					<span class="tooltip-element" tooltip="Valid email address please."></span>
 					<input type="email" placeholder="Email"
-					       class="form-control" th:field="*{bEmail}"
+					       class="form-control testinput2" th:field="*{bEmail}"
 					       title="Must be a valid email."
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+				<input type="button" class="color-change next2 action-button" name="next" value="Next"/>
 			
 			</div>
 			
@@ -277,21 +277,21 @@
 				<h3 class="form-header">Emergency contact</h3>
 				<div class="fb-text form-group field-emergcont">
 					<input type="text" placeholder="First Name"
-					       class="form-control" th:field="*{cEmerContactFirst}"
+					       class="form-control testinput3" th:field="*{cEmerContactFirst}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emercont2">
 					<input type="text" placeholder="Last Name"
-					       class="form-control" th:field="*{cEmerContactLast}"
+					       class="form-control testinput3" th:field="*{cEmerContactLast}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emerrel">
 					<input type="text" placeholder="Relationship"
-					       class="form-control" th:field="*{cEmerContactRel}"
+					       class="form-control testinput3" th:field="*{cEmerContactRel}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
@@ -302,7 +302,7 @@
 					</span>
 					</div>
 					<input type="tel" placeholder="Emergency Number"
-					       class="form-control" th:field="*{cEmerContactNum}"
+					       class="form-control testinput3" th:field="*{cEmerContactNum}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
@@ -313,7 +313,7 @@
 					</span>
 					</div>
 					<input type="text" placeholder="Address"
-					       class="form-control" th:field="*{cEmerContactAddy}"
+					       class="form-control testinput3" th:field="*{cEmerContactAddy}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
@@ -324,7 +324,7 @@
 					</span>
 					</div>
 					<input type="text" placeholder="City"
-					       class="form-control" th:field="*{cEmerContactCity}"
+					       class="form-control testinput3" th:field="*{cEmerContactCity}"
 					       title="Letters only please."
 					       required="required" aria-required="true"
 					/>
@@ -334,7 +334,7 @@
 					<span class="tooltip-element" tooltip="Choose from the dropdown.">
 					</span>
 					</div>
-					<select th:field="*{cEmerContactState}">
+					<select class="testinput3" th:field="*{cEmerContactState}">
 						<option value="null">Choose A State</option>
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
@@ -399,7 +399,7 @@
 					</select>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+				<input type="button" class="color-change next3 action-button" name="next" value="Next"/>
 			</div>
 			
 			<div class="container fields">
@@ -407,7 +407,7 @@
 					<h3 class="form-header">You're almost done!</h3>
 					<h3 class="form-header">Household Information</h3>
 					<div>
-						<select class="form-control" th:field="*{dMaritalStatus}">
+						<select class="form-control testinput4" th:field="*{dMaritalStatus}">
 							<option th:value="null">Marital Status</option>
 							<option th:value="single">Single</option>
 							<option th:value="married">Married</option>
@@ -418,7 +418,7 @@
 				</div>
 				
 				<div class="fb-text form-group field-hhsize">
-					<select id="houseHoldSize" th:field="*{dfamilyStatus}">
+					<select id="houseHoldSize" class="testinput4" th:field="*{dfamilyStatus}">
 						<option th:value="null">Family Status?</option>
 						<option th:value="twoparent">Two parent family</option>
 						<option th:value="singleparent">Single Parent</option>
@@ -432,42 +432,42 @@
 						How many people live in your house?
 					</label>
 					<input type="text" id="totalInHouse" placeholder="# in House"
-					       class="form-control"
+					       class="form-control testinput4"
 					       th:field="*{dTotalInHouse}"
 					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-numdep">
 					<input type="text" placeholder="Age 5 or under?"
-					       class="form-control" th:field="*{dDepUnderFive}"
+					       class="form-control testinput4" th:field="*{dDepUnderFive}"
 					       title="Numbers only please"
 					       required="required" aria-required="true"
 					/>
 					<input type="text" placeholder="Age 6 to 17?"
-					       class="form-control" th:field="*{dDepOverFive}"
+					       class="form-control testinput4" th:field="*{dDepOverFive}"
 					       title="Numbers only please"
 					       required="required" aria-required="true"
 					/>
 					<input type="text" placeholder="Age 18+?"
-					       class="form-control" th:field="*{dDepOverEighteen}"
+					       class="form-control testinput4" th:field="*{dDepOverEighteen}"
 					       title="Numbers only please"
 					       required="required" aria-required="true"
 					/>
 					<div class="fb-text form-group field-depinfo">
 						<label>Full Name of dependent</label>
 						<input type="text" id="depName" autocomplete="name"
-						       placeholder="Full Name" class="form-control"
+						       placeholder="Full Name" class="form-control testinput4"
 						       th:field="*{dDepFullName}"/>
 						<label>Date of birth of dependent</label>
-						<input type="date" id="depDoB" class="form-control"
+						<input type="date" id="depDoB" class="form-control testinput4"
 						       th:field="*{dDepAge}"/>
-						<input type="text" id="depRel" class="form-control"
+						<input type="text" id="depRel" class="form-control testinput4"
 						       placeholder="Relationship"
 						       th:field="*{dDepRelationship}"/>
 					</div>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+				<input type="button" class="color-change next4 action-button" name="next" value="Next"/>
 			</div>
 			
 			<div class="container fields">
@@ -644,7 +644,7 @@
 					</div>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+				<input type="button" class="color-change next5 action-button" name="next" value="Next"/>
 			</div>
 			
 			<div class="container fields">
@@ -759,7 +759,7 @@
 					</p>
 					
 					<h3 class="form-field">If you were referred, please tell us how.</h3>
-					<input class="form-control" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
+					<input class="form-control testinput6" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
 				</div>
 				
 				<div class="form-control field-eHS">
@@ -773,7 +773,7 @@
 				
 				<label>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</label>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
-				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
+				<input type="Submit" class="color-change next6 action-button" name="Submit" value="Submit"/>
 			</div>
 			
 			<div class="container fields">
@@ -785,7 +785,139 @@
 			</div>
 		</form>
 	</div>
-</main>
+ </main>
 <footer th:replace="fragments/footer :: footer"></footer>
+
+    <script>
+    $('document').ready(function () {
+        var current_fs, next_fs, previous_fs; //fields
+        var left, opacity, scale; //fields properties which we will animate
+        var animating = false; //flag to prevent quick multi-click glitches
+
+        function pageTransition(that) {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(that).parent();
+            next_fs = $(that).parent().next();
+
+
+            $("#progressbar li").eq($(".fields").index(next_fs)).addClass("active");
+
+            //show the next fields
+            next_fs.show();
+            //hide the current fields with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        };
+
+        $(".next").click(function () {
+            if (!validate()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next1").click(function () {
+            if (!validate1()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next2").click(function () {
+            if (!validate2()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next3").click(function () {
+            if (!validate3()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next4").click(function () {
+            if (!validate4()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next5").click(function () {
+            if (!validate5()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+
+        $(".next6").click(function () {
+            event.preventDefault();
+            if (!validate6()) {
+                console.log("is not valid");
+                return;
+            } else {
+                console.log("is valid");
+            }
+
+            console.log("next");
+            pageTransition(this);
+        });
+    });
+</script>
+
 </body>
 </html>
