@@ -30,11 +30,10 @@ label {
     margin-bottom: 1em;
 }
 
-p {
-    margin-bottom: 1em;
-}
+
 
 h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 2em;
     font-weight: 200;
     text-align: center;
     color: #fff;
@@ -185,7 +184,7 @@ input.color-change {
 #progressbar li:after {
     content: '';
     width: 100%;
-    color: #000;
+    color: #fff;
     height: 2px;
     background: #54b4ff;
     position: absolute;
@@ -538,6 +537,16 @@ input.eth {
 
 /*mobile media q*/
 @media all and (min-width: 768px) {
+
+    .careercheck {
+        margin-right: 4em;
+        text-align: right;
+    }
+
+    .careercheck>p {
+        display: inline-block;
+    }
+
     .field-ethnicity {
         margin-right: 6em;
         text-align: right;
@@ -702,7 +711,8 @@ input.eth {
     }
 
     input.form-control, select {
-        width: 20vw;
+        font-size: 1.2em;
+        width: 30vw;
     }
 
     .eChoices input {

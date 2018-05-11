@@ -499,29 +499,29 @@
 						<input class="car" type="checkbox" id="career5" th:field="*{gCareerList}"
 						       value="Licensed Vocational Nurse"/>
 					</div>
-					<div class="careercheck6">
+					<div class="careercheck">
 						<p>Laboratory Technologist</p>
 						<input class="car" type="checkbox" id="career6" th:field="*{gCareerList}"
 						       value="Medical Laboratory Technologist"/>
 					
 					</div>
-					<div class="careercheck7">
+					<div class="careercheck">
 						<p>Physical Therapy Assistant</p>
 						<input class="car" type="checkbox" id="career7" th:field="*{gCareerList}"
 						       value="Physical Therapy Assistant"/>
 					
 					</div>
-					<div class="careercheck8">
+					<div class="careercheck">
 						<p>Radiography Technologist</p>
 						<input class="car" type="checkbox" id="career8" th:field="*{gCareerList}"
 						       value="Radiography Technologist"/>
 					</div>
-					<div class="careercheck9">
+					<div class="careercheck">
 						<p>Registered Nurse</p>
 						<input class="car" type="checkbox" id="career9" th:field="*{gCareerList}"
 						       value="Registered Nurse"/>
 					</div>
-					<div class="careercheck10">
+					<div class="careercheck">
 						<p>Respiratory Care</p>
 						<input class="car" type="checkbox" id="career10" th:field="*{gCareerList}"
 						       value="Respiratory Care"/>
@@ -547,7 +547,7 @@
 					</div>
 					
 					<div class="careercheck">
-						<p class="rem">HVAC</p>
+						<p>HVAC</p>
 						<input class="car" type="checkbox" id="career14" th:field="*{gCareerList}" value="HVAC"/>
 					</div>
 					
@@ -718,26 +718,23 @@
 				<div class="fb-text form-group last-sec field-disa">
 					<h3 class="form-field">Do you have a disability?</h3>
 					
-					<p class="eChoices">
-						Yes
-						<input class="form-control" type="radio" id="disaChoice"
-						       th:field="*{eDisability}" value="yes"/>
+					<p class="eChoices">Yes
+						<input class="form-control" type="radio" id="disaChoice" th:field="*{eDisability}" value="yes"/>
 					</p>
 					
-					<p class="eChoices">
-						No
-						<input class="form-control" type="radio" id="disaChoice2"
-						       th:field="*{eDisability}" value="no"/>
+					<p class="eChoices">No
+						<input class="form-control" type="radio" id="disaChoice2" th:field="*{eDisability}" value="no"/>
 					</p>
+				
 				</div>
 				
 				<div class="fb-text form-group last-sec field-milSrv">
 					<h3 class="form-field">Are you registered with the selective service?</h3>
-					<p class="eChoices">
-						Yes <input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
+					<p class="eChoices">Yes
+						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
 					</p>
-					<p class="eChoices">
-						No <input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
+					<p class="eChoices">No
+						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
 					</p>
 					
 					
@@ -764,15 +761,18 @@
 				</div>
 				
 				<div class="form-control field-eHS">
-					<label for="hs">High School Diploma</label>
-					<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
-					<label for="GED">GED</label>
-					<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
-					<label for="DnG">No Diploma</label>
-					<input type="radio" id="DnG" class="form-control" th:field="*{eHS}" value="Did not graduate"/>
+					<p>High School Diploma
+						<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
+					</p>
+					<p>GED
+						<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
+					</p>
+					<p>No Diploma
+						<input type="radio" id="DnG" class="form-control" th:field="*{eHS}" value="Did not graduate"/>
+					</p>
 				</div>
 				
-				<label>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</label>
+				<p>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</p>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
 			</div>
