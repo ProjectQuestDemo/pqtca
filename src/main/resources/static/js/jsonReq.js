@@ -57,7 +57,7 @@ const showApp = url => {
             newHtml += `<p class="app-review">${data[prop]}</p>`;
         }
         id = data.id;
-        newHtml += `<input type="button" class="color-change" name="export" onclick="csvDownload('/show=${data.id}')" value="Export"/></form> </div>`;
+        newHtml += `<input type="button" class="color-change" name="export" onclick="csvDownload(url)" value="Export"/></form> </div>`;
 
         return $('#apps').html(newHtml);
     };

@@ -40,8 +40,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
-
-
 .rem {
     margin-bottom: 2em;
 }
@@ -50,23 +48,28 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2em;
 }
 
-.container, .fields {
+.container {
+    background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
+    border-radius: 4px;
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    height: auto;
+    margin: 4em auto;
+    padding: 2em;
+    text-align: center;
+    width: 70vw;
+}
+
+
+.fields {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
     height: auto;
     margin: 4em auto;
     padding: 1em;
-    margin-bottom: 2em;
-    width: 60vw;
-}
-
-.fields {
     font-size: 0.8em;
     color: #fff;
-    border-radius: 4px;
-    height: auto;
-    margin: auto;
-    padding: 2em;
     width: 60vw;
     position: relative;
 }
@@ -101,14 +104,8 @@ legend {
     margin: auto;
 }
 
-.app-container {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    margin: 3em auto;
-}
-
 .color-change {
+    border: none;
     text-align: center;
     margin: 1em 0.6em;
     border-radius: 7px;
@@ -116,11 +113,11 @@ legend {
     cursor: pointer;
     color: #fff;
     background-color: #4a87db;
-    font-size: 0.8em;
+    font-size: 1em;
     padding: 0.6em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    box-shadow: 2px 2px 5px #5a6b88;
+    box-shadow: 2px 2px 3px #5a6b88;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
@@ -143,28 +140,16 @@ input.color-change {
     text-align: right;
 }
 
-.eChoices>input {
-    width:5vw;
+.eChoices > input {
+    width: 5vw;
 }
 
 .rem {
     margin-bottom: 3em;
 }
 
-.container {
-    background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
-    border-radius: 4px;
-    position: relative;
-    color: #fff;
-    font-size: 1em;
-    height: auto;
-    margin: 4em auto;
-    padding: 2em;
-    text-align: center;
-    width: 70vw;
-}
 
-/*progressbar*/
+/**********Progress Bar Start*********/
 #progressbar {
     text-align: center;
     margin-bottom: 2em;
@@ -220,6 +205,8 @@ input.color-change {
     background: #27AE60;
     color: #54b4ff;
 }
+
+/**********Progress Bar End***********/
 
 #msform {
     margin: 3em auto;
@@ -509,6 +496,47 @@ input.eth {
     width: 100%;
 }
 
+
+/* dev-team page styling
+---------------------------------- */
+
+
+.headshots {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+#meetdevheader {
+    margin: 0;
+}
+
+.dev-container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.descriptions {
+    margin: 0 auto;
+    padding-bottom: .5em;
+}
+
+.names {
+    font-size: 2em;
+    padding-top: 1vh;
+    margin-bottom: .7em;
+}
+
+.contactInfo {
+    font-size: 0.8em;
+}
+
+.contactInfo img {
+    width: 10vw;
+    padding: 0 2em 0 2em;
+}
+
+/*mobile media q*/
 @media all and (min-width: 768px) {
     .field-ethnicity {
         margin-right: 6em;
@@ -531,11 +559,8 @@ input.eth {
 
     .container {
         margin-top: 10em;
-        padding: 2em;
-        line-height: 2em;
-        width: 100vmin;
-    }
 
+    }
 
     .fields {
         font-size: 0.8em;
@@ -595,118 +620,21 @@ input.eth {
         width: 30vw;
     }
 
-    @media only screen and (min-width: 968px) {
-
-        .fields {
-            width: 50vw;
-        }
-
-        input.form-control, select {
-            width: 20vw;
-        }
-
-        .eChoices input {
-            width: 4vw;
-        }
-
-        .color-change {
-            width: 10vw;
-            font-size: 1em;
-        }
-
-        button.app-btn.color-change {
-            width: 15vw;
-        }
+    .contactInfo img {
+        width: 10vw;
+        padding: 0 2em 0 2em;
     }
-}
-
-/* dev-team page styling
----------------------------------- */
-
-.dev-container {
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-}
-
-.allie {
-    display: flex;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    justify-items: center;
 
 }
-
-.chris {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-
-.thomas {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
-
-.headshots {
-    height: 17vw;
-    margin: 0 auto;
-
-
-}
-
-#meetdevheader {
-    margin: 0;
-}
-
-.dev-container > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.descriptions {
-    margin: 0 auto;
-    padding-bottom: .5em;
-}
-
-.names {
-    font-size: 2em;
-    padding-top: 2vh;
-    margin-bottom: .7em;
-}
-
-.contactInfo {
-    font-size: .8em;
-}
-
-.contactInfo  img {
-    height: 3vw;
-    padding: 0 2em 0 2em;
-}
-
-/*mobile media q*/
 @media only screen and (max-width: 800px) {
 
     .headshots {
-        height: 10em;
-        margin: 0 auto;
-        padding-bottom: 5px;
-        padding-top: 15px;
+        width: 60vw;
+        margin: auto;
     }
 
-    .dev-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: .5fr .5fr .5fr;
-        justify-items: center;
-        align-items: center;
+    div.allie>.container {
+        width: 85vw;
     }
 
     .dev-container > div {
@@ -715,39 +643,78 @@ input.eth {
         justify-content: center;
     }
 
-    .allie {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        margin: 0 auto;
-
-    }
-
-    .chris {
-        grid-row-start: 2;
-        grid-row-end: 3;
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    .thomas {
-        grid-row-start: 3;
-        grid-row-end: 4;
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
 
     .descriptions {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
     }
-
 
     .names {
         font-size: 2em;
-        padding-top: 2vh;
+        padding-top: 0.8em;
 
     }
+    .contactInfo img {
+        width: 5vw;
+        padding: 0 2em 0 2em;
+    }
 
+}
+@media only screen and (min-width: 801px) {
+    .container {
+    : ;
+    }
+
+    .headshots {
+        width: 20vw;
+        margin: auto;
+    }
+
+    .dev-container {
+        display: flex;
+    }
+
+    div.allie.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    div.thomas.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    div.chris.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    .contactInfo img {
+        width: 3vw;
+        padding: 0 2em 0 2em;
+    }
+
+    .fields {
+        width: 50vw;
+    }
+
+    input.form-control, select {
+        width: 20vw;
+    }
+
+    .eChoices input {
+        width: 4vw;
+    }
+
+    .color-change {
+        width: 10vw;
+        font-size: 1em;
+    }
+
+    button.app-btn.color-change {
+        width: 15vw;
+    }
 }
