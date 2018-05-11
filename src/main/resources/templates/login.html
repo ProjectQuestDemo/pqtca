@@ -16,11 +16,11 @@
 	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
 			<div class="container fields">
-				<h3>Login or register today to begin your Quest!</h3>
+				<h3 class="rem">Login or register today to begin your Quest!</h3>
 				<div class="alert" th:if="${param.logout}">
 					You have been logged out.
 				</div>
-				<div class="error" th:if="${param.error}">
+				<div class="error rem" th:if="${param.error}">
 					Invalid Username and Password.
 				</div>
 				<div class="fb-text form-group field-username">

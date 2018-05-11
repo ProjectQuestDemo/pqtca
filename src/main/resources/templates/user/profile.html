@@ -15,7 +15,7 @@
 	</div>
 	<div class="flex">
 		<form id="msform" th:action="@{/profile/edit}" th:method="POST" th:object="${user}">
-			<fieldset>
+			<div class="container fields">
 				<h2>Update Profile</h2>
 				<p th:text="${success}"></p>
 				<div class="fb-text form-group field-username">
@@ -45,7 +45,7 @@
 					       required="required" aria-required="true"/>
 				</div>
 				<input type="submit" class="color-change" name="Submit" value="Submit"/>
-			</fieldset>
+			</div>
 		</form>
 		<div class="app-btn">
 			<h5>Have you applied yet?</h5>
