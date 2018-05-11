@@ -1,6 +1,8 @@
-function csvDownload() {
-    let JSONData = $.getJSON("/complete", function(data) {
-        let items = data;
+function csvDownload(url) {
+    console.log(url);
+    let JSONData = $.getJSON(url, function(data) {
+        console.log(data);
+        let items = [...data];
         console.log(items);
         data.forEach(el => delete el.user);
         const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
