@@ -31,6 +31,14 @@ label {
     margin-bottom: 1em;
 }
 
+textarea {
+    width: 60%;
+    border-radius: 7px;
+    height: 20vh;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
 
 
 h1, h2, h3, h4, h5, h6 {
@@ -48,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
+    line-height: 1.6em;
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
     position: relative;
@@ -57,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 4em auto;
     padding: 2em;
     text-align: center;
-    width: 60vmax;
+    width: 60vw;
 }
 
 
@@ -65,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
     height: auto;
-    margin: 4em auto;
+    margin: 2em auto;
     padding: 1em;
     font-size: 0.8em;
     color: #fff;
@@ -105,7 +114,7 @@ legend {
     background-image: linear-gradient(0deg, #4a87db, #5a6b88);
     text-align: center;
     width: auto;
-    max-height: 20vh;
+    max-height: 15vh;
     margin: auto;
 }
 
@@ -140,14 +149,18 @@ input.color-change {
     -moz-appearance: none;
 }
 
-.eChoices {
-    width: auto;
-    margin-right: 40%;
+.choices {
+    margin-right: 20%;
     text-align: right;
 }
 
-.eChoices > input {
+.choices>input {
     width: 5vw;
+}
+
+.eChoices {
+    display: inline-block;
+    width: auto;
 }
 
 .rem {
@@ -165,6 +178,7 @@ input.color-change {
 }
 
 #progressbar li {
+    line-height: 1em;
     list-style-type: none;
     color: black;
     text-transform: uppercase;
@@ -482,6 +496,7 @@ input.eth {
 
 .error {
     color: red;
+    margin: 2em auto;
 }
 
 .alert {
@@ -543,6 +558,16 @@ input.eth {
     padding: 0 2em 0 2em;
 }
 
+select {
+    text-align: center;
+    text-align-last: center;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    height: 5vh;
+    font-weight: 300;
+    width: 50vw;
+}
+
 /*mobile media q*/
 @media all and (min-width: 768px) {
 
@@ -554,15 +579,13 @@ input.eth {
     .careercheck>p {
         display: inline-block;
     }
-
-    .field-ethnicity {
-        margin-right: 6em;
+    .field-career {
+        grid-column-gap: 5%;
+        display: grid;
+        grid-template-columns: 47% 47%;
         text-align: right;
     }
 
-    .eChoices input {
-        width: 5vw;
-    }
 
     .btn-hamburger {
         top: 20px;
@@ -572,11 +595,6 @@ input.eth {
     .panel-header {
         margin-top: 40px;
         width: 455px;
-    }
-
-    .container {
-        margin-top: 10em;
-
     }
 
     .fields {
@@ -675,6 +693,7 @@ input.eth {
     }
 
 }
+
 @media only screen and (min-width: 801px) {
     .headshots {
         width: 20vw;
@@ -727,10 +746,6 @@ input.eth {
         width: 30vw;
     }
 
-    .eChoices input {
-        width: 4vw;
-    }
-
     .color-change {
         width: 10vw;
         font-size: 1em;
@@ -741,17 +756,22 @@ input.eth {
     }
 }
 
+@media only screen and (min-width: 1024px) {
+    .field-ethnicity {
+        margin-right: 15vw;
+    }
+
+    .container.field-career {
+        width: 80vw;
+    }
+}
+
 .close {
     width: 50px;
     height: 50px;
     background: transparent;
 }
 
-.field-eHS input {
-    margin-right: 3em;
-    text-align: right;
-    width: 5vw;
-}
 
 input -webkit-autofill, textarea -webkit-autofill, select -webkit-autofill {
     background-color: rgb(255, 255, 255) !important;

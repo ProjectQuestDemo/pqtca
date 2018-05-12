@@ -10,8 +10,9 @@ import java.util.List;
 public interface ApplicationRepo extends CrudRepository<Application, Long> {
     List<Application> findAll();
 
-
     List<Application> findApplicationsByFEmpIdLike(String fEmpId);
+
+    Application findByUserLike(User user);
 
 
     @Override

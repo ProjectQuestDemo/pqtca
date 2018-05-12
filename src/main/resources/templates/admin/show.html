@@ -26,6 +26,7 @@
 				<li></li>
 				<li>Social Info</li>
 			</ul>
+			<!--Personal Information-->
 			<div class="container fields">
 				<h2 class="form-header">Personal Information</h2>
 				<div class="fb-text form-group field-firstname">
@@ -36,7 +37,6 @@
 				</div>
 				<div class="fb-text form-group field-middlename">
 					<span class="tooltip-element" tooltip="Must start with a letter."></span>
-					
 					<input type="text" placeholder="Middle Name" class="form-control testinput"
 					       th:field="*{aMiddleName}" readonly="readonly"
 					       maxlength="45" title="Must start with a letter." required="required" aria-required="true"
@@ -51,11 +51,7 @@
 					       required="required" aria-required="true"/>
 				</div>
 				<div class="fb-text form-group field-dob">
-					<div>
-						<span class="tooltip-element" tooltip="Must be a date in the past."></span>
-					
-					</div>
-					<h3 class="form-header">Date of Birth</h3>
+					<h3 class="title">Date of Birth</h3>
 					<input type="date" id="dob" placeholder="Date of Birth"
 					       class="form-control testinput" th:field="*{aDateOfBirth}"
 					       title="Must be a date in the past." readonly="readonly"
@@ -64,7 +60,6 @@
 				</div>
 				<div class="fb-text form-group field-ssn">
 					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
-					
 					<input type="text" placeholder="Social Security #" th:field="*{appssn}"
 					       class="form-control testinput" readonly="readonly"
 					       maxlength="9"
@@ -72,7 +67,6 @@
 					       aria-required="true"/>
 				</div>
 				<div class="fb-text form-group field-gender">
-					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 					<select th:field="*{aGender}">
 						<option th:value="null">Gender Identity</option>
 						<option th:value="male">Male</option>
@@ -83,6 +77,7 @@
 				</div>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Ethnic Information -->
 			<div class="container fields">
 				<h2 class="form-header">What nationality do you identify?</h2>
 				<div class="fb-text field-ethnicity">
@@ -138,6 +133,7 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Address Information-->
 			<div class="container fields">
 				<h3 class="form-header">Physical Address</h3>
 				<div class="fb-text form-group field-houseaddy">
@@ -251,6 +247,7 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Contact Information-->
 			<div class="container fields">
 				<h3 class="form-header">Contact Information</h3>
 				<div class="fb-text form-group field-contact">
@@ -282,6 +279,7 @@
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			
 			</div>
+			<!--Emergency Contact Information-->
 			<div class="container fields">
 				<h3 class="form-header">Emergency contact</h3>
 				<div class="fb-text form-group field-emergcont">
@@ -416,6 +414,7 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Household/Dependent Information-->
 			<div class="container fields">
 				<div class="fb-text form-group field-fam">
 					<h3 class="form-header">You're almost done!</h3>
@@ -477,7 +476,7 @@
 						       readonly="readonly"
 						       placeholder="Full Name" class="form-control"
 						       th:field="*{dDepFullName}"/>
-						<h3 class="form-header">Date of birth of dependent</h3>
+						<h3 class="title">Date of birth of dependent</h3>
 						<input type="date" id="depDoB" class="form-control"
 						       readonly="readonly"
 						       th:field="*{dDepAge}"/>
@@ -490,6 +489,7 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Career Interest Information-->
 			<div class="container fields">
 				<h3 class="form-header">Please choose what career fields interest you:</h3>
 				<div class="fb-text field-career">
@@ -669,54 +669,54 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
+			<!--Social Information-->
 			<div class="container fields">
-				<h3 class="form-header">Last Section! Give yourself a high five!</h3>
 				<div class="fb-text form-group last-sec field-drugTest">
 					<h3 class="form-field">Are you willing to take a urinalysis test?</h3>
 					<p class="eChoices">Yes
-						<input class="form-control" readonly="readonly" type="radio" id="dtChoice"
+						<input class="form-control" type="radio" id="dtChoice"
 						       th:field="*{eDrugTest}" value="yes"/>
 					</p>
 					<p class="eChoices">No
-						<input class="form-control" readonly="readonly" type="radio" id="dtChoice2"
+						<input class="form-control" type="radio" id="dtChoice2"
 						       th:field="*{eDrugTest}" value="no"/>
 					</p>
 				</div>
 				
 				<div class="fb-text form-group last-sec field-ssa">
-					<h3 class="form-field">Check all that apply</h3>
-					<p class="eChoices">TANF
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa" th:value="true"
+					<h3 class="form-field">Gov Aid</h3>
+					<p class="choices">TANF
+						<input class="form-control" type="checkbox" id="ssa" th:value="true"
 						       th:field="*{eTanf}"/>
 					</p>
 					
-					<p class="eChoices">SNAP
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa2" th:value="true"
+					<p class="choices">SNAP
+						<input class="form-control" type="checkbox" id="ssa2" th:value="true"
 						       th:field="*{eSnap}"/>
 					</p>
 					
-					<p class="eChoices">Subsidized Housing
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa3" th:value="true"
+					<p class="choices">Subsidized Housing
+						<input class="form-control" type="checkbox" id="ssa3" th:value="true"
 						       th:field="*{eSsh}"/>
 					</p>
 					
-					<p class="eChoices">SSI
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa4" th:value="true"
+					<p class="choices">SSI
+						<input class="form-control" type="checkbox" id="ssa4" th:value="true"
 						       th:field="*{eSsi}"/>
 					</p>
 					
-					<p class="eChoices">SSDI
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa5" th:value="true"
+					<p class="choices">SSDI
+						<input class="form-control" type="checkbox" id="ssa5" th:value="true"
 						       th:field="*{eSsdi}"/>
 					</p>
 					
-					<p class="eChoices">WIC
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa6" th:value="true"
+					<p class="choices">WIC
+						<input class="form-control" type="checkbox" id="ssa6" th:value="true"
 						       th:field="*{eWic}"/>
 					</p>
 					
-					<p class="eChoices">Unemployment
-						<input class="form-control" readonly="readonly" type="checkbox" id="ssa7" th:value="true"
+					<p class="choices">Unemployment
+						<input class="form-control" type="checkbox" id="ssa7" th:value="true"
 						       th:field="*{eUnemp}"/>
 					</p>
 				</div>
@@ -725,86 +725,109 @@
 					<h3 class="form-field">Have you every been convicted of a felony or misdemeanor?</h3>
 					<p class="eChoices">
 						Yes
-						<input class="form-control" readonly="readonly" type="radio" id="felChoice"
+						<input class="form-control" type="radio" id="felChoice"
 						       th:field="*{eFelConvict}" value="yes"/>
 					</p>
+					
 					<p class="eChoices">
 						No
-						<input class="form-control" readonly="readonly" type="radio" id="felChoice2"
-						       th:field="*{eFelConvict}" value="no"/>
+						<input class="form-control" type="radio" id="felChoice2"
+						       th:field="*{eFelConvict}" value="no" selected="selected"/>
 					</p>
+					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 				</div>
 				
 				<div class="fb-text form-group last-sec field-disa">
 					<h3 class="form-field">Do you have a disability?</h3>
 					
 					<p class="eChoices">Yes
-						<input class="form-control" readonly="readonly" type="radio" id="disaChoice"
-						       th:field="*{eDisability}"
-						       value="yes"/>
+						<input class="form-control" type="radio" id="disaChoice" th:field="*{eDisability}" value="yes"/>
 					</p>
 					
 					<p class="eChoices">No
-						<input class="form-control" readonly="readonly" type="radio" id="disaChoice2"
-						       th:field="*{eDisability}"
-						       value="no"/>
+						<input class="form-control" type="radio" id="disaChoice2" th:field="*{eDisability}"
+						       value="no" selected="selected"/>
 					</p>
+					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 				
 				</div>
-				
+				<div class="form-control field-eHS">
+					<h3 class="form-header">Education</h3>
+					<p class="eChoices">High School Diploma
+						<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
+					</p>
+					<p class="eChoices">GED
+						<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
+					</p>
+					<p class="eChoices">No Diploma
+						<input type="radio" id="DnG" class="form-control" th:field="*{eHS}"
+						       selected="selected" value="Did not graduate"/>
+					</p>
+				</div>
 				<div class="fb-text form-group last-sec field-milSrv">
 					<h3 class="form-field">Are you registered with the selective service?</h3>
 					<p class="eChoices">Yes
-						<input class="form-control" readonly="readonly" type="radio" th:field="*{eSelectiveSrv}"
-						       th:value="yes"/>
+						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
 					</p>
 					<p class="eChoices">No
-						<input class="form-control" readonly="readonly" type="radio" th:field="*{eSelectiveSrv}"
-						       th:value="no"/>
+						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
 					</p>
 					
 					
 					<h3 class="form-field">Have you served in the military</h3>
 					<p class="eChoices">
-						Yes <input class="form-control" readonly="readonly" type="radio" th:field="*{eMilitarySrv}"
-						           th:value="yes"/>
+						Yes <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="yes"/>
 					</p>
 					<p class="eChoices">
-						No <input class="form-control" readonly="readonly" type="radio" th:field="*{eMilitarySrv}"
-						          th:value="no"/>
+						No <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="no"/>
 					</p>
 					
 					<h3 class="form-field">Are you a military spouse/dependent?</h3>
 					<p class="eChoices">
-						Yes<input class="form-control" readonly="readonly" type="radio" id="msChoice"
+						Yes<input class="form-control" type="radio" id="msChoice"
 						          th:field="*{eMilSpouse}" value="yes"/>
 					</p>
 					<p class="eChoices">
-						No<input class="form-control" readonly="readonly" type="radio" id="msChoice2"
+						No<input class="form-control" type="radio" id="msChoice2"
 						         th:field="*{eMilSpouse}" value="no"/>
 					</p>
 					
 					<h3 class="form-field">If you were referred, please tell us how.</h3>
-					<input class="form-control" readonly="readonly" placeholder="Referral" type="text"
-					       th:field="*{eReferralSrc}"/>
+					<input class="form-control" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
+				</div>
+				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			</div>
+			<!--Employee Section-->
+			<div class="container fields">
+				<div class="fb-text form-group field-fOfficeUse">
+					<h3 class="form-field">Office Portion to be completed by Admin</h3>
+					<div class="form-group">
+						<label for="census">Census</label>
+						<input class="form-control" id="census" th:field="*{fCensus}"/>
+					</div>
+					<div class="form-group">
+						<label for="district">District</label>
+						<input class="form-control" id="district" th:field="*{fDistrict}"/>
+					</div>
+					<div class="form-group">
+						<label for="precinct">Precinct</label>
+						<input class="form-control" id="precinct" th:field="*{fPrecinct}"/>
+					</div>
+					<div class="form-group">
+						<label for="gainMath">Gain Math Score</label>
+						<input class="form-control" id="gainMath" th:field="*{fGainMath}"/>
+					</div>
+					<div class="form-group">
+						<label for="gainEng">Gain English Score</label>
+						<input class="form-control" id="gainEng" th:field="*{fGainEng}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<p>Additional Notes</p>
+					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 				</div>
 				
-				<div class="form-control field-eHS">
-					<p>High School Diploma
-						<input type="radio" id="hs" class="form-control" readonly="readonly" th:field="*{eHS}"
-						       value="Highschool Diploma"/>
-					</p>
-					<p>GED
-						<input type="radio" id="GED" class="form-control" readonly="readonly" th:field="*{eHS}"
-						       value="GED"/>
-					</p>
-					<p>No Diploma
-						<input type="radio" id="DnG" class="form-control" readonly="readonly" th:field="*{eHS}"
-						       value="Did not graduate"/>
-					</p>
-				</div>
-				
-				<p>THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</p>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
 			</div>

@@ -15,7 +15,13 @@
 	</div>
 	<div class="flex">
 		<div sec:authorize="isAuthenticated()"  class="container">
-			<h1 class="title">Welcome back <span sec:authentication="name"></span></h1>
+			<h2 class="title">Welcome back <span sec:authentication="name"></span></h2>
+			<div class="error" th:if="${duplicate}">
+				You already have an application submitted.
+			</div>
+			<div class="error" th:if="${success}">
+				Your application has been successfully submitted.
+			</div>
 		</div>
 		<div sec:authorize="!isAuthenticated()"  class="container">
 			<h3>Welcome to the beginning of a new, exciting chapter in your
