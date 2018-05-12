@@ -129,7 +129,8 @@ legend {
 }
 
 .color-change:hover {
-    color: #006398;
+    color: #4a87db;
+    background-color: #fff;
     border: 1px solid #006398;
     box-shadow: 2px 2px 20px #AFE9FF;
 }
