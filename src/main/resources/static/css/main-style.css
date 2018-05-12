@@ -73,13 +73,18 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-input, select {
+input {
     text-align: center;
     margin-bottom: 2em;
     width: 45vw;
     padding: 0.7em;
     border-radius: 7px;
     font-size: 1em;
+}
+
+select {
+    height: 2.6em;
+    width: 50vw;
 }
 
 legend {
@@ -582,7 +587,7 @@ input.eth {
         position: relative;
     }
 
-    input.form-control, select {
+    input.form-control {
         text-align: center;
         margin-bottom: 2em;
         width: 30vw;
@@ -711,7 +716,12 @@ input.eth {
         width: 50vw;
     }
 
-    input.form-control, select {
+    select {
+        height: 2.6em;
+        width: 32vw;
+    }
+
+    input.form-control {
         font-size: 1.2em;
         width: 30vw;
     }

@@ -12,3 +12,9 @@ const minBtn2 = $(".close2").click(function () {
     $(this).toggleClass('.open');
     $(".content2").slideToggle()
 });
+
+const hide = $('.dropbtn').click(function () {
+    $(this).toggleClass('.show');
+    $('#divSec').toggleClass('.hide');
+    $('#divTwo').toggleClass('.hide');
+});
