@@ -55,7 +55,7 @@
 						<span class="tooltip-element" tooltip="Must be a date in the past."></span>
 					
 					</div>
-					<label for="dob">Date of Birth</label>
+					<h3 class="form-header">Date of Birth</h3>
 					<input type="date" id="dob" placeholder="Date of Birth"
 					       class="form-control testinput" th:field="*{aDateOfBirth}"
 					       title="Must be a date in the past." readonly="readonly"
@@ -83,7 +83,6 @@
 				</div>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
 				<h2 class="form-header">What nationality do you identify?</h2>
 				<div class="fb-text field-ethnicity">
@@ -98,8 +97,6 @@
 							<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"
 							       readonly="readonly"/>
 						</label>
-					
-					
 					</div>
 					<div class="ethcheck">
 						<label for="eth3">Hispanic/Latino
@@ -141,9 +138,8 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
-				<h2 class="form-header">Physical Address</h2>
+				<h3 class="form-header">Physical Address</h3>
 				<div class="fb-text form-group field-houseaddy">
 					<span class="tooltip-element" tooltip="Just your house number and street"></span>
 					
@@ -255,9 +251,8 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
-				<h2 class="form-header">Contact Information</h2>
+				<h3 class="form-header">Contact Information</h3>
 				<div class="fb-text form-group field-contact">
 					<input type="tel" placeholder="Phone Number"
 					       readonly="readonly"
@@ -287,7 +282,6 @@
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			
 			</div>
-			
 			<div class="container fields">
 				<h3 class="form-header">Emergency contact</h3>
 				<div class="fb-text form-group field-emergcont">
@@ -422,7 +416,6 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
 				<div class="fb-text form-group field-fam">
 					<h3 class="form-header">You're almost done!</h3>
@@ -449,9 +442,9 @@
 				</div>
 				
 				<div class="fb-text form-group field-totalinhouse">
-					<label for="totalInHouse">
+					<h3 class="form-header">
 						How many people live in your house?
-					</label>
+					</h3>
 					<input type="text" id="totalInHouse" placeholder="# in House"
 					       class="form-control"
 					       readonly="readonly"
@@ -479,12 +472,12 @@
 					       required="required" aria-required="true"
 					/>
 					<div class="fb-text form-group field-depinfo">
-						<label>Full Name of dependent</label>
+						<h3 class="form-header">Full Name of dependent</h3>
 						<input type="text" id="depName" autocomplete="name"
 						       readonly="readonly"
 						       placeholder="Full Name" class="form-control"
 						       th:field="*{dDepFullName}"/>
-						<label>Date of birth of dependent</label>
+						<h3 class="form-header">Date of birth of dependent</h3>
 						<input type="date" id="depDoB" class="form-control"
 						       readonly="readonly"
 						       th:field="*{dDepAge}"/>
@@ -497,7 +490,6 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
 				<h3 class="form-header">Please choose what career fields interest you:</h3>
 				<div class="fb-text field-career">
@@ -677,9 +669,8 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-			
 			<div class="container fields">
-				<h3>Last Section! Give yourself a high five!</h3>
+				<h3 class="form-header">Last Section! Give yourself a high five!</h3>
 				<div class="fb-text form-group last-sec field-drugTest">
 					<h3 class="form-field">Are you willing to take a urinalysis test?</h3>
 					<p class="eChoices">Yes
@@ -737,7 +728,6 @@
 						<input class="form-control" readonly="readonly" type="radio" id="felChoice"
 						       th:field="*{eFelConvict}" value="yes"/>
 					</p>
-					
 					<p class="eChoices">
 						No
 						<input class="form-control" readonly="readonly" type="radio" id="felChoice2"
