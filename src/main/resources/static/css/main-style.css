@@ -47,10 +47,6 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2em;
 }
 
-.title {
-    width: 50vmax;
-}
-
 .container {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
@@ -61,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 4em auto;
     padding: 2em;
     text-align: center;
-    width: 70vw;
+    width: 60vmax;
 }
 
 
@@ -680,10 +676,6 @@ input.eth {
 
 }
 @media only screen and (min-width: 801px) {
-    .container {
-    : ;
-    }
-
     .headshots {
         width: 20vw;
         margin: auto;
