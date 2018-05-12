@@ -3,9 +3,9 @@
 function req(url) {
     let heading = '';
     if (url === '/complete') {
-        heading = "<h4>Complete Applications</h4>";
+        heading = "<h3 class='form-header'>Complete Applications</h3>";
     } else {
-        heading = "<h4>Pending Applications</h4>";
+        heading = "<h3 class='form-header'>Pending Applications</h3>";
     }
     fetch(url)
         .then((response) => response.json()
