@@ -23,7 +23,7 @@ function req(url) {
 
             `<a href="/show=${el.id}">${el.aFirstName} ${el.aLastName}</a>`);
 
-        return $('#apps').html(heading + newHtml);
+        return $('.content').html(heading + newHtml);
     };
 }
 

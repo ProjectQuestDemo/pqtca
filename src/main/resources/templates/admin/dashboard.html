@@ -48,14 +48,14 @@
 			</li>
 			<li>
 				<a href='#' onclick="req('/pending');">
-					<button onclick="csvDownload('/pending')">
+					<button class="pending" onclick="csvDownload('/pending')">
 						Export Pending
 					</button>
 				</a>
 			</li>
 			<li>
 				<a href='#' onclick="req('/complete')">
-					<button onclick="csvDownload('/complete')">
+					<button class="complete" onclick="csvDownload('/complete')">
 						Export All
 					</button>
 				</a>
@@ -109,12 +109,12 @@
 		<div class="border-inner">
 		</div>
 	</div>
-	<div class="flex">
+	<div class="flex main-page">
 		<div id="divSec" class="container info-section">
 			<h3 class="title">Admin Dashboard</h3>
 			<p th:if="${success}"></p>
 			<button class="close" onclick="minBtn">-</button>
-			<div class="content">
+			<div id="piechart" class="content">
 				<p class="title">
 					To the left are several tools to help you manage and process the information you store.
 					Take a second to orient yourself to the great features provided.
@@ -126,22 +126,6 @@
 					one of the drop down options in the demographic section.
 				</p>
 			</div>
-		</div>
-		<div id="divSec2" class="container application-section">
-			<h3 class="form-header title">Applications</h3>
-			<button class="close1" onclick="minBtn1">-</button>
-			<div id="apps" class="content1">
-				<h3 class="form-header title">
-					To review an application, use the side navigation to make a selection.
-				</h3>
-			</div>
-		</div>
-		
-		
-		<div id="divSec3" class="container demographic-section">
-			<h3 class="form-header title">Demographics</h3>
-			<button class="close2" onclick="minBtn2">-</button>
-			<div id="piechart" class="content2"></div>
 		</div>
 	</div>
 </main>
