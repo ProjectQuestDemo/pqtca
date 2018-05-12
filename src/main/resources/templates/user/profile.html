@@ -16,7 +16,7 @@
 	<div class="flex">
 		<form id="msform" th:action="@{/profile/edit}" th:method="POST" th:object="${user}">
 			<div class="container fields">
-				<h2>Update Profile</h2>
+				<h2 class="form-header">Update Profile</h2>
 				<p th:text="${success}"></p>
 				<div class="fb-text form-group field-username">
 					<input type="text" class="form-control"  th:value="${user.username}"

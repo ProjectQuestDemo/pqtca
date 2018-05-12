@@ -154,6 +154,7 @@ function validate7() {
     x.each(function () {
         if ($(this).val() === "" || $(this).val() === null) {
             $(this).css("border-color", "red");
+            $(this).css("background-color", "red");
             validationArray.push(false);
         } else {
             console.log("is valid");
