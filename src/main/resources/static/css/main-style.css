@@ -580,13 +580,11 @@ input.eth {
     }
 
     .fields {
-        font-size: 0.8em;
-        border-radius: 4px;
-        height: 50%;
-        margin: 4em auto;
-        padding: 2em;
         width: 45vw;
-        position: relative;
+    }
+
+    input[type="date" i] {
+        font-family: 'Montserrat', sans-serif;
     }
 
     input.form-control {
