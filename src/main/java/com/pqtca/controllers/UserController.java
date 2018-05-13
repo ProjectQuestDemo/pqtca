@@ -37,10 +37,6 @@ public class UserController {
 
     @GetMapping({"/", "/home", "/index", ""})
     public String home() {
-        User loggedInUser = userService.loggedInUser();
-        if (loggedInUser == null) {
-            return "redirect:/index";
-        }
         return "index";
     }
 
