@@ -27,12 +27,19 @@ a {
 label {
     color: #fff;
     display: block;
+    font-size: 1em;
     margin-bottom: 1em;
 }
 
-p {
-    margin-bottom: 1em;
+textarea {
+    width: 60%;
+    border-radius: 7px;
+    height: 20vh;
+    margin-bottom: 2em;
+    padding: 1em;
 }
+
+
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 200;
@@ -40,38 +47,64 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
 }
 
+.rem {
+    margin-bottom: 2em;
+}
+
 .form-header {
     margin-bottom: 2em;
 }
 
+<<<<<<< HEAD
 .container, .fields {
+=======
+.container {
+    line-height: 1.6em;
+>>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
+    position: relative;
+    color: #fff;
+    font-size: 1em;
     height: auto;
     margin: 4em auto;
-    padding: 1em;
-    margin-bottom: 2em;
+    padding: 2em;
+    text-align: center;
     width: 60vw;
 }
 
+<<<<<<< HEAD
 .fields {
     font-size: 0.8em;
     color: #fff;
+=======
+
+.fields {
+    background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
+>>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     border-radius: 4px;
     height: auto;
-    margin: auto;
-    padding: 2em;
+    margin: 2em auto;
+    padding: 1em;
+    font-size: 0.8em;
+    color: #fff;
     width: 60vw;
     position: relative;
 }
 
-input, select {
+input {
     text-align: center;
     margin-bottom: 2em;
     width: 45vw;
     padding: 0.7em;
     border-radius: 7px;
     font-size: 1em;
+}
+
+select {
+    margin-bottom: 2em;
+    height: 2.6em;
+    width: 50vw;
 }
 
 legend {
@@ -91,18 +124,12 @@ legend {
     background-image: linear-gradient(0deg, #4a87db, #5a6b88);
     text-align: center;
     width: auto;
-    max-height: 20vh;
+    max-height: 15vh;
     margin: auto;
 }
 
-.app-container {
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    margin: 3em auto;
-}
-
 .color-change {
+    border: none;
     text-align: center;
     margin: 1em 0.6em;
     border-radius: 7px;
@@ -110,18 +137,19 @@ legend {
     cursor: pointer;
     color: #fff;
     background-color: #4a87db;
-    font-size: 0.8em;
+    font-size: 1em;
     padding: 0.6em;
     font-family: 'Montserrat', sans-serif;
     font-weight: 100;
-    box-shadow: 2px 2px 5px #5a6b88;
+    box-shadow: 2px 2px 3px #5a6b88;
     transition-duration: 0.5s;
     -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
 }
 
 .color-change:hover {
-    color: #006398;
+    color: #4a87db;
+    background-color: #fff;
     border: 1px solid #006398;
     box-shadow: 2px 2px 20px #AFE9FF;
 }
@@ -131,34 +159,26 @@ input.color-change {
     -moz-appearance: none;
 }
 
-.eChoices {
-    width: auto;
-    margin-right: 40%;
+.choices {
+    margin-right: 20%;
     text-align: right;
 }
 
-.eChoices>input {
-    width:5vw;
+.choices>input {
+    width: 5vw;
+}
+
+.eChoices {
+    display: inline-block;
+    width: auto;
 }
 
 .rem {
-    margin-bottom: 0;
+    margin-bottom: 3em;
 }
 
-.container {
-    background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
-    border-radius: 4px;
-    position: relative;
-    color: #fff;
-    font-size: 1em;
-    height: auto;
-    margin: 4em auto;
-    padding: 2em;
-    text-align: center;
-    width: 60vw;
-}
 
-/*progressbar*/
+/**********Progress Bar Start*********/
 #progressbar {
     text-align: center;
     margin-bottom: 2em;
@@ -168,6 +188,7 @@ input.color-change {
 }
 
 #progressbar li {
+    line-height: 1em;
     list-style-type: none;
     color: black;
     text-transform: uppercase;
@@ -194,7 +215,7 @@ input.color-change {
 #progressbar li:after {
     content: '';
     width: 100%;
-    color: #000;
+    color: #fff;
     height: 2px;
     background: #54b4ff;
     position: absolute;
@@ -212,8 +233,10 @@ input.color-change {
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before, #progressbar li.active:after {
     background: #27AE60;
-    color: #54b4ff;
+    color: #ffffff;
 }
+
+/**********Progress Bar End***********/
 
 #msform {
     margin: 3em auto;
@@ -238,6 +261,7 @@ input.eth {
 }
 
 .ethcheck label {
+    display: inline-block;
     color: #fff;
 }
 
@@ -482,6 +506,7 @@ input.eth {
 
 .error {
     color: red;
+    margin: 2em auto;
 }
 
 .alert {
@@ -503,15 +528,74 @@ input.eth {
     width: 100%;
 }
 
+
+/* dev-team page styling
+---------------------------------- */
+
+
+.headshots {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+#meetdevheader {
+    margin: 0;
+}
+
+.dev-container > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.descriptions {
+    margin: 0 auto;
+    padding-bottom: .5em;
+}
+
+.names {
+    font-size: 2em;
+    padding-top: 1vh;
+    margin-bottom: .7em;
+}
+
+.contactInfo {
+    font-size: 0.8em;
+}
+
+.contactInfo img {
+    width: 10vw;
+    padding: 0 2em 0 2em;
+}
+
+select {
+    text-align: center;
+    text-align-last: center;
+    font-size: 1.2em;
+    margin-bottom: 2em;
+    height: 5vh;
+    font-weight: 300;
+    width: 50vw;
+}
+
+/*mobile media q*/
 @media all and (min-width: 768px) {
-    .field-ethnicity {
-        margin-right: 6em;
+
+    .careercheck {
+        margin-right: 4em;
         text-align: right;
     }
 
-    .eChoices input {
-        width: 5vw;
+    .careercheck>p {
+        display: inline-block;
     }
+    .field-career {
+        grid-column-gap: 5%;
+        display: grid;
+        grid-template-columns: 47% 47%;
+        text-align: right;
+    }
+
 
     .btn-hamburger {
         top: 20px;
@@ -523,13 +607,11 @@ input.eth {
         width: 455px;
     }
 
-    .container {
-        margin-top: 4em;
-        padding: 2em;
-        line-height: 2em;
-        width: 35vw;
+    .fields {
+        width: 45vw;
     }
 
+<<<<<<< HEAD
 
     .fields {
         font-size: 0.8em;
@@ -539,9 +621,13 @@ input.eth {
         padding: 2em;
         width: 30vw;
         position: relative;
+=======
+    input[type="date" i] {
+        font-family: 'Montserrat', sans-serif;
+>>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     }
 
-    input.form-control, select {
+    input.form-control {
         text-align: center;
         margin-bottom: 2em;
         width: 30vw;
@@ -589,6 +675,7 @@ input.eth {
         width: 30vw;
     }
 
+<<<<<<< HEAD
     @media only screen and (min-width: 968px) {
 
         .fields {
@@ -611,96 +698,23 @@ input.eth {
         button.app-btn.color-change {
             width: 15vw;
         }
+=======
+    .contactInfo img {
+        width: 10vw;
+        padding: 0 2em 0 2em;
+>>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     }
-}
-
-/* dev-team page styling
----------------------------------- */
-
-.dev-container {
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-}
-
-.allie {
-    display: flex;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    justify-items: center;
 
 }
-
-.chris {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
-
-.thomas {
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    grid-column-start: 3;
-    grid-column-end: 4;
-}
-
-.headshots {
-    height: 17vw;
-    margin: 0 auto;
-
-
-}
-
-#meetdevheader {
-    margin: 0;
-}
-
-.dev-container > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.descriptions {
-    margin: 0 auto;
-    padding-bottom: .5em;
-}
-
-.names {
-    font-size: 2em;
-    padding-top: 2vh;
-    margin-bottom: .7em;
-}
-
-.contactInfo {
-    font-size: .8em;
-}
-
-.contactInfo  img {
-    height: 3vw;
-    padding: 0 2em 0 2em;
-}
-
-/*mobile media q*/
 @media only screen and (max-width: 800px) {
 
     .headshots {
-        height: 10em;
-        margin: 0 auto;
-        padding-bottom: 5px;
-        padding-top: 15px;
+        width: 60vw;
+        margin: auto;
     }
 
-    .dev-container {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: .5fr .5fr .5fr;
-        justify-items: center;
-        align-items: center;
+    div.allie>.container {
+        width: 85vw;
     }
 
     .dev-container > div {
@@ -709,39 +723,109 @@ input.eth {
         justify-content: center;
     }
 
-    .allie {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        margin: 0 auto;
-
-    }
-
-    .chris {
-        grid-row-start: 2;
-        grid-row-end: 3;
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
-
-    .thomas {
-        grid-row-start: 3;
-        grid-row-end: 4;
-        grid-column-start: 1;
-        grid-column-end: 2;
-    }
 
     .descriptions {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
     }
-
 
     .names {
         font-size: 2em;
-        padding-top: 2vh;
+        padding-top: 0.8em;
 
     }
+    .contactInfo img {
+        width: 5vw;
+        padding: 0 2em 0 2em;
+    }
 
+}
+
+@media only screen and (min-width: 801px) {
+    .headshots {
+        width: 20vw;
+        margin: auto;
+    }
+
+    .dev-container {
+        display: flex;
+    }
+
+    div.allie.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    div.thomas.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    div.chris.container {
+        margin-top: 0;
+        display: inline-block;
+        width: 20vw;
+    }
+
+    .contactInfo img {
+        width: 3vw;
+        padding: 0 2em 0 2em;
+    }
+
+    .fields {
+        width: 50vw;
+    }
+
+    select {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1.2em;
+        margin-bottom: 2em;
+        height: 5vh;
+        font-weight: 300;
+        width: 32vw;
+    }
+
+    input.form-control {
+        font-size: 1em;
+        width: 30vw;
+    }
+
+    .color-change {
+        width: 10vw;
+        font-size: 1em;
+    }
+
+    button.app-btn.color-change {
+        width: 15vw;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .field-ethnicity {
+        margin-right: 15vw;
+    }
+
+    .container.field-career {
+        width: 80vw;
+    }
+}
+
+.close {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+}
+
+
+input -webkit-autofill, textarea -webkit-autofill, select -webkit-autofill {
+    background-color: rgb(255, 255, 255) !important;
+    background-image: none !important;
+    color: rgb(0, 0, 0) !important;
+}
+
+.form-header {
+    margin-bottom: 2em;
 }

@@ -47,15 +47,15 @@
 				<button onclick="req('/complete')">Complete</button>
 			</li>
 			<li>
-				<a href='#' onclick='req("/pending");'>
-					<button onclick="csvDownload()">
+				<a href='#' onclick="req('/pending');">
+					<button class="pending" onclick="csvDownload('/pending')">
 						Export Pending
 					</button>
 				</a>
 			</li>
 			<li>
 				<a href='#' onclick="req('/complete')">
-					<button onclick="csvDownload()">
+					<button class="complete" onclick="csvDownload('/complete')">
 						Export All
 					</button>
 				</a>
@@ -109,13 +109,13 @@
 		<div class="border-inner">
 		</div>
 	</div>
-	<div class="flex">
+	<div class="flex main-page">
 		<div id="divSec" class="container info-section">
 			<h3 class="title">Admin Dashboard</h3>
 			<p th:if="${success}"></p>
-			<button class="close">-</button>
-			<div class="pan">
-				<p class="banner-txt">
+			<button class="close" onclick="minBtn">-</button>
+			<div id="piechart" class="content">
+				<p class="title">
 					To the left are several tools to help you manage and process the information you store.
 					Take a second to orient yourself to the great features provided.
 					A pleasant feature shown below is a list of compiled demographics based on applicant information.
@@ -127,33 +127,13 @@
 				</p>
 			</div>
 		</div>
-		
-		
-		<div id="divSec2" class="container application-section">
-			<h3 class="title">Applications</h3>
-			<button class="accordion close">-</button>
-			<div id="apps" class="pan">
-				<p class="banner-txt">
-					To review an application, use the side navigation to make a selection.
-				</p>
-			</div>
-		</div>
-		
-		
-		<div id="divSec3" class="container demographic-section">
-			<h3 class="title">Demographics</h3>
-			<button class="accordion close">-</button>
-			<div id="piechart" class="pan chart"></div>
-		</div>
 	</div>
 </main>
-<script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
-<script th:src="@{/js/dataVis.js}"></script>
-<script th:src="@{/js/jsonReq.js}"></script>
-<script th:src="@{/js/jsonToCSV.js}"></script>
 <footer th:replace="fragments/footer :: footer"></footer>
 <script th:src="@{https://www.gstatic.com/charts/loader.js}"></script>
 <script th:src="@{/js/dataVis.js}"></script>
 <script th:src="@{/js/jsonReq.js}"></script>
+<script th:src="@{/js/jsonToCSV.js}"></script>
+<script th:src="@{/js/adminUI.js}"></script>
 </body>
 </html>

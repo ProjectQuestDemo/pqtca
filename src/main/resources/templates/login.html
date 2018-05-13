@@ -15,13 +15,16 @@
 	</div>
 	<div class="flex">
 		<form id="msform" th:action="@{/login}" th:method="post">
-			<fieldset>
-				<h3>Login or register today to begin your Quest!</h3>
+			<div class="container fields">
+				<h2 class="rem">Login or register today to begin your Quest!</h2>
 				<div class="alert" th:if="${param.logout}">
 					You have been logged out.
 				</div>
-				<div class="error" th:if="${param.error}">
+				<div class="error rem" th:if="${param.error}">
 					Invalid Username and Password.
+				</div>
+				<div class="error rem" th:if="${login}">
+					You need to be logged in to submit an application.
 				</div>
 				<div class="fb-text form-group field-username">
 					<input type="text" class="form-control" id="username" name="username" autocomplete="username"
@@ -32,12 +35,9 @@
 					       autocomplete="current-password"
 					       placeholder="Password"/>
 				</div>
-
+				
 				<input class="color-change" type="submit" value="Login"/>
-				<a th:href="@{/register}">
-					<input class="color-change" type="button" value="Register"/>
-				</a>
-			</fieldset>
+			</div>
 		</form>
 	</div>
 </main>

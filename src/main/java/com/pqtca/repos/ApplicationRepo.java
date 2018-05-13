@@ -12,7 +12,8 @@ public interface ApplicationRepo extends CrudRepository<Application, Long> {
 
     List<Application> findApplicationsByFEmpIdLike(String fEmpId);
 
-    Application findBy(User user);
+    Application findByUserLike(User user);
+
 
     @Override
     Application findOne(Long aLong);

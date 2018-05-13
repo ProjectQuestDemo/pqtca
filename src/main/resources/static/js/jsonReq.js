@@ -3,23 +3,27 @@
 function req(url) {
     let heading = '';
     if (url === '/complete') {
-        heading = "<h4>Complete Applications</h4>";
+        heading = "<h3 class='form-header'>Complete Applications</h3>";
     } else {
-        heading = "<h4>Pending Applications</h4>";
+        heading = "<h3 class='form-header'>Pending Applications</h3>";
     }
     fetch(url)
         .then((response) => response.json()
-            .then((jsonData) => buildHtml(jsonData))
+            .then((jsonData) => {
+                delete jsonData[-1];
+                buildHtml(jsonData);
+            })
         );
 
+
     const buildHtml = data => {
-        delete data.user;
+        delete data[-1];
         let newHtml = '';
         data.forEach(el => newHtml +=
-            `<button class="color-change" 
-                     onclick=showApp("/show=${el.id}")>${el.aFirstName} ${el.aLastName}
-            </button>`);
-        return $('#apps').html(heading + newHtml);
+
+            `<a href="/show=${el.id}">${el.aFirstName} ${el.aLastName}</a>`);
+
+        return $('.content').html(heading + newHtml);
     };
 }
 
@@ -30,15 +34,13 @@ const showNotification = () => {
             .then((jsonData) => update(jsonData))
         );
     const update = data => {
-        delete data.user;
+        delete data[-1];
         let count = 0;
         console.log(data);
         count = data.length;
         console.log(count);
         $('#pending').attr('data-badge', count);
         setInterval(data, 1000000);
-
-
     }
 };
 const showApp = url => {
@@ -47,14 +49,19 @@ const showApp = url => {
             .then((jsonData) => buildHtml(jsonData))
         );
     const buildHtml = data => {
-        delete data.user;
+
+        delete data[-1];
+        let id;
         let newHtml = '';
+
         newHtml += `<div class="individual app">`;
         for (let prop in data) {
-            newHtml += `<input class="app-review" value="${data[prop]}"/>`;
+            newHtml += `<p class="app-review">${data[prop]}</p>`;
         }
-        newHtml += `<input type="button" class="color-change" name="submit" onclick="postFetch('/appreview')"/>` +
-                   '<input type="button" class="color-change" name="export" value="Export"/></form> </div>';
+        id = data.id;
+        newHtml += `<input type="button" class="color-change" name="export" onclick="csvDownload(url)" value="Export"/></form> </div>`;
+
         return $('#apps').html(newHtml);
     };
 };
+

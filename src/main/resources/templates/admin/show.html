@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/" xmlns="http://www.w3.org/1999/html">
-<head th:replace="fragments/head :: head('PQ App')"></head>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments/head :: head('App Review')">
+</head>
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
@@ -14,7 +15,7 @@
 	</div>
 	<div th:if="${errors}"></div>
 	<div class="flex">
-		<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
+		<form id="msform" th:action="@{'/show=' + ${app.id} }" th:method="POST" th:object="${app}">
 			<!-- progressbar -->
 			<ul id="progressbar">
 				<li class="active">Personal Info</li>
@@ -25,55 +26,47 @@
 				<li></li>
 				<li>Social Info</li>
 			</ul>
-
 			<!--Personal Information-->
 			<div class="container fields">
 				<h2 class="form-header">Personal Information</h2>
 				<div class="fb-text form-group field-firstname">
 					<input type="text" placeholder="First Name"
-						   class="form-control testinput" th:field="*{aFirstName}"
-						   maxlength="45" title="Must start with a letter."
-						   required="required" aria-required="true"/>
+					       class="form-control testinput" th:field="*{aFirstName}"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true" readonly="readonly"/>
 				</div>
 				<div class="fb-text form-group field-middlename">
 					<span class="tooltip-element" tooltip="Must start with a letter."></span>
-
 					<input type="text" placeholder="Middle Name" class="form-control testinput"
-						   th:field="*{aMiddleName}"
-						   maxlength="45" title="Must start with a letter." required="required" aria-required="true"
+					       th:field="*{aMiddleName}" readonly="readonly"
+					       maxlength="45" title="Must start with a letter." required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-lastname">
 					<span class="tooltip-element" tooltip="Must start with a letter."></span>
-
+					
 					<input type="text" placeholder="Last Name"
-						   class="form-control testinput" maxlength="45" th:field="*{aLastName}"
-						   title="Must start with a letter."
-						   required="required" aria-required="true"/>
+					       class="form-control testinput" maxlength="45" th:field="*{aLastName}"
+					       title="Must start with a letter." readonly="readonly"
+					       required="required" aria-required="true"/>
 				</div>
 				<div class="fb-text form-group field-dob">
-					<div>
-						<span class="tooltip-element" tooltip="Must be a date in the past."></span>
-
-					</div>
-					<label for="dob">Date of Birth</label>
+					<h3 class="title">Date of Birth</h3>
 					<input type="date" id="dob" placeholder="Date of Birth"
-						   class="form-control testinput" th:field="*{aDateOfBirth}"
-						   title="Must be a date in the past."
-						   required="required" aria-required="true"
+					       class="form-control testinput" th:field="*{aDateOfBirth}"
+					       title="Must be a date in the past." readonly="readonly"
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-ssn">
 					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
-
 					<input type="text" placeholder="Social Security #" th:field="*{appssn}"
-						   class="form-control testinput"
-						   maxlength="9"
-						   required="required"
-						   aria-required="true"/>
+					       class="form-control testinput" readonly="readonly"
+					       maxlength="9"
+					       required="required"
+					       aria-required="true"/>
 				</div>
 				<div class="fb-text form-group field-gender">
-					<span class="tooltip-element" tooltip="Must be 9 digits."></span>
 					<select th:field="*{aGender}">
 						<option th:value="null">Gender Identity</option>
 						<option th:value="male">Male</option>
@@ -84,75 +77,91 @@
 				</div>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Ethnic Information -->
 			<div class="container fields">
 				<h2 class="form-header">What nationality do you identify?</h2>
 				<div class="fb-text field-ethnicity">
 					<div class="ethcheck">
-						<label for="eth1">African-American</label>
-						<input class="eth" type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"/>
+						<label for="eth1">African-American
+							<input class="eth" type="checkbox" id="eth1" th:field="*{aEthnicity}" value="aamrcn"
+							       readonly="readonly"/>
+						</label>
 					</div>
 					<div class="ethcheck">
-						<label for="eth2">White</label>
-						<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"/>
+						<label for="eth2">White
+							<input class="eth" type="checkbox" id="eth2" th:field="*{aEthnicity}" value="wht"
+							       readonly="readonly"/>
+						</label>
 					</div>
 					<div class="ethcheck">
-						<label for="eth3">Hispanic/Latino</label>
-						<input class="eth" type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"/>
+						<label for="eth3">Hispanic/Latino
+							<input class="eth" type="checkbox" id="eth3" th:field="*{aEthnicity}" value="hisplat"
+							       readonly="readonly"/>
+						</label>
+					
+					
 					</div>
 					<div class="ethcheck">
-						<label for="eth3 class=form-field">Asian-American</label>
-						<input class="eth" type="checkbox" id="eth3 class=form-field" th:field="*{aEthnicity}" value="asiamrcn"/>
+						<label for="eth3 class=form-field">Asian-American
+							<input class="eth" type="checkbox" id="eth3 class=form-field" th:field="*{aEthnicity}"
+							       readonly="readonly" value="asiamrcn"/>
+						</label>
 					</div>
-
+					
 					<div class="ethcheck">
-						<label for="eth5">Native American</label>
-						<input class="eth" type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"/>
+						<label for="eth5">Native American
+							<input class="eth" type="checkbox" id="eth5" th:field="*{aEthnicity}" value="natamrcn"
+							       readonly="readonly"/>
+						</label>
 					</div>
-
+					
 					<div class="ethcheck">
-						<label for="eth6">Two or More (Latin/Hispanic)</label>
-						<input class="eth" type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"/>
+						<label for="eth6">Two or More (Latin/Hispanic)
+							<input class="eth" type="checkbox" id="eth6" th:field="*{aEthnicity}" value="twolat"
+							       readonly="readonly"/>
+						</label>
 					</div>
-
+					
 					<div class="ethcheck">
-						<label for="eth7">Two or More (Not Latin/Hispanic)</label>
-						<input class="eth" type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"/>
+						<label for="eth7">Two or More (Not Latin/Hispanic)
+							<input class="eth" type="checkbox" id="eth7" th:field="*{aEthnicity}" value="twonotlat"
+							       readonly="readonly"/>
+						</label>
 					</div>
-
+				
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Address Information-->
 			<div class="container fields">
-				<h2 class="form-header">Physical Address</h2>
+				<h3 class="form-header">Physical Address</h3>
 				<div class="fb-text form-group field-houseaddy">
 					<span class="tooltip-element" tooltip="Just your house number and street"></span>
-
+					
 					<input type="text"
-						   autocomplete="section-blue shipping street-address"
-						   placeholder="Street Address"
-						   class="form-control house"
-						   th:field="*{bStreetAddress}"
-						   required="required" aria-required="true"
+					       autocomplete="section-blue shipping street-address"
+					       placeholder="Street Address"
+					       readonly="readonly"
+					       class="form-control house"
+					       th:field="*{bStreetAddress}"
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-city">
 					<span class="tooltip-element" tooltip="Please enter your city."></span>
-
+					
 					<input type="text" placeholder="City"
-						   class="form-control" th:field="*{bCity}"
-						   autocomplete="address-level2"
-						   maxlength="45" title="Must start with a letter."
-						   required="required" aria-required="true"
+					       class="form-control" th:field="*{bCity}"
+					       autocomplete="address-level2"
+					       readonly="readonly"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-state">
 					<span class="tooltip-element" tooltip="State."></span>
-
+					
 					<select th:field="*{bState}">
 						<option value="AL">Alabama</option>
 						<option value="AK">Alaska</option>
@@ -216,80 +225,85 @@
 						<option value="AE">Armed Forces Others</option>
 					</select>
 					<span class="tooltip-element" tooltip="County."></span>
-
+					
 					<input type="text" placeholder="County"
-						   class="form-control" th:field="*{bCounty}"
-						   autocomplete="address-level2"
-						   maxlength="45" title="Must start with a letter."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{bCounty}"
+					       autocomplete="address-level2"
+					       maxlength="45" title="Must start with a letter."
+					       required="required" aria-required="true"
 					/>
-
+					
 					<span class="tooltip-element" tooltip="Zip Code."></span>
-
+					
 					<input type="text" placeholder="Zip Code"
-						   class="form-control" th:field="*{bZip}"
-						   autocomplete="postal-code"
-						   maxlength="5" title="5 digits only please"
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{bZip}"
+					       autocomplete="postal-code"
+					       maxlength="5" title="5 digits only please"
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Contact Information-->
 			<div class="container fields">
-				<h2 class="form-header">Contact Information</h2>
+				<h3 class="form-header">Contact Information</h3>
 				<div class="fb-text form-group field-contact">
 					<input type="tel" placeholder="Phone Number"
-						   class="form-control" th:field="*{bPhoneNumber}"
-						   title="Numbers only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{bPhoneNumber}"
+					       title="Numbers only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-altphone">
 					<input type="tel" placeholder="Alternate Number"
-						   class="form-control" th:field="*{bAltPhoneNumber}"
-						   title="Numbers only please."
-						   aria-required="false"
+					       readonly="readonly"
+					       class="form-control" th:field="*{bAltPhoneNumber}"
+					       title="Numbers only please."
+					       aria-required="false"
 					/>
 				</div>
 				<div class="fb-text form-group field-email">
 					<span class="tooltip-element" tooltip="Valid email address please."></span>
 					<input type="email" placeholder="Email"
-						   class="form-control"
-						   th:field="*{bEmail}"
-						   title="Must be a valid email."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{bEmail}"
+					       title="Must be a valid email."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
-
+			
 			</div>
-
 			<!--Emergency Contact Information-->
 			<div class="container fields">
 				<h3 class="form-header">Emergency contact</h3>
 				<div class="fb-text form-group field-emergcont">
 					<input type="text" placeholder="First Name"
-						   class="form-control" th:field="*{cEmerContactFirst}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactFirst}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emercont2">
 					<input type="text" placeholder="Last Name"
-						   class="form-control" th:field="*{cEmerContactLast}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactLast}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emerrel">
 					<input type="text" placeholder="Relationship"
-						   class="form-control" th:field="*{cEmerContactRel}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactRel}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emertel">
@@ -298,9 +312,10 @@
 					</span>
 					</div>
 					<input type="tel" placeholder="Emergency Number"
-						   class="form-control" th:field="*{cEmerContactNum}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactNum}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emeraddy">
@@ -309,9 +324,10 @@
 					</span>
 					</div>
 					<input type="text" placeholder="Address"
-						   class="form-control" th:field="*{cEmerContactAddy}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactAddy}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emercity">
@@ -320,9 +336,10 @@
 					</span>
 					</div>
 					<input type="text" placeholder="City"
-						   class="form-control" th:field="*{cEmerContactCity}"
-						   title="Letters only please."
-						   required="required" aria-required="true"
+					       readonly="readonly"
+					       class="form-control" th:field="*{cEmerContactCity}"
+					       title="Letters only please."
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-emerstate">
@@ -397,14 +414,13 @@
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Household/Dependent Information-->
 			<div class="container fields">
 				<div class="fb-text form-group field-fam">
 					<h3 class="form-header">You're almost done!</h3>
 					<h3 class="form-header">Household Information</h3>
 					<div>
-						<select class="form-control" th:field="*{dMaritalStatus}">
+						<select class="form-control" th:field="*{dMaritalStatus}" readonly="readonly">
 							<option th:value="null">Marital Status</option>
 							<option th:value="single">Single</option>
 							<option th:value="married">Married</option>
@@ -413,9 +429,9 @@
 						</select>
 					</div>
 				</div>
-
+				
 				<div class="fb-text form-group field-hhsize">
-					<select id="houseHoldSize" th:field="*{dfamilyStatus}">
+					<select id="houseHoldSize" th:field="*{dfamilyStatus}" readonly="readonly">
 						<option th:value="null">Family Status?</option>
 						<option th:value="twoparent">Two parent family</option>
 						<option th:value="singleparent">Single Parent</option>
@@ -423,50 +439,56 @@
 						<option th:value="individual">Individual</option>
 					</select>
 				</div>
-
+				
 				<div class="fb-text form-group field-totalinhouse">
-					<label for="totalInHouse">
+					<h3 class="form-header">
 						How many people live in your house?
-					</label>
+					</h3>
 					<input type="text" id="totalInHouse" placeholder="# in House"
-						   class="form-control"
-						   th:field="*{dTotalInHouse}"
-						   required="required" aria-required="true"
+					       class="form-control"
+					       readonly="readonly"
+					       th:field="*{dTotalInHouse}"
+					       required="required" aria-required="true"
 					/>
 				</div>
 				<div class="fb-text form-group field-numdep">
 					<input type="text" placeholder="Age 5 or under?"
-						   class="form-control" th:field="*{dDepUnderFive}"
-						   title="Numbers only please"
-						   required="required" aria-required="true"
+					       class="form-control" th:field="*{dDepUnderFive}"
+					       title="Numbers only please"
+					       readonly="readonly"
+					       required="required" aria-required="true"
 					/>
 					<input type="text" placeholder="Age 6 to 17?"
-						   class="form-control" th:field="*{dDepOverFive}"
-						   title="Numbers only please"
-						   required="required" aria-required="true"
+					       class="form-control" th:field="*{dDepOverFive}"
+					       title="Numbers only please"
+					       readonly="readonly"
+					       required="required" aria-required="true"
 					/>
 					<input type="text" placeholder="Age 18+?"
-						   class="form-control" th:field="*{dDepOverEighteen}"
-						   title="Numbers only please"
-						   required="required" aria-required="true"
+					       class="form-control" th:field="*{dDepOverEighteen}"
+					       title="Numbers only please"
+					       readonly="readonly"
+					       required="required" aria-required="true"
 					/>
 					<div class="fb-text form-group field-depinfo">
-						<label>Full Name of dependent</label>
+						<h3 class="form-header">Full Name of dependent</h3>
 						<input type="text" id="depName" autocomplete="name"
-							   placeholder="Full Name" class="form-control"
-							   th:field="*{dDepFullName}"/>
-						<label>Date of birth of dependent</label>
+						       readonly="readonly"
+						       placeholder="Full Name" class="form-control"
+						       th:field="*{dDepFullName}"/>
+						<h3 class="title">Date of birth of dependent</h3>
 						<input type="date" id="depDoB" class="form-control"
-							   th:field="*{dDepAge}"/>
+						       readonly="readonly"
+						       th:field="*{dDepAge}"/>
 						<input type="text" id="depRel" class="form-control"
-							   placeholder="Relationship"
-							   th:field="*{dDepRelationship}"/>
+						       readonly="readonly"
+						       placeholder="Relationship"
+						       th:field="*{dDepRelationship}"/>
 					</div>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Career Interest Information-->
 			<div class="container fields">
 				<h3 class="form-header">Please choose what career fields interest you:</h3>
@@ -474,259 +496,260 @@
 					<div class="careercheck">
 						<p>Diagnostic Medical Sonographer</p>
 						<input class="car" type="checkbox" id="career1" th:field="*{gCareerList}"
-							   value="Diagnostic Medical Sonographer"/>
+						       readonly="readonly" value="Diagnostic Medical Sonographer"/>
 					</div>
 					<div class="careercheck">
 						<p>Dental Hygienist</p>
 						<input class="car" type="checkbox" id="career2" th:field="*{gCareerList}"
-							   value="Dental Hygienist"/>
+						       readonly="readonly" value="Dental Hygienist"/>
 					</div>
 					<div class="careercheck">
 						<p>Health Information Technologist</p>
 						<input class="car" type="checkbox" id="career3" th:field="*{gCareerList}"
-							   value="Health Information Technologist"/>
+						       readonly="readonly" value="Health Information Technologist"/>
 					</div>
 					<div class="careercheck">
 						<p>Invasive Cardiovascular Technology</p>
 						<input class="car" type="checkbox" id="career4" th:field="*{gCareerList}"
-							   value="Invasive Cardiovascular Technology"/>
+						       readonly="readonly" value="Invasive Cardiovascular Technology"/>
 					</div>
 					<div class="careercheck">
 						<p>Licensed Vocational Nurse</p>
 						<input class="car" type="checkbox" id="career5" th:field="*{gCareerList}"
-							   value="Licensed Vocational Nurse"/>
+						       readonly="readonly" value="Licensed Vocational Nurse"/>
 					</div>
 					<div class="careercheck">
 						<p>Laboratory Technologist</p>
 						<input class="car" type="checkbox" id="career6" th:field="*{gCareerList}"
-							   value="Medical Laboratory Technologist"/>
-
+						       readonly="readonly" value="Medical Laboratory Technologist"/>
+					
 					</div>
 					<div class="careercheck">
 						<p>Physical Therapy Assistant</p>
-						<input class="car" type="checkbox" id="career7" th:field="*{gCareerList}"
-							   value="Physical Therapy Assistant"/>
-
+						<input class="car" readonly="readonly" type="checkbox" id="career7" th:field="*{gCareerList}"
+						       value="Physical Therapy Assistant"/>
+					
 					</div>
 					<div class="careercheck">
 						<p>Radiography Technologist</p>
-						<input class="car" type="checkbox" id="career8" th:field="*{gCareerList}"
-							   value="Radiography Technologist"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career8" th:field="*{gCareerList}"
+						       value="Radiography Technologist"/>
 					</div>
 					<div class="careercheck">
 						<p>Registered Nurse</p>
-						<input class="car" type="checkbox" id="career9" th:field="*{gCareerList}"
-							   value="Registered Nurse"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career9" th:field="*{gCareerList}"
+						       value="Registered Nurse"/>
 					</div>
 					<div class="careercheck">
 						<p>Respiratory Care</p>
-						<input class="car" type="checkbox" id="career10" th:field="*{gCareerList}"
-							   value="Respiratory Care"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career10" th:field="*{gCareerList}"
+						       value="Respiratory Care"/>
 					</div>
-
-
+					
+					
 					<div class="careercheck">
 						<p>Surgical Technician</p>
-						<input class="car" type="checkbox" id="career11" th:field="*{gCareerList}"
-							   value="Surgical Technician"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career11" th:field="*{gCareerList}"
+						       value="Surgical Technician"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Occupational Therapy Assistant</p>
-						<input class="car" type="checkbox" id="career12" th:field="*{gCareerList}"
-							   value="Occupational Therapy Assistant"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career12" th:field="*{gCareerList}"
+						       value="Occupational Therapy Assistant"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Auto Service Technician</p>
-						<input class="car" type="checkbox" id="career13" th:field="*{gCareerList}"
-							   value="Auto Service Technician"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career13" th:field="*{gCareerList}"
+						       value="Auto Service Technician"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>HVAC</p>
-						<input class="car" type="checkbox" id="career14" th:field="*{gCareerList}" value="HVAC"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career14" th:field="*{gCareerList}"
+						       value="HVAC"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Diesel Mechanic</p>
-						<input class="car" type="checkbox" id="career15" th:field="*{gCareerList}"
-							   value="Diesel Mechanic"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career15" th:field="*{gCareerList}"
+						       value="Diesel Mechanic"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Electrical Trades</p>
-						<input class="car" type="checkbox" id="career16" th:field="*{gCareerList}"
-							   value="Electrical Trades"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career16" th:field="*{gCareerList}"
+						       value="Electrical Trades"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Air Conditioning &amp; Heating</p>
-						<input class="car" type="checkbox" id="career17" th:field="*{gCareerList}"
-							   value="Air Conditioning &amp; Heating"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career17" th:field="*{gCareerList}"
+						       value="Air Conditioning &amp; Heating"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Machine Tool Operator</p>
-						<input class="car" type="checkbox" id="career18" th:field="*{gCareerList}"
-							   value="Machine Tool Operator"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career18" th:field="*{gCareerList}"
+						       value="Machine Tool Operator"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Plumber</p>
-						<input class="car" type="checkbox" id="career19" th:field="*{gCareerList}" value="Plumber"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career19" th:field="*{gCareerList}"
+						       value="Plumber"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Welder</p>
-						<input class="car" type="checkbox" id="career20" th:field="*{gCareerList}" value="Welder"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career20" th:field="*{gCareerList}"
+						       value="Welder"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Bookkeeping Specialist</p>
-						<input class="car" type="checkbox" id="career21" th:field="*{gCareerList}"
-							   value="Bookkeeping Specialist"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career21" th:field="*{gCareerList}"
+						       value="Bookkeeping Specialist"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Logistics</p>
-						<input class="car" type="checkbox" id="career22" th:field="*{gCareerList}"
-							   value="Logistics"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career22" th:field="*{gCareerList}"
+						       value="Logistics"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Computer Support Specialist</p>
-						<input class="car" type="checkbox" id="career23" th:field="*{gCareerList}"
-							   value="Computer Support Specialist"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career23" th:field="*{gCareerList}"
+						       value="Computer Support Specialist"/>
 					</div>
 					<div class="careercheck">
 						<p>Computer Programming</p>
-						<input class="car" type="checkbox" id="career24" th:field="*{gCareerList}"
-							   value="Computer Programming"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career24" th:field="*{gCareerList}"
+						       value="Computer Programming"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Network Administrator</p>
-						<input class="car" type="checkbox" id="career25" th:field="*{gCareerList}"
-							   value="Network Administrator"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career25" th:field="*{gCareerList}"
+						       value="Network Administrator"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Information Security &amp; Assurance</p>
-						<input class="car" type="checkbox" id="career26" th:field="*{gCareerList}"
-							   value="Information Security &amp; Assurance"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career26" th:field="*{gCareerList}"
+						       value="Information Security &amp; Assurance"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Web &amp; Mobile Developer</p>
-						<input class="car" type="checkbox" id="career27" th:field="*{gCareerList}"
-							   value="Web &amp; Mobile Developer"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career27" th:field="*{gCareerList}"
+						       value="Web &amp; Mobile Developer"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Cyber Security</p>
-						<input class="car" type="checkbox" id="career28" th:field="*{gCareerList}"
-							   value="Cyber Security"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career28" th:field="*{gCareerList}"
+						       value="Cyber Security"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Software Development</p>
-						<input class="car" type="checkbox" id="career29" th:field="*{gCareerList}"
-							   value="Software Development"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career29" th:field="*{gCareerList}"
+						       value="Software Development"/>
 					</div>
-
+					
 					<div class="careercheck">
 						<p>Systems Administrator</p>
-						<input class="car" type="checkbox" id="career30" th:field="*{gCareerList}"
-							   value="Systems Administrator"/>
+						<input class="car" readonly="readonly" type="checkbox" id="career30" th:field="*{gCareerList}"
+						       value="Systems Administrator"/>
 					</div>
 				</div>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="button" class="color-change next action-button" name="next" value="Next"/>
 			</div>
-
 			<!--Social Information-->
 			<div class="container fields">
-				<h3>Last Section! Give yourself a high five!</h3>
 				<div class="fb-text form-group last-sec field-drugTest">
 					<h3 class="form-field">Are you willing to take a urinalysis test?</h3>
 					<p class="eChoices">Yes
 						<input class="form-control" type="radio" id="dtChoice"
-							   th:field="*{eDrugTest}" value="yes"/>
+						       th:field="*{eDrugTest}" value="yes"/>
 					</p>
 					<p class="eChoices">No
 						<input class="form-control" type="radio" id="dtChoice2"
-							   th:field="*{eDrugTest}" value="no"/>
+						       th:field="*{eDrugTest}" value="no"/>
 					</p>
 				</div>
-
+				
 				<div class="fb-text form-group last-sec field-ssa">
-					<h3 class="form-field">Check all that apply</h3>
-					<p class="eChoices">TANF
+					<h3 class="form-field">Gov Aid</h3>
+					<p class="choices">TANF
 						<input class="form-control" type="checkbox" id="ssa" th:value="true"
-							   th:field="*{eTanf}"/>
+						       th:field="*{eTanf}"/>
 					</p>
-
-					<p class="eChoices">SNAP
+					
+					<p class="choices">SNAP
 						<input class="form-control" type="checkbox" id="ssa2" th:value="true"
-							   th:field="*{eSnap}"/>
+						       th:field="*{eSnap}"/>
 					</p>
-
-					<p class="eChoices">Subsidized Housing
+					
+					<p class="choices">Subsidized Housing
 						<input class="form-control" type="checkbox" id="ssa3" th:value="true"
-							   th:field="*{eSsh}"/>
+						       th:field="*{eSsh}"/>
 					</p>
-
-					<p class="eChoices">SSI
+					
+					<p class="choices">SSI
 						<input class="form-control" type="checkbox" id="ssa4" th:value="true"
-							   th:field="*{eSsi}"/>
+						       th:field="*{eSsi}"/>
 					</p>
-
-					<p class="eChoices">SSDI
+					
+					<p class="choices">SSDI
 						<input class="form-control" type="checkbox" id="ssa5" th:value="true"
-							   th:field="*{eSsdi}"/>
+						       th:field="*{eSsdi}"/>
 					</p>
-
-					<p class="eChoices">WIC
+					
+					<p class="choices">WIC
 						<input class="form-control" type="checkbox" id="ssa6" th:value="true"
-							   th:field="*{eWic}"/>
+						       th:field="*{eWic}"/>
 					</p>
-
-					<p class="eChoices">Unemployment
+					
+					<p class="choices">Unemployment
 						<input class="form-control" type="checkbox" id="ssa7" th:value="true"
-							   th:field="*{eUnemp}"/>
+						       th:field="*{eUnemp}"/>
 					</p>
 				</div>
-
+				
 				<div class="fb-text form-group last-sec field-fel">
 					<h3 class="form-field">Have you every been convicted of a felony or misdemeanor?</h3>
 					<p class="eChoices">
 						Yes
 						<input class="form-control" type="radio" id="felChoice"
-							   th:field="*{eFelConvict}" value="yes"/>
+						       th:field="*{eFelConvict}" value="yes"/>
 					</p>
-
+					
 					<p class="eChoices">
 						No
 						<input class="form-control" type="radio" id="felChoice2"
-							   th:field="*{eFelConvict}" value="no" selected="selected"/>
+						       th:field="*{eFelConvict}" value="no" selected="selected"/>
 					</p>
 					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 				</div>
-
+				
 				<div class="fb-text form-group last-sec field-disa">
 					<h3 class="form-field">Do you have a disability?</h3>
-
+					
 					<p class="eChoices">Yes
 						<input class="form-control" type="radio" id="disaChoice" th:field="*{eDisability}" value="yes"/>
 					</p>
-
+					
 					<p class="eChoices">No
 						<input class="form-control" type="radio" id="disaChoice2" th:field="*{eDisability}"
-							   value="no" selected="selected"/>
+						       value="no" selected="selected"/>
 					</p>
 					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
-
+				
 				</div>
 				<div class="form-control field-eHS">
 					<h3 class="form-header">Education</h3>
@@ -738,7 +761,7 @@
 					</p>
 					<p class="eChoices">No Diploma
 						<input type="radio" id="DnG" class="form-control" th:field="*{eHS}"
-							   selected="selected" value="Did not graduate"/>
+						       selected="selected" value="Did not graduate"/>
 					</p>
 				</div>
 				<div class="fb-text form-group last-sec field-milSrv">
@@ -749,8 +772,8 @@
 					<p class="eChoices">No
 						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
 					</p>
-
-
+					
+					
 					<h3 class="form-field">Have you served in the military</h3>
 					<p class="eChoices">
 						Yes <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="yes"/>
@@ -758,28 +781,61 @@
 					<p class="eChoices">
 						No <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="no"/>
 					</p>
-
+					
 					<h3 class="form-field">Are you a military spouse/dependent?</h3>
 					<p class="eChoices">
 						Yes<input class="form-control" type="radio" id="msChoice"
-								  th:field="*{eMilSpouse}" value="yes"/>
+						          th:field="*{eMilSpouse}" value="yes"/>
 					</p>
 					<p class="eChoices">
 						No<input class="form-control" type="radio" id="msChoice2"
-								 th:field="*{eMilSpouse}" value="no"/>
+						         th:field="*{eMilSpouse}" value="no"/>
 					</p>
-
+					
 					<h3 class="form-field">If you were referred, please tell us how.</h3>
 					<input class="form-control" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
 				</div>
-				<h2 class="form-header">THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</h2>
+				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
+				<input type="button" class="color-change next action-button" name="next" value="Next"/>
+			</div>
+			<!--Employee Section-->
+			<div class="container fields">
+				<div class="fb-text form-group field-fOfficeUse">
+					<h3 class="form-field">Office Portion to be completed by Admin</h3>
+					<div class="form-group">
+						<label for="census">Census</label>
+						<input class="form-control" id="census" th:field="*{fCensus}"/>
+					</div>
+					<div class="form-group">
+						<label for="district">District</label>
+						<input class="form-control" id="district" th:field="*{fDistrict}"/>
+					</div>
+					<div class="form-group">
+						<label for="precinct">Precinct</label>
+						<input class="form-control" id="precinct" th:field="*{fPrecinct}"/>
+					</div>
+					<div class="form-group">
+						<label for="gainMath">Gain Math Score</label>
+						<input class="form-control" id="gainMath" th:field="*{fGainMath}"/>
+					</div>
+					<div class="form-group">
+						<label for="gainEng">Gain English Score</label>
+						<input class="form-control" id="gainEng" th:field="*{fGainEng}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<p>Additional Notes</p>
+					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
+				</div>
+				
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>
 				<input type="Submit" class="color-change next action-button" name="Submit" value="Submit"/>
 			</div>
 		</form>
 	</div>
 </main>
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="fragments/footer :: footer">
+</footer>
 <script>
     $('document').ready(function () {
         var current_fs, next_fs, previous_fs; //fieldss

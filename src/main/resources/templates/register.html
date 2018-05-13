@@ -15,8 +15,9 @@
 	</div>
 	<div class="flex">
 		<form id="msform" th:action="@{/register}" th:method="POST" th:object="${user}">
-			<fieldset>
-				<h3>Take the first step to being a better you. Register or Login to begin.</h3>
+			<div class="container fields">
+				<h2 class="form-header title">Take the first step to being a better you. Register or Login to begin
+					.</h2>
 				<div class="fb-text form-group field-username">
 					<input type="text" placeholder="Username"
 					       class="form-control" th:field="*{username}"
@@ -32,6 +33,8 @@
 					<p class="error" th:each="err : ${#fields.hasErrors()}" th:text="${error2}"></p>
 				</div>
 				<div class="fb-text form-group field-password">
+					<span class="tooltip-element" tooltip="Please include at least 1 uppercase character,
+				       1 lowercase character, and 1 number."></span>
 					<input type="password" placeholder="Password" class="form-control"
 					       autocomplete="new-password"
 					       pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
@@ -48,8 +51,7 @@
 					       required="required" aria-required="true"/>
 				</div>				
 				<input type="submit" class="color-change" name="Submit" value="Register"/>
-				<a th:href="@{/login}"><input type="button" class="color-change" value="Login"/></a>
-			</fieldset>
+			</div>
 		</form>
 	</div>
 </main>

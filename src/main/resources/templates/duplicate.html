@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments/head :: head('Opps, ' + ${error})">
+<head th:replace="fragments/head :: head()">
 </head>
 <body>
 <nav th:replace="fragments/nav :: nav"></nav>
 <main id="panel" class="panel slideout-panel slideout-panel-left">
+	
 	<button class="btn-hamburger toggle-button">☰</button>
 	<div class="banner-img">
 		<img class="banner-img" th:src="@{/images/quest.png}" alt="Quest Logo"/>
@@ -15,14 +16,11 @@
 	</div>
 	<div class="flex">
 		<div class="container">
-			<th:block th:switch="${error}">
-				<div th:case="'Not Found'">
-					<h1 th:if="${page_has_error}">Something is wrong with the server.</h1>
-				</div>
-			</th:block>
+			<h1 class="title">/h1>
 		</div>
 	</div>
 </main>
-<footer th:replace="fragments/footer :: footer"></footer>
+<footer th:replace="fragments/footer :: footer">
+</footer>
 </body>
 </html>

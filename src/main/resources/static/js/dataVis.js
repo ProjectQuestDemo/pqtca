@@ -18,5 +18,12 @@ const drawChart = (url, header) => {
         // Display the chart inside the <div> element with id="piechart"
         let chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
+
+        function resize () {
+            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        window.onload = resize;
+        window.onresize = resize;
     });
 };
