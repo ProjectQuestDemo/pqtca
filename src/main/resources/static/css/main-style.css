@@ -57,8 +57,12 @@ input {
 }
 
 select {
+    text-align: center;
+    text-align-last: center;
+    font-size: 1.2em;
     margin-bottom: 2em;
-    height: 2.6em;
+    height: 5vh;
+    font-weight: 300;
     width: 50vw;
 }
 
@@ -642,17 +646,6 @@ input.eth {
 /***************Dev Team Specific Style*********************/
 /***********************************************************/
 /**************************END******************************/
-
-select {
-    text-align: center;
-    text-align-last: center;
-    font-size: 1.2em;
-    margin-bottom: 2em;
-    height: 5vh;
-    font-weight: 300;
-    width: 50vw;
-}
-
 
 
 /************************START******************************/
