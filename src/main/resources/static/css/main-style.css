@@ -866,6 +866,10 @@ input.eth {
     .container.field-career {
         width: 80vw;
     }
+
+    .eChoices {
+        width: 10vw;
+    }
 }
 
 /***********************************************************/
