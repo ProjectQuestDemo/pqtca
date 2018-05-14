@@ -55,12 +55,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 2em;
 }
 
-<<<<<<< HEAD
-.container, .fields {
-=======
 .container {
     line-height: 1.6em;
->>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
     border-radius: 4px;
     position: relative;
@@ -73,15 +69,9 @@ h1, h2, h3, h4, h5, h6 {
     width: 60vw;
 }
 
-<<<<<<< HEAD
-.fields {
-    font-size: 0.8em;
-    color: #fff;
-=======
 
 .fields {
     background-image: linear-gradient(0deg, #4a87dbc4, #5a6b88bd);
->>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     border-radius: 4px;
     height: auto;
     margin: 2em auto;
@@ -611,20 +601,8 @@ select {
         width: 45vw;
     }
 
-<<<<<<< HEAD
-
-    .fields {
-        font-size: 0.8em;
-        border-radius: 4px;
-        height: 50%;
-        margin: 4em auto;
-        padding: 2em;
-        width: 30vw;
-        position: relative;
-=======
     input[type="date" i] {
         font-family: 'Montserrat', sans-serif;
->>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     }
 
     input.form-control {
@@ -675,34 +653,9 @@ select {
         width: 30vw;
     }
 
-<<<<<<< HEAD
-    @media only screen and (min-width: 968px) {
-
-        .fields {
-            width: 30vw;
-        }
-
-        input.form-control, select {
-            width: 20vw;
-        }
-
-        .eChoices input {
-            width: 5vw;
-        }
-
-        .color-change {
-            width: 10vw;
-            font-size: 1em;
-        }
-
-        button.app-btn.color-change {
-            width: 15vw;
-        }
-=======
     .contactInfo img {
         width: 10vw;
         padding: 0 2em 0 2em;
->>>>>>> e6466f5de7fe1817cff453a7831f4b7e9ffb21a6
     }
 
 }
