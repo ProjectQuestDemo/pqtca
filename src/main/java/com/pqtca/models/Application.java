@@ -16,7 +16,7 @@ public class Application {
     /*
         ***************************************
         ***************************************
-        Parameters for Application.class
+        Fields for Application.class
         ***************************************
         ***************************************
     */
@@ -217,10 +217,15 @@ public class Application {
         ***************************************
     */
 
-    // Default empty constructor
+    /**
+     * Default Constructor needed by Hibernate
+     */
     public Application() {
     }
 
+    /*
+    Constructor used to create Model for the Application
+     */
     public Application(String appssn, String aFirstName, String aMiddleName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, String fEmpId, String gCareerList) {
         this.appssn = appssn;
         this.aFirstName = aFirstName;
@@ -277,6 +282,9 @@ public class Application {
         this.gCareerList = gCareerList;
     }
 
+    /*
+   Constructor used to create object for db storage
+    */
     public Application(String appssn, String aMiddleName, String aFirstName, String aLastName, String aDateOfBirth, String aEthnicity, String aGender, String bStreetAddress, String bCity, String bState, String bCounty, String bZip, String bPhoneNumber, String bAltPhoneNumber, String bEmail, String cEmerContactFirst, String cEmerContactLast, String cEmerContactRel, String cEmerContactNum, String cEmerContactAddy, String cEmerContactCity, String cEmerContactState, String dMaritalStatus, String dfamilyStatus, String dTotalInHouse, String dDepUnderFive, String dDepOverFive, String dDepOverEighteen, String dDepFullName, String dDepAge, String dDepRelationship, boolean eDrugTest, boolean eTanf, boolean eSnap, boolean eSsh, boolean eSsi, boolean eSsdi, boolean eWic, boolean eUnemp, boolean eFelConvict, String eFcExplanation, String eDisability, String eDisExplanation, boolean eCitizen, String eMilitarySrv, boolean eSelectiveSrv, boolean eMilSpouse, String eHS, boolean eCollegeDegree, String eCollegeLocation, String eReferralSrc, String gCareerList, User user) {
         this.appssn = appssn;
         this.aMiddleName = aMiddleName;
