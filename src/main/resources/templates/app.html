@@ -802,170 +802,170 @@
 		</form>
 	</div>
 </main>
-<!--<footer th:replace="fragments/footer :: footer"></footer>-->
-<!--<script>-->
-    <!--$('document').ready(function () {-->
-        <!--var current_fs, next_fs, previous_fs; //fieldss-->
-        <!--var left, opacity, scale; //fields properties which we will animate-->
-        <!--var animating = false; //flag to prevent quick multi-click glitches-->
+<footer th:replace="fragments/footer :: footer"></footer>
+<script>
+    $('document').ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldss
+        var left, opacity, scale; //fields properties which we will animate
+        var animating = false; //flag to prevent quick multi-click glitches
 
-        <!--function pageTransition(that) {-->
-            <!--if (animating) return false;-->
-            <!--animating = true;-->
+        function pageTransition(that) {
+            if (animating) return false;
+            animating = true;
 
-            <!--current_fs = $(that).parent();-->
-            <!--next_fs = $(that).parent().next();-->
+            current_fs = $(that).parent();
+            next_fs = $(that).parent().next();
 
 
-            <!--$('#progressbar li').eq($('.fields').index(next_fs)).addClass('active');-->
+            $('#progressbar li').eq($('.fields').index(next_fs)).addClass('active');
 
-            <!--//show the next fields-->
-            <!--next_fs.show();-->
-            <!--//hide the current fields with style-->
-            <!--current_fs.animate({opacity: 0}, {-->
-                <!--step: function (now, mx) {-->
-                    <!--//as the opacity of current_fs reduces to 0 - stored in "now"-->
-                    <!--//1. scale current_fs down to 80%-->
-                    <!--scale = 1 - (1 - now) * 0.2;-->
-                    <!--//2. bring next_fs from the right(50%)-->
-                    <!--left = (now * 50) + '%';-->
-                    <!--//3. increase opacity of next_fs to 1 as it moves in-->
-                    <!--opacity = 1 - now;-->
-                    <!--current_fs.css({-->
-                        <!--'transform': 'scale(' + scale + ')',-->
-                        <!--'position': 'relative'-->
-                    <!--});-->
-                    <!--next_fs.css({'left': left, 'opacity': opacity});-->
-                <!--},-->
-                <!--duration: 800,-->
-                <!--complete: function () {-->
-                    <!--current_fs.hide();-->
-                    <!--animating = false;-->
-                <!--},-->
-                <!--//this comes from the custom easing plugin-->
-                <!--easing: 'easeInOutBack'-->
-            <!--});-->
-        <!--};-->
+            //show the next fields
+            next_fs.show();
+            //hide the current fields with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + '%';
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'relative'
+                    });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        };
 
-        <!--$('.next').click(function () {-->
-            <!--if (!validate()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next').click(function () {
+            if (!validate()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next1').click(function () {-->
-            <!--if (!validate1()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next1').click(function () {
+            if (!validate1()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next2').click(function () {-->
-            <!--if (!validate2()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next2').click(function () {
+            if (!validate2()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next3').click(function () {-->
-            <!--if (!validate3()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next3').click(function () {
+            if (!validate3()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next4').click(function () {-->
-            <!--if (!validate4()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next4').click(function () {
+            if (!validate4()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next5').click(function () {-->
-            <!--if (!validate5()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next5').click(function () {
+            if (!validate5()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
+            console.log('next');
+            pageTransition(this);
+        });
 
-        <!--$('.next6').click(function () {-->
-            <!--event.preventDefault();-->
-            <!--if (!validate6()) {-->
-                <!--console.log('is not valid');-->
-                <!--return;-->
-            <!--} else {-->
-                <!--console.log('is valid');-->
-            <!--}-->
+        $('.next6').click(function () {
+            event.preventDefault();
+            if (!validate6()) {
+                console.log('is not valid');
+                return;
+            } else {
+                console.log('is valid');
+            }
 
-            <!--console.log('next');-->
-            <!--pageTransition(this);-->
-        <!--});-->
-        <!--$(".previous").click(function () {-->
-            <!--if (animating) return false;-->
-            <!--animating = true;-->
-            <!--current_fs = $(this).parent();-->
-            <!--previous_fs = $(this).parent().prev();-->
-            <!--//de-activate current step on progressbar-->
-            <!--$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");-->
-            <!--//show the previous fieldset-->
-            <!--previous_fs.show();-->
-            <!--//hide the current fieldset with style-->
-            <!--current_fs.animate({opacity: 0}, {-->
-                <!--step: function (now, mx) {-->
-                    <!--//as the opacity of current_fs reduces to 0 - stored in "now"-->
-                    <!--//1. scale previous_fs from 80% to 100%-->
-                    <!--scale = 0.8 + (1 - now) * 0.2;-->
-                    <!--//2. take current_fs to the right(50%) - from 0%-->
-                    <!--left = ((1 - now) * 50) + "%";-->
-                    <!--//3. increase opacity of previous_fs to 1 as it moves in-->
-                    <!--opacity = 1 - now;-->
-                    <!--current_fs.css({'left': left});-->
-                    <!--previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});-->
-                <!--},-->
-                <!--duration: 800,-->
-                <!--complete: function () {-->
-                    <!--current_fs.hide();-->
-                    <!--animating = false;-->
-                <!--},-->
-                <!--//this comes from the custom easing plugin-->
-                <!--easing: 'easeInOutBack'-->
-            <!--});-->
-        <!--});-->
-        <!--$(".submit").click(function () {-->
-            <!--return false;-->
-        <!--});-->
-    <!--});-->
-<!--</script>-->
+            console.log('next');
+            pageTransition(this);
+        });
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({'left': left});
+                    previous_fs.css({'transform': 'scale(' + scale + ')', 'opacity': opacity});
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+        $(".submit").click(function () {
+            return false;
+        });
+    });
+</script>
 </body>
 </html>
