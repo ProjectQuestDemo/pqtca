@@ -78,11 +78,11 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     color: #fff;
     font-size: 1em;
-    height: auto;
     margin: 4em auto;
     padding: 2em;
     text-align: center;
     width: 60vw;
+    height: 80vh;
 }
 
 
