@@ -729,7 +729,11 @@ select {
 
     input.form-control {
         font-size: 1em;
-        width: 30vw;
+        width: 20vw;
+    }
+
+    .question-title {
+        font-weight: 400;
     }
 
     .eChoices>input {
