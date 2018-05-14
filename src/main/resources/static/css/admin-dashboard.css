@@ -372,12 +372,7 @@ a {
     padding-right: 0.3em;
 }
 
-:focus {
-    outline: none;
-    outline-color: -webkit-focus-ring-color;
-    outline-style: none;
-    outline-width: 0px;
-}
+
 
 .flex {
     align-content: center;
@@ -513,6 +508,10 @@ h3.title {
     color: #000;
     width: 10vw;
 
+}
+
+#piechart {
+    height: 50vmin;
 }
 
 
