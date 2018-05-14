@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
@@ -52,7 +53,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String regUser(@Valid User user, Errors errors, Model model) {
+    public String regUser(@Valid User user, Errors errors, RedirectAttributes redir, Model model) {
         String username = user.getUsername();
         String email = user.getEmail();
 
@@ -92,6 +93,7 @@ public class UserController {
 
         emailService.sendEmail(registrationEmail);
         model.addAttribute("user", user);
+        redir.addFlashAttribute("success", "You have successfully registered!");
         return "redirect:/login";
     }
 
