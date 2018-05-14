@@ -20,7 +20,7 @@ const drawChart = (url, header) => {
         chart.draw(data, options);
 
         function resize () {
-            var chart = new google.visualization.LineChart(document.getElementById('piechart'));
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
         }
         window.onload = resize;
