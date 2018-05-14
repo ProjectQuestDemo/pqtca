@@ -515,5 +515,9 @@ h3.title {
     overflow: scroll;
 }
 
+#piechat>p {
+    padding: 1em;
+}
+
 
 
