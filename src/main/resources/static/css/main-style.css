@@ -800,12 +800,12 @@ input.eth {
         margin-bottom: 2em;
         height: 5vh;
         font-weight: 300;
-        width: 22vw;
+        width: 25vw;
     }
 
     input.form-control {
         font-size: 1em;
-        width: 20vw;
+        width: 24vw;
     }
 
     .question-title {
