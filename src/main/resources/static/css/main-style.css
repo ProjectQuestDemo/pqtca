@@ -166,7 +166,6 @@ input.color-change {
 }
 
 .choices {
-    margin-right: 20%;
     text-align: right;
 }
 
@@ -176,7 +175,7 @@ input.color-change {
 
 .eChoices {
     display: inline-block;
-    width: auto;
+    width: 15vw;
 }
 
 .rem {
@@ -255,7 +254,12 @@ input.color-change {
 }
 
 .field-ethnicity {
+    margin-right: 12vw;
     text-align: right;
+}
+
+.question-group {
+    width: 100%;
 }
 
 input.eth {
@@ -540,7 +544,7 @@ input.eth {
 
 
 .headshots {
-    width: 90vw;
+    width: 60vw;
     margin: 0 auto;
 }
 
@@ -675,8 +679,9 @@ select {
     }
 
 }
-@media only screen and (max-width: 800px) {
 
+
+@media only screen and (min-width: 801px) {
     .headshots {
         width: 60vw;
         margin: auto;
@@ -708,9 +713,40 @@ select {
         padding: 0 2em 0 2em;
     }
 
+    .fields {
+        width: 50vw;
+    }
+
+    select {
+        text-align: center;
+        text-align-last: center;
+        font-size: 1.2em;
+        margin-bottom: 2em;
+        height: 5vh;
+        font-weight: 300;
+        width: 32vw;
+    }
+
+    input.form-control {
+        font-size: 1em;
+        width: 30vw;
+    }
+
+    .eChoices>input {
+        width: 3vw;
+    }
+
+    .color-change {
+        width: 10vw;
+        font-size: 1em;
+    }
+
+    button.app-btn.color-change {
+        width: 15vw;
+    }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 1024px) {
     .headshots {
         width: 20vw;
         margin: auto;
@@ -743,36 +779,6 @@ select {
         padding: 0 2em 0 2em;
     }
 
-    .fields {
-        width: 50vw;
-    }
-
-    select {
-        text-align: center;
-        text-align-last: center;
-        font-size: 1.2em;
-        margin-bottom: 2em;
-        height: 5vh;
-        font-weight: 300;
-        width: 32vw;
-    }
-
-    input.form-control {
-        font-size: 1em;
-        width: 30vw;
-    }
-
-    .color-change {
-        width: 10vw;
-        font-size: 1em;
-    }
-
-    button.app-btn.color-change {
-        width: 15vw;
-    }
-}
-
-@media only screen and (min-width: 1024px) {
     .field-ethnicity {
         margin-right: 15vw;
     }

@@ -50,7 +50,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/app")
-    public String submitApp(@Valid Application app, Errors errors, Model model, final RedirectAttributes redir) {
+    public String submitApp(@Valid Application app, Errors errors, Model model, RedirectAttributes redir) {
 
         if(errors.hasErrors()) {
             model.addAttribute("errors", errors);
