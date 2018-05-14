@@ -63,7 +63,7 @@ select {
     margin-bottom: 2em;
     height: 5vh;
     font-weight: 300;
-    width: 50vw;
+    width: 45vw;
 }
 
 legend {
@@ -143,6 +143,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-flow: column;
     justify-content: center;
     height: 80vh;
+}
+
+.form-flex {
+    align-content: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: auto;
 }
 
 .banner-img {
@@ -692,10 +700,14 @@ input.eth {
     input.form-control {
         text-align: center;
         margin-bottom: 2em;
-        width: 30vw;
+        width: 24vw;
         padding: 0.7em;
         border-radius: 7px;
         font-size: 0.8em;
+    }
+
+    select {
+        width: 26vw;
     }
 
     .color-change {
@@ -788,7 +800,7 @@ input.eth {
         margin-bottom: 2em;
         height: 5vh;
         font-weight: 300;
-        width: 32vw;
+        width: 24vw;
     }
 
     input.form-control {
