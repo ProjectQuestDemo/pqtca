@@ -88,7 +88,8 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 200;
+    font-weight: 400;
+    margin: 2em auto;
     text-align: center;
     color: #fff;
 }
@@ -110,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .form-header {
     margin-bottom: 2em;
-    text-decoration: underline;
+    font-weight: 400;
 }
 
 .container {
@@ -183,8 +184,8 @@ h1, h2, h3, h4, h5, h6 {
 .color-change:hover {
     color: #4a87db;
     background-color: #fff;
-    border: 1px solid #006398;
-    box-shadow: 2px 2px 20px #AFE9FF;
+    border: 1px solid #ffffff;
+    box-shadow: 2px 2px 20px #ffffff;
 }
 
 input.color-change {
@@ -192,9 +193,6 @@ input.color-change {
     -moz-appearance: none;
 }
 
-.choices {
-    text-align: right;
-}
 
 .choices>input {
     width: 5vw;
@@ -203,6 +201,10 @@ input.color-change {
 .eChoices {
     display: inline-block;
     width: 15vw;
+}
+
+.inline {
+    width: 5vw;
 }
 
 .error {
@@ -394,7 +396,7 @@ input.eth {
 .panel {
     color: #607D8B;
     background: url(/images/saopac.png) center no-repeat fixed;
-    background-color: #7f9ad226;
+    background-color: #fff;
 }
 
 .panel:before {
@@ -432,8 +434,9 @@ input.eth {
 }
 
 .menu button:hover {
-    color: #54b4ff;
-    background-color: #43c5f0;
+    color: #4a87db;
+    background-color: #fbfbff;
+    background-image: linear-gradient(145deg, #ffffff, #5a6b88);
 }
 
 .menu-section {
@@ -464,7 +467,7 @@ input.eth {
 }
 
 .menu-section-list button:hover {
-    background-color: rgba(145, 232, 202, 0.54);
+    background-color: rgba(255, 255, 255, 0.54);
     text-decoration: none;
 }
 
@@ -558,48 +561,7 @@ input.eth {
     animation-iteration-count: 4;
 }
 
-.dropbtn {
-    width: 100%;
-    background-color: #4a87db;
-    background-image: linear-gradient(145deg, #4a87db, #5a6b88);
-}
 
-.dropdown {
-    width: 100%;
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-    display: none;
-    background-color: #f1f1f1;
-    width: 100%;
-    z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-    margin: auto;
-    width: 100%;
-    color: #fff;
-    padding: 1em 0;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-    color: #54b4ff;
-    background-color: #43c5f0;
-
-}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 /***********************************************************/
 /***********************************************************/
@@ -693,6 +655,10 @@ input.eth {
         width: 45vw;
     }
 
+    .inline {
+        width: 5vw;
+    }
+
     input[type="date" i] {
         font-family: 'Montserrat', sans-serif;
     }
@@ -704,6 +670,11 @@ input.eth {
         padding: 0.7em;
         border-radius: 7px;
         font-size: 0.8em;
+    }
+
+    input.form-control.inline {
+        font-size: 1em;
+        width: 5vw;
     }
 
     select {
@@ -808,12 +779,21 @@ input.eth {
         width: 24vw;
     }
 
+    input.form-control.inline {
+        font-size: 1em;
+        width: 5vw;
+    }
+
     .question-title {
         font-weight: 400;
     }
 
     .eChoices>input {
         width: 3vw;
+    }
+
+    .inline {
+        width: 5vw;
     }
 
     .color-change {
@@ -869,6 +849,10 @@ input.eth {
 
     .eChoices {
         width: 10vw;
+    }
+
+    .inline {
+        width: 5vw;
     }
 }
 
