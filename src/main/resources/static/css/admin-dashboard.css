@@ -515,7 +515,7 @@ h3.title {
 }
 
 #piechart {
-    min-height: 60vh;
+    max-height: 50vh;
     overflow: scroll;
 }
 
