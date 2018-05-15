@@ -446,6 +446,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 60vw;
 }
 
+.main-page {
+    height: 80vh;
+}
+
 h3.title {
     margin: 0;
 }
@@ -511,7 +515,6 @@ h3.title {
 }
 
 #piechart {
-    height: 60vmin;
     overflow: scroll;
 }
 
