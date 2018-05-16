@@ -762,6 +762,10 @@ input.eth {
         width: 50vw;
     }
 
+    .container {
+        width: 60vw;
+    }
+
     select {
         text-align: center;
         text-align-last: center;
