@@ -7,20 +7,23 @@ google.charts.load('current', {'packages': ['corechart']});
 
 // Draw the chart and set the chart values
 const drawChart = (url, header) => {
+
     fetch(url).then((response) => response.json()).then((jsonData) => {
         let arr = [header];
         for (const key of Object.keys(jsonData)) {
             arr.push([key, jsonData[key]]);
         }
         let data = google.visualization.arrayToDataTable(arr);
+        let label = header.toString().slice(0, -2);
         // Optional; add a title and set the width and height of the chart
-        let options = {'title': 'Demographics'};
+        let options = {'title': label,
+                        'height': 300};
         // Display the chart inside the <div> element with id="piechart"
         let chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
 
         function resize () {
-            var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
         }
         window.onload = resize;

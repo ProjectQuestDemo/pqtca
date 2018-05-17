@@ -26,6 +26,9 @@
 				<div class="error rem" th:if="${login}">
 					You need to be logged in to submit an application.
 				</div>
+				<div class="alert rem" th:if="${success}">
+					You have registered successfully!
+				</div>
 				<div class="fb-text form-group field-username">
 					<input type="text" class="form-control" id="username" name="username" autocomplete="username"
 					       placeholder="Username"/>

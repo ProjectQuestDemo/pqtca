@@ -8,11 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.validation.Valid;
 
 @Controller
@@ -50,7 +48,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/app")
-    public String submitApp(@Valid Application app, Errors errors, Model model, final RedirectAttributes redir) {
+    public String submitApp(@Valid Application app, Errors errors, Model model, RedirectAttributes redir) {
 
         if(errors.hasErrors()) {
             model.addAttribute("errors", errors);

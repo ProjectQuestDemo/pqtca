@@ -13,7 +13,7 @@
 		</div>
 	</div>
 	<div th:if="${errors}"></div>
-	<div class="flex">
+	<div class="form-flex">
 		<form id="msform" th:action="@{/app}" th:method="POST" th:object="${app}">
 			<!-- progressbar -->
 			<ul id="progressbar">
@@ -28,7 +28,7 @@
 
 			<!--Personal Information-->
 			<div class="container fields">
-				<h2 class="form-header">Personal Information</h2>
+				<h2 class="form-header question-title">Personal Information</h2>
 				<div class="fb-text form-group field-firstname">
 					<input type="text" placeholder="First Name"
 						   class="form-control testinput" th:field="*{aFirstName}"
@@ -56,7 +56,11 @@
 						<span class="tooltip-element" tooltip="Must be a date in the past."></span>
 
 					</div>
-					<label for="dob">Date of Birth</label>
+					<label for="dob">
+						<h3 class="form-header question-title">
+							Date of Birth
+						</h3>
+					</label>
 					<input type="date" id="dob" placeholder="Date of Birth"
 						   class="form-control testinput" th:field="*{aDateOfBirth}"
 						   title="Must be a date in the past."
@@ -87,7 +91,7 @@
 
 			<!--Ethnic Information -->
 			<div class="container fields">
-				<h2 class="form-header">What nationality do you identify?</h2>
+				<h2 class="form-header question-title">What nationality do you identify?</h2>
 				<div class="fb-text field-ethnicity">
 					<div class="ethcheck">
 						<label for="eth1">African-American</label>
@@ -128,7 +132,7 @@
 
 			<!--Address Information-->
 			<div class="container fields">
-				<h2 class="form-header">Physical Address</h2>
+				<h2 class="form-header question-title">Physical Address</h2>
 				<div class="fb-text form-group field-houseaddy">
 					<span class="tooltip-element" tooltip="Just your house number and street"></span>
 
@@ -215,6 +219,7 @@
 						<option value="AP">Armed Forces Pacific</option>
 						<option value="AE">Armed Forces Others</option>
 					</select>
+
 					<span class="tooltip-element" tooltip="County."></span>
 
 					<input type="text" placeholder="County"
@@ -239,7 +244,7 @@
 
 			<!--Contact Information-->
 			<div class="container fields">
-				<h2 class="form-header">Contact Information</h2>
+				<h2 class="form-header question-title">Contact Information</h2>
 				<div class="fb-text form-group field-contact">
 					<input type="tel" placeholder="Phone Number"
 						   class="form-control testinput2" th:field="*{bPhoneNumber}"
@@ -270,7 +275,7 @@
 
 			<!--Emergency Contact Information-->
 			<div class="container fields">
-				<h3 class="form-header">Emergency contact</h3>
+				<h3 class="form-header question-title">Emergency contact</h3>
 				<div class="fb-text form-group field-emergcont">
 					<input type="text" placeholder="First Name"
 						   class="form-control testinput3" th:field="*{cEmerContactFirst}"
@@ -402,7 +407,7 @@
 			<div class="container fields">
 				<div class="fb-text form-group field-fam">
 					<h3 class="form-header">You're almost done!</h3>
-					<h3 class="form-header">Household Information</h3>
+					<h3 class="form-header question-title">Household Information</h3>
 					<div>
 						<select class="form-control testinput4" th:field="*{dMaritalStatus}">
 							<option th:value="null">Marital Status</option>
@@ -426,7 +431,7 @@
 
 				<div class="fb-text form-group field-totalinhouse">
 					<label for="totalInHouse">
-						How many people live in your house?
+						<h3 class="question-title">How many people live in your house?</h3>
 					</label>
 					<input type="text" id="totalInHouse" placeholder="# in House"
 						   class="form-control testinput4"
@@ -469,7 +474,7 @@
 
 			<!--Career Interest Information-->
 			<div class="container fields">
-				<h3 class="form-header">Please choose what career fields interest you:</h3>
+				<h3 class="form-header question-title">Please choose what career fields interest you:</h3>
 				<div class="fb-text field-career">
 					<div class="careercheck">
 						<p>Diagnostic Medical Sonographer</p>
@@ -647,130 +652,147 @@
 
 			<!--Social Information-->
 			<div class="container fields">
-				<h3>Last Section! Give yourself a high five!</h3>
+				<h2>Last Section! Give yourself a high five!</h2>
 				<div class="fb-text form-group last-sec field-drugTest">
-					<h3 class="form-field">Are you willing to take a urinalysis test?</h3>
-					<p class="eChoices">Yes
-						<input class="form-control" type="radio" id="dtChoice"
-							   th:field="*{eDrugTest}" value="yes"/>
-					</p>
-					<p class="eChoices">No
-						<input class="form-control" type="radio" id="dtChoice2"
-							   th:field="*{eDrugTest}" value="no"/>
-					</p>
+					<h2 class="form-field question-title">Are you willing to take a urinalysis test?</h2>
+					
+					<div class="question-group">
+						<p class="eChoices">Yes
+							<input class="form-control inline" type="radio" id="dtChoice"
+							       th:field="*{eDrugTest}" value="yes"/>
+						</p>
+						<p class="eChoices">No
+							<input class="form-control inline" type="radio" id="dtChoice2"
+							       th:field="*{eDrugTest}" value="no"/>
+						</p>
+					</div>
 				</div>
 
 				<div class="fb-text form-group last-sec field-ssa">
-					<h3 class="form-field">Check all that apply</h3>
-					<p class="eChoices">TANF
-						<input class="form-control" type="checkbox" id="ssa" th:value="true"
-							   th:field="*{eTanf}"/>
-					</p>
-
-					<p class="eChoices">SNAP
-						<input class="form-control" type="checkbox" id="ssa2" th:value="true"
-							   th:field="*{eSnap}"/>
-					</p>
-
-					<p class="eChoices">Subsidized Housing
-						<input class="form-control" type="checkbox" id="ssa3" th:value="true"
-							   th:field="*{eSsh}"/>
-					</p>
-
-					<p class="eChoices">SSI
-						<input class="form-control" type="checkbox" id="ssa4" th:value="true"
-							   th:field="*{eSsi}"/>
-					</p>
-
-					<p class="eChoices">SSDI
-						<input class="form-control" type="checkbox" id="ssa5" th:value="true"
-							   th:field="*{eSsdi}"/>
-					</p>
-
-					<p class="eChoices">WIC
-						<input class="form-control" type="checkbox" id="ssa6" th:value="true"
-							   th:field="*{eWic}"/>
-					</p>
-
-					<p class="eChoices">Unemployment
-						<input class="form-control" type="checkbox" id="ssa7" th:value="true"
-							   th:field="*{eUnemp}"/>
-					</p>
+					<h2 class="form-field question-title">Social Aid</h2>
+					<div class="question-group">
+						<p class="eChoices">TANF
+							<input class="inline" type="checkbox" id="ssa" th:value="true"
+							       th:field="*{eTanf}"/>
+						</p>
+						
+						<p class="eChoices">SNAP
+							<input class="inline" type="checkbox" id="ssa2" th:value="true"
+							       th:field="*{eSnap}"/>
+						</p>
+						
+						<p class="eChoices">Subsidized Housing
+							<input class="inline" type="checkbox" id="ssa3" th:value="true"
+							       th:field="*{eSsh}"/>
+						</p>
+						
+						<p class="eChoices">SSI
+							<input class="inline" type="checkbox" id="ssa4" th:value="true"
+							       th:field="*{eSsi}"/>
+						</p>
+						
+						<p class="eChoices">SSDI
+							<input class="inline" type="checkbox" id="ssa5" th:value="true"
+							       th:field="*{eSsdi}"/>
+						</p>
+						
+						<p class="eChoices">WIC
+							<input class="inline" type="checkbox" id="ssa6" th:value="true"
+							       th:field="*{eWic}"/>
+						</p>
+						
+						<p class="eChoices">Unemployment
+							<input class="inline" type="checkbox" id="ssa7" th:value="true"
+							       th:field="*{eUnemp}"/>
+						</p>
+					</div>
 				</div>
 
 				<div class="fb-text form-group last-sec field-fel">
-					<h3 class="form-field">Have you every been convicted of a felony or misdemeanor?</h3>
-					<p class="eChoices">
-						Yes
-						<input class="form-control" type="radio" id="felChoice"
-							   th:field="*{eFelConvict}" value="yes"/>
-					</p>
-
-					<p class="eChoices">
-						No
-						<input class="form-control" type="radio" id="felChoice2"
-							   th:field="*{eFelConvict}" value="no" selected="selected"/>
-					</p>
+					<h2 class="form-field question-title">Have you every been convicted of a felony or misdemeanor?</h2>
+					<div class="question-group">
+						<p class="eChoices">
+							Yes
+							<input class="form-control inline" type="radio" id="felChoice"
+							       th:field="*{eFelConvict}" value="yes"/>
+						</p>
+						
+						<p class="eChoices">
+							No
+							<input class="form-control inline" type="radio" id="felChoice2"
+							       th:field="*{eFelConvict}" value="no" selected="selected"/>
+						</p>
+					</div>
 					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 				</div>
 
 				<div class="fb-text form-group last-sec field-disa">
-					<h3 class="form-field">Do you have a disability?</h3>
-
-					<p class="eChoices">Yes
-						<input class="form-control" type="radio" id="disaChoice" th:field="*{eDisability}" value="yes"/>
-					</p>
-
-					<p class="eChoices">No
-						<input class="form-control" type="radio" id="disaChoice2" th:field="*{eDisability}"
-							   value="no" selected="selected"/>
-					</p>
+					<h2 class="form-field question-title">Do you have a disability?</h2>
+					<div class="question-group">
+						<p class="eChoices">Yes
+							<input class="form-control inline" type="radio" id="disaChoice" th:field="*{eDisability}" value="yes"/>
+						</p>
+						
+						<p class="eChoices">No
+							<input class="form-control inline" type="radio" id="disaChoice2" th:field="*{eDisability}"
+							       value="no" selected="selected"/>
+						</p>
+					</div>
+				
 					<textarea class="form-group" placeholder="If you answered yes, Please explain."></textarea>
 
 				</div>
 				<div class="form-control field-eHS">
-					<h3 class="form-header">Education</h3>
-					<p class="eChoices">High School Diploma
-						<input type="radio" id="hs" class="form-control" th:field="*{eHS}" value="Highschool Diploma"/>
-					</p>
-					<p class="eChoices">GED
-						<input type="radio" id="GED" class="form-control" th:field="*{eHS}" value="GED"/>
-					</p>
-					<p class="eChoices">No Diploma
-						<input type="radio" id="DnG" class="form-control" th:field="*{eHS}"
-							   selected="selected" value="Did not graduate"/>
-					</p>
+					<h2 class="form-header question-title">Education</h2>
+					<div class="question-group">
+						<p class="eChoices">High School Diploma
+							<input type="radio" id="hs" class="form-control inline" th:field="*{eHS}"
+							       value="Highschool Diploma"/>
+						</p>
+						<p class="eChoices">GED
+							<input type="radio" id="GED" class="form-control inline" th:field="*{eHS}" value="GED"/>
+						</p>
+						<p class="eChoices">No Diploma
+							<input type="radio" id="DnG" class="form-control inline" th:field="*{eHS}"
+							       selected="selected" value="Did not graduate"/>
+						</p>
+					</div>
 				</div>
 				<div class="fb-text form-group last-sec field-milSrv">
-					<h3 class="form-field">Are you registered with the selective service?</h3>
-					<p class="eChoices">Yes
-						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
-					</p>
-					<p class="eChoices">No
-						<input class="form-control" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
-					</p>
-
-
-					<h3 class="form-field">Have you served in the military</h3>
-					<p class="eChoices">
-						Yes <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="yes"/>
-					</p>
-					<p class="eChoices">
-						No <input class="form-control" type="radio" th:field="*{eMilitarySrv}" th:value="no"/>
-					</p>
-
-					<h3 class="form-field">Are you a military spouse/dependent?</h3>
-					<p class="eChoices">
-						Yes<input class="form-control" type="radio" id="msChoice"
-								  th:field="*{eMilSpouse}" value="yes"/>
-					</p>
-					<p class="eChoices">
-						No<input class="form-control" type="radio" id="msChoice2"
-								 th:field="*{eMilSpouse}" value="no"/>
-					</p>
-
-					<h3 class="form-field">If you were referred, please tell us how.</h3>
-					<input class="form-control testinput5" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
+					<h2 class="form-field question-title">Are you registered with the selective service?</h2>
+					<div class="question-group">
+						<p class="eChoices">Yes
+							<input class="form-control inline" type="radio" th:field="*{eSelectiveSrv}" th:value="yes"/>
+						</p>
+						<p class="eChoices">No
+							<input class="form-control inline" type="radio" th:field="*{eSelectiveSrv}" th:value="no"/>
+						</p>
+					</div>
+					
+					<h2 class="form-field question-title">Have you served in the military</h2>
+					<div class="question-group">
+						<p class="eChoices">
+							Yes <input class="form-control inline" type="radio" th:field="*{eMilitarySrv}" th:value="yes"/>
+						</p>
+						<p class="eChoices">
+							No <input class="form-control inline" type="radio" th:field="*{eMilitarySrv}" th:value="no"/>
+						</p>
+					</div>
+					
+					<h2 class="form-field">Are you a military spouse/dependent?</h2>
+					<div class="question-group">
+						<p class="eChoices">
+							Yes<input class="form-control inline" type="radio" id="msChoice"
+							          th:field="*{eMilSpouse}" value="yes"/>
+						</p>
+						<p class="eChoices">
+							No<input class="form-control inline" type="radio" id="msChoice2"
+							         th:field="*{eMilSpouse}" value="no"/>
+						</p>
+					</div>
+					
+					<h2 class="form-field question-title">If you were referred, please tell us how.</h2>
+					<input class="form-control" placeholder="Referral" type="text" th:field="*{eReferralSrc}"/>
 				</div>
 				<h2 class="form-header">THANK YOU! You did it! Hit Submit and we will get back to you ASAP!</h2>
 				<input type="button" class="color-change previous action-button" name="previous" value="Previous"/>

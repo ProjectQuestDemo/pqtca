@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div class="flex">
-		<div sec:authorize="isAuthenticated()"  class="container">
+		<div sec:authorize="isAuthenticated()" class="container">
 			<h2 class="title">Welcome back <span sec:authentication="name"></span></h2>
 			<div class="error" th:if="${duplicate}">
 				You already have an application submitted.
@@ -23,10 +23,11 @@
 				Your application has been successfully submitted.
 			</div>
 		</div>
-		<div sec:authorize="!isAuthenticated()"  class="container">
-			<h3>Welcome to the beginning of a new, exciting chapter in your
-				life! Take a second to orient yourself with what we offer
-				and register for an account.</h3>
+		<div sec:authorize="!isAuthenticated()" class="container">
+			<h3>PQTCA is the end result of an effort to modernize the paper
+				application process of Project Quest. The web application was built using a mobile first design for
+				the client's end-user, while an added feature for administrators was added with a desktop-centric
+				design.</h3>
 		</div>
 	</div>
 </main>
