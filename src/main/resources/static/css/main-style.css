@@ -63,7 +63,7 @@ select {
     margin-bottom: 2em;
     height: 5vh;
     font-weight: 300;
-    width: 45vw;
+    width: 72vw;
 }
 
 legend {
@@ -773,12 +773,12 @@ input.eth {
         margin-bottom: 2em;
         height: 5vh;
         font-weight: 300;
-        width: 25vw;
+        width: 34vw;
     }
 
     input.form-control {
         font-size: 1em;
-        width: 24vw;
+        width: 32vw;
     }
 
     input.form-control.inline {
